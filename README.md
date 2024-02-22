@@ -13,11 +13,12 @@
 
 
 ## Used stack:
-- Vite js
-- MongoDb
 - TypeScript
+- React
+- Vite js
 
 ## Compiles and minifies for production:
-
+..
 
 ## Getting started online development server:
+..
