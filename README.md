@@ -18,7 +18,7 @@
 - Vite js
 
 ## Compiles and minifies for production:
-..
+yarn run build
 
 ## Getting started online development server:
-..
+yarn run dev
