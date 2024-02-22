@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '', //ADDED LINK FROM HOSTING https://xxxxxxxxxxxxxx
+	base: 'https://online-cinema-client1.vercel.app/',
 	plugins: [react()],
     resolve: {
         alias: {

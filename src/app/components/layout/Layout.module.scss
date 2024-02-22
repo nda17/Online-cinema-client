@@ -11,7 +11,7 @@ $bar-width: 20%;
 	}
 
 	> div:first-child {
-		@apply left-0 border-r border-r-gray-800;
+		@apply left-0 border-r border-r-gray-800 border-solid;
 	}
 
 	> .center {
@@ -20,6 +20,6 @@ $bar-width: 20%;
 	}
 
 	> div:last-child {
-		@apply right-0 border-l border-l-gray-800;
+		@apply right-0 border-l border-l-gray-800 border-solid;
 	}
 }

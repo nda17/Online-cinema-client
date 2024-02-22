@@ -3,10 +3,10 @@ import Heading from '@ui/heading/Heading'
 import { FC } from 'react'
 import { IHome } from './home.interface'
 
-const Home: FC<IHome> = () => {
+const Home: FC <IHome> = () => {
   return (
     <Layout>
-		<Heading title="Watch movies online" />
+		  <Heading title="Watch movies online" />
     </Layout>
   )
 }

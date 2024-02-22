@@ -6,8 +6,8 @@ import styles from './Navigation.module.scss'
 const Navigation: FC = () => {
   return (
     <div className={styles.navigation}>
-      <MenuContainer />
       <Logo />
+      <MenuContainer />
     </div>
   )
 }

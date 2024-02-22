@@ -5,8 +5,8 @@ import styles from './Logo.module.scss'
 
 const Logo: FC = () => {
   return (
-    // <Link to="/">
-          <div className={styles.logoWrapper}>
+// FIXME: a заменить на Link?
+            <a href='/' className={styles.logoWrapper}>
               <img
                 className={styles.logo}
                 src={logoImage}
@@ -14,9 +14,7 @@ const Logo: FC = () => {
                 draggable={false}
               />
               <p>Online-Cinema</p>
-          </div>
-    // </Link>
-
+            </a>
   )
 }
 
