@@ -5,19 +5,20 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "baseUrl": "./src/app/",
-		"paths": {
-			"@components/*": ["components/*"],
-			"@ui/*": ["components/ui/*"],
-      "@screens/*": ["components/screens/*"],
-      "@hooks/*": ["hooks/*"],
-      "@shared/*": ["shared/*"],
-      "@config/*": ["config/*"],
-      "@services/*": ["services/*"],
-      "@utils/*": ["utils/*"],
-      "@store/*": ["store/*"],
-      "@assets/*": ["assets/*"]
-		},
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/app/components/*"],
+      "@ui/*": ["./src/app/components/ui/*"],
+      "@screens/*": ["./src/app/components/screens/*"],
+      "@hooks/*": ["./src/app/hooks/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@config/*": ["./src/app/config/*"],
+      "@services/*": ["./src/app/services/*"],
+      "@utils/*": ["./src/app/utils/*"],
+      "@store/*": ["./src/app/store/*"],
+      "@assets/*": ["./src/app/assets/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
