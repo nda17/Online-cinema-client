@@ -6,7 +6,9 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": ".",
+    
     "paths": {
+      "react": [ "./node_modules/@types/react" ],
       "@/*": ["./src/*"],
       "@components/*": ["./src/app/components/*"],
       "@ui/*": ["./src/app/components/ui/*"],

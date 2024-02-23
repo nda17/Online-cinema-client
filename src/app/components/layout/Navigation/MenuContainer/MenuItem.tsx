@@ -8,8 +8,6 @@ import { IMenuItem } from './menuItem.interface'
 
 const MenuItem: FC <{item: IMenuItem}> = ({item}) => {
   const location = useLocation()
-  console.log(1, location.pathname)
-  console.log(2, item.link)
   console.log(location.pathname === item.link)
 
   return (
