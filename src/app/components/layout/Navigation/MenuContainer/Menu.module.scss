@@ -7,7 +7,7 @@
     .ul{
         > li {
             @apply px-8 border-r-4 border-r-transparent transition-colors;
-            > a {
+            > div {
                 @apply flex items-center text-gray-600 px-3 mt-6 cursor-pointer;
                 > span {
                     @apply ml-3 text-lg hover:text-white;
@@ -22,10 +22,10 @@
 
             &.active {
                 @apply border-r-primary;
-                > a > span {
+                > div > span {
                     @apply text-white;
                 }
-                > a > svg {
+                > div > svg {
                     @apply fill-primary;
                 }
             }
