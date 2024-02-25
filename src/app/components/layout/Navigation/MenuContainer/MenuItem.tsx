@@ -8,7 +8,6 @@ import { IMenuItem } from './menuItem.interface'
 
 const MenuItem: FC <{item: IMenuItem}> = ({item}) => {
   const location = useLocation()
-  console.log(location.pathname === item.link)
 
   return (
     <li className={classNames({

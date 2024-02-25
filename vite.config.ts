@@ -22,6 +22,8 @@ export default defineConfig({
         },
     },
 	server: {
-		open: 'http://localhost:5173/'
+        port: 5173,
+        open: 'http://localhost:5173/'
+
 	}
 })
