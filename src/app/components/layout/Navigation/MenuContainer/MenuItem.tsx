@@ -1,4 +1,4 @@
-import MaterialIcon from '@ui/MaterialIcon'
+import MaterialIcon from '@/app/components/ui/MaterialIcon'
 import classNames from 'classnames'
 import { FC } from 'react'
 import { Link, useLocation } from 'react-router-dom'
