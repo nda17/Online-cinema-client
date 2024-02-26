@@ -9,8 +9,8 @@
 
 	*::-webkit-scrollbar {
 		display: none;
-	} 
-	
+	}
+
 	*,
 	*::before,
 	*::after {
@@ -79,7 +79,7 @@
 	html,
 	body {
 		font-family: 'Outfit', sans-serif;
-		@apply text-base h-full text-[#ffffff] m-0 bg-gray-900;;
+		@apply text-base h-full text-[#ffffff] m-0 bg-gray-900;
 	}
 
 	#root {

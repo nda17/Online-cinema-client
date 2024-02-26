@@ -6,22 +6,22 @@ export const mainMenu: IMenu = {
 		{
 			icon: 'MdHome',
 			link: '/',
-			title: 'Home',
+			title: 'Home'
 		},
 		{
 			icon: 'MdExplore',
 			link: '/genres',
-			title: 'Discovery',
+			title: 'Discovery'
 		},
 		{
 			icon: 'MdRefresh',
 			link: '/fresh',
-			title: 'Fresh movies',
+			title: 'Fresh movies'
 		},
 		{
 			icon: 'MdLocalFireDepartment',
 			link: '/trending',
-			title: 'Trending now',
+			title: 'Trending now'
 		}
 	]
 }

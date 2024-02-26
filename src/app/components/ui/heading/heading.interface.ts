@@ -1,3 +1,3 @@
 export interface IHeading {
-    title: string
+	title: string
 }
