@@ -1,5 +1,5 @@
-import { API_URL, getMoviesUrl } from '@/app/configs/api.config'
-import { IMovie } from '@/app/shared/types/movie.types'
+import { contentUrl, getMoviesUrl } from '@configs/api.config'
+import { IMovie } from '@shared/types/movie.types'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './SearchList.module.scss'
@@ -11,9 +11,9 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 				movies.map(movie => (
 					<Link to={getMoviesUrl(movie.slug)} key={movie._id}>
 						<img
-							src={`${API_URL}${movie.poster}`}
+							src={contentUrl(movie.poster)}
 							className={styles.searchListImage}
-							alt=''
+							alt={`${movie.title}`}
 							draggable={false}
 						/>
 						<span>{movie.title}</span>

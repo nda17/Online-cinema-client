@@ -1,0 +1,11 @@
+.listWrap {
+	@apply mt-11 animate-fadeIn;
+
+	.heading {
+		@apply font-bold text-xl mb-5 text-white capitalize;
+	}
+
+	.button {
+		@apply p-2.5 btn-primary block text-center;
+	}
+}

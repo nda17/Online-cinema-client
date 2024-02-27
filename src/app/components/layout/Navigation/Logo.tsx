@@ -1,4 +1,4 @@
-import logoImage from '@/app/assets/images/logo.svg'
+import logoImage from '@assets/images/logo.svg'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Logo.module.scss'

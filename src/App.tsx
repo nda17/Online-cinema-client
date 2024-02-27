@@ -1,9 +1,9 @@
+import Layout from '@components/layout/Layout.tsx'
 import { FC, lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Layout from './app/components/layout/Layout.tsx'
 import './globals.scss'
 
-const Home = lazy(() => import('./app/components/screens/home/Home.tsx'))
+const Home = lazy(() => import('@screens/home/Home.tsx'))
 
 const App: FC = () => {
 	return (
@@ -16,4 +16,3 @@ const App: FC = () => {
 }
 
 export default App
-

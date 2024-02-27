@@ -1,9 +1,9 @@
-import { useDebounce } from '@/app/hooks/useDebounce'
-import { MovieService } from '@/app/services/movie.service'
+import { useDebounce } from '@hooks/useDebounce'
+import { MovieService } from '@services/movie.service'
 import { ChangeEvent, useState } from 'react'
 import { useQuery } from 'react-query'
 
-const useSearch = () => {
+const useSearchContainer = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const debouncedSearch = useDebounce(searchTerm, 500)
@@ -24,4 +24,4 @@ const useSearch = () => {
 	return { isSuccess, handleSearch, data, searchTerm }
 }
 
-export { useSearch }
+export { useSearchContainer }

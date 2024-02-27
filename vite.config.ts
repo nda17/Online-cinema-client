@@ -14,7 +14,7 @@ export default defineConfig({
             "@screens": path.resolve(__dirname, "./src/app/components/screens/"),
             "@hooks": path.resolve(__dirname, "./src/app/hooks/"),
             "@shared": path.resolve(__dirname, "./src/app/shared/"),
-            "@config": path.resolve(__dirname, "./src/app/config/"),
+            "@configs": path.resolve(__dirname, "./src/app/configs/"),
             "@services": path.resolve(__dirname, "./src/app/services/"),
             "@utils": path.resolve(__dirname, "./src/app/utils/"),
             "@store": path.resolve(__dirname, "./src/app/store/"),

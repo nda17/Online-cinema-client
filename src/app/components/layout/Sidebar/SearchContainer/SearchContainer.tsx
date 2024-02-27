@@ -1,11 +1,11 @@
-import { SearchField } from '@/app/components/ui/search-field/SearchField'
+import { SearchField } from '@ui/search-field/SearchField'
 import { FC } from 'react'
 import styles from './Search.module.scss'
 import SearchList from './SearchList/SearchList'
-import { useSearch } from './useSearchContainer'
+import { useSearchContainer } from './useSearchContainer'
 
-const Search: FC = () => {
-	const { isSuccess, handleSearch, data, searchTerm } = useSearch()
+const SearchContainer: FC = () => {
+	const { isSuccess, handleSearch, data, searchTerm } = useSearchContainer()
 
 	return (
 		<div className={styles.wrapperSearch}>
@@ -15,4 +15,4 @@ const Search: FC = () => {
 	)
 }
 
-export default Search
+export default SearchContainer

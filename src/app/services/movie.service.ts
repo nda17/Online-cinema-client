@@ -1,6 +1,6 @@
+import { getMoviesUrl } from '@configs/api.config'
+import { IMovie } from '@shared/types/movie.types'
 import { axiosWithoutAuth } from '../api/interceptors'
-import { getMoviesUrl } from '../configs/api.config'
-import { IMovie } from '../shared/types/movie.types'
 
 export const MovieService = {
 	async getAll(searchTerm?: string) {
@@ -11,5 +11,12 @@ export const MovieService = {
 					}
 				: {}
 		})
+	},
+
+	async getMostPopularMovies() {
+		const { data: movies } = await axiosWithoutAuth.get<IMovie[]>(
+			getMoviesUrl('/most-popular')
+		)
+		return movies
 	}
 }

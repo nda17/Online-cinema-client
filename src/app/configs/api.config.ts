@@ -6,3 +6,4 @@ export const getGenresUrl = (string: string) => `api/genres${string}`
 export const getMoviesUrl = (string: string) => `api/movies${string}`
 export const getActorsUrl = (string: string) => `/actors${string}`
 export const getRatingsUrl = (string: string) => `/ratings${string}`
+export const contentUrl = (string: string) => `${API_URL}${string}`
