@@ -1,4 +1,4 @@
-import { TypeMaterialIconName } from '@shared/types/icon.types'
+import { TypeMaterialIconName } from '@/shared/types/icon.types'
 import { FC } from 'react'
 import * as MaterialIcons from 'react-icons/md'
 

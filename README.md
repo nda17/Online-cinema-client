@@ -13,12 +13,15 @@
 
 
 ## Used stack:
+- Next.js
 - TypeScript
 - React
-- Vite js
+- React-query / axios
+- Redux Toolkit
+- Tailwind / scss
 
 ## Compiles and minifies for production:
-yarn run build
+yarn next build
 
 ## Getting started online development server:
-yarn run dev
+yarn next dev

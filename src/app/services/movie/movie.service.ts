@@ -1,14 +1,14 @@
-import { getMoviesUrl } from '@configs/api.config'
-import { IMovie } from '@shared/types/movie.types'
-import { axiosWithoutAuth } from '../api/interceptors'
+import { getMoviesUrl } from '@/configs/api.config'
+import { IMovie } from '@/shared/types/movie.types'
+import { axiosWithoutAuth } from '../../api/interceptors'
 
 export const MovieService = {
-	async getAll(searchTerm?: string) {
+	async getMovies(searchTerm?: string) {
 		return axiosWithoutAuth.get<IMovie[]>(getMoviesUrl(``), {
 			params: searchTerm
 				? {
 						searchTerm
-					}
+				  }
 				: {}
 		})
 	},

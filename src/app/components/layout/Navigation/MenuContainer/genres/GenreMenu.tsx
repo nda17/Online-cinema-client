@@ -1,4 +1,4 @@
-import SkeletonLoader from '@ui/skeleton-loader/SkeletonLoader'
+import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 import { FC } from 'react'
 import Menu from '../Menu'
 import styles from './GenreMenu.module.scss'
@@ -9,7 +9,7 @@ const GenreMenu: FC = () => {
 
 	return isLoading ? (
 		<div className={styles.preloaderWrapper}>
-			<SkeletonLoader count={3} className="h-7 mt-6" />
+			<SkeletonLoader count={3} className={styles.preloader} />
 		</div>
 	) : (
 		<Menu

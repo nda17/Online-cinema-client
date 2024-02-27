@@ -1,21 +1,47 @@
-// /* eslint-disable */
 const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
+
+const primary = '#E30B13'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
-    './index.html',
-    './src/globals.scss',
-    './src/**/*.{js,ts,jsx,tsx,mdx}'],
+		'./pages/**/*.{js,ts,jsx,tsx}',
+		'./app/components/**/*.{js,ts,jsx,tsx}'
+	],
 	darkMode: 'media',
+
 	theme: {
+		colors: {
+			primary,
+			black: colors.black,
+			white: colors.white,
+			red: colors.red,
+			extraRed: '#ff0000',
+			firebrick: '#b22222',
+			tomato: '#ff6347',
+			gray: {
+				300: '#d9dae8',
+				500: '#999AA5',
+				600: '#66676E',
+				700: '#39393f',
+				800: '#242529',
+				900: '#191B1F',
+				950: '#101215'
+			},
+			transparent: colors.transparent,
+			yellow: {
+				700: '#F5C521'
+			}
+		},
+
 		container: {
 			center: true,
 			padding: {
 				DEFAULT: '10px'
 			}
 		},
+
 		screens: {
 			sm: '576px', //container 540px
 			md: '768px', //container 720px
@@ -23,12 +49,14 @@ module.exports = {
 			xl: '1200px', //container 1140px
 			xxl: '1400px' //container 1320px
 		},
+
 		extend: {
 			backgroundSize: {
 				auto: 'auto',
 				cover: 'cover',
 				contain: 'contain'
 			},
+
 			boxShadow: {
 				xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
 				sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -38,9 +66,11 @@ module.exports = {
 				'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
 				'3xl': '0px 5px 10px 2px rgba(34, 60, 80, 0.2)'
 			},
+
 			flex: {
 				auto: '1 1 auto'
 			},
+
 			fontSize: {
 				DEFAULT: '1rem',
 				0.7: '0.7rem',
@@ -49,6 +79,7 @@ module.exports = {
 				2: '2rem',
 				'2lg': '1.38rem'
 			},
+
 			fontWeight: {
 				inherit: 'inherit',
 				100: '100',
@@ -58,6 +89,7 @@ module.exports = {
 				800: '800',
 				900: '900'
 			},
+
 			lineHeight: {
 				DEFAULT: 'normal',
 				1: '1rem',
@@ -66,14 +98,17 @@ module.exports = {
 				4: '4rem',
 				5: '5rem'
 			},
+
 			spacing: {
 				0.5: '0.12rem',
 				layout: '2.75rem'
 			},
+
 			cursor: {
 				DEFAULT: 'DEFAULT',
 				pointer: 'pointer'
 			},
+
 			backgroundPosition: {
 				bottom: 'bottom',
 				center: 'center',
@@ -81,24 +116,30 @@ module.exports = {
 				right: 'right',
 				top: 'top'
 			},
+
 			border: {
 				solid: '1px solid black'
 			},
+
 			borderRadius: {
 				max: '9999px',
 				image: '0.5rem',
 				layout: '0.8rem'
 			},
+
 			borderStyle: {
 				DEFAULT: 'solid'
 			},
+
 			borderColor: {
 				DEFAULT: 'black'
 			},
+
 			borderWidth: {
 				DEFAULT: '1px',
 				2: '2px'
 			},
+
 			opacity: {
 				0: '0',
 				0.2: '0.2',
@@ -107,10 +148,12 @@ module.exports = {
 				0.8: '0.8',
 				1: '1'
 			},
+
 			margin: {
 				'0auto': '0 auto',
 				auto: 'auto'
 			},
+
 			zIndex: {
 				0: '0',
 				1: '1',
@@ -119,13 +162,15 @@ module.exports = {
 				4: '4',
 				5: '5'
 			},
+
 			transitionTimingFunction: {
 				DEFAULT: 'ease-in-out'
 			},
+
 			transitionDuration: {
 				DEFAULT: '200ms'
 			},
-			/* eslint-disable */
+
 			keyframes: {
 				fadeIn: {
 					from: { opacity: 0 },
@@ -145,42 +190,21 @@ module.exports = {
 					}
 				}
 			},
+
 			animation: {
 				fadeIn: 'fadeIn .5s ease-in-out',
 				scaleIn: 'scaleIn .35s ease-in-out'
-			},
-			colors: {
-				transparent: colors.transparent,
-				current: 'currentColor',
-				white: colors.white,
-				black: colors.black,
-				red: colors.red,
-				extraRed: '#ff0000',
-				firebrick: '#b22222',
-				tomato: '#ff6347',
-				primary: '#e30b13',
-				gray: {
-					300: '#d9dae8',
-					500: '#999aa5',
-					600: '#66676e',
-					700: '#39393f',
-					800: '#242529',
-					900: '#191b1f',
-					950: '#101215'
-				},
-				yellow: {
-					700: '#f5c521'
-				}
 			}
 		}
 	},
+
 	plugins: [
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/aspect-ratio'),
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {
-					backgroundColor: '#e30b13',
+					backgroundColor: primary,
 					color: '#ffffff',
 					borderRadius: '0.65rem',
 					transition: 'background-color .3s ease-in-out',

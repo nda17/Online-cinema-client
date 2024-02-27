@@ -5,7 +5,7 @@ import styles from './Navigation.module.scss'
 
 const Navigation: FC = () => {
 	return (
-		<div className={styles.navigation}>
+		<div className={styles.navigationWrapper}>
 			<Logo />
 			<MenuContainer />
 		</div>

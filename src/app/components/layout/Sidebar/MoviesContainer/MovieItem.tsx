@@ -1,19 +1,21 @@
-import MaterialIcon from '@components/ui/MaterialIcon'
-import { contentUrl } from '@configs/api.config'
-import { genresUrl, moviesUrl } from '@configs/url.config'
-import { IMovie } from '@shared/types/movie.types'
-import { getGenresListEach } from '@utils/movie/getGenresList'
+import MaterialIcon from '@/components/ui/icons/MaterialIcon'
+import { genresUrl, moviesUrl } from '@/configs/url.config'
+import { IMovie } from '@/shared/types/movie.types'
+import { getGenresListEach } from '@/utils/movie/getGenresList'
+import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
 import styles from './MovieItem.module.scss'
 
 const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
 		<div className={styles.item}>
-			<Link to={moviesUrl(movie.slug)}>
-				<img
-					src={contentUrl(movie.poster)}
-					alt={`${movie.title}`}
+			<Link href={moviesUrl(movie.slug)}>
+				<Image
+					src={movie.poster}
+					width={65}
+					height={97}
+					alt={movie.title}
 					draggable={false}
 				/>
 			</Link>
@@ -23,7 +25,7 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 					<div className={styles.title}>{movie.title}</div>
 					<div className={styles.genre}>
 						{movie.genres.map((genre, index) => (
-							<Link to={genresUrl(genre.slug)} key={genre._id}>
+							<Link href={genresUrl(genre.slug)} key={genre._id}>
 								{getGenresListEach(index, movie.genres.length, genre.name)}
 							</Link>
 						))}

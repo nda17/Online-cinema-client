@@ -1,16 +1,13 @@
 import { FC } from 'react'
-import { Outlet } from 'react-router-dom'
-import styles from './Layout.module.scss'
+import styles from '../layout/Layout.module.scss'
 import Navigation from './Navigation/Navigation'
 import Sidebar from './Sidebar/Sidebar'
 
-const Layout: FC = () => {
+const Layout: FC = ({ children }) => {
 	return (
 		<div className={styles.layout}>
 			<Navigation />
-			<div className={styles.center}>
-				<Outlet />
-			</div>
+			<div className={styles.center}>{children}</div>
 			<Sidebar />
 		</div>
 	)

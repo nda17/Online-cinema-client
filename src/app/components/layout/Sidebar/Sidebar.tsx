@@ -5,7 +5,7 @@ import styles from './Sidebar.module.scss'
 
 const Sidebar: FC = () => {
 	return (
-		<div className={styles.wrapperSidebar}>
+		<div className={styles.sidebarWrapper}>
 			<SearchContainer />
 			<MoviesContainer />
 		</div>

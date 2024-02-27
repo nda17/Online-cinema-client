@@ -1,7 +1,7 @@
-import { GenreService } from '@services/genre.service'
+import { genresUrl } from '@/configs/url.config'
+import { GenreService } from '@/services/genre/genre.service'
 import { useQuery } from 'react-query'
 import { IMenuItem } from '../menuItem.interface'
-import { genresUrl } from '@configs/url.config'
 
 export const usePopularGenres = () => {
 	const queryData = useQuery(

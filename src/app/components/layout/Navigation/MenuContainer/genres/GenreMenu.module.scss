@@ -1,3 +1,7 @@
 .preloaderWrapper {
 	@apply mx-11 mb-6;
+
+	.preloader {
+		@apply h-7 mt-6;
+	}
 }

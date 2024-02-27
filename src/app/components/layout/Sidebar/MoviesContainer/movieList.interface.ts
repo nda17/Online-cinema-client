@@ -1,4 +1,4 @@
-import { IMovie } from '@shared/types/movie.types'
+import { IMovie } from '@/shared/types/movie.types'
 
 export interface IMovieList {
 	title: string

@@ -1,18 +1,21 @@
-import logoImage from '@assets/images/logo.svg'
+import logoImage from '@/assets/images/logo.svg'
+import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
 import styles from './Logo.module.scss'
 
 const Logo: FC = () => {
 	return (
-		<Link to="/" className={styles.logoWrapper}>
-			<img
-				className={styles.logo}
+		<Link href="/" className={styles.logoWrapper}>
+			<Image
 				src={logoImage}
-				alt="Online cinema"
+				width={40}
+				height={40}
+				className={styles.logo}
+				alt="Online cinema app"
 				draggable={false}
 			/>
-			<p>Online-Cinema</p>
+			<p className={styles.text}>Online-Cinema</p>
 		</Link>
 	)
 }
