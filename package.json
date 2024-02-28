@@ -18,7 +18,7 @@
 		"react-query": "^3.39.3"
 	},
 	"devDependencies": {
-		"@tailwindcss/aspect-ratio": "^0.5.7",
+		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/forms": "^0.5.7",
 		"@types/node": "^20.11.17",
 		"@types/react": "^18.0.5",
