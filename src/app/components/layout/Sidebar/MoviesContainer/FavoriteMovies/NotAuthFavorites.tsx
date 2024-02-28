@@ -3,7 +3,9 @@ import styles from './NotAuthFavorites.module.scss'
 
 const NotAuthFavorites: FC = () => {
 	return (
-		<div className={styles.alertWrapper}>Sign in to view your favorites.</div>
+		<div className={styles.alertWrapper}>
+			Sign in to view your favorites.
+		</div>
 	)
 }
 

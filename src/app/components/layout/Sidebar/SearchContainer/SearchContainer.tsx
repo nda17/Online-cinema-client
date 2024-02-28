@@ -5,7 +5,8 @@ import SearchList from './SearchList/SearchList'
 import { useSearchContainer } from './useSearchContainer'
 
 const SearchContainer: FC = () => {
-	const { isSuccess, handleSearch, data, searchTerm } = useSearchContainer()
+	const { isSuccess, handleSearch, data, searchTerm } =
+		useSearchContainer()
 
 	return (
 		<div className={styles.searchWrapper}>
