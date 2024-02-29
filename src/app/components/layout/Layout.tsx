@@ -2,8 +2,9 @@ import { FC } from 'react'
 import styles from '../layout/Layout.module.scss'
 import Navigation from './Navigation/Navigation'
 import Sidebar from './Sidebar/Sidebar'
+import { ILayout } from './layout.interface'
 
-const Layout: FC = ({ children }:any) => { //FIXME:Add correct type later!
+const Layout: FC<ILayout> = ({ children }) => {
 	return (
 		<div className={styles.layout}>
 			<Navigation />

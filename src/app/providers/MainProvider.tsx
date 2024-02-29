@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { IMainProvider } from './MainProvider.interface'
+import { IMainProvider } from './mainProvider.interface'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
