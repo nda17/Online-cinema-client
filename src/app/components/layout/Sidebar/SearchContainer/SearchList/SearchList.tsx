@@ -15,6 +15,7 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 							src={movie.poster || ''}
 							width={50}
 							height={50}
+							// priority={true}
 							alt={movie.title}
 							draggable={false}
 						/>
