@@ -1,10 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-
-export interface IMainProvider {
-	children: React.ReactNode
-}
+import { IMainProvider } from './mainProvider.interface'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
