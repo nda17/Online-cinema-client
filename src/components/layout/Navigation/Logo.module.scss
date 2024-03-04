@@ -2,10 +2,22 @@
 	@apply flex items-center px-layout mb-10;
 
 	.logo {
-		@apply mr-[.5rem];
+		@apply mr-[.5rem] animate-rotate;
 	}
 
-	.text {
-		@apply text-lg;
+	.textWrapper {
+		@apply flex flex-col;
+
+		.text {
+			@apply font-100 text-[1.3rem] leading-[1.3rem];
+
+			> span {
+				@apply font-[600] text-[#AB4044];
+
+				> span {
+					@apply text-[#AF9744];
+				}
+			}
+		}
 	}
 }

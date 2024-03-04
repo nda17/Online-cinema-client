@@ -196,7 +196,9 @@ module.exports = {
 
 			animation: {
 				fadeIn: 'fadeIn .5s ease-in-out',
-				scaleIn: 'scaleIn .35s ease-in-out'
+				scaleIn: 'scaleIn .35s ease-in-out',
+				rotate: 'spin 5s infinite linear'
+
 			}
 		}
 	},

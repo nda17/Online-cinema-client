@@ -15,7 +15,18 @@ const Logo: FC = () => {
 				alt="Online cinema app"
 				draggable={false}
 			/>
-			<p className={styles.text}>Online-Cinema</p>
+			<div className={styles.textWrapper}>
+				<p className={styles.text}>
+					<span>
+						O<span>nline</span>
+					</span>
+				</p>
+				<p className={styles.text}>
+					<span>
+						C<span>inema</span>
+					</span>
+				</p>
+			</div>
 		</Link>
 	)
 }
