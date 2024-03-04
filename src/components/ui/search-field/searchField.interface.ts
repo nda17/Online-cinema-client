@@ -1,6 +1,7 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, MouseEvent } from 'react'
 
 export interface ISearchField {
-	searchTerm: string
-	handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
+	searchValue: string
+	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void
+	handleClear: (e: MouseEvent<HTMLSpanElement>) => void
 }

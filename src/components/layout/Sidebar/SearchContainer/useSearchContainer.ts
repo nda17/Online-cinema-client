@@ -1,12 +1,12 @@
 import { useDebounce } from '@/hooks/useDebounce'
 import { MovieService } from '@/services/movie/movie.service'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useQuery } from 'react-query'
 
-const useSearchContainer = () => {
-	const [searchTerm, setSearchTerm] = useState('')
+export const useSearchContainer = () => {
+	const [searchValue, setSearchValue] = useState('')
 
-	const debouncedSearch = useDebounce(searchTerm, 500)
+	const debouncedSearch = useDebounce(searchValue, 500)
 
 	const { isSuccess, data } = useQuery(
 		['search movie list', debouncedSearch],
@@ -18,10 +18,12 @@ const useSearchContainer = () => {
 	)
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-		setSearchTerm(e.target.value)
+		setSearchValue(e.target.value)
 	}
 
-	return { isSuccess, handleSearch, data, searchTerm }
-}
+	const handleClear = (e: MouseEvent<HTMLSpanElement>) => {
+		setSearchValue('')
+	}
 
-export { useSearchContainer }
+	return { isSuccess, handleSearch, handleClear, data, searchValue }
+}

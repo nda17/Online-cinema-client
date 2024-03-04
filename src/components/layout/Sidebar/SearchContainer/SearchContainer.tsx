@@ -5,12 +5,16 @@ import SearchList from './SearchList/SearchList'
 import { useSearchContainer } from './useSearchContainer'
 
 const SearchContainer: FC = () => {
-	const { isSuccess, handleSearch, data, searchTerm } =
+	const { isSuccess, handleSearch, handleClear, data, searchValue } =
 		useSearchContainer()
 
 	return (
 		<div className={styles.searchWrapper}>
-			<SearchField searchTerm={searchTerm} handleSearch={handleSearch} />
+			<SearchField
+				searchValue={searchValue}
+				handleSearch={handleSearch}
+				handleClear={handleClear}
+			/>
 			{isSuccess && <SearchList movies={data || []} />}
 		</div>
 	)

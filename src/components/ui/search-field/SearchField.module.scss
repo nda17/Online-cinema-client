@@ -6,7 +6,11 @@
 	}
 
 	> input {
-		@apply text-white placeholder:text-gray-600 block w-full bg-transparent outline-none pl-0;
+		@apply text-white placeholder:text-gray-600 block w-[73%] bg-transparent outline-none px-0 mr-2;
+	}
+
+	> span > svg {
+		@apply fill-primary w-6 h-6 cursor-pointer animate-fadeIn;
 	}
 
 	&:focus-within {
