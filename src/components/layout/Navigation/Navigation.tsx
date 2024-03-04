@@ -7,7 +7,6 @@ const Navigation: FC = () => {
 	return (
 		<div className={styles.navigationWrapper}>
 			<Logo />
-
 			<MenuContainer />
 		</div>
 	)

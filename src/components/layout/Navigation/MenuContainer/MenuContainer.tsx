@@ -1,3 +1,5 @@
+'use client'
+import MainProvider from '@/providers/MainProvider'
 import { FC } from 'react'
 import { mainMenu } from './DataMenu/mainMenu.data'
 import { userMenu } from './DataMenu/userMenu.data'
@@ -8,7 +10,9 @@ const MenuContainer: FC = () => {
 	return (
 		<>
 			<Menu menu={mainMenu} />
-			<GenreMenu />
+			<MainProvider>
+				<GenreMenu />
+			</MainProvider>
 			<Menu menu={userMenu} />
 		</>
 	)

@@ -1,3 +1,4 @@
+'use client'
 import MaterialIcon from '@/components/ui/icons/MaterialIcon'
 import classNames from 'classnames'
 import Link from 'next/link'
