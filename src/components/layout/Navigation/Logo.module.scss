@@ -1,0 +1,11 @@
+.logoWrapper {
+	@apply flex items-center px-layout mb-10;
+
+	.logo {
+		@apply mr-[.5rem];
+	}
+
+	.text {
+		@apply text-lg;
+	}
+}

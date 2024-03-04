@@ -1,0 +1,13 @@
+.spinnerWrapper {
+	@apply flex justify-center items-center h-screen;
+
+	.spinner {
+		@apply grid place-items-center w-14 h-14 rounded-[50%] animate-spin bg-gradient-to-tr from-red-500 to-red-900;
+	}
+
+	.spinner::before {
+		@apply content-[""] rounded-[50%] w-[80%] h-[80%] bg-gray-900;
+	}
+}
+
+
