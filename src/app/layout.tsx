@@ -17,7 +17,7 @@ const font = Outfit({
 export const metadata: Metadata = {
 	title: 'Online-Cinema',
 	description:
-		'Watch MovieApp movies and TV shows online or stream right to your browser22.'
+		'Watch MovieApp movies and TV shows online or stream right to your browser.'
 }
 
 const RootLayout: FC<ILayout> = ({ children }) => {
