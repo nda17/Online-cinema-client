@@ -15,7 +15,7 @@ $bar-width: 20%;
 	}
 
 	> .center {
-		@apply min-h-screen p-layout;
+		@apply min-h-screen p-layout relative;
 		margin: 0 $bar-width;
 	}
 
