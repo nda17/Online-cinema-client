@@ -12,6 +12,7 @@ module.exports = {
 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}'
 	],
+	
 	darkMode: 'media',
 
 	theme: {
@@ -23,6 +24,7 @@ module.exports = {
 			extraRed: '#ff0000',
 			firebrick: '#b22222',
 			tomato: '#ff6347',
+			darkYellow: '#b0965f',
 			gray: {
 				300: '#d9dae8',
 				500: '#999AA5',
@@ -179,6 +181,7 @@ module.exports = {
 					from: { opacity: 0 },
 					to: { opacity: 1 }
 				},
+
 				scaleIn: {
 					'0%': {
 						opacity: 0,

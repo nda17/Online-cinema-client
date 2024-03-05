@@ -1,6 +1,5 @@
 import Navigation from '@/components/layout/Navigation/Navigation'
 import Sidebar from '@/components/layout/Sidebar/Sidebar'
-import { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import { FC } from 'react'
 import './globals.scss'
@@ -13,12 +12,6 @@ const font = Outfit({
 	display: 'fallback',
 	style: 'normal'
 })
-
-export const metadata: Metadata = {
-	title: 'Online-Cinema',
-	description:
-		'Watch MovieApp movies and TV shows online or stream right to your browser.'
-}
 
 const RootLayout: FC<ILayout> = ({ children }) => {
 	return (
