@@ -1,4 +1,4 @@
-# «Online-cinema-client
+# «Online-cinema
 
 # Functional:
 
