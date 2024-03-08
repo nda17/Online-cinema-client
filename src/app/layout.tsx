@@ -1,6 +1,7 @@
 import '@/assets/styles/globals.scss'
 import Navigation from '@/components/layout/Navigation/Navigation'
 import Sidebar from '@/components/layout/Sidebar/Sidebar'
+import ProgressBarLoader from '@/components/ui/progress-bar-loader/ProgressBarLoader'
 import { Outfit } from 'next/font/google'
 import { FC } from 'react'
 import { ILayout } from './layout.interface'
@@ -20,6 +21,7 @@ const RootLayout: FC<ILayout> = ({ children }) => {
 				<link rel="icon" href="./" sizes="any" />
 			</head>
 			<body className={font.className}>
+				<ProgressBarLoader />
 				<div className={styles.layout}>
 					<Navigation />
 					<div className={styles.center}>{children}</div>
