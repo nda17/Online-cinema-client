@@ -1,8 +1,8 @@
+import '@/assets/styles/globals.scss'
 import Navigation from '@/components/layout/Navigation/Navigation'
 import Sidebar from '@/components/layout/Sidebar/Sidebar'
 import { Outfit } from 'next/font/google'
 import { FC } from 'react'
-import './globals.scss'
 import { ILayout } from './layout.interface'
 import styles from './layout.module.scss'
 

@@ -1,5 +1,8 @@
+import { store } from '@/store/store'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Provider } from 'react-redux'
+import ReduxToastr from './ReduxToastr'
 import { IMainProvider } from './mainProvider.interface'
 
 const queryClient = new QueryClient({
@@ -12,9 +15,12 @@ const queryClient = new QueryClient({
 
 const MainProvider: FC<IMainProvider> = ({ children }) => {
 	return (
-		<QueryClientProvider client={queryClient}>
-			{children}
-		</QueryClientProvider>
+		<Provider store={store}>
+			<QueryClientProvider client={queryClient}>
+				<ReduxToastr />
+				{children}
+			</QueryClientProvider>
+		</Provider>
 	)
 }
 
