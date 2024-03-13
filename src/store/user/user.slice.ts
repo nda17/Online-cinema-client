@@ -1,4 +1,4 @@
-import { getStoreLocal } from '@/utils/local-storage'
+import { getStoreLocal } from '@/utils/local-storage/local-storage'
 import { createSlice } from '@reduxjs/toolkit'
 import { checkAuth, login, logout, register } from './user.actions'
 import { IUserInitialState } from './user.interface'

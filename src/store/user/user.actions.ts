@@ -1,5 +1,5 @@
 import { AuthService } from '@/services/auth/auth.service'
-import { errorHandler } from '@/utils/error-handler'
+import { toastrError } from '@/utils/api/toastr-error-redux'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { errorCatch } from 'api/api.helpers'
 import { toastr } from 'react-redux-toastr'
@@ -11,10 +11,10 @@ export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	async ({ email, password }, thunkApi) => {
 		try {
 			const response = await AuthService.register(email, password)
-			toastr.success('Registration', 'Completed successfully')
+			toastr.success('Registration', 'Completed successfully.')
 			return response.data
 		} catch (error) {
-			errorHandler(error)
+			toastrError(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
@@ -26,10 +26,10 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	async ({ email, password }, thunkApi) => {
 		try {
 			const response = await AuthService.login(email, password)
-			toastr.success('Login', 'Completed successfully')
+			toastr.success('Login', 'Completed successfully.')
 			return response.data
 		} catch (error) {
-			errorHandler(error)
+			toastrError(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
@@ -37,6 +37,7 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 
 //logout
 export const logout = createAsyncThunk('auth/logout', async () => {
+	toastr.info('Logout', 'Please login again.')
 	await AuthService.logout()
 })
 
