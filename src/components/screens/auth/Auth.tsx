@@ -1,21 +1,13 @@
-import Button from '@/ui/form-elements/Button'
-import Heading from '@/ui/heading/Heading'
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
-import { Metadata } from 'next'
+import Button from '@/ui/form-elements/Button'
+import Heading from '@/ui/heading/Heading'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './Auth.module.scss'
 import AuthFields from './AuthFields'
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
-
-
-//FIXME: REMOVE METADATA FROM THIS COMPONENT
-export const metadata: Metadata = {
-	title: 'Auth'
-}
-//FIXME: REMOVE METADATA FROM THIS COMPONENT
 
 const Auth: FC = () => {
 	useAuthRedirect()
