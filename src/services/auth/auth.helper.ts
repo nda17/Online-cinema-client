@@ -15,6 +15,6 @@ export const saveToStorage = (data: IAuthResponse) => {
 
 //Helper function for removing data from cookies
 export const removeTokensStorage = () => {
-  Cookies.remove('accessToken')
+	Cookies.remove('accessToken')
 	Cookies.remove('refreshToken')
 }

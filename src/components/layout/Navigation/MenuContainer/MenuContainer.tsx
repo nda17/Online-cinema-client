@@ -1,5 +1,5 @@
 'use client'
-import MainProvider from '@/providers/MainProvider'
+import MainProvider from '@/providers/MainProvider/MainProvider'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import { mainMenu } from './DataMenu/mainMenu.data'
