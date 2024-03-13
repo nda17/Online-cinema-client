@@ -1,8 +1,8 @@
 import { store } from '@/store/store'
+import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
-import ReduxToastr from './ReduxToastr'
 import { IMainProvider } from './mainProvider.interface'
 
 const queryClient = new QueryClient({

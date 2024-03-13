@@ -1,7 +1,16 @@
-import Auth from '@/screens/auth/Auth'
+'use client'
+import MainProvider from '@/providers/MainProvider'
+import dynamic from 'next/dynamic'
+const DynamicAuth = dynamic(() => import('@/screens/auth/Auth'), {
+	ssr: false
+})
 
 const AuthPage = () => {
-	return <Auth />
+	return (
+		<MainProvider>
+			<DynamicAuth />
+		</MainProvider>
+	)
 }
 
 export default AuthPage

@@ -1,4 +1,4 @@
-import Home from '@/components/screens/home/Home'
+import Home from '@/screens/home/Home'
 import { Metadata } from 'next'
 import { FC } from 'react'
 

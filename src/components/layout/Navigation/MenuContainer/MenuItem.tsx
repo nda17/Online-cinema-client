@@ -1,5 +1,4 @@
-'use client'
-import MaterialIcon from '@/components/ui/icons/MaterialIcon'
+import MaterialIcon from '@/ui/icons/MaterialIcon'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -16,12 +15,12 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 				[styles.active]: pathname === item.link
 			})}
 		>
-			<div>
+			<span>
 				<MaterialIcon name={item.icon} />
 				<span>
 					<Link href={item.link}>{item.title}</Link>
 				</span>
-			</div>
+			</span>
 		</li>
 	)
 }

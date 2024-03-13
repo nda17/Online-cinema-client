@@ -1,18 +1,21 @@
-'use client'
-import Button from '@/components/ui/form-elements/Button'
-import Heading from '@/components/ui/heading/Heading'
+import Button from '@/ui/form-elements/Button'
+import Heading from '@/ui/heading/Heading'
+import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import { Metadata } from 'next'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './Auth.module.scss'
 import AuthFields from './AuthFields'
-import { IAuthInput } from './auth.inteface'
+import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
 
+
+//FIXME: REMOVE METADATA FROM THIS COMPONENT
 export const metadata: Metadata = {
 	title: 'Auth'
 }
+//FIXME: REMOVE METADATA FROM THIS COMPONENT
 
 const Auth: FC = () => {
 	useAuthRedirect()
@@ -30,21 +33,11 @@ const Auth: FC = () => {
 		mode: 'onChange'
 	})
 
-	// FIXME: Later...
-	const login = (data: any) => {
-		alert(`Login ${data}`)
-	}
-	const register = (data: any) => {
-		alert(`Register ${data}`)
-	}
-	// FIXME: Later...
+	const { login, register } = useActions()
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
-		if (type === 'login') {
-			login(data)
-		} else if (type === 'register') {
-			register(data)
-		}
+		if (type === 'login') login(data)
+		else if (type === 'register') register(data)
 
 		reset()
 	}
