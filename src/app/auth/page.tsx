@@ -1,16 +1,12 @@
-'use client'
-import MainProvider from '@/providers/MainProvider'
-import dynamic from 'next/dynamic'
-const DynamicAuth = dynamic(() => import('@/screens/auth/Auth'), {
-	ssr: false
-})
+import DynamicAuth from '@/components/screens/auth/DynamicAuth'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Auth | Online-Cinema'
+}
 
 const AuthPage = () => {
-	return (
-		<MainProvider>
-			<DynamicAuth />
-		</MainProvider>
-	)
+	return <DynamicAuth />
 }
 
 export default AuthPage
