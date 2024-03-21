@@ -5,13 +5,13 @@ import Cookies from 'js-cookie'
 import { API_URL } from '../configs/api.config'
 import { errorCatch, getContentType } from './api.helpers'
 
-//Default requests without authorization:
+// Default requests without authorization:
 export const axiosClassicRequest = axios.create({
 	baseURL: API_URL,
 	headers: getContentType()
 })
 
-//Requests using axios interceptors to update accessToken:
+// Requests using axios interceptors to update accessToken:
 export const instance = axios.create({
 	baseURL: API_URL,
 	headers: getContentType()
