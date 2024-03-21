@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "yarn next dev -p 8080",
-		"start": "yarn next start -p 8080",
+		"dev": "yarn next dev -p 3100",
+		"start": "yarn next start -p 3100",
 		"build": "yarn next build",
 		"lint": "yarn next lint",
 		"prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
