@@ -7,7 +7,6 @@ import { useEffect } from 'react'
 //FIXME: сделать редирект
 
 export const useAuthRedirect = () => {
-
 	const { user } = useAuth()
 
 	const { push } = useRouter()
@@ -16,9 +15,9 @@ export const useAuthRedirect = () => {
 
 	const redirect = searchParams.get ? String(searchParams.get) : '/'
 
-		useEffect(() => {
-			if (user) {
-				push(redirect)
-			}
-		}, [user, redirect, push])
-	}
+	useEffect(() => {
+		if (user) {
+			push(redirect)
+		}
+	}, [user, redirect, push])
+}
