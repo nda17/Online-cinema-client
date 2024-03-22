@@ -3,7 +3,12 @@ import { IAuthResponse } from '@/store/user/user.interface'
 import { getContentType } from 'api/api.helpers'
 import { axiosClassicRequest } from 'api/interceptors'
 import Cookies from 'js-cookie'
-import { removeTokensStorage, saveToStorage } from './auth.helper'
+import {
+	removeTokensFromStorage,
+	removeUserFromStorage,
+	saveTokenToStorage,
+	saveUserToStorage
+} from './auth.helper'
 
 export const AuthService = {
 	async register(email: string, password: string) {
@@ -13,7 +18,8 @@ export const AuthService = {
 		)
 
 		if (response.data.accessToken) {
-			saveToStorage(response.data)
+			saveTokenToStorage(response.data)
+			saveUserToStorage(response.data)
 		}
 
 		return response
@@ -26,15 +32,16 @@ export const AuthService = {
 		)
 
 		if (response.data.accessToken) {
-			saveToStorage(response.data)
+			saveTokenToStorage(response.data)
+			saveUserToStorage(response.data)
 		}
 
 		return response
 	},
 
 	logout() {
-		removeTokensStorage()
-		localStorage.removeItem('user')
+		removeTokensFromStorage()
+		removeUserFromStorage()
 	},
 
 	async getNewTokens() {
@@ -46,7 +53,8 @@ export const AuthService = {
 		)
 
 		if (response.data.accessToken) {
-			saveToStorage(response.data)
+			saveTokenToStorage(response.data)
+			saveUserToStorage(response.data)
 		}
 
 		return response
