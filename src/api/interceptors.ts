@@ -1,4 +1,4 @@
-import { removeTokensStorage } from '@/services/auth/auth.helper'
+import { removeTokensFromStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -45,7 +45,9 @@ instance.interceptors.response.use(
 
 				return instance.request(originalRequest)
 			} catch (e) {
-				if (errorCatch(e) === 'jwt expired') removeTokensStorage()
+				if (errorCatch(e) === 'jwt expired') {
+					removeTokensFromStorage()
+				}
 			}
 		}
 
