@@ -11,6 +11,7 @@ const Logo: FC = () => {
 				src={logoImage}
 				width={40}
 				height={40}
+				style={{ width: 40, height: 40 }}
 				className={styles.logo}
 				alt="Online cinema app"
 				draggable={false}
