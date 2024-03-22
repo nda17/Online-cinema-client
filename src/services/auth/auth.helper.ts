@@ -7,12 +7,6 @@ export const saveTokenToStorage = (data: ITokens) => {
 	Cookies.set('refreshToken', data.refreshToken)
 }
 
-// //Helper function for saving to local storage
-// export const saveToStorage = (data: IAuthResponse) => {
-// 	saveTokenStorage(data)
-// 	localStorage.setItem('user', JSON.stringify(data.user))
-// }
-
 //Helper function for saving user to local storage
 export const saveUserToStorage = (data: IAuthResponse) => {
 	localStorage.setItem('user', JSON.stringify(data.user))
