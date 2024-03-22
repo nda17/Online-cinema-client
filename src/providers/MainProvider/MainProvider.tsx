@@ -1,4 +1,4 @@
-import Layout from '@/components/layout/Layout'
+'use client'
 import { store } from '@/store/store'
 import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
 import { FC } from 'react'

@@ -1,5 +1,4 @@
 'use client'
-import MainProvider from '@/providers/MainProvider/MainProvider'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 const Auth = dynamic(() => import('@/screens/auth/Auth'), {
@@ -7,11 +6,7 @@ const Auth = dynamic(() => import('@/screens/auth/Auth'), {
 })
 
 const DynamicAuth: FC = () => {
-	return (
-		<MainProvider>
-			<Auth />
-		</MainProvider>
-	)
+	return <Auth />
 }
 
 export default DynamicAuth

@@ -1,5 +1,4 @@
 'use client'
-import MainProvider from '@/providers/MainProvider/MainProvider'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import { mainMenu } from './DataMenu/mainMenu.data'
@@ -12,10 +11,8 @@ const MenuContainer: FC = () => {
 	return (
 		<>
 			<Menu menu={mainMenu} />
-			<MainProvider>
-				<GenreMenu />
-				<DynamicMenu menu={userMenu} />
-			</MainProvider>
+			<GenreMenu />
+			<DynamicMenu menu={userMenu} />
 		</>
 	)
 }
