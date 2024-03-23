@@ -1,6 +1,5 @@
 import { getAuthUrl } from '@/configs/api.config'
 import { IAuthResponse } from '@/store/user/user.interface'
-import { getContentType } from 'api/api.helpers'
 import { axiosClassicRequest } from 'api/interceptors'
 import Cookies from 'js-cookie'
 import {
@@ -49,7 +48,11 @@ export const AuthService = {
 		const response = await axiosClassicRequest.post<IAuthResponse>(
 			getAuthUrl('/login/access-token'),
 			{ refreshToken },
-			{ headers: getContentType() }
+			{
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
 		)
 
 		if (response.data.accessToken) {
