@@ -29,11 +29,11 @@
 			&.active {
 				@apply border-r-primary;
 
-				> div > span {
+				> span > span {
 					@apply text-white;
 				}
 
-				> div > svg {
+				> span > svg {
 					@apply fill-primary;
 				}
 			}
