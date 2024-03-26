@@ -1,4 +1,5 @@
 'use client'
+import AuthProvider from '@/providers/AuthProvider/AuthProvider'
 import { store } from '@/store/store'
 import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
 import { FC } from 'react'
@@ -19,7 +20,7 @@ const MainProvider: FC<IMainProvider> = ({ children }) => {
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
 				<ReduxToastr />
-				{children}
+				<AuthProvider>{children}</AuthProvider>
 			</QueryClientProvider>
 		</Provider>
 	)
