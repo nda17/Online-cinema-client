@@ -1,28 +1,31 @@
+import { EnumTokens } from '@/configs/enum.tokens'
 import { removeTokensFromStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { API_URL } from '../configs/api.config'
-import { errorCatch, getContentType } from './api.helpers'
+import { errorCatch } from './api.helpers'
 
 // Default requests without authorization:
 export const axiosClassicRequest = axios.create({
 	baseURL: API_URL,
-	headers: getContentType()
+	headers: {
+		'Content-Type': 'application/json'
+	}
 })
 
 // Requests using axios interceptors to update accessToken:
-export const instance = axios.create({
+const instance = axios.create({
 	baseURL: API_URL,
-	headers: getContentType()
+	headers: {
+		'Content-Type': 'application/json'
+	}
 })
 
 instance.interceptors.request.use((config) => {
-	const accessToken = Cookies.get('accessToken')
-
-	if (config.headers && accessToken) {
+	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
+	if (config.headers && accessToken)
 		config.headers.Authorization = `Bearer ${accessToken}`
-	}
 
 	return config
 })
@@ -45,9 +48,7 @@ instance.interceptors.response.use(
 
 				return instance.request(originalRequest)
 			} catch (e) {
-				if (errorCatch(e) === 'jwt expired') {
-					removeTokensFromStorage()
-				}
+				if (errorCatch(e) === 'jwt expired') removeTokensFromStorage()
 			}
 		}
 
