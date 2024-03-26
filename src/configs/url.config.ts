@@ -1,6 +1,15 @@
-export const moviesUrl = (slug: string) => `/movies/${slug}`
-export const genresUrl = (slug: string) => `/genres/${slug}`
-export const actorsUrl = (slug: string) => `/actors/${slug}`
+export const PUBLIC_URL = {
+	authUrl: () => `/auth`,
+	moviesUrl: (slug: string) => `/movies/${slug}`,
+	genresUrl: (slug: string) => `/genres/${slug}`,
+	actorsUrl: (slug: string) => `/actors/${slug}`
+}
 
-export const adminUrl = (url: string) => `/admin/${url}`
-export const adminHomeUrl = () => adminUrl('').slice(0, -1)
+export const USER_URL = {
+	profileUrl: () => `/profile`
+}
+
+export const ADMIN_URL = {
+	rootUrl: (url = '') => `/admin/${url ? '/' + url : ''}`,
+	homeUrl: () => ADMIN_URL.rootUrl('').slice(0, -1)
+}
