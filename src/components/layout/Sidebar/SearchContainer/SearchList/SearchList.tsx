@@ -1,4 +1,4 @@
-import { moviesUrl } from '@/configs/url.config'
+import { PUBLIC_URL } from '@/configs/url.config'
 import { IMovie } from '@/shared/types/movie.types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,7 +10,7 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 		<div className={styles.searchListWrapper}>
 			{movies.length ? (
 				movies.map((movie) => (
-					<Link href={moviesUrl(movie.slug)} key={movie._id}>
+					<Link href={PUBLIC_URL.moviesUrl(movie.slug)} key={movie._id}>
 						<Image
 							src={movie.poster || ''}
 							width={50}

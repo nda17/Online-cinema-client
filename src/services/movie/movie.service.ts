@@ -1,10 +1,10 @@
-import { getMoviesUrl } from '@/configs/api.config'
+import { PUBLIC_PATH } from '@/configs/api.config'
 import { IMovie } from '@/shared/types/movie.types'
 import { axiosClassicRequest } from 'api/interceptors'
 
 export const MovieService = {
 	async getMovies(searchTerm?: string) {
-		return axiosClassicRequest.get<IMovie[]>(getMoviesUrl(``), {
+		return axiosClassicRequest.get<IMovie[]>(PUBLIC_PATH.moviesUrl(``), {
 			params: searchTerm
 				? {
 						searchTerm
@@ -15,7 +15,7 @@ export const MovieService = {
 
 	async getMostPopularMovies() {
 		const { data: movies } = await axiosClassicRequest.get<IMovie[]>(
-			getMoviesUrl('/most-popular')
+			PUBLIC_PATH.moviesUrl('/most-popular')
 		)
 		return movies
 	}
