@@ -1,7 +1,7 @@
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
-	title: 'Admin | Online-Cinema'
+	title: 'Admin panel | Online-Cinema'
 }
 
 const AdminPage: NextPage = () => {
