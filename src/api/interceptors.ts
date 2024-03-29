@@ -24,8 +24,9 @@ const instance = axios.create({
 
 instance.interceptors.request.use((config) => {
 	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
-	if (config.headers && accessToken)
+	if (config.headers && accessToken) {
 		config.headers.Authorization = `Bearer ${accessToken}`
+	}
 
 	return config
 })
@@ -48,7 +49,9 @@ instance.interceptors.response.use(
 
 				return instance.request(originalRequest)
 			} catch (e) {
-				if (errorCatch(e) === 'jwt expired') removeTokensFromStorage()
+				if (errorCatch(e) === 'jwt expired') {
+					removeTokensFromStorage()
+				}
 			}
 		}
 
