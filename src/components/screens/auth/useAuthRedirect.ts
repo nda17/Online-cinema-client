@@ -1,22 +1,20 @@
+import { EnumTokens } from '@/configs/enum.tokens'
 import { useAuth } from '@/hooks/useAuth'
-import { useRouter, useSearchParams } from 'next/navigation'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
-//FIXME: сделать редирект
-//FIXME: сделать редирект
-//FIXME: сделать редирект
-
 export const useAuthRedirect = () => {
-	const { user } = useAuth()
+	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
+	const refreshToken = Cookies.get(EnumTokens.REFRESH_TOKEN)
 
+	const { user } = useAuth()
 	const { push } = useRouter()
 
-	const searchParams = useSearchParams()
-
-	const redirect = searchParams.get ? String(searchParams.get) : '/'
+	const redirect = sessionStorage.getItem('pathname') ? String(sessionStorage.getItem('pathname')) : '/'
 
 	useEffect(() => {
-		if (user) {
+		if (user && accessToken && refreshToken) {
 			push(redirect)
 		}
 	}, [user, redirect, push])
