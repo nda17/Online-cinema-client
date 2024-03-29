@@ -8,7 +8,9 @@ const LocationProvider: FC<ILocationProvider> = ({ children }) => {
 	const pathname = usePathname()
 
 	useEffect(() => {
-		if (pathname !== '/auth') {
+		if (pathname === '/auth') {
+			savePathToStorage('/')
+		} else {
 			savePathToStorage(pathname)
 		}
 	}, [pathname]) // eslint-disable-line react-hooks/exhaustive-deps
