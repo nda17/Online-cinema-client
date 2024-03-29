@@ -11,7 +11,9 @@ export const useAuthRedirect = () => {
 	const { user } = useAuth()
 	const { push } = useRouter()
 
-	const redirect = sessionStorage.getItem('pathname') ? String(sessionStorage.getItem('pathname')) : '/'
+	const redirect = sessionStorage.getItem('pathname')
+		? String(sessionStorage.getItem('pathname'))
+		: '/'
 
 	useEffect(() => {
 		if (user && accessToken && refreshToken) {
