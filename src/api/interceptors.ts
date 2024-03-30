@@ -15,14 +15,14 @@ export const axiosClassicRequest = axios.create({
 })
 
 // Requests using axios interceptors to update accessToken:
-const instance = axios.create({
+const axiosInterceptorsRequest = axios.create({
 	baseURL: API_URL,
 	headers: {
 		'Content-Type': 'application/json'
 	}
 })
 
-instance.interceptors.request.use((config) => {
+axiosInterceptorsRequest.interceptors.request.use((config) => {
 	const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN)
 	if (config.headers && accessToken) {
 		config.headers.Authorization = `Bearer ${accessToken}`
@@ -31,7 +31,7 @@ instance.interceptors.request.use((config) => {
 	return config
 })
 
-instance.interceptors.response.use(
+axiosInterceptorsRequest.interceptors.response.use(
 	(config) => config,
 	async (error) => {
 		const originalRequest = error.config
@@ -47,7 +47,7 @@ instance.interceptors.response.use(
 			try {
 				await AuthService.getNewTokens()
 
-				return instance.request(originalRequest)
+				return axiosInterceptorsRequest.request(originalRequest)
 			} catch (e) {
 				if (errorCatch(e) === 'jwt expired') {
 					removeTokensFromStorage()
@@ -59,4 +59,4 @@ instance.interceptors.response.use(
 	}
 )
 
-export default instance
+export default axiosInterceptorsRequest
