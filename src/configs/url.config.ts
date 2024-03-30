@@ -10,6 +10,6 @@ export const USER_URL = {
 }
 
 export const ADMIN_URL = {
-	rootUrl: (url = '') => `/admin/${url ? '/' + url : ''}`,
+	rootUrl: (url = '') => `/admin${url ? '/' + url : ''}`,
 	homeUrl: () => ADMIN_URL.rootUrl('').slice(0, -1)
 }
