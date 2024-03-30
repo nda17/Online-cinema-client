@@ -7,7 +7,7 @@ export async function middleware(request: NextRequest) {
 	const accessToken = request.cookies.get(EnumTokens.ACCESS_TOKEN)?.value
 	const refreshToken = request.cookies.get(EnumTokens.REFRESH_TOKEN)?.value
 
-	//При переходе на страницу профиля, проверка наличия accessToken и refreshToken, если отсутствует, то редирект на страницу авторизации:
+	//При переходе на страницу профиля => проверка наличия accessToken и refreshToken => если отсутствует, то редирект на страницу Auth:
 	if (
 		(refreshToken === undefined &&
 			request.nextUrl.pathname === USER_URL.profileUrl()) ||
@@ -19,8 +19,14 @@ export async function middleware(request: NextRequest) {
 		)
 	}
 
-	//При переходе на страницу админ панели, проверка ролей, если не админ, то редирект на 404:
-	if (request.nextUrl.pathname === ADMIN_URL.homeUrl()) {
+	//При переходе на страницы Admin panel => проверка ролей => если роль не admin, то редирект на 404 страницу:
+	if (
+		request.nextUrl.pathname === ADMIN_URL.homeUrl() ||
+		request.nextUrl.pathname === ADMIN_URL.rootUrl('actors') ||
+		request.nextUrl.pathname === ADMIN_URL.rootUrl('genres') ||
+		request.nextUrl.pathname === ADMIN_URL.rootUrl('movies') ||
+		request.nextUrl.pathname === ADMIN_URL.rootUrl('users')
+	) {
 		return await fetch(
 			`${API_URL}${PUBLIC_PATH.usersUrl(``)}${USER_URL.profileUrl()}`,
 			{
