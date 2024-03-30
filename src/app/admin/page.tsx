@@ -1,3 +1,4 @@
+import Admin from '@/screens/admin/Admin'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
 }
 
 const AdminPage: NextPage = () => {
-	return <div>Admin page</div>
+	return <Admin />
 }
 
 export default AdminPage
