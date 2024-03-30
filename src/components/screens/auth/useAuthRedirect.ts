@@ -19,5 +19,5 @@ export const useAuthRedirect = () => {
 		if (user && accessToken && refreshToken) {
 			push(redirect)
 		}
-	}, [user, redirect, push])
+	}, [user, accessToken, refreshToken, redirect, push])
 }
