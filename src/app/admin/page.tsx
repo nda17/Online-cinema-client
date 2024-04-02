@@ -1,4 +1,4 @@
-import Admin from '@/screens/admin/Admin'
+import Admin from '@/screens/admin/home/Admin'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
