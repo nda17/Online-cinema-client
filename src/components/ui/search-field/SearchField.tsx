@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import MaterialIcon from '../icons/MaterialIcon'
 import styles from './SearchField.module.scss'
-import { ISearchField } from './searchField.interface'
+import { ISearchField } from './search-field.interface'
 
 export const SearchField: FC<ISearchField> = ({
 	searchValue,
