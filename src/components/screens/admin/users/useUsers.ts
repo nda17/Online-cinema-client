@@ -1,7 +1,7 @@
-import { ITableItem } from '@/components/ui/admin-table/AdminTable/admin-table.interface'
 import { ADMIN_URL } from '@/configs/url.config'
 import { useDebounce } from '@/hooks/useDebounce'
 import { UserService } from '@/services/user/user.service'
+import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { convertMongoDate } from '@/utils/date/convertMongoDate'
 import { ChangeEvent, MouseEvent, useMemo, useState } from 'react'
