@@ -4,9 +4,9 @@ import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useQuery } from 'react-query'
 
 export const useSearchContainer = () => {
-	const [searchValue, setSearchValue] = useState('')
+	const [searchTerm, setSearchTerm] = useState('')
 
-	const debouncedSearch = useDebounce(searchValue, 500)
+	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const { isSuccess, data } = useQuery(
 		['search movie list', debouncedSearch],
@@ -18,12 +18,12 @@ export const useSearchContainer = () => {
 	)
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-		setSearchValue(e.target.value)
+		setSearchTerm(e.target.value)
 	}
 
 	const handleClear = (e: MouseEvent<HTMLSpanElement>) => {
-		setSearchValue('')
+		setSearchTerm('')
 	}
 
-	return { isSuccess, handleSearch, handleClear, data, searchValue }
+	return { isSuccess, handleSearch, handleClear, data, searchTerm }
 }
