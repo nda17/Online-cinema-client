@@ -17,11 +17,8 @@ export const UserService = {
 	},
 
 	async deleteUser(_id: string) {
-		console.log(PUBLIC_PATH.usersUrl(`/${_id}`));
-		
 		return axiosInterceptorsRequest.delete<string>(
 			PUBLIC_PATH.usersUrl(`/${_id}`)
 		)
-		
 	}
 }
