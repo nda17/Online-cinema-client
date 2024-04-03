@@ -1,4 +1,4 @@
-import ActorsList from '@/screens/admin/actors/page'
+import ActorsList from '@/screens/admin/actors/ActorsList'
 import { NextPage } from 'next'
 
 const ActorsListPage: NextPage = () => {

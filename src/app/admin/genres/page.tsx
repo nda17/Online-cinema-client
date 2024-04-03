@@ -1,4 +1,4 @@
-import GenresList from '@/screens/admin/genres/page'
+import GenresList from '@/components/screens/admin/genres/GenresList'
 import { NextPage } from 'next'
 
 const GenresListPage: NextPage = () => {
