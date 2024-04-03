@@ -12,7 +12,12 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	return (
 		<li
 			className={classNames({
-				[styles.active]: pathname === item.link
+				[styles.active]:
+					pathname === item.link ||
+					pathname === `${item.link}/users` ||
+					pathname === `${item.link}/movies` ||
+					pathname === `${item.link}/actors` ||
+					pathname === `${item.link}/genres`
 			})}
 		>
 			<span>
