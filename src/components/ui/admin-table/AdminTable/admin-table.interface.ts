@@ -3,6 +3,7 @@ export interface IAdminTable {
 	isLoading: boolean
 	headerItems: string[]
 	removeHandler: (id: string) => void
+	closePopup: () => void
 }
 
 export interface ITableItem {
@@ -14,4 +15,5 @@ export interface ITableItem {
 export interface IAdminTableItem {
 	tableItem: ITableItem
 	removeHandler: (id: string) => void
+	closePopup: () => void
 }
