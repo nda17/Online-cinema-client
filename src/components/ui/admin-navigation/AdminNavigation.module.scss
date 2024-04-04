@@ -1,5 +1,5 @@
 .nav {
-	@apply air-block w-4/5 mx-auto mb-10;
+	@apply air-block sm:w-full xl:w-4/5 mx-auto mb-10;
 
 	> ul {
 		@apply flex justify-evenly items-center;
@@ -7,7 +7,7 @@
 			@apply inline-block;
 
 			> a {
-				@apply block px-5 py-4 text-lg transition-colors relative text-white text-opacity-60 hover:text-opacity-100;
+				@apply block sm:px-1 md:px-3 lg:px-5 sm:py-3 md:py-3 lg:py-4 text-lg transition-colors relative text-white text-opacity-60 hover:text-opacity-100;
 				> span {
 					&::before {
 						@apply absolute w-full h-0.5 bg-transparent transition-colors left-0 bottom-0 rounded-md;
