@@ -1,5 +1,5 @@
 .item {
-	@apply mb-4 flex items-stretch;
+	@apply mb-4 flex md:flex-col lg:flex-row md:items-stretch  items-stretch;
 
 	> a {
 		img {

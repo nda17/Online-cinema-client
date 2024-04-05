@@ -1,5 +1,5 @@
 .logoWrapper {
-	@apply flex items-center px-layout mb-10;
+	@apply flex items-center md:justify-center xl:justify-start xl:px-layout mb-10;
 
 	.logo {
 		@apply mr-[.5rem] animate-rotate;
