@@ -5,7 +5,6 @@ import { IAdminTableItem } from './admin-table.interface'
 
 const AdminTableItem: FC<IAdminTableItem> = ({
 	removeHandler,
-	closePopup,
 	tableItem
 }) => {
 	return (
@@ -16,7 +15,6 @@ const AdminTableItem: FC<IAdminTableItem> = ({
 			<AdminActions
 				editUrl={tableItem.editUrl}
 				removeHandler={() => removeHandler(tableItem._id)}
-				closePopup={closePopup}
 			/>
 		</div>
 	)

@@ -9,7 +9,6 @@ const AdminTable: FC<IAdminTable> = ({
 	headerItems,
 	isLoading,
 	removeHandler,
-	closePopup,
 	tableItems
 }) => {
 	return (
@@ -24,7 +23,6 @@ const AdminTable: FC<IAdminTable> = ({
 						key={tableItem._id}
 						tableItem={tableItem}
 						removeHandler={removeHandler}
-						closePopup={closePopup}
 					/>
 				))
 			) : (

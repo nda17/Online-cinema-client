@@ -6,16 +6,16 @@ import styles from './AdminActions.module.scss'
 import { IAdminActions } from './admin-actions.interface'
 
 const AdminActions: FC<IAdminActions> = ({ editUrl, removeHandler }) => {
-	const [statusPopup, setStatusPopup] = useState(false)
+	const [popupIsVisible, setPopupVisible] = useState(false)
 	const { push } = useRouter()
 
 	const closePopup = () => {
-		setStatusPopup(false)
+		setPopupVisible(false)
 	}
 
 	return (
 		<>
-			{statusPopup && (
+			{popupIsVisible && (
 				<AlertPopup
 					removeHandler={removeHandler}
 					closePopup={closePopup}
@@ -27,7 +27,7 @@ const AdminActions: FC<IAdminActions> = ({ editUrl, removeHandler }) => {
 				</button>
 				<button
 					onClick={() => {
-						setStatusPopup(true)
+						setPopupVisible(true)
 					}}
 				>
 					<MaterialIcon name="MdClose" />
