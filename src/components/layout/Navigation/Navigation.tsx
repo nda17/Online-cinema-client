@@ -4,10 +4,10 @@ import MenuContainer from './MenuContainer/MenuContainer'
 
 const Navigation: FC = () => {
 	return (
-		<div>
+		<aside>
 			<Logo />
 			<MenuContainer />
-		</div>
+		</aside>
 	)
 }
 

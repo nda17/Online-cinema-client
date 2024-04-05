@@ -4,10 +4,10 @@ import MoviesContainer from './MoviesContainer/MoviesContainer'
 import SearchContainer from './SearchContainer/SearchContainer'
 const Sidebar: FC = () => {
 	return (
-		<div>
+		<aside>
 			<SearchContainer />
 			<MoviesContainer />
-		</div>
+		</aside>
 	)
 }
 
