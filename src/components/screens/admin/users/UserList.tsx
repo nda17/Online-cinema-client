@@ -33,7 +33,7 @@ const UsersList: FC = () => {
 			/>
 			<AdminTable
 				tableItems={data || []}
-				headerItems={['Email:', 'Date register:']}
+				headerItems={['Email:', 'Date register:', 'Admin status:']}
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
 			/>
