@@ -6,7 +6,7 @@ import { IMovieList } from './movieList.interface'
 
 const MovieList: FC<IMovieList> = ({ link, title, movies }) => {
 	return (
-		<div className={styles.listWrap}>
+		<div className={styles.list}>
 			<div className={styles.heading}>{title}</div>
 			{movies.map((movie) => (
 				<MovieItem key={movie._id} movie={movie} />

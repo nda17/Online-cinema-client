@@ -1,5 +1,6 @@
 'use client'
-import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader'
+import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import SubHeading from '@/ui/subheading/SubHeading'
 import { AdminService } from '@/services/admin/admin.service'
 import classNames from 'classnames'
 import { FC } from 'react'
@@ -11,10 +12,11 @@ const CountUsers: FC = () => {
 		AdminService.getCountUsers()
 	)
 	return (
-		<div className={classNames(styles.block, styles.countUsers)}>
+		<div className={classNames(styles.block, styles.users)}>
+			<SubHeading title="Registered users" />
 			<div>
 				{isLoading ? (
-					<SkeletonLoader />
+					<SkeletonLoader className={styles.preloader}/>
 				) : (
 					<div className={styles.number}>{response?.data}</div>
 				)}

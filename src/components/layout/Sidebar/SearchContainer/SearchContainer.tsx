@@ -9,7 +9,7 @@ const SearchContainer: FC = () => {
 		useSearchContainer()
 
 	return (
-		<div className={styles.searchWrapper}>
+		<div className={styles.search}>
 			<SearchField
 				searchTerm={searchTerm}
 				handleSearch={handleSearch}

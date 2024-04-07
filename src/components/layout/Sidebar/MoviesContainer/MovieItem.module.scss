@@ -1,5 +1,5 @@
 .item {
-	@apply mb-4 flex md:flex-col lg:flex-row md:items-stretch  items-stretch;
+	@apply mb-4 flex md:flex-col md:items-center lg:flex-row  items-stretch;
 
 	> a {
 		img {
@@ -15,7 +15,7 @@
 	}
 
 	.info {
-		@apply ml-4 flex flex-col justify-between;
+		@apply lg:ml-4 flex flex-col justify-between;
 		width: 67%;
 
 		.title {

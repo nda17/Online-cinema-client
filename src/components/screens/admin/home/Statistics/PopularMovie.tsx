@@ -1,5 +1,5 @@
 'use client'
-import SubHeading from '@/components/ui/subheading/SubHeading'
+import SubHeading from '@/ui/subheading/SubHeading'
 import { PUBLIC_URL } from '@/configs/url.config'
 import { MovieService } from '@/services/movie/movie.service'
 import { IMovie } from '@/shared/types/movie.types'

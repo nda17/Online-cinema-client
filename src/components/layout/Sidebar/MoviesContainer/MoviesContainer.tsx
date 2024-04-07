@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import FavoriteMovies from './FavoriteMovies/FavoriteMovies'
+import FavoriteMovies from './FavoriteMovies/FavoriteList'
 import PopularMovies from './PopularMovies/PopularMovies'
 
 const MoviesContainer: FC = () => {

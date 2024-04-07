@@ -1,5 +1,5 @@
 .nav {
-	@apply air-block sm:w-full mx-auto mb-10;
+	@apply air-block sm:w-full mx-auto mb-10 rounded-b-none;
 
 	> ul {
 		@apply flex justify-evenly items-center;
@@ -10,15 +10,14 @@
 				@apply block sm:px-1 md:px-3 lg:px-5 sm:py-3 md:py-3 lg:py-4 text-lg transition-colors relative text-white text-opacity-60 hover:text-opacity-100;
 				> span {
 					&::before {
-						@apply absolute w-full h-0.5 bg-transparent transition-colors left-0 bottom-0 rounded-md;
+						@apply absolute w-full h-0.5 bg-transparent transition-colors left-0 bottom-0;
 						content: '';
 					}
-
 					&.active {
-						@apply text-opacity-100;
+						@apply text-white;
 
 						&::before {
-							@apply bg-primary;
+							@apply bg-primary absolute;
 						}
 					}
 				}

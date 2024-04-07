@@ -1,36 +1,43 @@
+.preloader {
+	@apply w-[5rem] h-[4.5rem];
+}
+
 .statistics {
-	@apply flex justify-center mt-10;
+	@apply flex flex-col items-center lg:items-stretch lg:flex-row lg:justify-center;
 
 	.block {
-		@apply air-block w-2/5;
+		@apply air-block w-11/12 h-80 lg:h-auto lg:w-2/5;
 	}
 
-	.countUsers {
-		@apply mr-28 flex items-center justify-center text-center;
+	.users {
+		@apply lg:mr-28 mb-8 lg:mb-0 flex-col justify-center text-center p-5 relative;
 
-		.number {
-			@apply text-7xl mb-1 font-medium;
-		}
+		> div {
+			@apply w-32 h-32 absolute top-0 right-0 bottom-0 left-0 m-auto;
 
-		.description {
-			@apply opacity-70 text-lg;
+			.number {
+				@apply text-7xl mb-1 font-medium;
+			}
+
+			.description {
+				@apply opacity-70 text-lg;
+			}
 		}
 	}
 
 	.popular {
 		@apply text-center p-5;
 
-		
 		h2 {
 			@apply mb-1;
 		}
-		
+
 		h3 {
 			@apply opacity-50 font-medium mb-3;
 		}
 
 		img {
-			@apply rounded-layout shadow-lg image-like-bg m-auto;
+			@apply rounded-layout shadow-lg image-like-bg m-auto w-[285px] h-[176px];
 		}
 	}
 }

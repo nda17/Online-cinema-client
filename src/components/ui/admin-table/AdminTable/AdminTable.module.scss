@@ -1,8 +1,8 @@
 .item {
-	@apply flex items-center justify-between bg-gray-700 bg-opacity-20 mt-4 px-5 rounded-lg transition-colors hover:bg-opacity-50;
+	@apply md:text-[13px] lg:text-[16px] flex items-center justify-between bg-gray-700 bg-opacity-20 mb-4 px-5 rounded-lg transition-colors hover:bg-opacity-50;
 
 	> div {
-		@apply text-white text-opacity-80 py-3;
+		@apply text-white text-opacity-80 py-3 px-1 break-words;
 		width: 24%;
 
 		&:last-child {
@@ -12,7 +12,7 @@
 }
 
 .itemHeader {
-	@apply bg-primary bg-opacity-20 shadow-lg mt-8 hover:bg-opacity-20;
+	@apply bg-primary bg-opacity-20 shadow-lg hover:bg-opacity-20;
 
 	> div {
 		@apply text-opacity-90 font-semibold py-2.5;

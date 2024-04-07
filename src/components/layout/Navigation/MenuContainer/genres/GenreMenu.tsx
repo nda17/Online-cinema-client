@@ -8,9 +8,7 @@ const GenreMenu: FC = () => {
 	const { isLoading, data } = usePopularGenres()
 
 	return isLoading ? (
-		<div className={styles.preloaderWrapper}>
-			<SkeletonLoader count={3} className={styles.preloader} />
-		</div>
+		<SkeletonLoader count={3} className={styles.preloader} />
 	) : (
 		<Menu
 			menu={{

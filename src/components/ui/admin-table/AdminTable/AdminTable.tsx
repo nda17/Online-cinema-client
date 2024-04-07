@@ -14,7 +14,6 @@ const AdminTable: FC<IAdminTable> = ({
 	return (
 		<div>
 			<AdminTableHeader headerItems={headerItems} />
-
 			{isLoading ? (
 				<SkeletonLoader count={1} height={48} className="mt-4" />
 			) : tableItems.length ? (

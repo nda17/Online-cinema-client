@@ -1,8 +1,8 @@
-.listWrap {
-	@apply mt-11 animate-fadeIn;
+.list {
+	@apply animate-fadeIn mb-11;
 
 	.heading {
-		@apply font-bold text-xl mb-5 text-white capitalize;
+		@apply lg:text-xl font-bold mb-5 text-white capitalize;
 	}
 
 	.button {
