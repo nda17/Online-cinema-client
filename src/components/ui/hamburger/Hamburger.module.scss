@@ -1,0 +1,7 @@
+.hamburger {
+	@apply absolute left-[1.1rem] top-[30%];
+
+	> svg {
+		@apply w-[1.7rem] h-[1.7rem];
+	}
+}
