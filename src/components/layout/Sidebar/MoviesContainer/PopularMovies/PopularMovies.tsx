@@ -15,7 +15,7 @@ const PopularMovies: FC = () => {
 	)
 
 	return isLoading ? (
-		<div className={styles.preloaderWrapper}>
+		<div className={styles.popular}>
 			<SkeletonLoader count={3} className={styles.preloader} />
 		</div>
 	) : (

@@ -1,11 +1,11 @@
-.spinnerWrapper {
+.spinner {
 	@apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
 
-	.spinner {
+	> span {
 		@apply grid place-items-center w-14 h-14 rounded-[50%] animate-spin bg-gradient-to-tr from-red-400 to-red-900;
 	}
 
-	.spinner::before {
+	> span::before {
 		@apply content-[""] rounded-[50%] w-[80%] h-[80%] bg-gray-900;
 	}
 }

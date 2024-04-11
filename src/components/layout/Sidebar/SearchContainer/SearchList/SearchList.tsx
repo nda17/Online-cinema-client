@@ -7,7 +7,7 @@ import styles from './SearchList.module.scss'
 
 const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 	return (
-		<div className={styles.searchListWrapper}>
+		<div className={styles.searchList}>
 			{movies.length ? (
 				movies.map((movie) => (
 					<Link href={PUBLIC_URL.moviesUrl(movie.slug)} key={movie._id}>
@@ -15,9 +15,9 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 							src={movie.poster || ''}
 							width={50}
 							height={50}
-							priority={true}
 							alt={movie.title}
 							draggable={false}
+							priority={true}
 						/>
 						<span>{movie.title}</span>
 					</Link>

@@ -11,7 +11,7 @@ const LogoutButton: FC = () => {
 	}
 
 	return (
-		<li suppressHydrationWarning>
+		<li>
 			<span onClick={logoutHandler}>
 				<MaterialIcon name="MdLogout" />
 				<span>Logout</span>

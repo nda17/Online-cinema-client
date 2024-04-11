@@ -1,19 +1,19 @@
-.wrapper {
-	@apply absolute w-full top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%];
+.auth {
+	@apply absolute md:w-[20rem] lg:w-[25rem] xl:w-full max-w-lg top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%];
 
 	> form {
-		@apply mx-auto w-1/2 air-block bg-opacity-80 p-7 text-center;
+		@apply mx-auto air-block bg-opacity-80 p-7 text-center;
 
 		.buttons {
-			@apply mt-12 shadow-lg;
+			@apply shadow-lg;
 
 			> button {
 				&:first-child {
-					@apply rounded-r-none;
+					@apply md:rounded-r-none mb-2 md:mb-0;
 				}
 
 				&:last-child {
-					@apply rounded-l-none opacity-80 hover:opacity-100 transition-opacity;
+					@apply md:rounded-l-none opacity-80 hover:opacity-100 transition-opacity;
 					background-color: #8f050b;
 				}
 			}

@@ -38,34 +38,32 @@ const Auth: FC = () => {
 	}
 
 	return (
-		<section className={styles.wrapper}>
+		<div className={styles.auth}>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className="mb-6">
-					<Heading title="Auth" />
-					<AuthFields
-						formState={formState}
-						register={registerInput}
-						isPasswordRequired
-					/>
-					<div className={styles.buttons}>
-						<Button
-							type="submit"
-							onClick={() => setType('login')}
-							disabled={isLoading}
-						>
-							Login
-						</Button>
-						<Button
-							type="submit"
-							onClick={() => setType('register')}
-							disabled={isLoading}
-						>
-							Register
-						</Button>
-					</div>
+				<Heading title="Auth" />
+				<AuthFields
+					formState={formState}
+					register={registerInput}
+					isPasswordRequired
+				/>
+				<div className={styles.buttons}>
+					<Button
+						type="submit"
+						onClick={() => setType('login')}
+						disabled={isLoading}
+					>
+						Login
+					</Button>
+					<Button
+						type="submit"
+						onClick={() => setType('register')}
+						disabled={isLoading}
+					>
+						Register
+					</Button>
 				</div>
 			</form>
-		</section>
+		</div>
 	)
 }
 

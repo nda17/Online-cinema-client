@@ -1,22 +1,18 @@
-.logoWrapper {
+.logo {
 	@apply flex items-center md:justify-center xl:justify-start xl:px-layout mb-10;
 
-	.logo {
+	> img {
 		@apply mr-[.5rem] animate-rotate;
 	}
 
-	.textWrapper {
+	.text {
 		@apply flex flex-col;
 
-		.text {
+		> p {
 			@apply font-100 text-[1.3rem] leading-[1.3rem];
 
 			> span {
 				@apply font-[600] text-darkYellow;
-
-				> span {
-					@apply text-gray-500;
-				}
 			}
 		}
 	}

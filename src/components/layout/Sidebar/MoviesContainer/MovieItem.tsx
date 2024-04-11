@@ -9,7 +9,7 @@ import styles from './MovieItem.module.scss'
 
 const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
-		<div className={styles.item}>
+		<div className={styles.movie}>
 			<Link href={PUBLIC_URL.moviesUrl(movie.slug)}>
 				<Image
 					src={movie.poster}
@@ -23,19 +23,15 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 			</Link>
 
 			<div className={styles.info}>
-				<div>
-					<div className={styles.title}>{movie.title}</div>
-					<div className={styles.genre}>
-						{movie.genres.map((genre, index) => (
-							<Link
-								href={PUBLIC_URL.genresUrl(genre.slug)}
-								key={genre._id}
-							>
-								{getGenresListEach(index, movie.genres.length, genre.name)}
-							</Link>
-						))}
-					</div>
+				<div className={styles.title}>{movie.title}</div>
+				<div className={styles.genre}>
+					{movie.genres.map((genre, index) => (
+						<Link href={PUBLIC_URL.genresUrl(genre.slug)} key={genre._id}>
+							{getGenresListEach(index, movie.genres.length, genre.name)}
+						</Link>
+					))}
 				</div>
+
 				<div className={styles.rating}>
 					<MaterialIcon name="MdStarRate" />
 					<span>{movie.rating.toFixed(1)}</span>

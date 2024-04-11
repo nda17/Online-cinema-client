@@ -3,8 +3,8 @@ import styles from './SpinnerLoader.module.scss'
 
 const SpinnerLoader: FC = () => {
 	return (
-		<div className={styles.spinnerWrapper}>
-			<span className={styles.spinner}></span>
+		<div className={styles.spinner}>
+			<span></span>
 		</div>
 	)
 }

@@ -1,14 +1,14 @@
 .menu {
 	@apply mb-14 animate-fadeIn;
 
-	.heading {
+	> div {
 		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
 	}
 
-	.ul {
+	> ul {
 		> li {
 			@apply mb-6 border-r-4 border-r-transparent transition-colors border-solid;
-			
+
 			> span {
 				@apply lg:px-3 flex items-center text-gray-600 cursor-pointer;
 
@@ -23,7 +23,6 @@
 				> span,
 				> svg {
 					@apply transition-colors;
-
 					> a {
 						@apply md:text xl:text-lg;
 					}

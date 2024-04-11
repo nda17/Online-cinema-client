@@ -9,7 +9,7 @@ export const SearchField: FC<ISearchField> = ({
 	handleClear
 }) => {
 	return (
-		<div className={styles.searchFieldWrapper}>
+		<div className={styles.searchField}>
 			<MaterialIcon name="MdSearch" />
 			<input
 				placeholder="Search"
