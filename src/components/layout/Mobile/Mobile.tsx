@@ -20,7 +20,7 @@ const Mobile: FC = () => {
 					<MenuContainer />
 				</section>
 			)}
-			
+
 			{visibleExtra && (
 				<section className={styles.menu}>
 					<ExtraMenuContainer />

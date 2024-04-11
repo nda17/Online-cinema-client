@@ -1,0 +1,19 @@
+.searchList {
+	@apply absolute top-[3.813rem] left-0 border border-gray-700 rounded-b-layout bg-gray-800 w-screen animate-fadeIn z-20;
+
+	> a {
+		@apply flex justify-center items-center py-3 px-4 relative;
+
+		img {
+			@apply mr-3 rounded-image object-cover object-top w-auto h-auto;
+		}
+
+		> span {
+			@apply text-white truncate;
+		}
+	}
+
+	.informer {
+		@apply text-white text-center py-4;
+	}
+}

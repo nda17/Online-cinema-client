@@ -1,0 +1,19 @@
+.logo {
+	@apply flex items-center mr-4;
+
+	> img {
+		@apply mr-[.3rem] animate-rotate  w-7 h-7;
+	}
+
+	.text {
+		@apply flex flex-col;
+
+		> p {
+			@apply font-100 leading-1;
+
+			> span {
+				@apply font-[600] text-darkYellow;
+			}
+		}
+	}
+}
