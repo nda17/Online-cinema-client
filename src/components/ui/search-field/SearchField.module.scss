@@ -10,7 +10,7 @@
 	}
 
 	> span > svg {
-		@apply fill-primary w-6 h-6 cursor-pointer animate-fadeIn;
+		@apply fill-primary w-4 lg:w-6 h-4 lg:h-6 cursor-pointer animate-fadeIn;
 	}
 
 	&:focus-within {
