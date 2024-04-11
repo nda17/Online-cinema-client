@@ -9,9 +9,6 @@ const Logo: FC = () => {
 		<Link href="/" className={styles.logo}>
 			<Image
 				src={logoImage}
-				width={40}
-				height={40}
-				style={{ width: 40, height: 40 }}
 				alt="Online cinema app"
 				draggable={false}
 				priority={true}

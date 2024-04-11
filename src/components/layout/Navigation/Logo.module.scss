@@ -1,8 +1,8 @@
 .logo {
-	@apply flex items-center md:justify-center xl:justify-start xl:px-layout mb-10;
+	@apply flex items-center justify-center xl:justify-start xl:px-layout mb-10;
 
 	> img {
-		@apply mr-[.5rem] animate-rotate;
+		@apply w-10 h-10 mr-[.5rem] animate-rotate;
 	}
 
 	.text {
