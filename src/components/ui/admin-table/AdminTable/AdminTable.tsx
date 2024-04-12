@@ -13,10 +13,10 @@ const AdminTable: FC<IAdminTable> = ({
 	tableItems
 }) => {
 	return (
-		<div>
+		<div className={styles.table}>
 			<AdminTableHeader headerItems={headerItems} />
 			{isLoading ? (
-				<SkeletonLoader count={1} height={48} className="mt-4" />
+				<SkeletonLoader count={3} height={48} className="mt-4" />
 			) : tableItems.length ? (
 				tableItems.map((tableItem) => (
 					<AdminTableItem key={tableItem._id} tableItem={tableItem} />

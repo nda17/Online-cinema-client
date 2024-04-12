@@ -1,24 +1,28 @@
-.item {
-	@apply md:text-[13px] lg:text-[16px] flex items-center justify-between bg-gray-700 bg-opacity-20 mb-4 px-5 rounded-lg transition-colors hover:bg-opacity-50;
+.table {
+	@apply px-4;
 
-	> div {
-		@apply text-white text-opacity-80 py-3 px-1 break-words;
-		width: 24%;
+	.item {
+		@apply md:text-[13px] lg:text-[16px] flex items-center justify-between bg-gray-700 bg-opacity-20 mb-4 px-1 md:px-4 lg:px-5 rounded-lg transition-colors hover:bg-opacity-50;
 
-		&:last-child {
-			@apply text-right justify-end;
+		> div {
+			@apply text-[.9rem] sm:text-[1rem] text-white text-opacity-80 py-3 px-1 break-words;
+			width: 24%;
+
+			&:last-child {
+				@apply text-right justify-end;
+			}
 		}
 	}
-}
 
-.header {
-	@apply bg-primary bg-opacity-20 shadow-lg hover:bg-opacity-20;
+	.header {
+		@apply bg-primary bg-opacity-20 shadow-lg hover:bg-opacity-20;
 
-	> div {
-		@apply text-opacity-90 font-semibold py-2.5;
+		> div {
+			@apply text-opacity-90 font-semibold py-2.5;
+		}
 	}
-}
 
-.notFound {
-	@apply text-lg text-white text-opacity-60 text-center py-3;
+	.notFound {
+		@apply text-lg text-white text-opacity-60 text-center py-3;
+	}
 }
