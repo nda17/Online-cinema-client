@@ -3,13 +3,13 @@ import { FC } from 'react'
 import MoviesContainer from './MoviesContainer/MoviesContainer'
 import SearchContainer from './SearchContainer/SearchContainer'
 
-const Sidebar: FC = () => {
+const RightSidebar: FC = () => {
 	return (
-		<aside>
+		<div>
 			<SearchContainer />
 			<MoviesContainer />
-		</aside>
+		</div>
 	)
 }
 
-export default Sidebar
+export default RightSidebar

@@ -10,4 +10,3 @@ const AuthPage: NextPage = () => {
 }
 
 export default AuthPage
-

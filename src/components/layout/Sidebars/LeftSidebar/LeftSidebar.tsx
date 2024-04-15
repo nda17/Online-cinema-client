@@ -2,13 +2,13 @@ import { FC } from 'react'
 import Logo from './Logo'
 import MenuContainer from './MenuContainer/MenuContainer'
 
-const Navigation: FC = () => {
+const LeftSidebar: FC = () => {
 	return (
-		<aside>
+		<div>
 			<Logo />
 			<MenuContainer />
-		</aside>
+		</div>
 	)
 }
 
-export default Navigation
+export default LeftSidebar

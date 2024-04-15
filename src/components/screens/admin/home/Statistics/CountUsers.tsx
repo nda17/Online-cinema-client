@@ -16,7 +16,7 @@ const CountUsers: FC = () => {
 			<SubHeading title="Registered users" />
 			<div>
 				{isLoading ? (
-					<SkeletonLoader className={styles.preloader}/>
+					<SkeletonLoader className={styles.preloader} />
 				) : (
 					<div className={styles.number}>{response?.data}</div>
 				)}

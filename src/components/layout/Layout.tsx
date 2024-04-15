@@ -2,19 +2,19 @@ import { ILayout } from '@/components/layout/layout.interface'
 import ProgressBarLoader from '@/ui/progress-bar-loader/ProgressBarLoader'
 import { FC } from 'react'
 import styles from './Layout.module.scss'
-import Mobile from './Mobile/Mobile'
-import Navigation from './Navigation/Navigation'
-import Sidebar from './Sidebar/Sidebar'
+import MobileNavbar from './MobileNavbar/MobileNavbar'
+import LeftSidebar from './Sidebars/LeftSidebar/LeftSidebar'
+import RightSidebar from './Sidebars/RightSidebar/RightSidebar'
 
 const Layout: FC<ILayout> = ({ children }) => {
 	return (
 		<>
 			<ProgressBarLoader />
 			<div className={styles.layout}>
-				<Navigation />
-				<Mobile />
+				<LeftSidebar />
+				<MobileNavbar />
 				<main className={styles.main}>{children}</main>
-				<Sidebar />
+				<RightSidebar />
 			</div>
 		</>
 	)

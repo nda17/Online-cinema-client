@@ -3,10 +3,10 @@ import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import ExtraMenuContainer from './ExtraMenuContainer/ExtraMenuContainer'
 import MenuContainer from './MenuContainer/MenuContainer'
-import styles from './Mobile.module.scss'
+import styles from './MobileNavbar.module.scss'
 import Navigation from './Navigation/Navigation'
 
-const Mobile: FC = () => {
+const MobileNavbar: FC = () => {
 	const visibleHamburger = useSelector(
 		(state: any) => state.hamburger.visible
 	)
@@ -16,18 +16,18 @@ const Mobile: FC = () => {
 		<section>
 			<Navigation />
 			{visibleHamburger && (
-				<section className={styles.menu}>
+				<div className={styles.menu}>
 					<MenuContainer />
-				</section>
+				</div>
 			)}
 
 			{visibleExtra && (
-				<section className={styles.menu}>
+				<div className={styles.menu}>
 					<ExtraMenuContainer />
-				</section>
+				</div>
 			)}
 		</section>
 	)
 }
 
-export default Mobile
+export default MobileNavbar

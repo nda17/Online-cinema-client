@@ -1,13 +1,13 @@
 .layout {
 	@apply relative;
 
-	> aside:first-child,
-	> aside:last-child {
+	> div:first-child,
+	> div:last-child {
 		@apply hidden md:block fixed top-0 bottom-0 overflow-y-scroll border-solid md:w-[21%] lg:min-w-48 xl:min-w-[15rem] xxl:min-w-[20rem] py-layout md:px-[0.8rem] xl:px-6 xxl:px-layout;
 		max-width: 350px;
 	}
 
-	> aside:first-child {
+	> div:first-child {
 		@apply left-0 border-r border-r-gray-800;
 	}
 
@@ -16,10 +16,10 @@
 	}
 
 	.main {
-		@apply relative min-h-screen md:p-[3.1rem] lg:px-[3.9rem] xl:py-[2.75rem] xl:px-[4.8rem] sm:w-5/6 md:w-2/3 lg:w-2/3 xxl:w-2/4 left-0 right-0 top-0 bottom-0 m-auto;
+		@apply relative min-h-screen md:p-[3.1rem] lg:px-[3.9rem] xl:py-[2.75rem] xl:px-[4.8rem] md:w-2/3 lg:w-2/3 xxl:w-2/4 left-0 right-0 top-0 bottom-0 m-auto;
 	}
 
-	> aside:last-child {
+	> div:last-child {
 		@apply right-0 border-l border-l-gray-800;
 	}
 }
