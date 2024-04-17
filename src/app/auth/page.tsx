@@ -1,4 +1,4 @@
-import DynamicAuth from '@/components/screens/auth/DynamicAuth'
+import DynamicAuth from '@/screens/auth/DynamicAuth'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
