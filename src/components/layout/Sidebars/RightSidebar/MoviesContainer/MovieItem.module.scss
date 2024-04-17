@@ -1,9 +1,9 @@
 .movie {
-	@apply mb-4 flex md:flex-col md:items-center lg:flex-row  items-stretch;
+	@apply mb-4 flex md:flex-col md:items-center lg:flex-row items-stretch;
 
 	> a {
 		img {
-			@apply rounded-image transition-colors;
+			@apply rounded-image transition-colors shadow-black mb-2;
 			border: 1px solid transparent !important;
 		}
 

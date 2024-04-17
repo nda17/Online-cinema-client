@@ -6,7 +6,11 @@
 	@apply flex flex-col items-center lg:items-stretch lg:flex-row lg:justify-center;
 
 	.block {
-		@apply air-block w-11/12 h-80 lg:h-auto lg:w-2/5;
+		@apply shadow-black air-block w-11/12 h-80 lg:h-auto lg:w-2/5;
+	}
+	
+	.block:last-child {
+		@apply mb-[1.8rem];
 	}
 
 	.users {

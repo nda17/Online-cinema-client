@@ -1,16 +1,16 @@
 .movie {
-	@apply mb-4 flex items-stretch;
+	@apply mb-4 flex items-stretch ;
 
 	> a {
 		@apply mr-4;
 
 		img {
-			@apply w-full rounded-image transition-colors;
+			@apply w-full rounded-image transition-colors shadow-black;
 		}
 	}
 
 	.info {
-		@apply flex flex-col justify-center;
+		@apply w-36 flex flex-col justify-center;
 
 		.title {
 			@apply text-white text-lg font-medium truncate;

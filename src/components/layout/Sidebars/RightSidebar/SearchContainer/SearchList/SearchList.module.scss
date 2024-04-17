@@ -1,5 +1,5 @@
 .searchList {
-	@apply absolute border border-gray-700 rounded-layout bg-gray-800 w-full animate-fadeIn z-10;
+	@apply absolute border border-gray-700 rounded-layout bg-gray-800 w-full animate-fadeIn z-10 shadow-black;
 	top: calc(100% + 15px);
 
 	> a {
@@ -18,7 +18,7 @@
 		}
 
 		img {
-			@apply lg:mr-3 rounded-image object-cover object-top w-auto h-auto;
+			@apply lg:mr-3 rounded-image object-cover object-top w-auto h-auto shadow-black;
 		}
 
 		> span {
@@ -27,6 +27,6 @@
 	}
 
 	.informer {
-		@apply text-white text-center my-4;
+		@apply h-20 md:h-10 flex justify-center items-center text-white text-center pt-4 mb-4;
 	}
 }

@@ -1,5 +1,5 @@
 .nav {
-	@apply air-block rounded-t-none mx-auto md:mb-10;
+	@apply air-block rounded-t-none md:rounded-t-[.8rem] mx-auto md:mb-10 shadow-black;
 
 	> ul {
 		@apply h-20 flex justify-evenly items-center;
