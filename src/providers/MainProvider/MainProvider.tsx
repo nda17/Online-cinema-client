@@ -5,7 +5,6 @@ import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
-import LocationProvider from '../LocationProvider/LocationProvider'
 import { IMainProvider } from './mainProvider.interface'
 
 const queryClient = new QueryClient({
@@ -21,9 +20,7 @@ const MainProvider: FC<IMainProvider> = ({ children }) => {
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
 				<ReduxToastr />
-				<LocationProvider>
-					<AuthProvider>{children}</AuthProvider>
-				</LocationProvider>
+				<AuthProvider>{children}</AuthProvider>
 			</QueryClientProvider>
 		</Provider>
 	)

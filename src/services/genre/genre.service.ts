@@ -1,4 +1,5 @@
 import { PUBLIC_PATH } from '@/configs/api.config'
+import { IGenreEditInput } from '@/screens/admin/genre/genre-edit.interface'
 import { IGenre } from '@/shared/types/movie.types'
 import axiosInterceptorsRequest, {
 	axiosClassicRequest
@@ -15,9 +16,22 @@ export const GenreService = {
 		})
 	},
 
+	async getGenreById(_id: string) {
+		return axiosInterceptorsRequest.get<IGenreEditInput>(
+			PUBLIC_PATH.genresUrl(`/${_id}`)
+		)
+	},
+
+	async updateGenre(_id: string, data: IGenreEditInput) {
+		return axiosInterceptorsRequest.put<string>(
+			PUBLIC_PATH.genresUrl(`/${_id}`),
+			data
+		)
+	},
+
 	async deleteGenre(_id: string) {
 		return axiosInterceptorsRequest.delete<string>(
-			PUBLIC_PATH.usersUrl(`/${_id}`)
+			PUBLIC_PATH.genresUrl(`/${_id}`)
 		)
 	}
 }
