@@ -17,7 +17,7 @@ export const ActorService = {
 
 	async deleteActor(_id: string) {
 		return axiosInterceptorsRequest.delete<string>(
-			PUBLIC_PATH.usersUrl(`/${_id}`)
+			PUBLIC_PATH.actorsUrl(`/${_id}`)
 		)
 	}
 }

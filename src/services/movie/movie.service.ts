@@ -24,7 +24,7 @@ export const MovieService = {
 
 	async deleteMovie(_id: string) {
 		return axiosInterceptorsRequest.delete<string>(
-			PUBLIC_PATH.usersUrl(`/${_id}`)
+			PUBLIC_PATH.moviesUrl(`/${_id}`)
 		)
 	}
 }
