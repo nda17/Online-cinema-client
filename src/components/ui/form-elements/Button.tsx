@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import styles from './Button.module.scss'
-import { IButton } from './button.interface'
+import { IButton } from './form.interface'
+import styles from './form.module.scss'
 
 const Button: FC<IButton> = ({ children, className, ...rest }) => {
 	return (
