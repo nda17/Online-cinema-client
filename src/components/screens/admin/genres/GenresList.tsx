@@ -25,18 +25,20 @@ const GenresList: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<Heading title="A list of genres" />
-			<AdminHeader
-				handleSearch={handleSearch}
-				searchTerm={searchTerm}
-				handleClear={handleClear}
-			/>
-			<AdminTable
-				tableItems={data || []}
-				headerItems={['Name:', 'Slug:']}
-				isLoading={isLoading}
-				removeHandler={deleteAsync}
-			/>
+			<div className={'wrapper'}>
+				<Heading title="A list of genres" />
+				<AdminHeader
+					handleSearch={handleSearch}
+					searchTerm={searchTerm}
+					handleClear={handleClear}
+				/>
+				<AdminTable
+					tableItems={data || []}
+					headerItems={['Name:', 'Slug:']}
+					isLoading={isLoading}
+					removeHandler={deleteAsync}
+				/>
+			</div>
 		</>
 	)
 }

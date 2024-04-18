@@ -1,13 +1,17 @@
 .menu {
-	@apply mb-2 animate-fadeIn;
+	@apply pt-[1.8rem] animate-fadeIn;
+
+	&:last-child {
+		@apply mb-[1.8rem];
+	}
 
 	> div {
-		@apply pt-8 pl-8 text-gray-500 uppercase font-semibold mb-6;
+		@apply pl-4 text-gray-500 uppercase font-semibold mb-6;
 	}
 
 	> ul {
 		> li {
-			@apply pl-4 mb-6 transition-colors;
+			@apply pl-8 mb-6 transition-colors;
 
 			> span {
 				@apply flex items-center text-gray-600;

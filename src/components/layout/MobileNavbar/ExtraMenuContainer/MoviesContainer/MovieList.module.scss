@@ -1,8 +1,8 @@
 .list {
-	@apply m-[auto] mb-2 w-[13rem] sm:w-[23rem];
+	@apply mb-6 w-[13rem] sm:w-[23rem];
 
 	.heading {
-		@apply pt-8 text-gray-500 uppercase font-semibold mb-6;
+		@apply text-gray-500 uppercase font-semibold mb-6;
 	}
 
 	.button {

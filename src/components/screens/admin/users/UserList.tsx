@@ -25,18 +25,20 @@ const UsersList: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<Heading title="A list of users" />
-			<AdminHeader
-				handleSearch={handleSearch}
-				searchTerm={searchTerm}
-				handleClear={handleClear}
-			/>
-			<AdminTable
-				tableItems={data || []}
-				headerItems={['Email:', 'Date register:', 'Admin status:']}
-				isLoading={isLoading}
-				removeHandler={deleteAsync}
-			/>
+			<div className={'wrapper'}>
+				<Heading title="A list of users" />
+				<AdminHeader
+					handleSearch={handleSearch}
+					searchTerm={searchTerm}
+					handleClear={handleClear}
+				/>
+				<AdminTable
+					tableItems={data || []}
+					headerItems={['Email:', 'Date register:', 'Admin status:']}
+					isLoading={isLoading}
+					removeHandler={deleteAsync}
+				/>
+			</div>
 		</>
 	)
 }

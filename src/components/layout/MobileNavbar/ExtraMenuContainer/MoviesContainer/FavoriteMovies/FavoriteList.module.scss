@@ -1,7 +1,7 @@
 .favorite {
-	@apply m-[auto] mb-2 w-[14rem] sm:w-[23rem] animate-fadeIn;
+	@apply m-[auto] w-[14rem] sm:w-[23rem] animate-fadeIn;
 
 	.heading {
-		@apply pt-8 text-gray-500 uppercase font-semibold mb-6;
+		@apply text-gray-500 uppercase font-semibold mb-6;
 	}
 }

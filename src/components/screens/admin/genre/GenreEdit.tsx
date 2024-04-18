@@ -39,63 +39,66 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 	return (
 		<>
 			<AdminNavigation />
-			<Heading title="Edit genre" />
-			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
-				{isLoading ? (
-					<SkeletonLoader count={3} />
-				) : (
-					<>
-						<Field
-							{...register('name', {
-								required: 'Name is required!'
-							})}
-							placeholder="Name"
-							error={errors.name}
-						/>
+			<div className={'wrapper'}>
+				<Heading title="Edit genre" />
+				<form
+					onSubmit={handleSubmit(onSubmit)}
+					className={formStyles.form}
+				>
+					{isLoading ? (
+						<SkeletonLoader count={3} />
+					) : (
+						<>
+							<Field
+								{...register('name', {
+									required: 'Name is required!'
+								})}
+								placeholder="Name"
+								error={errors.name}
+							/>
+							<SlugField
+								register={register}
+								error={errors.slug}
+								generate={() => {
+									setValue('slug', generateSlug(getValues('name')))
+								}}
+							/>
+							<Field
+								{...register('name', {
+									required: 'Name is required!'
+								})}
+								placeholder="Name"
+								error={errors.name}
+							/>
 
-						<SlugField
-							register={register}
-							error={errors.slug}
-							generate={() => {
-								setValue('slug', generateSlug(getValues('name')))
-							}}
-						/>
-
-						<Field
-							{...register('name', {
-								required: 'Name is required!'
-							})}
-							placeholder="Name"
-							error={errors.name}
-						/>
-
-						<Controller
-							name="description"
-							control={control}
-							defaultValue=""
-							render={({
-								field: { value, onChange },
-								fieldState: { error }
-							}) => (
-								<DynamicTextEditor
-									placeholder="Description"
-									onChange={onChange}
-									error={error}
-									value={value}
-								/>
-							)}
-							rules={{
-								validate: {
-									required: (value) =>
-										(value && stripHtml(value).result.length > 0) ||
-										'Description is required!'
-								}
-							}}
-						/>
-						<Button>Update</Button>
-					</>
-				)}
-			</form>
+							<Controller
+								name="description"
+								control={control}
+								defaultValue=""
+								render={({
+									field: { value, onChange },
+									fieldState: { error }
+								}) => (
+									<DynamicTextEditor
+										placeholder="Description"
+										onChange={onChange}
+										error={error}
+										value={value}
+									/>
+								)}
+								rules={{
+									validate: {
+										required: (value) =>
+											(value && stripHtml(value).result.length > 0) ||
+											'Description is required!'
+									}
+								}}
+							/>
+							<Button>Update</Button>
+						</>
+					)}
+				</form>
+			</div>
 		</>
 	)
 }

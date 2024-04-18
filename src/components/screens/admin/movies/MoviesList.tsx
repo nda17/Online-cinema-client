@@ -25,18 +25,20 @@ const MoviesList: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<Heading title="A list of movies" />
-			<AdminHeader
-				handleSearch={handleSearch}
-				searchTerm={searchTerm}
-				handleClear={handleClear}
-			/>
-			<AdminTable
-				tableItems={data || []}
-				headerItems={['Title:', 'Genre:', 'Rating:']}
-				isLoading={isLoading}
-				removeHandler={deleteAsync}
-			/>
+			<div className={'wrapper'}>
+				<Heading title="A list of movies" />
+				<AdminHeader
+					handleSearch={handleSearch}
+					searchTerm={searchTerm}
+					handleClear={handleClear}
+				/>
+				<AdminTable
+					tableItems={data || []}
+					headerItems={['Title:', 'Genre:', 'Rating:']}
+					isLoading={isLoading}
+					removeHandler={deleteAsync}
+				/>
+			</div>
 		</>
 	)
 }

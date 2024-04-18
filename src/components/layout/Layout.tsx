@@ -1,6 +1,5 @@
 import { ILayout } from '@/components/layout/layout.interface'
 import ProgressBarLoader from '@/ui/progress-bar-loader/ProgressBarLoader'
-import classNames from 'classnames'
 import { FC } from 'react'
 import styles from './Layout.module.scss'
 import MobileNavbar from './MobileNavbar/MobileNavbar'
@@ -14,9 +13,7 @@ const Layout: FC<ILayout> = ({ children }) => {
 			<div className={styles.layout}>
 				<LeftSidebar />
 				<MobileNavbar />
-				<main className={classNames('wrapper', styles.main)}>
-					{children}
-				</main>
+				<main className={styles.main}>{children}</main>
 				<RightSidebar />
 			</div>
 		</>

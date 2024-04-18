@@ -7,8 +7,10 @@ const Admin: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<Heading title="Some statistics" />
-			<Statistics />
+			<div className={'wrapper'}>
+				<Heading title="Some statistics" />
+				<Statistics />
+			</div>
 		</>
 	)
 }
