@@ -211,6 +211,13 @@ module.exports = {
 		require('@tailwindcss/aspect-ratio'),
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
+				'.wrapper': {
+					paddingTop: '1.8rem',
+					paddingBottom: '1.8rem',
+					paddingLeft: '1rem',
+					paddingRight: '1rem'
+				},
+
 				'.btn-primary': {
 					backgroundColor: primary,
 					color: '#ffffff',
