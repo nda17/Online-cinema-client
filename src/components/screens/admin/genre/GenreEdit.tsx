@@ -64,11 +64,11 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 								}}
 							/>
 							<Field
-								{...register('name', {
-									required: 'Name is required!'
+								{...register('icon', {
+									required: 'Icon is required!'
 								})}
-								placeholder="Name"
-								error={errors.name}
+								placeholder="Icon"
+								error={errors.icon}
 							/>
 
 							<Controller

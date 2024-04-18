@@ -1,7 +1,11 @@
 .header {
-	@apply flex items-center justify-center mb-8;
+	@apply flex flex-col lg:flex-row items-center justify-between mb-8;
+
+	> div {
+		@apply mb-8 lg:mb-0;
+	}
 
 	> button {
-		@apply bg-primary bg-opacity-80;
+		@apply w-[10.5rem] bg-primary bg-opacity-80;
 	}
 }

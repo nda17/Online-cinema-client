@@ -22,6 +22,12 @@ export const GenreService = {
 		)
 	},
 
+	async createGenre() {
+		return axiosInterceptorsRequest.post<string>(
+			PUBLIC_PATH.genresUrl('/')
+		)
+	},
+
 	async updateGenre(_id: string, data: IGenreEditInput) {
 		return axiosInterceptorsRequest.put<string>(
 			PUBLIC_PATH.genresUrl(`/${_id}`),

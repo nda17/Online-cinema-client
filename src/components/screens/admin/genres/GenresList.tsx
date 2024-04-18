@@ -19,7 +19,8 @@ const GenresList: FC = () => {
 		isLoading,
 		searchTerm,
 		data,
-		deleteAsync
+		deleteAsync,
+		createAsync
 	} = useGenres()
 
 	return (
@@ -31,6 +32,7 @@ const GenresList: FC = () => {
 					handleSearch={handleSearch}
 					searchTerm={searchTerm}
 					handleClear={handleClear}
+					onClick={createAsync}
 				/>
 				<AdminTable
 					tableItems={data || []}
