@@ -39,7 +39,7 @@
 		}
 
 		.editor {
-			@apply md:h-96 border border-solid rounded-b-lg border-gray-700 px-4 text-gray-500 overflow-hidden;
+			@apply cursor-text h-32 lg:h-96 border border-solid rounded-b-lg border-gray-700 px-4 text-gray-500 overflow-hidden;
 		}
 	}
 }
