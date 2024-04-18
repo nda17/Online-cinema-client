@@ -1,4 +1,4 @@
-import MaterialIcon from '@/components/ui/icons/MaterialIcon'
+import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { PUBLIC_URL } from '@/configs/url.config'
 import { IMovie } from '@/shared/types/movie.types'
 import { getGenresListEach } from '@/utils/movie/getGenresList'
