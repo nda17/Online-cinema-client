@@ -26,7 +26,7 @@ const TextEditor: FC<ITextEditor> = ({
 				blocksFromHtml.contentBlocks,
 				blocksFromHtml.entityMap
 			)
-			
+
 			const newEditorState = EditorState.createWithContent(contentState)
 			setEditorState(newEditorState)
 		}
@@ -42,13 +42,7 @@ const TextEditor: FC<ITextEditor> = ({
 	}
 
 	return (
-		<div
-			className={classNames(
-				styles.common,
-				styles.editorWrapper,
-				'animate-fadeIn'
-			)}
-		>
+		<div className={classNames(styles.formEditor, 'animate-fadeIn')}>
 			<label>
 				<span>{placeholder}</span>
 				<div className={styles.wrapper}>
