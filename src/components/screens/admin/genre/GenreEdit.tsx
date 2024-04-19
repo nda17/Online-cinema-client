@@ -56,6 +56,7 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 								placeholder="Name"
 								error={errors.name}
 							/>
+
 							<SlugField
 								register={register}
 								error={errors.slug}
@@ -63,6 +64,7 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 									setValue('slug', generateSlug(getValues('name')))
 								}}
 							/>
+
 							<Field
 								{...register('icon', {
 									required: 'Icon is required!'
@@ -94,6 +96,7 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 									}
 								}}
 							/>
+
 							<Button>Update</Button>
 						</>
 					)}
