@@ -39,6 +39,7 @@
 		"@types/react-dom": "^18",
 		"@types/react-draft-wysiwyg": "^1.13.8",
 		"@types/react-redux-toastr": "^8.0.0",
+		"@types/uuid": "^9.0.8",
 		"autoprefixer": "^10.4.17",
 		"axios": "0.21.1",
 		"classnames": "^2.5.1",
