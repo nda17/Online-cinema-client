@@ -3,6 +3,7 @@ import { useDebounce } from '@/hooks/useDebounce'
 import { ActorService } from '@/services/actor/actor.service'
 import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
 import { toastrError } from '@/utils/api/toastr-error-redux'
+import { useRouter } from 'next/navigation'
 import { ChangeEvent, MouseEvent, useMemo, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { toastr } from 'react-redux-toastr'
@@ -38,6 +39,22 @@ export const useActors = () => {
 		setSearchTerm('')
 	}
 
+	const { push } = useRouter()
+
+	const { mutateAsync: createAsync } = useMutation(
+		'create actor',
+		() => ActorService.createActor(),
+		{
+			onError(error) {
+				toastrError(error, 'Create actor')
+			},
+			onSuccess({ data: _id }) {
+				toastr.success('Create actor', 'create was successful')
+				push(ADMIN_URL.rootUrl(`actor/edit/${_id}`))
+			}
+		}
+	)
+
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete actor',
 		(actorId: string) => ActorService.deleteActor(actorId),
@@ -58,8 +75,9 @@ export const useActors = () => {
 			handleClear,
 			...queryData,
 			searchTerm,
-			deleteAsync
+			deleteAsync,
+			createAsync
 		}),
-		[queryData, searchTerm, deleteAsync]
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }

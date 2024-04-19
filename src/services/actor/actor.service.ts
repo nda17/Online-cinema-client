@@ -1,4 +1,5 @@
 import { PUBLIC_PATH } from '@/configs/api.config'
+import { IActorEditInput } from '@/screens/admin/actor/actor-edit.interface'
 import { IActor } from '@/shared/types/movie.types'
 import axiosInterceptorsRequest, {
 	axiosClassicRequest
@@ -13,6 +14,25 @@ export const ActorService = {
 				  }
 				: {}
 		})
+	},
+
+	async getActorById(_id: string) {
+		return axiosInterceptorsRequest.get<IActorEditInput>(
+			PUBLIC_PATH.actorsUrl(`/${_id}`)
+		)
+	},
+
+	async createActor() {
+		return axiosInterceptorsRequest.post<string>(
+			PUBLIC_PATH.actorsUrl('/')
+		)
+	},
+
+	async updateActor(_id: string, data: IActorEditInput) {
+		return axiosInterceptorsRequest.put<string>(
+			PUBLIC_PATH.actorsUrl(`/${_id}`),
+			data
+		)
 	},
 
 	async deleteActor(_id: string) {

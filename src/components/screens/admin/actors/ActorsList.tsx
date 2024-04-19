@@ -1,8 +1,7 @@
 'use client'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
-
-import AdminTable from '@/components/ui/admin-table/AdminTable/AdminTable'
+import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
 import { FC } from 'react'
@@ -19,7 +18,8 @@ const ActorsList: FC = () => {
 		isLoading,
 		searchTerm,
 		data,
-		deleteAsync
+		deleteAsync,
+		createAsync
 	} = useActors()
 
 	return (
@@ -31,6 +31,7 @@ const ActorsList: FC = () => {
 					handleSearch={handleSearch}
 					searchTerm={searchTerm}
 					handleClear={handleClear}
+					onClick={createAsync}
 				/>
 				<AdminTable
 					tableItems={data || []}
