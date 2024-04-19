@@ -2,32 +2,75 @@
 	@apply w-32 btn-primary py-2 px-10 shadow-black;
 }
 
-.common {
-	@apply relative border-b border-solid border-gray-600 transition-colors focus-within:border-primary mb-10;
-
-	> label > span {
-		@apply text-xs uppercase text-gray-600 block;
-	}
-}
-
-.field {
-	@apply text-left mb-8;
-
-	input {
-		@apply outline-border-none focus:ring-0 bg-transparent text-gray-500 w-full m-0 px-0;
-	}
-}
-
 .error {
 	@apply absolute -bottom-6 left-0 text-sm w-full text-primary;
 }
 
-.editorWrapper {
-	@apply border-0;
+.formString {
+	@apply relative border-b border-solid border-gray-600 transition-colors focus-within:border-primary mb-8;
+
+	> label {
+		> span {
+			@apply text-xs uppercase text-gray-600 block;
+		}
+
+		> input {
+			@apply outline-border-none focus:ring-0 bg-transparent text-gray-500 w-full;
+		}
+	}
+}
+
+.formUpload {
+	@apply relative mb-8;
+
+	.uploadContainer {
+		@apply flex flex-col sm:flex-row justify-between;
+
+		> .imageContainer {
+			@apply flex relative w-24 h-24;
+
+			img {
+				@apply image-like-bg rounded-md;
+			}
+
+			> span {
+				@apply animate-fadeIn;
+			}
+		}
+
+		> label {
+			> span {
+				@apply text-xs uppercase text-gray-600 block mb-4;
+			}
+
+			> input {
+				@apply w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 px-0 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary opacity-70 file:text-white transition-opacity mb-8 sm:mb-0 pl-[.75rem];
+			}
+
+			&:hover > input {
+				@apply opacity-100;
+			}
+		}
+
+		> div {
+			@apply absolute m-auto sm:m-0 sm:right-[.75rem];
+		}
+	}
+}
+
+.formEditor {
+	@apply border-0 mb-8;
+
+	> label {
+		> span {
+			@apply text-xs uppercase text-gray-600;
+		}
+	}
 
 	.wrapper {
+		@apply pt-4;
 		.toolbar {
-			@apply mt-4 outline-border-none rounded-t-lg mb-0 bg-gray-600 bg-opacity-40 p-3;
+			@apply outline-border-none rounded-t-lg mb-0 bg-gray-600 bg-opacity-40 p-3;
 
 			> div {
 				@apply m-0;

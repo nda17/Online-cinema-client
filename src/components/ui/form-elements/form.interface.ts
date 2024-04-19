@@ -1,9 +1,14 @@
 import { EditorProps } from 'draft-js'
-import { ButtonHTMLAttributes, InputHTMLAttributes } from 'react'
+import {
+	ButtonHTMLAttributes,
+	CSSProperties,
+	InputHTMLAttributes
+} from 'react'
+import { FieldError } from 'react-hook-form'
 
 export interface IFieldProps {
 	placeholder: string
-	error: any
+	error?: FieldError | undefined
 }
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> &
@@ -19,4 +24,14 @@ export interface ITextEditor
 	extends Omit<TypeEditorPropsField, 'editorState'> {
 	onChange: (...event: any[]) => void
 	value: string
+}
+
+export interface IUploadField {
+	folder?: string
+	image?: string
+	onChange: (...event: any[]) => void
+	placeholder: string
+	error?: FieldError
+	style?: CSSProperties
+	isNoImage?: boolean
 }
