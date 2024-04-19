@@ -9,30 +9,27 @@ import { ITextEditor } from './form.interface'
 import styles from './form.module.scss'
 
 const TextEditor: FC<ITextEditor> = ({
-	onChange,
-	value,
 	placeholder,
-	error
+	onChange,
+	error,
+	value
 }) => {
 	const [editorState, setEditorState] = useState(EditorState.createEmpty())
 
 	const [isUpdated, setIsUpdated] = useState(false)
 
 	useEffect(() => {
-		if (isUpdated) {
-			return
+		if (!isUpdated) {
+			const defaultValue = value ? value : ''
+			const blocksFromHtml = htmlToDraft(defaultValue)
+			const contentState = ContentState.createFromBlockArray(
+				blocksFromHtml.contentBlocks,
+				blocksFromHtml.entityMap
+			)
+			
+			const newEditorState = EditorState.createWithContent(contentState)
+			setEditorState(newEditorState)
 		}
-
-		const defaultValue = value || ''
-		const blocksFromHtml = htmlToDraft(defaultValue)
-
-		const contentState = ContentState.createFromBlockArray(
-			blocksFromHtml.contentBlocks,
-			blocksFromHtml.entityMap
-		)
-
-		const newEditorState = EditorState.createWithContent(contentState)
-		setEditorState(newEditorState)
 	}, [value, isUpdated])
 
 	const onEditorStateChange = (editorState: EditorState) => {

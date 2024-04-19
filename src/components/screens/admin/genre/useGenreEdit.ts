@@ -27,20 +27,22 @@ export const useGenreEdit = (
 			},
 			onError(error) {
 				toastrError(error, 'Get genre')
-			}
+			},
+			enabled: !!params.id
 		}
 	)
 
 	const { mutateAsync } = useMutation(
 		'update genre',
 		(data: IGenreEditInput) => GenreService.updateGenre(genreId, data),
+
 		{
-			onError(error) {
-				toastrError(error, 'Update genre')
-			},
 			onSuccess() {
 				toastr.success('Update genre', 'update was successful')
 				push(PUBLIC_PATH.genresUrl(``))
+			},
+			onError(error) {
+				toastrError(error, 'Update genre')
 			}
 		}
 	)
