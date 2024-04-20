@@ -1,4 +1,4 @@
-import { PUBLIC_PATH } from '@/configs/api.config'
+import { ADMIN_URL } from '@/configs/url.config'
 import { GenreService } from '@/services/genre/genre.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { getKeys } from '@/utils/object/getKeys'
@@ -39,7 +39,7 @@ export const useGenreEdit = (
 		{
 			onSuccess() {
 				toastr.success('Update genre', 'update was successful')
-				push(PUBLIC_PATH.genresUrl(``))
+				push(ADMIN_URL.rootUrl('/genres'))
 			},
 			onError(error) {
 				toastrError(error, 'Update genre')
