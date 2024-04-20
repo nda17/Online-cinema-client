@@ -59,7 +59,7 @@
 }
 
 .formEditor {
-	@apply border-0 mb-8;
+	@apply relative border-0 mb-8;
 
 	> label {
 		> span {
