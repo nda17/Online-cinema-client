@@ -1,4 +1,5 @@
 import { PUBLIC_PATH } from '@/configs/api.config'
+import { IUserEditInput } from '@/screens/admin/user/user-edit.interface'
 import { IUser } from '@/shared/types/user.types'
 import axiosInterceptorsRequest from 'api/interceptors'
 
@@ -13,6 +14,19 @@ export const UserService = {
 					  }
 					: {}
 			}
+		)
+	},
+
+	async getUserById(_id: string) {
+		return axiosInterceptorsRequest.get<IUserEditInput>(
+			PUBLIC_PATH.usersUrl(`/${_id}`)
+		)
+	},
+
+	async updateUser(_id: string, data: IUserEditInput) {
+		return axiosInterceptorsRequest.put<string>(
+			PUBLIC_PATH.usersUrl(`/${_id}`),
+			data
 		)
 	},
 
