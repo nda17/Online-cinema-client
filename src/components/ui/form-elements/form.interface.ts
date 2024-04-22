@@ -4,27 +4,17 @@ import {
 	CSSProperties,
 	InputHTMLAttributes
 } from 'react'
-import { FieldError } from 'react-hook-form'
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form'
 
 export interface IFieldProps {
 	placeholder: string
-	error?: FieldError | undefined
+	error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> &
 	IFieldProps
 
 export interface IField extends TypeInputPropsField {}
-
-export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
-
-type TypeEditorPropsField = EditorProps & IField
-
-export interface ITextEditor
-	extends Omit<TypeEditorPropsField, 'editorState'> {
-	onChange: (...event: any[]) => void
-	value: string
-}
 
 export interface IUploadField {
 	folder?: string
@@ -34,4 +24,14 @@ export interface IUploadField {
 	error?: FieldError
 	style?: CSSProperties
 	isNoImage?: boolean
+}
+
+export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+type TypeEditorPropsField = EditorProps & IFieldProps
+
+export interface ITextEditor
+	extends Omit<TypeEditorPropsField, 'editorState'> {
+	onChange: (...event: any[]) => void
+	value: string
 }

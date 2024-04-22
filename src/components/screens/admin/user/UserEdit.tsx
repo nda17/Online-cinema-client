@@ -1,6 +1,6 @@
 'use client'
 import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
-import AuthFields from '@/screens/auth/AuthFields'
+import AuthFields from '@/components/shared/user/AuthFields'
 import { IParamsUrl } from '@/shared/types/params-url.types'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Button from '@/ui/form-elements/Button'
@@ -32,7 +32,7 @@ const UserEdit: FC<IParamsUrl> = ({ params }) => {
 							<AuthFields
 								register={register}
 								formState={formState}
-								isPasswordRequired={false}
+								isPasswordRequired
 							/>
 
 							<Controller

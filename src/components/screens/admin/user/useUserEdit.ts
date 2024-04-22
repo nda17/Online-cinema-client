@@ -21,6 +21,7 @@ export const useUserEdit = (
 		{
 			onSuccess({ data }) {
 				setValue('email', data.email)
+				setValue('password', data.password)
 				setValue('isAdmin', data.isAdmin)
 			},
 			onError(error) {
