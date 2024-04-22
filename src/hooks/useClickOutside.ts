@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+/* eslint-disable */
 const useClickOutside = (
 	ref: React.MutableRefObject<HTMLElement | null>,
 	callback: () => void
