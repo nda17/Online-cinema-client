@@ -1,4 +1,5 @@
 import { PUBLIC_PATH } from '@/configs/api.config'
+import { IMovieEditInput } from '@/screens/admin/movie/movie-edit.interface'
 import { IMovie } from '@/shared/types/movie.types'
 import axiosInterceptorsRequest, {
 	axiosClassicRequest
@@ -20,6 +21,25 @@ export const MovieService = {
 			PUBLIC_PATH.moviesUrl('/most-popular')
 		)
 		return movies
+	},
+
+	async getMovieById(_id: string) {
+		return axiosInterceptorsRequest.get<IMovieEditInput>(
+			PUBLIC_PATH.moviesUrl(`/${_id}`)
+		)
+	},
+
+	async createMovie() {
+		return axiosInterceptorsRequest.post<string>(
+			PUBLIC_PATH.moviesUrl('/')
+		)
+	},
+
+	async updateMovie(_id: string, data: IMovieEditInput) {
+		return axiosInterceptorsRequest.put<string>(
+			PUBLIC_PATH.moviesUrl(`/${_id}`),
+			data
+		)
 	},
 
 	async deleteMovie(_id: string) {

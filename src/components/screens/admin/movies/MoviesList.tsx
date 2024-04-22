@@ -1,8 +1,8 @@
 'use client'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
+import AdminTable from '@/components/ui/admin-table/AdminTable/AdminTable'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
-
-import AdminTable from '@/components/ui/admin-table/AdminTable/AdminTable'
 import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
 import { FC } from 'react'
@@ -19,18 +19,20 @@ const MoviesList: FC = () => {
 		isLoading,
 		searchTerm,
 		data,
-		deleteAsync
+		deleteAsync,
+		createAsync
 	} = useMovies()
 
 	return (
 		<>
 			<AdminNavigation />
-			<div className={'wrapper'}>
+			<div className={adminWrapper.wrapper}>
 				<Heading title="A list of movies" />
 				<AdminHeader
 					handleSearch={handleSearch}
 					searchTerm={searchTerm}
 					handleClear={handleClear}
+					onClick={createAsync}
 				/>
 				<AdminTable
 					tableItems={data || []}

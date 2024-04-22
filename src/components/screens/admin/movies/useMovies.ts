@@ -4,6 +4,7 @@ import { MovieService } from '@/services/movie/movie.service'
 import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { getGenresList } from '@/utils/movie/getGenresList'
+import { useRouter } from 'next/navigation'
 import { ChangeEvent, MouseEvent, useMemo, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { toastr } from 'react-redux-toastr'
@@ -43,6 +44,22 @@ export const useMovies = () => {
 		setSearchTerm('')
 	}
 
+	const { push } = useRouter()
+
+	const { mutateAsync: createAsync } = useMutation(
+		'create movie',
+		() => MovieService.createMovie(),
+		{
+			onError(error) {
+				toastrError(error, 'Create movie')
+			},
+			onSuccess({ data: _id }) {
+				toastr.success('Create movie', 'create was successful')
+				push(ADMIN_URL.rootUrl(`movie/edit/${_id}`))
+			}
+		}
+	)
+
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete movie',
 		(movieId: string) => MovieService.deleteMovie(movieId),
@@ -63,8 +80,9 @@ export const useMovies = () => {
 			handleClear,
 			...queryData,
 			searchTerm,
-			deleteAsync
+			deleteAsync,
+			createAsync
 		}),
-		[queryData, searchTerm, deleteAsync]
+		[queryData, searchTerm, deleteAsync, createAsync]
 	)
 }
