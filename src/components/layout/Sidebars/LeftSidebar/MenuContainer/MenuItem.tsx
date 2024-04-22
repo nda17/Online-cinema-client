@@ -17,7 +17,11 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 					pathname === `${item.link}/users` ||
 					pathname === `${item.link}/movies` ||
 					pathname === `${item.link}/actors` ||
-					pathname === `${item.link}/genres`
+					pathname === `${item.link}/genres` ||
+					pathname.includes(`${item.link}/user/edit`) ||
+					pathname.includes(`${item.link}/movie/edit`) ||
+					pathname.includes(`${item.link}/actor/edit`) ||
+					pathname.includes(`${item.link}/genre/edit`)
 			})}
 		>
 			<span className={styles.item}>
