@@ -11,10 +11,18 @@ const Layout: FC<ILayout> = ({ children }) => {
 		<>
 			<ProgressBarLoader />
 			<div className={styles.layout}>
-				<LeftSidebar />
-				<MobileNavbar />
-				<main className={styles.main}>{children}</main>
-				<RightSidebar />
+				<div className={styles.leftSidebar}>
+					<LeftSidebar />
+				</div>
+				<main className={styles.main}>
+					<div className={styles.navbar}>
+						<MobileNavbar />
+					</div>
+					{children}
+				</main>
+				<div className={styles.rightSidebar}>
+					<RightSidebar />
+				</div>
 			</div>
 		</>
 	)

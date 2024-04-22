@@ -1,25 +1,16 @@
 .layout {
-	@apply relative;
+	@apply md:flex md:justify-center;
 
-	> div:first-child,
-	> div:last-child {
-		@apply hidden md:block fixed top-0 bottom-0 overflow-y-scroll border-solid md:w-[21%] lg:min-w-48 xl:min-w-[15rem] xxl:min-w-[20rem] py-layout md:px-[0.8rem] xl:px-6 xxl:px-layout;
-		max-width: 350px;
+	.leftSidebar,
+	.rightSidebar {
+		@apply relative hidden md:block border border-solid border-gray-800 md:w-[17rem] lg:w-80 xl:w-[22rem] xxl:min-w-[20rem] py-layout md:px-[0.8rem] xl:px-6 xxl:px-layout;
 	}
 
-	> div:first-child {
-		@apply left-0 border-r border-r-gray-800;
-	}
-
-	> section {
+	.navbar {
 		@apply md:hidden;
 	}
 
 	.main {
-		@apply relative min-h-screen md:p-[3.1rem] lg:px-[3.9rem] xl:py-[2.75rem] xl:px-[4.8rem] md:w-2/3 lg:w-2/3 xxl:w-2/4 left-0 right-0 top-0 bottom-0 m-auto;
-	}
-
-	> div:last-child {
-		@apply right-0 border-l border-l-gray-800;
+		@apply relative md:pt-8 md:container md:m-0 min-h-screen;
 	}
 }

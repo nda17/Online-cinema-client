@@ -39,7 +39,7 @@ const Auth: FC = () => {
 
 	return (
 		<div className={styles.auth}>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)} className={styles.formAuth}>
 				<Heading title="Auth" />
 				<AuthFields
 					formState={formState}

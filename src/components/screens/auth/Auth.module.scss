@@ -1,7 +1,7 @@
 .auth {
 	@apply absolute w-[84%] sm:w-[70%] md:w-[20rem] lg:w-[25rem] xl:w-full max-w-lg top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%];
 
-	> form {
+	.formAuth {
 		@apply mx-auto air-block bg-opacity-80 p-7 text-center shadow-black;
 
 		.buttons {

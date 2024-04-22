@@ -6,7 +6,7 @@ import { navItems } from './admin-navigation.data'
 const AdminNavigation: FC = () => {
 	return (
 		<nav className={styles.nav}>
-			<ul>
+			<ul className={styles.navList}>
 				{navItems.map((item) => (
 					<AdminNavItem key={item.link} item={item} />
 				))}

@@ -1,5 +1,5 @@
 .logo {
-	@apply flex items-center justify-center xl:justify-start xl:px-layout mb-10;
+	@apply flex items-center justify-center xl:px-layout mb-10;
 
 	> img {
 		@apply w-10 h-10 mr-[.5rem] animate-rotate;

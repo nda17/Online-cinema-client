@@ -7,7 +7,7 @@
 }
 
 .formString {
-	@apply relative border-b border-solid border-gray-600 transition-colors focus-within:border-primary mb-8;
+	@apply relative text-left border-b border-solid border-gray-600 transition-colors focus-within:border-primary mb-8;
 
 	> label {
 		> span {
