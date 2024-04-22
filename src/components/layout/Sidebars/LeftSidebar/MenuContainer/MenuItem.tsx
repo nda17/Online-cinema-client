@@ -20,11 +20,12 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 					pathname === `${item.link}/genres`
 			})}
 		>
-			<span>
+			<span className={styles.item}>
 				<MaterialIcon name={item.icon} />
-				<span>
-					<Link href={item.link}>{item.title}</Link>
-				</span>
+				<Link href={item.link} className={styles.link}>
+					{item.title}
+				</Link>
+				<span className={styles.border}>|</span>
 			</span>
 		</li>
 	)

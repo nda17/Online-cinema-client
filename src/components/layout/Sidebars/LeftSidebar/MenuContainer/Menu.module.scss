@@ -1,43 +1,46 @@
 .menu {
 	@apply mb-14 animate-fadeIn;
 
-	> div {
+	.title {
 		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
 	}
 
 	> ul {
 		> li {
-			@apply mb-6 border-r-4 border-r-transparent transition-colors border-solid;
+			@apply mb-6 transition-colors;
 
-			> span {
+			.item {
 				@apply lg:px-3 flex items-center text-gray-600 cursor-pointer;
 
-				> span {
-					@apply text-lg hover:text-white;
+				svg,
+				.link {
+					@apply transition-colors;
 				}
 
 				> svg {
 					@apply mr-3 text-2lg;
 				}
 
-				> span,
-				> svg {
-					@apply transition-colors;
-					> a {
-						@apply text xl:text-lg;
-					}
+				.link {
+					@apply text xl:text-lg hover:text-white;
+				}
+
+				.border {
+					@apply cursor-default absolute text-transparent right-0 transition-colors border-r-4 border-r-transparent border-solid;
 				}
 			}
 
 			&.active {
-				@apply border-r-primary;
+				svg {
+					@apply fill-primary;
+				}
 
-				> span > span {
+				.link {
 					@apply text-white;
 				}
 
-				> span > svg {
-					@apply fill-primary;
+				.border {
+					@apply border-r-primary;
 				}
 			}
 		}

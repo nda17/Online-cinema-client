@@ -7,7 +7,7 @@ import { IMenu } from './menu.interface'
 const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
 	return (
 		<div className={styles.menu}>
-			<div>{title}</div>
+			<div className={styles.title}>{title}</div>
 			<ul>
 				{items.map((item) => (
 					<MenuItem item={item} key={item.link} />
