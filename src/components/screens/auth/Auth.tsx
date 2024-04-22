@@ -1,3 +1,4 @@
+import AuthFields from '@/components/shared/user/AuthFields'
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import Button from '@/ui/form-elements/Button'
@@ -5,7 +6,6 @@ import Heading from '@/ui/heading/Heading'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './Auth.module.scss'
-import AuthFields from './AuthFields'
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
 
