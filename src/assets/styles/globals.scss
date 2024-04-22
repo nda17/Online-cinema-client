@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './react-select.scss';
 @import 'react-redux-toastr/src/styles/index';
 
 @layer base {
