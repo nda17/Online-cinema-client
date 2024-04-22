@@ -5,9 +5,11 @@ import { IParamsUrl } from '@/shared/types/params-url.types'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Button from '@/ui/form-elements/Button'
 import Field from '@/ui/form-elements/Field'
+import SlugField from '@/ui/form-elements/SlugField/SlugField'
 import UploadField from '@/ui/form-elements/UploadField/UploadField'
 import Heading from '@/ui/heading/Heading'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import generateSlug from '@/utils/string/generateSlug'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -54,6 +56,14 @@ const MovieEdit: FC<IParamsUrl> = ({ params }) => {
 								error={errors.title}
 							/>
 
+							<SlugField
+								generate={() =>
+									setValue('slug', generateSlug(getValues('title')))
+								}
+								register={register}
+								error={errors.slug}
+							/>
+
 							<Field
 								{...register('parameters.country', {
 									required: 'Country is required!'
@@ -76,6 +86,14 @@ const MovieEdit: FC<IParamsUrl> = ({ params }) => {
 								})}
 								placeholder="Year"
 								error={errors.parameters?.year}
+							/>
+
+							<Field
+								{...register('rating', {
+									required: 'Rating is required!'
+								})}
+								placeholder="rating"
+								error={errors.rating}
 							/>
 
 							<Controller
