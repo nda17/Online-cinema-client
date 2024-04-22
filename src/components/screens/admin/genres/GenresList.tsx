@@ -1,8 +1,8 @@
 'use client'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
-
-import AdminTable from '@/components/ui/admin-table/AdminTable/AdminTable'
+import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
 import { FC } from 'react'
@@ -26,7 +26,7 @@ const GenresList: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<div className={'wrapper'}>
+			<div className={adminWrapper.wrapper}>
 				<Heading title="A list of genres" />
 				<AdminHeader
 					handleSearch={handleSearch}

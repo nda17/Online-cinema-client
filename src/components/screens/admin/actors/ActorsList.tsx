@@ -1,4 +1,5 @@
 'use client'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
 import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
@@ -25,7 +26,7 @@ const ActorsList: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<div className={'wrapper'}>
+			<div className={adminWrapper.wrapper}>
 				<Heading title="A list of actors" />
 				<AdminHeader
 					handleSearch={handleSearch}

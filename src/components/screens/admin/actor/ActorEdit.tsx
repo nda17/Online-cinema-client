@@ -1,5 +1,6 @@
 'use client'
-import formStyles from '@/components/shared/admin/adminForm.module.scss'
+import adminForm from '@/components/shared/admin/adminForm.module.scss'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
 import { IParamsUrl } from '@/shared/types/params-url.types'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Button from '@/ui/form-elements/Button'
@@ -31,12 +32,9 @@ const ActorEdit: FC<IParamsUrl> = ({ params }) => {
 	return (
 		<>
 			<AdminNavigation />
-			<div className={'wrapper'}>
+			<div className={adminWrapper.wrapper}>
 				<Heading title="Edit actor" />
-				<form
-					onSubmit={handleSubmit(onSubmit)}
-					className={formStyles.form}
-				>
+				<form onSubmit={handleSubmit(onSubmit)} className={adminForm.form}>
 					{isLoading ? (
 						<SkeletonLoader count={3} />
 					) : (

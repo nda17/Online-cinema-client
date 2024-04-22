@@ -1,8 +1,8 @@
 'use client'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
-
-import AdminTable from '@/components/ui/admin-table/AdminTable/AdminTable'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
+import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
 import { FC } from 'react'
@@ -25,7 +25,7 @@ const UsersList: FC = () => {
 	return (
 		<>
 			<AdminNavigation />
-			<div className={'wrapper'}>
+			<div className={adminWrapper.wrapper}>
 				<Heading title="A list of users" />
 				<AdminHeader
 					handleSearch={handleSearch}

@@ -1,4 +1,6 @@
 'use client'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
+import AuthFields from '@/screens/auth/AuthFields'
 import { IParamsUrl } from '@/shared/types/params-url.types'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Button from '@/ui/form-elements/Button'
@@ -6,7 +8,6 @@ import Heading from '@/ui/heading/Heading'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import AuthFields from '../../auth/AuthFields'
 import { useUserEdit } from '../user/useUserEdit'
 import { IUserEditInput } from './user-edit.interface'
 
@@ -21,9 +22,9 @@ const UserEdit: FC<IParamsUrl> = ({ params }) => {
 	return (
 		<>
 			<AdminNavigation />
-			<div className={'wrapper'}>
+			<div className={adminWrapper.wrapper}>
 				<Heading title="Edit user" />
-				<form onSubmit={handleSubmit(onSubmit)} className="admin-form">
+				<form onSubmit={handleSubmit(onSubmit)}>
 					{isLoading ? (
 						<SkeletonLoader count={3} />
 					) : (
