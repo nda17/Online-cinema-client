@@ -24,13 +24,15 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 					pathname.includes(`${item.link}/genre/edit`)
 			})}
 		>
-			<span className={styles.item}>
-				<MaterialIcon name={item.icon} />
-				<Link href={item.link} className={styles.link}>
-					{item.title}
-				</Link>
+			<div className={styles.wrapper}>
+				<span className={styles.item}>
+					<MaterialIcon name={item.icon} />
+					<Link href={item.link} className={styles.link}>
+						{item.title}
+					</Link>
+				</span>
 				<span className={styles.border}>|</span>
-			</span>
+			</div>
 		</li>
 	)
 }

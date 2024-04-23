@@ -13,6 +13,7 @@ import generateSlug from '@/utils/string/generateSlug'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import styles from './MovieEdit.module.scss'
 import { IMovieEditInput } from './movie-edit.interface'
 import { useAdminActors } from './useAdminActors'
 import { useAdminGenres } from './useAdminGenres'
@@ -45,7 +46,9 @@ const MovieEdit: FC<IParamsUrl> = ({ params }) => {
 				<Heading title="Edit movie" />
 				<form onSubmit={handleSubmit(onSubmit)} className={adminForm.form}>
 					{isLoading ? (
-						<SkeletonLoader count={5} />
+						<div className="mb-8">
+							<SkeletonLoader count={8} className="h-8 mb-4" />
+						</div>
 					) : (
 						<>
 							<Field
@@ -132,69 +135,75 @@ const MovieEdit: FC<IParamsUrl> = ({ params }) => {
 								)}
 							/>
 
-							<Controller
-								control={control}
-								name="poster"
-								defaultValue=""
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<UploadField
-										onChange={onChange}
-										image={value}
-										error={error}
-										folder="movies"
-										placeholder="Poster"
-									/>
-								)}
-								rules={{
-									required: 'Poster is required!'
-								}}
-							/>
+							<div className={styles.controller}>
+								<Controller
+									control={control}
+									name="poster"
+									defaultValue=""
+									render={({
+										field: { value, onChange },
+										fieldState: { error }
+									}) => (
+										<UploadField
+											onChange={onChange}
+											image={value}
+											error={error}
+											folder="movies"
+											placeholder="Poster"
+										/>
+									)}
+									rules={{
+										required: 'Poster is required!'
+									}}
+								/>
+							</div>
 
-							<Controller
-								control={control}
-								name="bigPoster"
-								defaultValue=""
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<UploadField
-										onChange={onChange}
-										image={value}
-										error={error}
-										folder="movies"
-										placeholder="Big poster"
-									/>
-								)}
-								rules={{
-									required: 'Big poster is required!'
-								}}
-							/>
+							<div className={styles.controller}>
+								<Controller
+									control={control}
+									name="bigPoster"
+									defaultValue=""
+									render={({
+										field: { value, onChange },
+										fieldState: { error }
+									}) => (
+										<UploadField
+											onChange={onChange}
+											image={value}
+											error={error}
+											folder="movies"
+											placeholder="Big poster"
+										/>
+									)}
+									rules={{
+										required: 'Big poster is required!'
+									}}
+								/>
+							</div>
 
-							<Controller
-								control={control}
-								name="videoUrl"
-								defaultValue=""
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<UploadField
-										onChange={onChange}
-										image={value}
-										error={error}
-										folder="movies"
-										placeholder="Video"
-										isNoImage
-									/>
-								)}
-								rules={{
-									required: 'Poster is required!'
-								}}
-							/>
+							<div className={styles.controller}>
+								<Controller
+									control={control}
+									name="videoUrl"
+									defaultValue=""
+									render={({
+										field: { value, onChange },
+										fieldState: { error }
+									}) => (
+										<UploadField
+											onChange={onChange}
+											image={value}
+											error={error}
+											folder="movies"
+											placeholder="Video"
+											isNoImage
+										/>
+									)}
+									rules={{
+										required: 'Poster is required!'
+									}}
+								/>
+							</div>
 
 							<Button>Update</Button>
 						</>

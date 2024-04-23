@@ -5,6 +5,14 @@
 		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
 	}
 
+	.wrapper {
+		@apply transition-all duration-200 flex justify-between;
+
+		&:hover {
+			@apply pl-3;
+		}
+	}
+
 	> ul {
 		> li {
 			@apply mb-6 transition-colors;
@@ -24,10 +32,10 @@
 				.link {
 					@apply text xl:text-lg hover:text-white;
 				}
+			}
 
-				.border {
-					@apply cursor-default absolute text-transparent right-0 transition-colors border-r-4 border-r-transparent border-solid;
-				}
+			.border {
+				@apply cursor-default absolute text-transparent right-0 transition-colors border-r-4 border-r-transparent border-solid;
 			}
 
 			&.active {

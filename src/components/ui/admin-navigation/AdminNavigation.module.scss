@@ -1,5 +1,5 @@
 .nav {
-	@apply air-block rounded-t-none md:rounded-t-[.8rem] mx-auto mb-[1.8rem] md:mb-10 shadow-black;
+	@apply w-full lg:w-[95%] xl:w-[88%] xxl:w-[85%] air-block rounded-t-none md:rounded-t-[.8rem] mx-auto mb-[1.8rem] md:mb-10 shadow-black;
 
 	> ul {
 		@apply h-20 flex justify-evenly items-center;
@@ -8,7 +8,7 @@
 			@apply inline-block;
 
 			> a {
-				@apply block sm:px-1 md:px-3 lg:px-5 sm:py-3 md:py-3 lg:py-4 text-lg transition-colors relative text-white text-opacity-60 hover:text-opacity-100;
+				@apply block sm:px-1 md:px-3 lg:px-5 sm:py-3 md:py-3 lg:py-4 transition-colors relative text-white text-opacity-60 hover:text-opacity-100;
 
 				> span {
 					&::before {

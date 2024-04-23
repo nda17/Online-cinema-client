@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { stripHtml } from 'string-strip-html'
+import styles from './GenreEdit.module.scss'
 import { IGenreEditInput } from './genre-edit.interface'
 import { useGenreEdit } from './useGenreEdit'
 
@@ -44,7 +45,9 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 				<Heading title="Edit genre" />
 				<form onSubmit={handleSubmit(onSubmit)} className={adminForm.form}>
 					{isLoading ? (
-						<SkeletonLoader count={3} />
+						<div className="mb-8">
+							<SkeletonLoader count={3} className="h-8 mb-4" />
+						</div>
 					) : (
 						<>
 							<Field
@@ -70,30 +73,31 @@ const GenreEdit: FC<IParamsUrl> = ({ params }) => {
 								placeholder="Icon"
 								error={errors.icon}
 							/>
-
-							<Controller
-								name="description"
-								control={control}
-								defaultValue=""
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<DynamicTextEditor
-										placeholder="Description"
-										onChange={onChange}
-										error={error}
-										value={value}
-									/>
-								)}
-								rules={{
-									validate: {
-										required: (value) =>
-											(value && stripHtml(value).result.length > 0) ||
-											'Description is required!'
-									}
-								}}
-							/>
+							<div className={styles.controller}>
+								<Controller
+									name="description"
+									control={control}
+									defaultValue=""
+									render={({
+										field: { value, onChange },
+										fieldState: { error }
+									}) => (
+										<DynamicTextEditor
+											placeholder="Description"
+											onChange={onChange}
+											error={error}
+											value={value}
+										/>
+									)}
+									rules={{
+										validate: {
+											required: (value) =>
+												(value && stripHtml(value).result.length > 0) ||
+												'Description is required!'
+										}
+									}}
+								/>
+							</div>
 
 							<Button>Update</Button>
 						</>

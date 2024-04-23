@@ -16,10 +16,12 @@ const LogoutButton: FC = () => {
 
 	return (
 		<li>
-			<span onClick={logoutHandler} className={styles.item}>
-				<MaterialIcon name="MdLogout" />
-				<span className={styles.link}>Logout</span>
-			</span>
+			<div className={styles.wrapper}>
+				<span onClick={logoutHandler} className={styles.item}>
+					<MaterialIcon name="MdLogout" />
+					<span className={styles.link}>Logout</span>
+				</span>
+			</div>
 		</li>
 	)
 }

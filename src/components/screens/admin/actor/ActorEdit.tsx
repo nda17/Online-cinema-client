@@ -12,6 +12,7 @@ import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 import generateSlug from '@/utils/string/generateSlug'
 import { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import styles from './ActorEdit.module.scss'
 import { IActorEditInput } from './actor-edit.interface'
 import { useActorEdit } from './useActorEdit'
 
@@ -36,7 +37,9 @@ const ActorEdit: FC<IParamsUrl> = ({ params }) => {
 				<Heading title="Edit actor" />
 				<form onSubmit={handleSubmit(onSubmit)} className={adminForm.form}>
 					{isLoading ? (
-						<SkeletonLoader count={3} />
+						<div className="mb-8">
+							<SkeletonLoader count={3} className="h-8 mb-4" />
+						</div>
 					) : (
 						<>
 							<Field
@@ -55,26 +58,28 @@ const ActorEdit: FC<IParamsUrl> = ({ params }) => {
 								}}
 							/>
 
-							<Controller
-								control={control}
-								name="photo"
-								defaultValue=""
-								render={({
-									field: { value, onChange },
-									fieldState: { error }
-								}) => (
-									<UploadField
-										onChange={onChange}
-										image={value}
-										error={error}
-										folder="actors"
-										placeholder="Photo"
-									/>
-								)}
-								rules={{
-									required: 'Photo is required!'
-								}}
-							/>
+							<div className={styles.controller}>
+								<Controller
+									control={control}
+									name="photo"
+									defaultValue=""
+									render={({
+										field: { value, onChange },
+										fieldState: { error }
+									}) => (
+										<UploadField
+											onChange={onChange}
+											image={value}
+											error={error}
+											folder="actors"
+											placeholder="Photo"
+										/>
+									)}
+									rules={{
+										required: 'Photo is required!'
+									}}
+								/>
+							</div>
 
 							<Button>Update</Button>
 						</>

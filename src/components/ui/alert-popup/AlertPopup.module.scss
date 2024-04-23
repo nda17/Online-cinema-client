@@ -1,5 +1,5 @@
 .alert {
-	@apply min-w-72 sm:w-96 md:w-[70%] xl:w-[55%] absolute top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%] ;
+	@apply min-w-72 sm:w-96 md:w-[70%] xl:w-[55%] fixed top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%] ;
 
 	> div {
 		@apply mx-auto air-block bg-opacity-80 p-7 md:py-[15vh] text-center shadow-black;
