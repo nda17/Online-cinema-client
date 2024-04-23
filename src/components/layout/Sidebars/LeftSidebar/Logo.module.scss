@@ -14,6 +14,10 @@
 			> span {
 				@apply font-[600] text-darkYellow;
 			}
+
+			&:last-child {
+				@apply pl-4;
+			}
 		}
 	}
 }
