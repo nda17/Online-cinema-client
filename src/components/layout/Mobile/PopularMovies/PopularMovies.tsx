@@ -1,7 +1,7 @@
 import { MovieService } from '@/services/movie/movie.service'
 import { FC } from 'react'
 import { useQuery } from 'react-query'
-import MovieList from '../MovieList'
+import MovieList from './MovieList'
 
 const PopularMovies: FC = () => {
 	const { data } = useQuery(
