@@ -2,7 +2,7 @@ import { ILayout } from '@/components/layout/layout.interface'
 import ProgressBarLoader from '@/ui/progress-bar-loader/ProgressBarLoader'
 import { FC } from 'react'
 import styles from './Layout.module.scss'
-import MobileNavbar from './MobileNavbar/MobileNavbar'
+import MobileNavbar from './Mobile/MobileNavbar/MobileNavbar'
 import LeftSidebar from './Sidebars/LeftSidebar/LeftSidebar'
 import RightSidebar from './Sidebars/RightSidebar/RightSidebar'
 
