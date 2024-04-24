@@ -1,5 +1,6 @@
 'use client'
-import { setVisibleExtra } from '@/store/extra-menu/extra-menu.slice'
+
+import { setVisibleFavorites } from '@/store/favorites-menu/favorites-menu.slice'
 import { setVisibleHamburger } from '@/store/hamburger/hamburger.slice'
 import { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,7 +8,9 @@ import MaterialIcon from '../icons/MaterialIcon'
 import styles from './Hamburger.module.scss'
 
 const Hamburger: FC = () => {
-	const visibleExtra = useSelector((state: any) => state.extraMenu.visible)
+	const visibleFavorites = useSelector(
+		(state: any) => state.favoritesMenu.visible
+	)
 	const visibleHamburger = useSelector(
 		(state: any) => state.hamburger.visible
 	)
@@ -21,8 +24,8 @@ const Hamburger: FC = () => {
 		<div
 			className={styles.hamburger}
 			onClick={() => {
-				if (visibleExtra) {
-					dispatch(setVisibleExtra(!visibleExtra))
+				if (visibleFavorites) {
+					dispatch(setVisibleFavorites(!visibleFavorites))
 				}
 				changeMenu()
 			}}

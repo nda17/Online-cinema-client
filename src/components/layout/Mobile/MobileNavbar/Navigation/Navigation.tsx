@@ -1,5 +1,5 @@
 'use client'
-import ExtraMenu from '@/ui/extra-menu/ExtraMenu'
+import FavoritesMenu from '@/ui/favorites-menu/FavoritesMenu'
 import Hamburger from '@/ui/hamburger/Hamburger'
 import { FC } from 'react'
 import Logo from './Logo/Logo'
@@ -14,7 +14,7 @@ const Navigation: FC = () => {
 				<Logo />
 				<SearchContainer />
 			</div>
-			<ExtraMenu />
+			<FavoritesMenu />
 		</header>
 	)
 }

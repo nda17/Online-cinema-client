@@ -1,7 +1,7 @@
 'use client'
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
-import ExtraMenuContainer from './ExtraMenuContainer/ExtraMenuContainer'
+import FavoritesMenuContainer from './FavoritesMenuContainer/FavoritesMenuContainer'
 import MenuContainer from './MenuContainer/MenuContainer'
 import styles from './MobileNavbar.module.scss'
 import Navigation from './Navigation/Navigation'
@@ -10,7 +10,9 @@ const MobileNavbar: FC = () => {
 	const visibleHamburger = useSelector(
 		(state: any) => state.hamburger.visible
 	)
-	const visibleExtra = useSelector((state: any) => state.extraMenu.visible)
+	const visibleFavorites = useSelector(
+		(state: any) => state.favoritesMenu.visible
+	)
 
 	return (
 		<section>
@@ -21,9 +23,9 @@ const MobileNavbar: FC = () => {
 				</div>
 			)}
 
-			{visibleExtra && (
+			{visibleFavorites && (
 				<div className={styles.menu}>
-					<ExtraMenuContainer />
+					<FavoritesMenuContainer />
 				</div>
 			)}
 		</section>

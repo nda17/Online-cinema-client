@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import { FC } from 'react'
-import styles from './ExtraMenu.module.scss'
+import styles from './FavoritesMenu.module.scss'
 import MoviesContainer from './MoviesContainer/MoviesContainer'
 
-const ExtraMenuContainer: FC = () => {
+const FavoritesMenuContainer: FC = () => {
 	return (
 		<section className={classNames('wrapper', styles.menu)}>
 			<MoviesContainer />
@@ -11,4 +11,4 @@ const ExtraMenuContainer: FC = () => {
 	)
 }
 
-export default ExtraMenuContainer
+export default FavoritesMenuContainer
