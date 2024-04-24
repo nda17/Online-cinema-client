@@ -18,7 +18,7 @@
 		@apply lg:ml-4 md:w-28 lg:w-20 xl:w-[6.4rem] xxl:w-[9.4rem] flex flex-col;
 
 		.title {
-			@apply text-white cursor-pointer font-medium truncate transition-colors;
+			@apply text-white cursor-default font-medium truncate transition-colors;
 
 			&:hover {
 				@apply text-gray-600;
