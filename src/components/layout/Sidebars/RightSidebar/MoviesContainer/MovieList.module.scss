@@ -2,7 +2,7 @@
 	@apply animate-fadeIn mb-11;
 
 	.heading {
-		@apply lg:text-xl font-bold mb-5 text-white capitalize;
+		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
 	}
 
 	.button {

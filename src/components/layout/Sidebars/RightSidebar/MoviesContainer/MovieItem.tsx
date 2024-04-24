@@ -1,13 +1,20 @@
-import MaterialIcon from '@/components/ui/icons/MaterialIcon'
 import { PUBLIC_URL } from '@/configs/url.config'
 import { IMovie } from '@/shared/types/movie.types'
+import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { getGenresListEach } from '@/utils/movie/getGenresList'
+import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import styles from './MovieItem.module.scss'
 
 const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
+	const [activeItem, setActiveItem] = useState(null)
+
+	const handleClick = (id: any) => {
+		setActiveItem(id)
+	}
+
 	return (
 		<div className={styles.movie}>
 			<Link href={PUBLIC_URL.moviesUrl(movie.slug)}>
@@ -23,7 +30,14 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 			</Link>
 
 			<div className={styles.info}>
-				<div className={styles.title}>{movie.title}</div>
+				<span
+					onClick={() => handleClick(movie._id)}
+					className={classNames(styles.title, {
+						[styles.active]: activeItem === movie._id
+					})}
+				>
+					{movie.title}
+				</span>
 				<div className={styles.genre}>
 					{movie.genres.map((genre, index) => (
 						<Link href={PUBLIC_URL.genresUrl(genre.slug)} key={genre._id}>

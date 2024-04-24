@@ -1,5 +1,5 @@
 .movie {
-	@apply mb-4 flex md:flex-col md:items-center lg:flex-row items-stretch;
+	@apply mb-4 flex md:flex-col md:items-center lg:items-start lg:flex-row;
 
 	> a {
 		img {
@@ -15,19 +15,30 @@
 	}
 
 	.info {
-		@apply lg:ml-4 flex flex-col justify-between;
-		width: 67%;
+		@apply lg:ml-4 md:w-28 lg:w-20 xl:w-[6.4rem] xxl:w-[9.4rem] flex flex-col;
 
 		.title {
-			@apply text-white text-lg font-medium truncate;
+			@apply text-white cursor-pointer font-medium truncate transition-colors;
+
+			&:hover {
+				@apply text-gray-600;
+			}
+		}
+
+		.active {
+			@apply whitespace-normal;
 		}
 
 		.genre {
-			@apply text-gray-600 text-sm;
+			@apply text-gray-600 text-sm transition-colors;
+
+			&:hover {
+				@apply text-white;
+			}
 		}
 
 		.rating {
-			@apply flex items-center mb-2;
+			@apply flex cursor-default items-center mb-2;
 
 			> svg {
 				@apply fill-yellow-700 mr-2 text-lg;
