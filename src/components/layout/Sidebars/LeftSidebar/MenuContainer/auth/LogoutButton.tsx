@@ -6,12 +6,12 @@ import styles from '../Menu.module.scss'
 
 const LogoutButton: FC = () => {
 	const { logout } = useActions()
-	const { push } = useRouter()
+	const { replace } = useRouter()
 
 	const logoutHandler = (e: MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault()
 		logout()
-		push('/auth')
+		replace('/auth')
 	}
 
 	return (

@@ -9,7 +9,7 @@ export const useAuthRedirect = () => {
 	const refreshToken = Cookies.get(EnumTokens.REFRESH_TOKEN)
 
 	const { user } = useAuth()
-	const { push } = useRouter()
+	const { replace } = useRouter()
 
 	const redirect = sessionStorage.getItem('pathname')
 		? String(sessionStorage.getItem('pathname'))
@@ -17,7 +17,7 @@ export const useAuthRedirect = () => {
 
 	useEffect(() => {
 		if (user && accessToken && refreshToken) {
-			push(redirect)
+			replace(redirect)
 		}
-	}, [user, accessToken, refreshToken, redirect, push])
+	}, [user, accessToken, refreshToken, redirect, replace])
 }
