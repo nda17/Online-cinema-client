@@ -1,7 +1,7 @@
 'use client'
+import AuthFields from '@/components/shared/AuthFields/AuthFields'
 import adminForm from '@/components/shared/admin/adminForm.module.scss'
 import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
-import AuthFields from '@/components/shared/user/AuthFields/AuthFields'
 import { IParamsUrl } from '@/shared/types/params-url.types'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Button from '@/ui/form-elements/Button'

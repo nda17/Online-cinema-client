@@ -1,4 +1,4 @@
-import AuthFields from '@/components/shared/user/AuthFields/AuthFields'
+import AuthFields from '@/components/shared/AuthFields/AuthFields'
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import Button from '@/ui/form-elements/Button'
