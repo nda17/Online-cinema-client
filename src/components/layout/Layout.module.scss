@@ -11,6 +11,6 @@
 	}
 
 	.main {
-		@apply relative md:pt-8 md:container md:m-0 min-h-screen overflow-y-auto;
+		@apply relative md:pt-8 md:container md:m-0 min-h-screen overflow-x-auto;
 	}
 }
