@@ -1,0 +1,58 @@
+@import '@/assets/styles/_variables';
+
+.gallery {
+	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-60 lg:h-72;
+	-webkit-overflow-scrolling: touch;
+
+	&:last-child {
+		@apply mb-0;
+	}
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> a {
+		@apply mr-4;
+	}
+
+	> a:last-child {
+		@apply mr-0;
+	}
+}
+
+.item {
+	@apply relative transition-transform flex items-end shadow-lg rounded-layout overflow-hidden;
+	flex: 0 0 auto;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+
+	&.horizontal {
+		@apply w-[7.063rem] sm:w-[9.063rem] lg:w-[11rem] h-[10rem] sm:h-[14rem] lg:h-[17rem];
+	}
+
+	&.withText {
+		@include fade-bg-gradient(0deg);
+		&::before {
+			@apply rounded-layout;
+		}
+	}
+
+	img {
+		@apply image-like-bg;
+	}
+
+	.content {
+		@apply relative z-2 text-center m-3 w-full;
+
+		.title {
+			@apply font-semibold mb-1 text-white text-shadow;
+		}
+
+		.subTitle {
+			@apply text-gray-500 text-shadow;
+		}
+	}
+}
