@@ -49,7 +49,7 @@ export const staticContent = async () => {
 			(movie: any) => ({
 				name: movie.title,
 				posterPath: movie.poster,
-				url: `${PUBLIC_URL.moviesUrl(movie.slug)}`
+				url: PUBLIC_URL.moviesUrl(movie.slug)
 			})
 		)
 
@@ -68,7 +68,7 @@ export const staticContent = async () => {
 			.map((actor: any) => ({
 				name: actor.name,
 				posterPath: actor.photo,
-				url: `${PUBLIC_URL.actorsUrl(actor.slug)}`,
+				url: PUBLIC_URL.actorsUrl(actor.slug),
 				content: {
 					title: actor.name,
 					subTitle: `+${actor.countMovies} movies`
