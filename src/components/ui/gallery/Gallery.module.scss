@@ -29,9 +29,13 @@
 		transform: translateY(-5px);
 	}
 
-	&.horizontal {
+	&.vertical {
 		@apply w-[7.063rem] sm:w-[9.063rem] lg:w-[11rem] h-[10rem] sm:h-[14rem] lg:h-[17rem];
 	}
+
+	/* &.horizontal {
+		@apply ;
+	} */
 
 	&.withText {
 		@include fade-bg-gradient(0deg);
