@@ -28,7 +28,7 @@ export const staticContent = async () => {
 		const slides: ISlide[] = getRandomItem(dataMovies, 3).map(
 			(movie: any) => ({
 				_id: movie._id,
-				link: PUBLIC_URL.moviesUrl(movie.slug),
+				url: PUBLIC_URL.moviesUrl(movie.slug),
 				subTitle: getGenresList(movie.genres),
 				title: movie.title,
 				bigPoster: movie.bigPoster
