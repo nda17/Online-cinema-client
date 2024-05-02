@@ -1,7 +1,7 @@
 'use client'
+import { AdminService } from '@/services/admin/admin.service'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 import SubHeading from '@/ui/subheading/SubHeading'
-import { AdminService } from '@/services/admin/admin.service'
 import classNames from 'classnames'
 import { FC } from 'react'
 import { useQuery } from 'react-query'
