@@ -1,7 +1,7 @@
 @import '@/assets/styles/_variables';
 
 .gallery {
-	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-60 lg:h-72;
+	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 lg:h-72;
 	-webkit-overflow-scrolling: touch;
 
 	&:last-child {
