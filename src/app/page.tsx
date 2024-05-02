@@ -1,9 +1,9 @@
-import { IGalleryItem } from '@/components/ui/gallery/gallery.interface'
-import { ISlide } from '@/components/ui/slider/slider.interface'
 import { API_URL } from '@/configs/api.config'
 import { PUBLIC_URL } from '@/configs/url.config'
 import Home from '@/screens/home/Home'
 import { IHome } from '@/screens/home/home.interface'
+import { IActor, IMovie } from '@/shared/types/movie.types'
+import { ISlide } from '@/ui/slider/slider.interface'
 import { getGenresList } from '@/utils/movie/getGenresList'
 import { getRandomItem } from '@/utils/object/getRandomItem'
 import { errorCatch } from 'api/api.helpers'
@@ -43,13 +43,11 @@ export const staticContent = async () => {
 			.then((response) => response.json())
 			.then((data) => data)
 
-		const trendingMovies = dataTrendingMovies.map(
-			(movie: IGalleryItem) => ({
-				name: movie.title,
-				posterPath: movie.poster,
-				url: PUBLIC_URL.moviesUrl(movie.slug)
-			})
-		)
+		const trendingMovies = dataTrendingMovies.map((movie: IMovie) => ({
+			name: movie.title,
+			posterPath: movie.poster,
+			url: PUBLIC_URL.moviesUrl(movie.slug)
+		}))
 
 		//Actors gallery fetch
 		const dataActors = await fetch(
@@ -61,7 +59,7 @@ export const staticContent = async () => {
 			.then((response) => response.json())
 			.then((data) => data)
 
-		const actors = dataActors.slice(0, 8).map((actor: IGalleryItem) => ({
+		const actors = dataActors.slice(0, 8).map((actor: IActor) => ({
 			name: actor.name,
 			posterPath: actor.photo,
 			url: PUBLIC_URL.actorsUrl(actor.slug),
