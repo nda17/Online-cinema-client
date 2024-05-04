@@ -1,0 +1,31 @@
+.movies {
+	@apply flex flex-wrap justify-center pt-8;
+
+	> a {
+		@apply mb-8 sm:mr-8 md:mr-0 lg:mr-8;
+
+		> div {
+			@apply w-full h-40 shadow-black;
+		}
+
+		> div:nth-child(3n) {
+			@apply mr-0;
+		}
+	}
+
+	> a:last-child {
+		@apply mb-0;
+	}
+
+	> a:nth-last-child(2) {
+		@apply sm:mb-0 md:mb-8 lg:mb-0;
+	}
+
+	> a:nth-child(2n) {
+		@apply sm:mr-0 md:mr-0;
+	}
+}
+
+.button {
+	@apply btn-primary py-2 px-10;
+}
