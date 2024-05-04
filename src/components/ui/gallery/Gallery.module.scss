@@ -33,9 +33,9 @@
 		@apply w-[7.063rem] sm:w-[9.063rem] lg:w-[11rem] h-[10rem] sm:h-[14rem] lg:h-[17rem];
 	}
 
-	/* &.horizontal {
-		@apply ;
-	} */
+	&.horizontal {
+		@apply w-full sm:w-[46%] md:w-full lg:w-[46%];
+	}
 
 	&.withText {
 		@include fade-bg-gradient(0deg);
@@ -49,7 +49,7 @@
 	}
 
 	.content {
-		@apply relative z-2 text-center m-3 w-full;
+		@apply relative z-2 text-left m-3;
 
 		.title {
 			@apply font-semibold mb-1 text-white text-shadow;

@@ -7,14 +7,15 @@ import { IGalleryItemProps } from './gallery-item.interface'
 
 const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 	return (
-		<Link href={item.url}>
-			<div
-				className={classNames(styles.item, {
-					[styles.withText]: item.content,
-					[styles.horizontal]: variant === 'horizontal',
-					[styles.vertical]: variant === 'vertical'
-				})}
-			>
+		<Link
+			href={item.url}
+			className={classNames(styles.item, {
+				[styles.withText]: item.content,
+				[styles.horizontal]: variant === 'horizontal',
+				[styles.vertical]: variant === 'vertical'
+			})}
+		>
+			<div>
 				<Image
 					fill
 					sizes="auto"
