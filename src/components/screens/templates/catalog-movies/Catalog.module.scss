@@ -5,7 +5,7 @@
 		@apply mb-8 sm:mr-8 md:mr-0 lg:mr-8;
 
 		> div {
-			@apply w-full h-40 shadow-black;
+			@apply relative w-full h-40 shadow-black;
 		}
 
 		> div:nth-child(3n) {
