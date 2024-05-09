@@ -1,0 +1,11 @@
+.form {
+	@apply flex flex-col;
+
+	input {
+		@apply px-3;
+	}
+
+	> button {
+		@apply m-auto;
+	}
+}
