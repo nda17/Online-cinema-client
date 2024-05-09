@@ -1,7 +1,7 @@
 @import '@/assets/styles/_variables';
 
 .gallery {
-	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 lg:h-72;
+	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 md:h-[15.4rem] lg:h-72 md:pb-2 md:box-content;
 	-webkit-overflow-scrolling: touch;
 
 	&:last-child {
@@ -9,7 +9,19 @@
 	}
 
 	&::-webkit-scrollbar {
-		display: none;
+		@apply md:block md:w-full md:h-[.55rem];
+	}
+
+	&::-webkit-scrollbar-track {
+		@apply md:bg-gray-600 md:rounded-lg;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		@apply md:bg-gray-700 md:rounded-lg;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		@apply md:bg-gray-600 md:cursor-pointer;
 	}
 
 	> a {
@@ -34,7 +46,7 @@
 	}
 
 	&.horizontal {
-		@apply w-full sm:w-[46%] md:w-full lg:w-[46%];
+		@apply w-full;
 	}
 
 	&.withText {
