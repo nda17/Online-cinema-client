@@ -1,5 +1,5 @@
 import Error404 from '@/app/not-found'
-import Genre from '@/components/screens/genres/Genre'
+import Genre from '@/screens/genres/Genre'
 import { GenreService } from '@/services/genre/genre.service'
 import { MovieService } from '@/services/movie/movie.service'
 import { errorCatch } from 'api/api.helpers'
