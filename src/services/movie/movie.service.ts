@@ -23,6 +23,19 @@ export const MovieService = {
 		return movies
 	},
 
+	async getByGenres(genreIds: string[]) {
+		return axiosClassicRequest.post<IMovie[]>(
+			PUBLIC_PATH.moviesUrl('/by-genres'),
+			{ genreIds }
+		)
+	},
+
+	async getByActor(actorId: string) {
+		return axiosClassicRequest.get<IMovie[]>(
+			PUBLIC_PATH.moviesUrl(`/by-actor${actorId}`)
+		)
+	},
+
 	async getMovieById(_id: string) {
 		return axiosInterceptorsRequest.get<IMovieEditInput>(
 			PUBLIC_PATH.moviesUrl(`/${_id}`)
