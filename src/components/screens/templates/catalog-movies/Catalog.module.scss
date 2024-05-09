@@ -1,28 +1,20 @@
 .movies {
-	@apply flex flex-wrap justify-center pt-8;
+	@apply pt-8 grid grid-cols-1 sm:grid-cols-3 sm:gap-4;
 
 	> a {
-		@apply mb-8 sm:mr-8 md:mr-0 lg:mr-8;
+		@apply mb-8;
 
 		> div {
-			@apply relative w-full h-40 shadow-black;
+			@apply h-40 shadow-black;
 		}
 
-		> div:nth-child(3n) {
-			@apply mr-0;
+		&:last-child {
+			@apply mb-0;
 		}
-	}
 
-	> a:last-child {
-		@apply mb-0;
-	}
-
-	> a:nth-last-child(2) {
-		@apply sm:mb-0 md:mb-8 lg:mb-0;
-	}
-
-	> a:nth-child(2n) {
-		@apply sm:mr-0 md:mr-0;
+		&:nth-last-child(-n + 3) {
+			@apply sm:mb-0;
+		}
 	}
 }
 

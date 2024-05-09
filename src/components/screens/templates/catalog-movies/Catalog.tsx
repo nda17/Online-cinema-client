@@ -10,7 +10,7 @@ import { ICatalog } from './catalog.interface'
 
 const Catalog: FC<ICatalog> = ({ title, description, movies }) => {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая страница
-	const itemQuantity = 8 //Количество элементов в одной группе
+	const itemQuantity = 9 //Количество элементов в одной группе
 
 	const lastCardIndex = currentPage * itemQuantity //Индекс последнего элемента
 	const firstCardIndex = lastCardIndex - itemQuantity //Индекс первого элемента
