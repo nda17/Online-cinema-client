@@ -1,9 +1,9 @@
 import styles from '@/components/shared/contentWrapper.module.scss'
 import { FC } from 'react'
 import Catalog from '../templates/catalog-movies/Catalog'
-import { IGenres } from './genre.interface'
+import { IGenrePage } from './genre.interface'
 
-const Genre: FC<IGenres> = ({ genre, movies }) => {
+const Genre: FC<IGenrePage> = ({ genre, movies }) => {
 	return (
 		<div className={styles.contentWrapper}>
 			<Catalog
