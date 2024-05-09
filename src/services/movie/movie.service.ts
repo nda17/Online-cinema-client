@@ -32,7 +32,7 @@ export const MovieService = {
 
 	async getByActor(actorId: string) {
 		return axiosClassicRequest.get<IMovie[]>(
-			PUBLIC_PATH.moviesUrl(`/by-actor${actorId}`)
+			PUBLIC_PATH.moviesUrl(`/by-actor/${actorId}`)
 		)
 	},
 
