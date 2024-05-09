@@ -1,0 +1,7 @@
+.form {
+	@apply w-1/2 pt-12;
+
+	> button {
+		@apply pt-5;
+	}
+}
