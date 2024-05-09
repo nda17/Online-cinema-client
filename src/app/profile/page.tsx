@@ -1,3 +1,4 @@
+import Profile from '@/screens/profile/Profile'
 import { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
 }
 
 const ProfilePage: NextPage = () => {
-	return <div>Profile page</div>
+	return <Profile />
 }
 
 export default ProfilePage
