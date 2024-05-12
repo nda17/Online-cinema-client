@@ -5,14 +5,14 @@
 		@apply mb-8;
 
 		> div {
-			@apply h-40 shadow-black;
+			@apply h-40;
 		}
 
 		&:last-child {
 			@apply mb-0;
 		}
 
-		&:nth-last-child(-n + 2) {
+		&:nth-last-child(-n + 3) {
 			@apply sm:mb-0;
 		}
 	}

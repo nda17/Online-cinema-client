@@ -46,7 +46,7 @@
 	}
 
 	&.horizontal {
-		@apply w-full;
+		@apply w-full h-[11.5rem];
 	}
 
 	&.withText {
@@ -61,7 +61,7 @@
 	}
 
 	.content {
-		@apply relative z-2 text-left m-3;
+		@apply w-full z-2 p-3;
 
 		.title {
 			@apply font-semibold mb-1 text-white text-shadow;
