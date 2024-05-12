@@ -1,4 +1,5 @@
-import Heading from '@/components/ui/heading/Heading'
+import styles from '@/components/shared/contentWrapper.module.scss'
+import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,7 +9,11 @@ export const metadata: Metadata = {
 }
 
 const Error404 = () => {
-	return <Heading title="404 - Page Not Found" />
+	return (
+		<div className={styles.contentWrapper}>
+			<Heading title="404 - Page Not Found" />
+		</div>
+	)
 }
 
 export default Error404
