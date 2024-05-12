@@ -1,0 +1,14 @@
+.list {
+	@apply flex items-center mb-1 text-[.9rem] sm:text-[1rem];
+
+	> .name {
+		@apply mr-2 text-white text-opacity-60;
+	}
+
+	> .links {
+		@apply text-white text-opacity-90;
+		> a {
+			@apply text-link;
+		}
+	}
+}
