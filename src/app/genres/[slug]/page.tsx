@@ -5,8 +5,18 @@ import { MovieService } from '@/services/movie/movie.service'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 
-export const metadata: Metadata = {
-	title: 'Genres | Online-Cinema'
+export const generateMetadata = async ({
+	params
+}: {
+	params: { slug: string }
+}): Promise<Metadata> => {
+	const { data: genre } = await GenreService.getGenreBySlug(
+		String(params?.slug)
+	)
+
+	return {
+		title: `${genre.name} | Online-Cinema`
+	}
 }
 
 const GenrePage = async ({ params }: { params: { slug: string } }) => {
