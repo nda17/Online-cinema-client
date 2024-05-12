@@ -1,4 +1,4 @@
-@import '@/assets/styles/_variables';
+@import '@/assets/styles/_variables.scss';
 
 .gallery {
 	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 md:h-[15.4rem] lg:h-72 md:pb-2 md:box-content;
