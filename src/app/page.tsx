@@ -7,6 +7,14 @@ import { ISlide } from '@/ui/slider/slider.interface'
 import { getGenresList } from '@/utils/movie/getGenresList'
 import { getRandomItem } from '@/utils/object/getRandomItem'
 import { errorCatch } from 'api/api.helpers'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Watch movies | Online-Cinema',
+	icons: {
+		icon: '../../icon.ico'
+	}
+}
 
 const HomePage = async () => {
 	const { props: content } = await staticContent()
