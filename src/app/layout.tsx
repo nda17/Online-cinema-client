@@ -15,9 +15,6 @@ const font = Outfit({
 const RootLayout: FC<IRootLayout> = ({ children }) => {
 	return (
 		<html lang="en">
-			<head>
-				<link rel="icon" href="./" sizes="any" />
-			</head>
 			<body className={font.className}>
 				<MainProvider>
 					<Layout>{children}</Layout>
