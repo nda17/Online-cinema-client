@@ -12,7 +12,7 @@
 			@apply mb-0;
 		}
 
-		&:nth-last-child(-n + 3) {
+		&:nth-last-child(-n + 2) {
 			@apply sm:mb-0;
 		}
 	}
