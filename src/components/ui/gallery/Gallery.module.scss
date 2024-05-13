@@ -1,7 +1,7 @@
 @import '@/assets/styles/_variables.scss';
 
 .gallery {
-	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 md:h-[15.4rem] lg:h-72 md:pb-2 md:box-content;
+	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 md:h-[15.4rem] lg:h-72 md:pb-6 md:box-content;
 	-webkit-overflow-scrolling: touch;
 
 	&:last-child {
@@ -34,7 +34,7 @@
 }
 
 .item {
-	@apply relative transition-transform flex items-end shadow-lg rounded-layout overflow-hidden;
+	@apply relative transition-transform shadow-black flex items-end shadow-lg rounded-layout overflow-hidden;
 	flex: 0 0 auto;
 
 	&:hover {

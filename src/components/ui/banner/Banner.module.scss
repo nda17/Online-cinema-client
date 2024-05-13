@@ -1,6 +1,6 @@
 @import '@/assets/styles/_variables.scss';
 
 .banner {
-	@apply relative overflow-hidden w-full h-80 rounded-layout shadow-lg flex flex-col justify-end mb-12;
+	@apply relative shadow-black overflow-hidden w-full h-80 rounded-layout shadow-lg flex flex-col justify-end mb-12;
 	@include fade-bg-gradient();
 }
