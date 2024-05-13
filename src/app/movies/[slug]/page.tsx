@@ -1,5 +1,5 @@
 import Error404 from '@/app/not-found'
-import SingleMovie from '@/components/screens/single-movie/SingleMovie'
+import SingleMovie from '@/screens/single-movie/SingleMovie'
 import { PUBLIC_PATH } from '@/configs/api.config'
 import { MovieService } from '@/services/movie/movie.service'
 import { IGalleryItem } from '@/ui/gallery/gallery.interface'
