@@ -1,4 +1,4 @@
-import { IMenuItem } from './menuItem.interface'
+import { IMenuItem } from './menu-item.interface'
 
 export interface IMenu {
 	title: string

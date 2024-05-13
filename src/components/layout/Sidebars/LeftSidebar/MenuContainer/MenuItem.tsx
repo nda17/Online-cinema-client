@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
 import styles from './Menu.module.scss'
-import { IMenuItem } from './menuItem.interface'
+import { IMenuItem } from './menu-item.interface'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	const pathname = usePathname()
