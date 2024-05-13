@@ -22,6 +22,11 @@ export const mainMenu: IMenu = {
 			icon: 'MdLocalFireDepartment',
 			link: '/trending',
 			title: 'Trending now'
+		},
+		{
+			icon: 'MdRequestQuote',
+			link: '/subscription',
+			title: 'By subscription'
 		}
 	]
 }
