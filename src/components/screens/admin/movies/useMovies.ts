@@ -25,7 +25,8 @@ export const useMovies = () => {
 						items: [
 							movie.title,
 							getGenresList(movie.genres),
-							String(movie.rating)
+							String(movie.rating),
+							movie.license
 						]
 					})
 				),
