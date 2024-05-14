@@ -1,15 +1,25 @@
 .selectContainer {
+	@apply relative mb-8 animate-fadeIn;
+
 	.error {
 		@apply absolute -bottom-6 left-0 text-sm w-full text-primary;
 	}
-
-	@apply relative mb-8 animate-fadeIn;
 
 	> label {
 		@apply block;
 
 		> span {
 			@apply text-xs uppercase text-gray-600 block mb-1;
+		}
+
+		> div {
+			> div {
+				> div {
+					> div {
+						@apply text-gray-500;
+					}
+				}
+			}
 		}
 	}
 }
