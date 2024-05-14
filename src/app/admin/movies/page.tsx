@@ -1,5 +1,9 @@
 import MoviesList from '@/screens/admin/movies/MoviesList'
-import { NextPage } from 'next'
+import { Metadata, NextPage } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Admin panel | Online-Cinema'
+}
 
 const MoviesListPage: NextPage = () => {
 	return <MoviesList />

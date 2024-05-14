@@ -1,5 +1,9 @@
 import UsersList from '@/screens/admin/users/UserList'
-import { NextPage } from 'next'
+import { Metadata, NextPage } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Admin panel | Online-Cinema'
+}
 
 const UsersListPage: NextPage = () => {
 	return <UsersList />
