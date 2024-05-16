@@ -222,7 +222,7 @@ const MovieEdit: FC<IParamsUrl> = ({ params }) => {
 										/>
 									)}
 									rules={{
-										required: 'Poster is required!'
+										required: 'Video file is required!'
 									}}
 								/>
 							</div>
