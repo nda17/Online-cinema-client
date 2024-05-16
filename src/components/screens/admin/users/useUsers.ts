@@ -24,7 +24,8 @@ export const useUsers = () => {
 						items: [
 							user.email,
 							convertMongoDate(user.createdAt),
-							String(user.isAdmin)
+							String(user.isAdmin? 'admin' : 'user'),
+							String(user.isSubscription ? 'active' : 'inactive')
 						]
 					})
 				),
