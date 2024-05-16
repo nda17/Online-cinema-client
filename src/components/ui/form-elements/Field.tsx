@@ -8,14 +8,12 @@ const Field = forwardRef<HTMLInputElement, IField>(
 			<div className={styles.formString} style={style}>
 				<label>
 					<span>{placeholder}</span>
-					<input ref={ref} type={type} {...rest} />
+					<input ref={ref} type={type} {...rest} autoComplete="on" />
 				</label>
 				{error && <div className={styles.error}>{error.message}</div>}
 			</div>
 		)
 	}
 )
-
-Field.displayName = 'Field'
 
 export default Field
