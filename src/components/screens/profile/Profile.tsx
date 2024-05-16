@@ -2,16 +2,16 @@
 import AuthFields from '@/components/shared/AuthFields/AuthFields'
 import styles from '@/components/shared/contentWrapper.module.scss'
 import userForm from '@/components/shared/user/userForm.module.scss'
-import Heading from '@/components/ui/heading/Heading'
-import SubHeading from '@/components/ui/subheading/SubHeading'
 import Button from '@/ui/form-elements/Button'
+import Heading from '@/ui/heading/Heading'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import SubHeading from '@/ui/subheading/SubHeading'
 import classNames from 'classnames'
 import { FC } from 'react'
 import { useForm } from 'react-hook-form'
 import profile from './Profile.module.scss'
 import { IProfileInput } from './profile.interface'
-import useProfile from './useProfileEdit'
+import useProfile from './useProfile'
 
 const Profile: FC = () => {
 	const { handleSubmit, register, formState, setValue } =
