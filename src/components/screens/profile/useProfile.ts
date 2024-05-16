@@ -21,7 +21,6 @@ const useProfile = (setValue: UseFormSetValue<IUserEditInput>) => {
 		{
 			onSuccess({ data }) {
 				setValue('email', data.email)
-				setValue('password', data.password.slice(0, 6))
 			},
 			onError(error) {
 				toastrError(error, 'Get profile')
