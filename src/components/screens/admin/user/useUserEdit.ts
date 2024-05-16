@@ -21,8 +21,9 @@ export const useUserEdit = (
 		{
 			onSuccess({ data }) {
 				setValue('email', data.email)
-				setValue('password', data.password)
+				setValue('password', data.password.slice(0, 6))
 				setValue('isAdmin', data.isAdmin)
+				setValue('isSubscription', data.isSubscription)
 			},
 			onError(error) {
 				toastrError(error, 'Get user')
