@@ -1,7 +1,7 @@
 'use client'
+import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
-import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
 import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
@@ -34,7 +34,12 @@ const UsersList: FC = () => {
 				/>
 				<AdminTable
 					tableItems={data || []}
-					headerItems={['Email:', 'Date register:', 'Admin status:']}
+					headerItems={[
+						'Email:',
+						'Date register:',
+						'Role:',
+						'Paid subscription:'
+					]}
 					isLoading={isLoading}
 					removeHandler={deleteAsync}
 				/>
