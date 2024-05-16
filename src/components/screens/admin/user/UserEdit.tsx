@@ -33,11 +33,7 @@ const UserEdit: FC<IParamsUrl> = ({ params }) => {
 						</div>
 					) : (
 						<>
-							<AuthFields
-								register={register}
-								formState={formState}
-								isPasswordRequired
-							/>
+							<AuthFields register={register} formState={formState} />
 
 							<div className={styles.controller}>
 								<Controller
