@@ -5,8 +5,7 @@ import { IAuthFields } from './auth-fields.interface'
 
 const AuthFields: FC<IAuthFields> = ({
 	register,
-	formState: { errors },
-	isPasswordRequired = false
+	formState: { errors }
 }) => {
 	return (
 		<>
@@ -19,21 +18,16 @@ const AuthFields: FC<IAuthFields> = ({
 					}
 				})}
 				placeholder="E-mail"
+				type="email"
 				error={errors.email}
 			/>
 			<Field
-				{...register(
-					'password',
-					isPasswordRequired
-						? {
-								required: 'Password is required!',
-								minLength: {
-									value: 6,
-									message: 'Min length should more 6 symbols!'
-								}
-						  }
-						: {}
-				)}
+				{...register('password', {
+					minLength: {
+						value: 6,
+						message: 'Min length should more 6 symbols!'
+					}
+				})}
 				placeholder="Password"
 				type="password"
 				error={errors.password}

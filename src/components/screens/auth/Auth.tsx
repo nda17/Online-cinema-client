@@ -41,11 +41,7 @@ const Auth: FC = () => {
 		<div className={styles.auth}>
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.formAuth}>
 				<Heading title="Auth" />
-				<AuthFields
-					formState={formState}
-					register={registerInput}
-					isPasswordRequired
-				/>
+				<AuthFields formState={formState} register={registerInput} />
 				<div className={styles.buttons}>
 					<Button
 						type="submit"

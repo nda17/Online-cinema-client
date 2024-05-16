@@ -50,11 +50,7 @@ const Profile: FC = () => {
 					{isLoading ? (
 						<SkeletonLoader count={2} className="h-8 mb-4" />
 					) : (
-						<AuthFields
-							register={register}
-							formState={formState}
-							isPasswordRequired
-						/>
+						<AuthFields register={register} formState={formState} />
 					)}
 
 					<Button>Update</Button>
