@@ -41,6 +41,28 @@ const UserEdit: FC<IParamsUrl> = ({ params }) => {
 
 							<div className={styles.controller}>
 								<Controller
+									name="isSubscription"
+									control={control}
+									render={({ field }) => (
+										<div>
+											<button
+												onClick={(e) => {
+													e.preventDefault()
+													field.onChange(!field.value)
+												}}
+												className="text-link block mb-7"
+											>
+												{field.value
+													? 'Deactivate subscription'
+													: 'Activate subscription'}
+											</button>
+										</div>
+									)}
+								/>
+							</div>
+
+							<div className={styles.controller}>
+								<Controller
 									name="isAdmin"
 									control={control}
 									render={({ field }) => (
@@ -53,8 +75,8 @@ const UserEdit: FC<IParamsUrl> = ({ params }) => {
 												className="text-link block mb-7"
 											>
 												{field.value
-													? 'Assign user role'
-													: 'Assign admin role'}
+													? 'Activate user role'
+													: 'Activate admin role'}
 											</button>
 										</div>
 									)}
