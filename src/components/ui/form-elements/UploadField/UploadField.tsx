@@ -1,4 +1,5 @@
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import VideoPlayerMini from '@/ui/video-player-mini/VideoPlayerMini'
 import Image from 'next/image'
 import { FC } from 'react'
 import { IUploadField } from '../form.interface'
@@ -24,17 +25,19 @@ const UploadField: FC<IUploadField> = ({
 					<input type="file" onChange={uploadFile} />
 					{error && <div className={styles.error}>{error.message}</div>}
 				</label>
-				{!isNoImage && (
+				{
 					<div className={styles.imageContainer}>
 						{isLoading ? (
 							<div className="w-full h-full">
 								<SkeletonLoader count={1} className="w-full h-full" />
 							</div>
-						) : (
+						) : !isNoImage ? (
 							image && <Image src={image} alt="Image" fill unoptimized />
+						) : (
+							<VideoPlayerMini videoSource={image} />
 						)}
 					</div>
-				)}
+				}
 			</div>
 		</div>
 	)
