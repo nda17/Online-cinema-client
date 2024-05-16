@@ -20,9 +20,6 @@ const AuthProvider: FC<IAuthProvider> = ({ children }) => {
 		}
 	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-	//FIXME: Реализовать автообновление accessToken при наличии валидного refreshToken
-	//FIXME: Реализовать автообновление accessToken при наличии валидного refreshToken
-	//FIXME: Реализовать автообновление accessToken при наличии валидного refreshToken
 	useEffect(() => {
 		const refreshToken = Cookies.get(EnumTokens.REFRESH_TOKEN)
 		if (!refreshToken && user) logout()
