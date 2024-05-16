@@ -4,4 +4,5 @@ export interface IUser {
 	password: string
 	createdAt: string
 	isAdmin: boolean
+	isSubscription: boolean
 }
