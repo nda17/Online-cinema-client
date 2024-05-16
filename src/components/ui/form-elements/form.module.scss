@@ -27,7 +27,7 @@
 		@apply flex flex-col sm:flex-row justify-between;
 
 		> .imageContainer {
-			@apply flex relative w-24 h-24;
+			@apply flex relative overflow-hidden rounded-md w-24 h-24;
 
 			img {
 				@apply image-like-bg rounded-md;
