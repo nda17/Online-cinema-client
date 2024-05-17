@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import Content from './Content/Content'
 import { IMoviePage } from './single-movie.interface'
+import { useUpdateCountOpened } from './useUpdateCountOpened'
 
 const DynamicPlayer = dynamic(
 	() => import('@/ui/video-player/VideoPlayer'),
@@ -23,7 +24,8 @@ const DynamicStarRating = dynamic(
 )
 
 const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
-
+	useUpdateCountOpened(movie.slug)
+	
 	return (
 		<div className={styles.contentWrapper}>
 			 <Banner
