@@ -1,7 +1,7 @@
 @import '@/assets/styles/_variables.scss';
 
 .slider {
-	@apply relative mb-8;
+	@apply relative mb-12;
 
 	.slide {
 		@apply relative h-56 md:h-52 lg:h-64 xl:h-80 rounded-3xl overflow-hidden shadow-black flex items-end;

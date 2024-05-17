@@ -1,7 +1,7 @@
 @import '@/assets/styles/_variables.scss';
 
 .gallery {
-	@apply flex items-center overflow-x-auto flex-nowrap mb-8 h-44 sm:h-60 md:h-[15.4rem] lg:h-72 md:pb-6 md:box-content;
+	@apply flex items-center overflow-x-auto flex-nowrap mb-12 h-44 sm:h-60 md:h-[15.4rem] lg:h-72 md:pb-6 md:box-content;
 	-webkit-overflow-scrolling: touch;
 
 	&:last-child {
@@ -61,7 +61,7 @@
 	}
 
 	.content {
-		@apply w-full z-2 p-3;
+		@apply w-full h-full z-2 p-3;
 
 		.title {
 			@apply font-semibold mb-1 text-white text-shadow;

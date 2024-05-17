@@ -2,8 +2,6 @@
 	@apply pt-8 grid grid-cols-1 sm:grid-cols-3 sm:gap-4;
 
 	> a {
-		@apply mb-8;
-
 		> div {
 			@apply h-40;
 		}
