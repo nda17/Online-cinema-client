@@ -15,10 +15,18 @@ const DynamicPlayer = dynamic(
 	}
 )
 
+const DynamicStarRating = dynamic(
+	() => import('./StarRating/StarRating'),
+	{
+		ssr: false
+	}
+)
+
 const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
+
 	return (
 		<div className={styles.contentWrapper}>
-			<Banner
+			 <Banner
 				imagePath={movie.bigPoster}
 				Detail={() => <Content movie={movie} />}
 			/>
@@ -29,10 +37,13 @@ const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 				slug={movie.slug}
 			/>
 
-			<>
-				<SubHeading title="Similar movies" />
-				<Gallery items={similarMovies || []} />
-			</>
+			
+			<SubHeading title="Similar movies" />
+			<Gallery items={similarMovies || []} />
+			
+
+			<SubHeading title="Film rating" />
+			<DynamicStarRating count={5} icon={"MdStar"} defaultStarColor={{color: '#4f4f4f'}} activeStarColor = {{color: '#ffd700'}} slug={movie.slug} _id={movie._id} />
 		</div>
 	)
 }
