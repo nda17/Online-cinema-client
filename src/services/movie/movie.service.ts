@@ -54,6 +54,12 @@ export const MovieService = {
 		)
 	},
 
+	async updateCountOpened(slug: string) {
+		return axiosClassicRequest.put(PUBLIC_PATH.moviesUrl('/update-count-opened'), {
+			slug
+		})
+	},
+
 	async updateMovie(_id: string, data: IMovieEditInput) {
 		return axiosInterceptorsRequest.put<string>(
 			PUBLIC_PATH.moviesUrl(`/${_id}`),
