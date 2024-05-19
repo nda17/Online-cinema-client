@@ -1,7 +1,8 @@
-import MaterialIcon from '@/components/ui/icons/MaterialIcon'
 import { PUBLIC_URL } from '@/configs/url.config'
 import { IMovie } from '@/shared/types/movie.types'
+import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { FC } from 'react'
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import styles from './Content.module.scss'
 import ContentList from './ContentList/ContentList'
 
@@ -34,6 +35,7 @@ const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 					_id: actor._id
 				}))}
 			/>
+			<FavoriteButton movieId={movie._id} />
 		</div>
 	)
 }
