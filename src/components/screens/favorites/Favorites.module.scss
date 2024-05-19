@@ -1,0 +1,23 @@
+.containerLoader {
+	@apply w-full flex justify-center flex-wrap pt-8;
+
+	> span {
+			@apply h-[11.5rem] mb-4 sm:mr-4 rounded-[.8px] w-full sm:w-[31.15%] md:w-[30.45%] lg:w-[31.15%] xl:w-[31.55%] xxl:w-[31.7%];
+
+        &:nth-child(n+3) {
+            @apply sm:mb-4;
+        }
+
+        &:nth-child(3n+2) {
+			@apply sm:mr-0;
+		}
+
+		&:nth-last-child(-n+6) {
+			@apply sm:mb-0;
+		}
+
+        &:nth-child(9n-1) {
+            @apply mb-0;
+        }
+	}
+}
