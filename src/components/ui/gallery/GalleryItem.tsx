@@ -1,3 +1,4 @@
+import FavoriteButton from '@/components/screens/single-movie/FavoriteButton/FavoriteButton'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -5,7 +6,8 @@ import { FC } from 'react'
 import styles from './Gallery.module.scss'
 import { IGalleryItemProps } from './gallery-item.interface'
 
-const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
+const GalleryItem: FC<IGalleryItemProps> = ({ item, variant, favorite }) => {
+	
 	return (
 		<Link
 			href={item.url}
@@ -15,6 +17,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 				[styles.vertical]: variant === 'vertical'
 			})}
 		>
+			{favorite && <FavoriteButton movieId={item._id} />}
 			<Image
 				fill
 				sizes="auto"

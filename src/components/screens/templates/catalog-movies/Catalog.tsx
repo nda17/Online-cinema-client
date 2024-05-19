@@ -8,7 +8,7 @@ import { FC, useState } from 'react'
 import styles from './Catalog.module.scss'
 import { ICatalog } from './catalog.interface'
 
-const Catalog: FC<ICatalog> = ({ title, description, movies }) => {
+const Catalog: FC<ICatalog> = ({ title, description, movies, favorite }) => {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая страница
 	const itemQuantity = 9 //Количество элементов в одной группе
 
@@ -46,11 +46,13 @@ const Catalog: FC<ICatalog> = ({ title, description, movies }) => {
 				<Description text={description} className={styles.description} />
 			)}
 			<div className={styles.movies}>
+				
 				{activePage.map((movie) => (
 					<GalleryItem
 						key={movie._id}
 						variant="horizontal"
 						item={{
+							_id: movie._id,
 							name: movie.title,
 							posterPath: movie.bigPoster,
 							url: PUBLIC_URL.moviesUrl(movie.slug),
@@ -58,6 +60,7 @@ const Catalog: FC<ICatalog> = ({ title, description, movies }) => {
 								title: movie.title
 							}
 						}}
+						favorite = {favorite}
 					/>
 				))}
 			</div>

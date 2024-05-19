@@ -4,4 +4,5 @@ export interface ICatalog {
 	title: string
 	description?: string
 	movies: IMovie[]
+	favorite?: boolean
 }
