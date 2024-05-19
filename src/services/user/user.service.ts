@@ -2,6 +2,7 @@ import { PUBLIC_PATH } from '@/configs/api.config'
 import { USER_URL } from '@/configs/url.config'
 import { IUserEditInput } from '@/screens/admin/user/user-edit.interface'
 import { IProfileInput } from '@/screens/profile/profile.interface'
+import { IMovie } from '@/shared/types/movie.types'
 import { IUser } from '@/shared/types/user.types'
 import axiosInterceptorsRequest from 'api/interceptors'
 
@@ -49,5 +50,15 @@ export const UserService = {
 		return axiosInterceptorsRequest.delete<string>(
 			PUBLIC_PATH.usersUrl(`/${_id}`)
 		)
+	},
+
+	async getFavorites() {
+		return axiosInterceptorsRequest.get<IMovie[]>(PUBLIC_PATH.usersUrl('/profile/favorites'))
+	},
+
+	async toggleFavorite(movieId: string) {
+		return axiosInterceptorsRequest.put(PUBLIC_PATH.usersUrl('/profile/favorites'), {
+			movieId,
+		})
 	}
 }
