@@ -43,7 +43,7 @@ const Catalog: FC<ICatalog> = ({ title, description, movies, favorite }) => {
 		<>
 			<Heading title={title} />
 			{description && (
-				<Description text={description} className={styles.description} />
+				<Description text={description} />
 			)}
 			<div className={styles.movies}>
 				
