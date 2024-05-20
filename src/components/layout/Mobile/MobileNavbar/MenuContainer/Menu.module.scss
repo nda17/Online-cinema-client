@@ -1,42 +1,35 @@
 .menu {
-	@apply pt-[1.8rem] animate-fadeIn;
-
-	&:last-child {
-		@apply mb-[1.8rem];
-	}
-
-	> div {
-		@apply pl-4 text-gray-500 uppercase font-semibold mb-6;
-	}
+	@apply mb-6;
 
 	> ul {
 		> li {
-			@apply pl-8 mb-6 transition-colors;
+			@apply pl-10 mb-6;
 
-			> span {
-				@apply flex items-center text-gray-600;
-
-				> span {
-					@apply text-[1.125rem];
-				}
+			.item {
+				@apply flex items-center text-gray-600 text-[1.3rem];
 
 				> svg {
 					@apply mr-3 text-2lg;
 				}
+			}
 
-				> span,
-				> svg {
-					@apply transition-colors;
-				}
+			.border {
+				@apply cursor-default absolute text-transparent top-0 right-0 border-r-4 border-r-transparent border-solid;
 			}
 
 			&.active {
-				> span > span {
+				@apply relative;
+
+				svg {
+					@apply fill-primary;
+				}
+
+				.link {
 					@apply text-white;
 				}
 
-				> span > svg {
-					@apply fill-primary;
+				.border {
+					@apply border-r-primary;
 				}
 			}
 		}

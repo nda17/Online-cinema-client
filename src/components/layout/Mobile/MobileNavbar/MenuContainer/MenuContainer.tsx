@@ -1,18 +1,24 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
-import { mainMenu } from './DataMenu/mainMenu.data'
-import { userMenu } from './DataMenu/userMenu.data'
-import Menu from './Menu'
-import GenreMenu from './genres/GenreMenu'
-const DynamicMenu = dynamic(() => import('./Menu'), { ssr: false })
+import Menu from './Menu/Menu'
+import { mainMenu } from './Menu/data/main-menu.data'
+import styles from './MenuContainer.module.scss'
+import PopularGenres from './PopularGenres/PopularGenres'
+const DynamicGeneral = dynamic(() => import('./General/General'), { ssr: false })
 
 const MenuContainer: FC = () => {
 	return (
-		<>
-			<Menu menu={mainMenu} />
-			<GenreMenu />
-			<DynamicMenu menu={userMenu} />
+		<>	
+			<>
+				<h1 className={styles.heading}>Menu</h1>
+				<Menu mainMenu={mainMenu} />
+			</>
+			<>
+				<h1 className={styles.heading}>Popular genres</h1>
+				<PopularGenres />
+			</>
+			<DynamicGeneral />
 		</>
 	)
 }

@@ -1,7 +1,6 @@
 import { IMenu } from '../menu.interface'
 
 export const mainMenu: IMenu = {
-	title: 'Menu',
 	items: [
 		{
 			icon: 'MdHome',
@@ -22,6 +21,11 @@ export const mainMenu: IMenu = {
 			icon: 'MdLocalFireDepartment',
 			link: '/trending',
 			title: 'Trending now'
+		},
+		{
+			icon: 'MdRequestQuote',
+			link: '/subscription',
+			title: 'By subscription'
 		}
 	]
 }

@@ -1,5 +1,5 @@
 'use client'
-import Favorites from '@/components/screens/favorites/Favorites'
+import Favorites from '@/screens/favorites/Favorites'
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import MenuContainer from './MenuContainer/MenuContainer'
@@ -24,7 +24,9 @@ const MobileNavbar: FC = () => {
 			)}
 
 			{visibleFavorites && (
-				<Favorites />
+				<div className={styles.menu}>
+					<Favorites />
+				</div>
 			)}
 		</section>
 	)
