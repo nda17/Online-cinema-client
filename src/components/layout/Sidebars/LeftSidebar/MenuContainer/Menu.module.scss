@@ -1,10 +1,6 @@
 .menu {
 	@apply mb-14 animate-fadeIn;
 
-	.heading {
-		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
-	}
-
 	.wrapper {
 		@apply transition-all duration-200 flex justify-between;
 

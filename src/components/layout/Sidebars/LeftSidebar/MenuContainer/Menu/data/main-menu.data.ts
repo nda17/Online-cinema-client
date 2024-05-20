@@ -1,7 +1,6 @@
 import { IMenu } from '../menu.interface'
 
 export const mainMenu: IMenu = {
-	title: 'Menu',
 	items: [
 		{
 			icon: 'MdHome',

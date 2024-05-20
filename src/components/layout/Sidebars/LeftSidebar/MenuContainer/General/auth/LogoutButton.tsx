@@ -2,7 +2,7 @@ import { useActions } from '@/hooks/useActions'
 import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { useRouter } from 'next/navigation'
 import { FC, MouseEvent } from 'react'
-import styles from '../Menu.module.scss'
+import styles from '../../Menu.module.scss'
 
 const LogoutButton: FC = () => {
 	const { logout } = useActions()

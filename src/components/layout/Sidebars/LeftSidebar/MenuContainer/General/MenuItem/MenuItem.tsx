@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
-import styles from './Menu.module.scss'
+import styles from '../../Menu.module.scss'
 import { IMenuItem } from './menu-item.interface'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
