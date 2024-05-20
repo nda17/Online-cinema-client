@@ -50,13 +50,14 @@ export const useMovies = () => {
 	const { mutateAsync: createAsync } = useMutation(
 		'create movie',
 		() => MovieService.createMovie(),
-		{
-			onError(error) {
-				toastrError(error, 'Create movie')
-			},
+		{	
 			onSuccess({ data: _id }) {
 				toastr.success('Create movie', 'create was successful')
 				push(ADMIN_URL.rootUrl(`movie/edit/${_id}`))
+			},
+			
+			onError(error) {
+				toastrError(error, 'Create movie')
 			}
 		}
 	)
@@ -64,13 +65,14 @@ export const useMovies = () => {
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete movie',
 		(movieId: string) => MovieService.deleteMovie(movieId),
-		{
-			onError(error) {
-				toastrError(error, 'Delete movie')
-			},
+		{	
 			onSuccess() {
 				toastr.success('Delete movie', 'delete was successful')
 				queryData.refetch()
+			},
+			
+			onError(error) {
+				toastrError(error, 'Delete movie')
 			}
 		}
 	)

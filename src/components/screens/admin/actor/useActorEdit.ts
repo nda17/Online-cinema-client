@@ -25,6 +25,7 @@ export const useActorEdit = (
 					setValue(key, data[key])
 				})
 			},
+
 			onError(error) {
 				toastrError(error, 'Get actor')
 			},
@@ -41,6 +42,7 @@ export const useActorEdit = (
 				toastr.success('Update actor', 'update was successful')
 				push(ADMIN_URL.rootUrl('/actors'))
 			},
+			
 			onError(error) {
 				toastrError(error, 'Update actor')
 			}

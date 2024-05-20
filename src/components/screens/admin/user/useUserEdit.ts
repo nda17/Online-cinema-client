@@ -24,6 +24,7 @@ export const useUserEdit = (
 				setValue('isAdmin', data.isAdmin)
 				setValue('isSubscription', data.isSubscription)
 			},
+
 			onError(error) {
 				toastrError(error, 'Get user')
 			},
@@ -39,6 +40,7 @@ export const useUserEdit = (
 				toastr.success('Update user', 'update was successful')
 				push(ADMIN_URL.rootUrl('/users'))
 			},
+			
 			onError(error) {
 				toastrError(error, 'Update user')
 			}

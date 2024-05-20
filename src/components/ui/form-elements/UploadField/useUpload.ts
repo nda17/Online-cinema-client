@@ -21,6 +21,7 @@ export const useUpload: TypeUpload = (onChange, folder) => {
 			onSuccess({ data }) {
 				onChange(data[0].url)
 			},
+			
 			onError(error) {
 				toastrError(error, 'Upload image')
 			}

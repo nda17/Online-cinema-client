@@ -45,12 +45,13 @@ export const useActors = () => {
 		'create actor',
 		() => ActorService.createActor(),
 		{
-			onError(error) {
-				toastrError(error, 'Create actor')
-			},
 			onSuccess({ data: _id }) {
 				toastr.success('Create actor', 'create was successful')
 				push(ADMIN_URL.rootUrl(`actor/edit/${_id}`))
+			},
+
+			onError(error) {
+				toastrError(error, 'Create actor')
 			}
 		}
 	)
@@ -59,12 +60,13 @@ export const useActors = () => {
 		'delete actor',
 		(actorId: string) => ActorService.deleteActor(actorId),
 		{
-			onError(error) {
-				toastrError(error, 'Delete actor')
-			},
 			onSuccess() {
 				toastr.success('Delete actor', 'delete was successful')
 				queryData.refetch()
+			},
+			
+			onError(error) {
+				toastrError(error, 'Delete actor')
 			}
 		}
 	)

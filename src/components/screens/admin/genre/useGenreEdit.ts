@@ -25,6 +25,7 @@ export const useGenreEdit = (
 					setValue(key, data[key])
 				})
 			},
+
 			onError(error) {
 				toastrError(error, 'Get genre')
 			},
@@ -41,6 +42,7 @@ export const useGenreEdit = (
 				toastr.success('Update genre', 'update was successful')
 				push(ADMIN_URL.rootUrl('/genres'))
 			},
+			
 			onError(error) {
 				toastrError(error, 'Update genre')
 			}

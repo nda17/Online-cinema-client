@@ -44,14 +44,15 @@ export const useGenres = () => {
 	const { mutateAsync: createAsync } = useMutation(
 		'create genre',
 		() => GenreService.createGenre(),
-		{
-			onError(error) {
-				toastrError(error, 'Create genre')
-			},
+		{	
 			onSuccess({ data: _id }) {
 				toastr.success('Create genre', 'create was successful')
 				push(ADMIN_URL.rootUrl(`genre/edit/${_id}`))
-			}
+			},
+
+			onError(error) {
+				toastrError(error, 'Create genre')
+			},
 		}
 	)
 
@@ -59,12 +60,13 @@ export const useGenres = () => {
 		'delete genre',
 		(genreId: string) => GenreService.deleteGenre(genreId),
 		{
-			onError(error) {
-				toastrError(error, 'Delete genre')
-			},
 			onSuccess() {
 				toastr.success('Delete genre', 'delete was successful')
 				queryData.refetch()
+			},
+
+			onError(error) {
+				toastrError(error, 'Delete genre')
 			}
 		}
 	)

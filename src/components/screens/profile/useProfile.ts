@@ -22,6 +22,7 @@ const useProfile = (setValue: UseFormSetValue<IUserEditInput>) => {
 			onSuccess({ data }) {
 				setValue('email', data.email)
 			},
+
 			onError(error) {
 				toastrError(error, 'Get profile')
 			}
@@ -32,11 +33,12 @@ const useProfile = (setValue: UseFormSetValue<IUserEditInput>) => {
 		'update profile',
 		(data: IProfileInput) => UserService.updateProfile(data),
 		{
-			onError(error) {
-				toastrError(error, 'Update profile')
-			},
 			onSuccess() {
 				toastr.success('Update profile', 'update was successful')
+			},
+			
+			onError(error) {
+				toastrError(error, 'Update profile')
 			}
 		}
 	)

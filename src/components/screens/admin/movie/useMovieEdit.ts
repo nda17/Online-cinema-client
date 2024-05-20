@@ -25,6 +25,7 @@ export const useMovieEdit = (
 					setValue(key, data[key])
 				})
 			},
+			
 			onError(error) {
 				toastrError(error, 'Get movie')
 			},
@@ -41,6 +42,7 @@ export const useMovieEdit = (
 				toastr.success('Update movie', 'update was successful')
 				push(ADMIN_URL.rootUrl('/movies'))
 			},
+
 			onError(error) {
 				toastrError(error, 'Update movie')
 			}

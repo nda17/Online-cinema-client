@@ -47,13 +47,14 @@ export const useUsers = () => {
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete user',
 		(userId: string) => UserService.deleteUser(userId),
-		{
-			onError(error) {
-				toastrError(error, 'Delete user')
-			},
+		{	
 			onSuccess() {
 				toastr.success('Delete user', 'delete was successful')
 				queryData.refetch()
+			},
+			
+			onError(error) {
+				toastrError(error, 'Delete user')
 			}
 		}
 	)
