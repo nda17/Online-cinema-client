@@ -6,7 +6,7 @@
 	}
 
 	.rating {
-		@apply absolute top-8 lg:top-[inherit] left-8 lg:left-[inherit] lg:bottom-8 lg:right-8 flex items-center text-xl opacity-90;
+		@apply absolute top-8 left-8  flex items-center text-xl opacity-90;
 
 		> svg {
 			@apply fill-yellow-700 mb-0.5;
