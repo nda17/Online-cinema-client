@@ -1,11 +1,36 @@
-.spinner {
-	@apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+.spinnerLoader {
+	@apply bg-transparent fixed top-0 left-0 w-full h-screen z-1;
 
-	> span {
-		@apply grid place-items-center w-14 h-14 rounded-[50%] animate-spin bg-gradient-to-tr from-red-400 to-red-900;
+	.text {
+		@apply absolute left-1/2 top-1/2 text-base text-white;
+		transform: translate(-50%, -50%);
 	}
 
-	> span::before {
-		@apply content-[""] rounded-[50%] w-[80%] h-[80%] bg-gray-900;
-	}
+	.circle {
+		@apply absolute left-1/2 top-1/2 w-[105px] h-[100px] rounded-[50%] translate-x-[-50%] translate-y-[-50%];
+		box-shadow: 0px 0px 1px rgba(#d19898, 1);
+		animation-name: SpinAround;
+		animation-iteration-count: infinite;
+		animation-duration: 2s;
+		animation-fill-mode: both;
+		animation-timing-function: linear;
+
+		&:nth-of-type(1) {
+		  animation-direction: reverse;
+		  transform-origin: 49.6% 49.8%;
+		}
+	
+		&:nth-of-type(2) {
+		  transform-origin: 49.5% 48.8%;
+		}
+	  }
+
+  @keyframes SpinAround {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
 }
