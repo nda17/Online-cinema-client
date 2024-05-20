@@ -1,5 +1,6 @@
-import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader'
 import { MovieService } from '@/services/movie/movie.service'
+import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import Link from 'next/link'
 import { FC } from 'react'
 import { useQuery } from 'react-query'
 import MovieList from '../MovieList'
@@ -14,16 +15,20 @@ const PopularMovies: FC = () => {
 		}
 	)
 
-	return isLoading ? (
-		<div className={styles.popular}>
-			<SkeletonLoader count={3} className={styles.preloader} />
+	return (
+		<div className={styles.popularMovies}>
+			<h1 className={styles.heading}>Popular Movies</h1>
+			{isLoading ? (
+				<SkeletonLoader count={3} className={styles.preloader} />
+			) : (
+				<MovieList
+					movies={data || []}
+				/>
+			)}
+			<Link href='/trending'>
+				<span className={styles.button}>See more</span>
+			</Link>
 		</div>
-	) : (
-		<MovieList
-			link="/trending"
-			movies={data || []}
-			title="Popular Movies"
-		/>
 	)
 }
 

@@ -1,7 +1,11 @@
-.favorite {
-	@apply animate-fadeIn mb-11;
+.heading {
+	@apply text-gray-500 uppercase text-sm font-semibold mb-8;
+}
 
-	.heading {
-		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
-	}
+.preloader {
+	@apply h-[10.83rem] lg:h-[5.98rem] mb-4;
+}
+
+.button {
+	@apply p-2.5 mt-[1.5rem] btn-primary block text-center shadow-black;
 }

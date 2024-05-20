@@ -1,7 +1,15 @@
-.popular {
-	@apply mt-11;
+.popularMovies {
+	@apply mb-10;
+}
 
-	.preloader {
-		@apply h-28 mb-4;
-	}
+.heading {
+	@apply text-gray-500 uppercase text-sm font-semibold mb-8;
+}
+
+.preloader {
+	@apply h-[11.685rem] lg:h-[5.98rem] mb-4;
+}
+
+.button {
+	@apply p-2.5 mt-[1.5rem] btn-primary block text-center shadow-black;
 }

@@ -1,11 +1,3 @@
 .list {
-	@apply animate-fadeIn mb-11;
-
-	.heading {
-		@apply text-gray-500 uppercase text-sm font-semibold mb-6;
-	}
-
-	.button {
-		@apply p-2.5 btn-primary block text-center shadow-black;
-	}
+	@apply animate-fadeIn;
 }
