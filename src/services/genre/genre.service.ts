@@ -1,3 +1,4 @@
+import { ICollection } from '@/components/screens/collections/collections.interface'
 import { PUBLIC_PATH } from '@/configs/api.config'
 import { IGenreEditInput } from '@/screens/admin/genre/genre-edit.interface'
 import { IGenre } from '@/shared/types/movie.types'
@@ -28,6 +29,10 @@ export const GenreService = {
 		return axiosInterceptorsRequest.get<IGenreEditInput>(
 			PUBLIC_PATH.genresUrl(`/${_id}`)
 		)
+	},
+
+	async getCollections() {
+		return axiosClassicRequest.get<ICollection[]>(PUBLIC_PATH.genresUrl('/collections'))
 	},
 
 	async createGenre() {
