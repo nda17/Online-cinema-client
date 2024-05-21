@@ -1,8 +1,8 @@
 export interface IGalleryItem {
 	posterPath: string
 	name: string
+	_id?: string
 	url: string
-	_id:string
 	content?: {
 		title: string
 		subTitle?: string
