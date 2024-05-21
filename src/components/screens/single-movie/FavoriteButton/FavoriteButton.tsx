@@ -6,9 +6,10 @@ import { FC, useEffect, useState } from 'react'
 import { useMutation } from 'react-query'
 import { useFavorites } from '../../favorites/useFavorites'
 import styles from './FavoriteButton.module.scss'
+import { IFavoriteButton } from './favorite-button.interface'
 import HeartImage from './heart-animation.png'
 
-const FavoriteButton: FC<{ movieId: string }> = ({ movieId }) => {
+const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	const [isSmashed, setIsSmashed] = useState(false)
 
 	const { movies, refetch } = useFavorites()
@@ -39,7 +40,7 @@ const FavoriteButton: FC<{ movieId: string }> = ({ movieId }) => {
 		<button
 			onClick={() => mutateAsync()}
 			className={classNames(styles.button, {
-				[styles.animate]: isSmashed,
+				[styles.animate]: isSmashed
 			})}
 			style={{ backgroundImage: `url(${HeartImage.src})` }}
 		/>

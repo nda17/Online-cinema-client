@@ -1,12 +1,12 @@
 import { PUBLIC_URL } from '@/configs/url.config'
-import { IMovie } from '@/shared/types/movie.types'
 import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { FC } from 'react'
 import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import styles from './Content.module.scss'
 import ContentList from './ContentList/ContentList'
+import { IContent } from './content.interface'
 
-const Content: FC<{ movie: IMovie }> = ({ movie }) => {
+const Content: FC<IContent> = ({ movie }) => {
 	return (
 		<div className={styles.content}>
 			<h1>{movie.title}</h1>

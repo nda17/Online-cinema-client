@@ -6,7 +6,7 @@ import SubHeading from '@/ui/subheading/SubHeading'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import Content from './Content/Content'
-import { IMoviePage } from './single-movie.interface'
+import { ISingleMoviePage } from './single-movie.interface'
 import { useUpdateCountOpened } from './useUpdateCountOpened'
 
 const DynamicPlayer = dynamic(
@@ -23,12 +23,12 @@ const DynamicStarRating = dynamic(
 	}
 )
 
-const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
+const SingleMovie: FC<ISingleMoviePage> = ({ movie, similarMovies }) => {
 	useUpdateCountOpened(movie.slug)
-	
+
 	return (
 		<div className={styles.contentWrapper}>
-			 <Banner
+			<Banner
 				imagePath={movie.bigPoster}
 				Detail={() => <Content movie={movie} />}
 			/>
@@ -39,13 +39,18 @@ const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 				slug={movie.slug}
 			/>
 
-			
 			<SubHeading title="Similar movies" />
 			<Gallery items={similarMovies || []} />
-			
 
 			<SubHeading title="Film rating" />
-			<DynamicStarRating count={5} icon={"MdStar"} defaultStarColor={{color: '#4f4f4f'}} activeStarColor = {{color: '#ffd700'}} slug={movie.slug} _id={movie._id} />
+			<DynamicStarRating
+				count={5}
+				icon={'MdStar'}
+				defaultStarColor={{ color: '#4f4f4f' }}
+				activeStarColor={{ color: '#ffd700' }}
+				slug={movie.slug}
+				_id={movie._id}
+			/>
 		</div>
 	)
 }

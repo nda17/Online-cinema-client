@@ -1,5 +1,5 @@
 import { IMovie } from '@/shared/types/movie.types'
 
-export interface IFresh {
+export interface IFreshPage {
 	movies: IMovie[]
 }

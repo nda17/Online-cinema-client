@@ -4,12 +4,15 @@ import Catalog from '../templates/catalog-movies/Catalog'
 import { IGenrePage } from './genre.interface'
 
 const Genre: FC<IGenrePage> = ({ genre, movies }) => {
+	const title = genre.name
+	const description = genre.description
+
 	return (
 		<div className={styles.contentWrapper}>
 			<Catalog
 				movies={movies || []}
-				title={genre.name}
-				description={genre.description}
+				title={title}
+				description={description}
 			/>
 		</div>
 	)

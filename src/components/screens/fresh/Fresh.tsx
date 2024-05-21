@@ -1,17 +1,21 @@
 import styles from '@/components/shared/contentWrapper.module.scss'
 import { FC } from 'react'
 import Catalog from '../templates/catalog-movies/Catalog'
-import { IFresh } from './fresh.interface'
+import { IFreshPage } from './fresh.interface'
 
-const Fresh: FC<IFresh> = (content) => {
+const Fresh: FC<IFreshPage> = (content) => {
 	const movies = content.movies
+
+	const title = 'Fresh movies'
+	const description =
+		'New movies and series in excellent quality: legal, safe, without advertising'
 
 	return (
 		<div className={styles.contentWrapper}>
 			<Catalog
 				movies={movies || []}
-				title="Fresh movies"
-				description="New movies and series in excellent quality: legal, safe, without advertising"
+				title={title}
+				description={description}
 			/>
 		</div>
 	)

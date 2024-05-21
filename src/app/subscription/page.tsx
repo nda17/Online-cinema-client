@@ -24,12 +24,11 @@ const BySubscriptionPage = async () => {
 //Movies by subscription fetch
 export const staticContent = async () => {
 	try {
-		const responseSubscriptionMovies = await MovieService.getMoviesList()
+		const response = await MovieService.getMoviesList()
 
-		const subscriptionMovies: IMovie[] =
-			responseSubscriptionMovies.data.filter(
-				(item) => item.license === 'subscription'
-			)
+		const subscriptionMovies: IMovie[] = response.data.filter(
+			(item) => item.license === 'subscription'
+		)
 
 		return {
 			subscriptionMovies

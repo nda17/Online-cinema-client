@@ -4,12 +4,12 @@ import Heading from '@/ui/heading/Heading'
 import Slider from '@/ui/slider/Slider'
 import SubHeading from '@/ui/subheading/SubHeading'
 import { FC } from 'react'
-import { IHome } from './home.interface'
+import { IHomePage } from './home.interface'
 
-const Home: FC<IHome> = (content) => {
+const Home: FC<IHomePage> = (content) => {
 	const slides = content.slides
-	const actors = content.actors
 	const trendingMovies = content.trendingMovies
+	const actors = content.actors
 
 	return (
 		<div className={styles.contentWrapper}>

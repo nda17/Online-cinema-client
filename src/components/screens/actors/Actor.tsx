@@ -4,9 +4,11 @@ import Catalog from '../templates/catalog-movies/Catalog'
 import { IActorPage } from './actor.interface'
 
 const Actor: FC<IActorPage> = ({ actor, movies }) => {
+	const title = actor.name
+
 	return (
 		<div className={styles.contentWrapper}>
-			<Catalog movies={movies || []} title={actor.name} />
+			<Catalog movies={movies || []} title={title} />
 		</div>
 	)
 }

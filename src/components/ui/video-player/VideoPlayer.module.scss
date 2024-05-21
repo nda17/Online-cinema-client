@@ -1,6 +1,10 @@
 .player {
 	@apply mb-12 shadow-black rounded-2xl overflow-hidden shadow-xl relative animate-fadeIn;
 
+	.video {
+		@apply w-full;
+	}
+
 	.buttonReplay {
 		@apply w-8 h-8 outline-none opacity-60 hover:opacity-100 transition-opacity absolute top-[25%] sm:top-0 right-0 sm:bottom-0 left-0 m-auto;
 

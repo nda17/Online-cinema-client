@@ -10,30 +10,34 @@ import { useFavorites } from './useFavorites'
 
 const Favorites: FC = () => {
 	const { movies, isLoading } = useFavorites()
-	
+
+	const title = 'Favorites'
+	const description =
+		"Featured films page. No need to search for your favorite movie, you can immediately start watching it anytime, anywhere'"
+	const text =
+		'Featured films page. No need to search for your favorite movie, you can immediately start watching it anytime, anywhere'
 	return (
 		<div className={stylesWrapper.contentWrapper}>
-			{isLoading ?
-				(<>
+			{isLoading ? (
+				<>
 					<Heading title={'Favorites'} />
-					<Description text={'Featured films page. No need to search for your favorite movie, you can immediately start watching it anytime, anywhere'} className={styles.description} />
+					<Description text={text} className={styles.description} />
 					<SkeletonLoader
-							count={9}
-							className={styles.skeletonLoader}
-							containerClassName={styles.containerLoader}
+						count={9}
+						className={styles.skeletonLoader}
+						containerClassName={styles.containerLoader}
 					/>
-				</>) 
-				: (
-					<>
-						<Catalog
-							movies={movies || []}
-							title="Favorites"
-							description="Featured films page. No need to search for your favorite movie, you can immediately start watching it anytime, anywhere'"
-							favorite = {true}
-						/>
-					</>
-				)
-			}
+				</>
+			) : (
+				<>
+					<Catalog
+						movies={movies || []}
+						title={title}
+						description={description}
+						favorite={true}
+					/>
+				</>
+			)}
 		</div>
 	)
 }
