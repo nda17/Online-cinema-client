@@ -5,10 +5,15 @@ import GalleryItem from '@/ui/gallery/GalleryItem'
 import Heading from '@/ui/heading/Heading'
 import Pagination from '@/ui/pagination/Pagination'
 import { FC, useState } from 'react'
-import styles from './Catalog.module.scss'
-import { ICatalog } from './catalog.interface'
+import styles from './CatalogMovies.module.scss'
+import { ICatalogMovies } from './catalog-movies.interface'
 
-const Catalog: FC<ICatalog> = ({ title, description, movies, favorite }) => {
+const CatalogMovies: FC<ICatalogMovies> = ({
+	title,
+	description,
+	movies,
+	favorite
+}) => {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая страница
 	const itemQuantity = 9 //Количество элементов в одной группе
 
@@ -42,11 +47,8 @@ const Catalog: FC<ICatalog> = ({ title, description, movies, favorite }) => {
 	return (
 		<>
 			<Heading title={title} />
-			{description && (
-				<Description text={description} />
-			)}
+			{description && <Description text={description} />}
 			<div className={styles.movies}>
-				
 				{activePage.map((movie) => (
 					<GalleryItem
 						key={movie._id}
@@ -60,7 +62,7 @@ const Catalog: FC<ICatalog> = ({ title, description, movies, favorite }) => {
 								title: movie.title
 							}
 						}}
-						favorite = {favorite}
+						favorite={favorite}
 					/>
 				))}
 			</div>
@@ -77,4 +79,4 @@ const Catalog: FC<ICatalog> = ({ title, description, movies, favorite }) => {
 	)
 }
 
-export default Catalog
+export default CatalogMovies
