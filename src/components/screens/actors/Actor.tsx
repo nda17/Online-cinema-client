@@ -1,6 +1,6 @@
 import styles from '@/components/shared/contentWrapper.module.scss'
 import { FC } from 'react'
-import Catalog from '../templates/catalog-movies/Catalog'
+import CatalogMovies from '../templates/catalog-movies/CatalogMovies'
 import { IActorPage } from './actor.interface'
 
 const Actor: FC<IActorPage> = ({ actor, movies }) => {
@@ -8,7 +8,7 @@ const Actor: FC<IActorPage> = ({ actor, movies }) => {
 
 	return (
 		<div className={styles.contentWrapper}>
-			<Catalog movies={movies || []} title={title} />
+			<CatalogMovies movies={movies || []} title={title} />
 		</div>
 	)
 }

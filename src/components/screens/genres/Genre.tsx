@@ -1,6 +1,6 @@
 import styles from '@/components/shared/contentWrapper.module.scss'
 import { FC } from 'react'
-import Catalog from '../templates/catalog-movies/Catalog'
+import CatalogMovies from '../templates/catalog-movies/CatalogMovies'
 import { IGenrePage } from './genre.interface'
 
 const Genre: FC<IGenrePage> = ({ genre, movies }) => {
@@ -9,7 +9,7 @@ const Genre: FC<IGenrePage> = ({ genre, movies }) => {
 
 	return (
 		<div className={styles.contentWrapper}>
-			<Catalog
+			<CatalogMovies
 				movies={movies || []}
 				title={title}
 				description={description}

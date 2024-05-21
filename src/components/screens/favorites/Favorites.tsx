@@ -4,7 +4,7 @@ import Description from '@/ui/description/Description'
 import Heading from '@/ui/heading/Heading'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 import { FC } from 'react'
-import Catalog from '../templates/catalog-movies/Catalog'
+import CatalogMovies from '../templates/catalog-movies/CatalogMovies'
 import styles from './Favorites.module.scss'
 import { useFavorites } from './useFavorites'
 
@@ -30,7 +30,7 @@ const Favorites: FC = () => {
 				</>
 			) : (
 				<>
-					<Catalog
+					<CatalogMovies
 						movies={movies || []}
 						title={title}
 						description={description}

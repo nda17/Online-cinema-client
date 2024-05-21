@@ -1,6 +1,6 @@
 import styles from '@/components/shared/contentWrapper.module.scss'
 import { FC } from 'react'
-import Catalog from '../templates/catalog-movies/Catalog'
+import CatalogMovies from '../templates/catalog-movies/CatalogMovies'
 import { ISubscriptionPage } from './subscription.interface'
 
 const Subscription: FC<ISubscriptionPage> = ({ subscriptionMovies }) => {
@@ -10,7 +10,7 @@ const Subscription: FC<ISubscriptionPage> = ({ subscriptionMovies }) => {
 
 	return (
 		<div className={styles.contentWrapper}>
-			<Catalog
+			<CatalogMovies
 				movies={subscriptionMovies || []}
 				title={title}
 				description={description}
