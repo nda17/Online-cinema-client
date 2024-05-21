@@ -46,7 +46,7 @@
 	}
 
 	&.horizontal {
-		@apply w-full h-[11.5rem] mb-8;
+		@apply w-full sm:h-[9rem] md:h-[8rem]  h-[11.5rem] mb-8;
 	}
 
 	&.withText {
@@ -64,7 +64,7 @@
 		@apply w-full h-full z-2 p-3;
 
 		.title {
-			@apply font-semibold mb-1 text-white text-shadow;
+			@apply md:text-[.8rem] lg:text-[.9rem] xl:text-[1rem] font-semibold mb-1 text-white text-shadow;
 		}
 
 		.subTitle {
