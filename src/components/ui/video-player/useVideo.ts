@@ -11,13 +11,13 @@ export const useVideo = () => {
 	const [progress, setProgress] = useState(0)
 
 	//Replay
-	const replay = () => {
+	const replay = useCallback(() => {
 		if (videoRef.current?.currentTime === videoTime) {
 			setCurrentTime(0.8)
 			videoRef.current?.play()
 			setIsPlaying(true)
 		}
-	}
+	}, [videoTime])
 
 	//Fast revert
 	const fastRevert = () => {
@@ -162,7 +162,7 @@ export const useVideo = () => {
 				videoTime
 			}
 		}),
-		[currentTime, isPlaying, videoTime, progress, muteStatus, toggleVideo]
+		[currentTime, isPlaying, videoTime, replay, toggleVideo]
 	)
 
 	return value
