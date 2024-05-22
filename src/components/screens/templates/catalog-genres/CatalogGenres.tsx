@@ -4,7 +4,7 @@ import Description from '@/ui/description/Description'
 import Heading from '@/ui/heading/Heading'
 import Pagination from '@/ui/pagination/Pagination'
 import { FC, useState } from 'react'
-import CollectionItem from '../../collections/CollectionItem/CollectionItem'
+import CollectionItem from '../../collection/CollectionItem/CollectionItem'
 import styles from './CatalogGenres.module.scss'
 import { ICatalogGenres } from './catalog-genres.interface'
 
