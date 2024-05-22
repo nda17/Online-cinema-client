@@ -46,7 +46,7 @@
 	}
 
 	&.horizontal {
-		@apply w-full sm:h-[9rem] md:h-[8rem]  h-[11.5rem] mb-8;
+		@apply w-full h-[9rem] md:h-[8rem] lg:h-[9rem] xl:h-[11rem] xxl:h-[14rem] mb-8;
 	}
 
 	&.withText {
