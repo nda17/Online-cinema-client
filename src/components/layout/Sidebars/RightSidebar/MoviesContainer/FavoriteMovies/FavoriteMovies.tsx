@@ -18,30 +18,18 @@ const FavoriteMovies: FC = () => {
 			<h1 className={styles.heading}>Favorites</h1>
 			{isLoading ? (
 				<SkeletonLoader count={3} className={styles.preloader} />
+			) : (!isLoading && !isAuth) || (!isLoading && !movies?.length) ? (
+				<FavoriteBanner isAuth={isAuth} />
 			) : (
-				!isLoading && !isAuth || !isLoading && !movies?.length ? (
-					<FavoriteBanner isAuth={isAuth} />
-				) : (<MovieList
-						movies={movies?.slice(0, 3) || []}
-					/>)
+				<>
+					<MovieList movies={movies?.slice(0, 3) || []} />
+					<Link href="/favorites">
+						<span className={styles.button}>See more</span>
+					</Link>
+				</>
 			)}
-			<Link href='/favorites'>
-				<span className={styles.button}>See more</span>
-			</Link>
 		</>
 	)
 }
 
 export default FavoriteMovies
-
-
-
-
-
-
-
-
-
-
-
-
