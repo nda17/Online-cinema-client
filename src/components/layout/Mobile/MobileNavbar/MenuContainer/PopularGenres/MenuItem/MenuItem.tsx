@@ -1,13 +1,25 @@
+import { setVisibleHamburger } from '@/store/hamburger/hamburger.slice'
 import MaterialIcon from '@/ui/icons/MaterialIcon'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from '../../Menu.module.scss'
 import { IMenuItem } from './menu-item.interface'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	const pathname = usePathname()
+
+	const visibleHamburger = useSelector(
+		(state: any) => state.hamburger.visible
+	)
+
+	const dispatch = useDispatch()
+
+	const changeMenu = () => {
+		dispatch(setVisibleHamburger(!visibleHamburger))
+	}
 
 	return (
 		<li
@@ -27,7 +39,11 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 			<div className={styles.wrapper}>
 				<span className={styles.item}>
 					<MaterialIcon name={item.icon} />
-					<Link href={item.link} className={styles.link}>
+					<Link
+						href={item.link}
+						onClick={changeMenu}
+						className={styles.link}
+					>
 						{item.title}
 					</Link>
 				</span>
