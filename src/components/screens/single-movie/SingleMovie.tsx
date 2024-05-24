@@ -39,8 +39,12 @@ const SingleMovie: FC<ISingleMoviePage> = ({ movie, similarMovies }) => {
 				slug={movie.slug}
 			/>
 
-			<SubHeading title="Similar movies" />
-			<Gallery items={similarMovies || []} />
+			{similarMovies.length ? (
+				<>
+					<SubHeading title="Similar movies" />
+					<Gallery items={similarMovies || []} />
+				</>
+			) : null}
 
 			<SubHeading title="Film rating" />
 			<DynamicStarRating
