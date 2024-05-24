@@ -1,0 +1,17 @@
+.collection {
+	@apply relative pt-8 grid grid-cols-1 sm:grid-cols-3 sm:gap-4;
+
+	> a {
+		> div {
+			@apply h-40;
+		}
+
+		&:last-child {
+			@apply mb-0;
+		}
+
+		&:nth-last-child(-n + 3) {
+			@apply sm:mb-0;
+		}
+	}
+}
