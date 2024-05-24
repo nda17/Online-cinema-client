@@ -14,11 +14,11 @@ export const useActorEdit = (
 ) => {
 	const { push } = useRouter()
 
-	const genreId = params.id
+	const actorId = params.id
 
 	const { isLoading } = useQuery(
-		['actor', genreId],
-		() => ActorService.getActorById(genreId),
+		['actor', actorId],
+		() => ActorService.getActorById(actorId),
 		{
 			onSuccess({ data }) {
 				getKeys(data).forEach((key) => {
@@ -35,14 +35,14 @@ export const useActorEdit = (
 
 	const { mutateAsync } = useMutation(
 		'update actor',
-		(data: IActorEditInput) => ActorService.updateActor(genreId, data),
+		(data: IActorEditInput) => ActorService.updateActor(actorId, data),
 
 		{
 			onSuccess() {
 				toastr.success('Update actor', 'update was successful')
 				push(ADMIN_URL.rootUrl('/actors'))
 			},
-			
+
 			onError(error) {
 				toastrError(error, 'Update actor')
 			}
