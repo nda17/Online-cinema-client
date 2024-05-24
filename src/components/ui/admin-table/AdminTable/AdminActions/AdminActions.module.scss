@@ -1,11 +1,11 @@
 .actions {
-	@apply flex items-center;
+	@apply flex flex-col items-center sm:items-start md:flex-row;
 
 	> button {
-		@apply outline-border-none bg-transparent text-xl text-primary opacity-80 transition-opacity hover:opacity-100;
+		@apply w-[1.25rem] outline-border-none bg-transparent text-xl text-primary opacity-80 transition-opacity hover:opacity-100;
 
 		&:first-child {
-			@apply mr-4;
+			@apply mb-2 md:mb-0 md:mr-3;
 		}
 	}
 }
