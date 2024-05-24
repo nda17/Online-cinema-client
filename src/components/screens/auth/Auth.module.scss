@@ -1,20 +1,21 @@
 .auth {
-	@apply absolute w-[84%] sm:w-[70%] md:w-[20rem] lg:w-[25rem] xl:w-full max-w-lg top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%];
+	@apply absolute w-[17rem] sm:w-[24rem] md:w-[20rem] lg:w-[25rem] xl:w-full max-w-lg top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%];
 
 	.formAuth {
 		@apply mx-auto air-block bg-opacity-80 p-7 text-center shadow-black;
 
 		.buttons {
-			@apply shadow-lg;
+			@apply w-full flex;
 
 			> button {
+				@apply w-1/2 flex items-center justify-center;
+
 				&:first-child {
-					@apply md:rounded-r-none mb-2 md:mb-0;
+					@apply rounded-r-none;
 				}
 
 				&:last-child {
-					@apply md:rounded-l-none opacity-80 hover:opacity-100 transition-opacity;
-					background-color: #8f050b;
+					@apply rounded-l-none opacity-80 hover:opacity-100 transition-opacity bg-[#8f050b];
 				}
 			}
 		}
