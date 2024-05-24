@@ -8,9 +8,9 @@ export const mainMenu: IMenu = {
 			title: 'Home'
 		},
 		{
-			icon: 'MdExplore',
-			link: '/discovery',
-			title: 'Discovery'
+			icon: 'MdMovieCreation',
+			link: '/genre-catalog',
+			title: 'Genre catalog'
 		},
 		{
 			icon: 'MdRefresh',
@@ -25,7 +25,7 @@ export const mainMenu: IMenu = {
 		{
 			icon: 'MdRequestQuote',
 			link: '/subscription',
-			title: 'By subscription'
+			title: 'Best of subscription'
 		}
 	]
 }
