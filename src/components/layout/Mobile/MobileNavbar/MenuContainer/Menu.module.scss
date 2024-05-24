@@ -3,7 +3,7 @@
 
 	> ul {
 		> li {
-			@apply pl-10 mb-6;
+			@apply pl-10 mb-6 flex;
 
 			.item {
 				@apply flex items-center text-gray-600 text-[1.3rem];
