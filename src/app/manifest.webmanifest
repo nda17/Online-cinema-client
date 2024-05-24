@@ -1,0 +1,17 @@
+{
+	"theme_color": "#e30b13",
+	"background_color": "#191b1f",
+	"scope": "/",
+	"start_url": "/",
+	"name": "Online Cinema",
+	"app_name": "Online Cinema",
+	"short_name": "Online Cinema",
+	"description": "Watch MovieApp movies and TV shows online or stream right to your browser.",
+	"icons": [
+		{
+			"src": "/icon.ico",
+			"sizes": "any",
+			"type": "image/ico"
+		}
+	]
+}
