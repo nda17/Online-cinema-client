@@ -8,8 +8,10 @@ import { useFavorites } from '../../favorites/useFavorites'
 import styles from './FavoriteButton.module.scss'
 import { IFavoriteButton } from './favorite-button.interface'
 import HeartImage from './heart-animation.png'
+import { useAuth } from '@/hooks/useAuth'
 
 const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
+	const { user } = useAuth()
 	const [isSmashed, setIsSmashed] = useState(false)
 
 	const { movies, refetch } = useFavorites()
@@ -23,7 +25,7 @@ const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 
 	const { mutateAsync } = useMutation(
 		'update favorites movies',
-		() => UserService.toggleFavorite(movieId),
+		() => UserService.toggleFavorite(String(movieId)),
 		{
 			onSuccess() {
 				setIsSmashed(!isSmashed)
@@ -37,7 +39,7 @@ const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	)
 
 	return (
-		<button
+		user && <button
 			onClick={() => mutateAsync()}
 			className={classNames(styles.button, {
 				[styles.animate]: isSmashed
