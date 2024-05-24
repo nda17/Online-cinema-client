@@ -19,7 +19,8 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 		'get subscription user profile',
 		() => UserService.getProfile(),
 		{
-			select: (data) => data.data.isSubscription
+			select: (data) => data.data.isSubscription,
+			enabled: !!user
 		}
 	)
 
