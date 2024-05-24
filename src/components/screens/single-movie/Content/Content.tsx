@@ -1,10 +1,15 @@
 import { PUBLIC_URL } from '@/configs/url.config'
 import MaterialIcon from '@/ui/icons/MaterialIcon'
+import dynamic from 'next/dynamic'
 import { FC } from 'react'
-import FavoriteButton from '../FavoriteButton/FavoriteButton'
 import styles from './Content.module.scss'
 import ContentList from './ContentList/ContentList'
 import { IContent } from './content.interface'
+
+const DynamicFavoriteButton = dynamic(
+	() => import('../FavoriteButton/FavoriteButton'),
+	{ ssr: false }
+)
 
 const Content: FC<IContent> = ({ movie }) => {
 	return (
@@ -35,7 +40,7 @@ const Content: FC<IContent> = ({ movie }) => {
 					_id: actor._id
 				}))}
 			/>
-			<FavoriteButton movieId={movie._id} />
+			<DynamicFavoriteButton movieId={movie._id} />
 		</div>
 	)
 }
