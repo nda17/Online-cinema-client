@@ -3,7 +3,7 @@ import { FC } from 'react'
 import PopularMovies from './PopularMovies/PopularMovies'
 
 const DynamicFavoriteMovies = dynamic(
-	() => import('./FavoriteMovies/DynamicFavoriteMovies'),
+	() => import('./FavoriteMovies/FavoriteMovies'),
 	{ ssr: false }
 )
 
