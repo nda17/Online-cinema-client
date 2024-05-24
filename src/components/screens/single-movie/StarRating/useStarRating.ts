@@ -1,3 +1,4 @@
+import { useAuth } from '@/hooks/useAuth'
 import { RatingService } from '@/services/rating/rating.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { useState } from 'react'
@@ -8,6 +9,8 @@ export const useStarRating = (movieId: string) => {
 	const [rating, setRating] = useState(0)
 	const [isSended, setIsSended] = useState(false)
 
+	const { user } = useAuth()
+
 	const { refetch } = useQuery(
 		['your movie rating', movieId],
 		() => RatingService.getByUserMovie(movieId),
@@ -15,7 +18,12 @@ export const useStarRating = (movieId: string) => {
 			onSuccess({ data }) {
 				setRating(data)
 			},
-			enabled: !!movieId
+
+			onError(error) {
+				toastrError(error, 'Get rating')
+			},
+			
+			enabled: !!movieId && !!user
 		}
 	)
 
@@ -37,7 +45,7 @@ export const useStarRating = (movieId: string) => {
 
 			onError(error) {
 				toastrError(error, 'Rate movie')
-			},
+			}
 		}
 	)
 
