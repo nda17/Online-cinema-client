@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { FC } from 'react'
 import MovieList from '../MovieList'
 import FavoriteBanner from './FavoriteBanner/FavoriteBanner'
-import styles from './DynamicFavoriteMovies.module.scss'
+import styles from './FavoriteMovies.module.scss'
 
 const FavoriteMovies: FC = () => {
 	const { isLoading, movies } = useFavorites()
