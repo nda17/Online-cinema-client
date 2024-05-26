@@ -17,10 +17,9 @@ export const MovieService = {
 	},
 
 	async getMostPopularMovies() {
-		const { data: movies } = await axiosClassicRequest.get<IMovie[]>(
+		return axiosClassicRequest.get<IMovie[]>(
 			PUBLIC_PATH.moviesUrl('/most-popular')
 		)
-		return movies
 	},
 
 	async getByGenres(genreIds: string[]) {
@@ -55,9 +54,12 @@ export const MovieService = {
 	},
 
 	async updateCountOpened(slug: string) {
-		return axiosClassicRequest.put(PUBLIC_PATH.moviesUrl('/update-count-opened'), {
-			slug
-		})
+		return axiosClassicRequest.put(
+			PUBLIC_PATH.moviesUrl('/update-count-opened'),
+			{
+				slug
+			}
+		)
 	},
 
 	async updateMovie(_id: string, data: IMovieEditInput) {
