@@ -11,7 +11,7 @@ const PopularMovies: FC = () => {
 		'most popular movie in sidebar',
 		() => MovieService.getMostPopularMovies(),
 		{
-			select: (data) => data.slice(0, 3)
+			select: (data) => data.data.slice(0, 3)
 		}
 	)
 
@@ -21,11 +21,9 @@ const PopularMovies: FC = () => {
 			{isLoading ? (
 				<SkeletonLoader count={3} className={styles.preloader} />
 			) : (
-				<MovieList
-					movies={data || []}
-				/>
+				<MovieList movies={data || []} />
 			)}
-			<Link href='/trending'>
+			<Link href="/trending">
 				<span className={styles.button}>See more</span>
 			</Link>
 		</div>
