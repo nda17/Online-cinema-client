@@ -1,9 +1,8 @@
-import { API_URL } from '@/configs/api.config'
 import { PUBLIC_URL } from '@/configs/url.config'
 import Home from '@/screens/home/Home'
-import { IHome } from '@/screens/home/home.interface'
+import { ActorService } from '@/services/actor/actor.service'
+import { MovieService } from '@/services/movie/movie.service'
 import { IActor, IMovie } from '@/shared/types/movie.types'
-import { ISlide } from '@/ui/slider/slider.interface'
 import { getGenresList } from '@/utils/movie/getGenresList'
 import { getRandomItem } from '@/utils/object/getRandomItem'
 import { errorCatch } from 'api/api.helpers'
@@ -17,23 +16,27 @@ export const metadata: Metadata = {
 }
 
 const HomePage = async () => {
-	const { props: content } = await staticContent()
-	return <Home {...content} />
+	const data = await staticContent()
+
+	const slidesMovies = data?.slidesMovies
+	const popularMovies = data?.popularMovies
+	const actors = data?.actors
+
+	return (
+		<Home
+			slidesMovies={slidesMovies || []}
+			popularMovies={popularMovies || []}
+			actors={actors || []}
+		/>
+	)
 }
 
-export const staticContent = async () => {
+const staticContent = async () => {
 	try {
-		//Movies slider fetch
-		const dataMovies = await fetch(
-			`${API_URL}${PUBLIC_URL.moviesUrl(``)}`,
-			{
-				cache: 'force-cache'
-			}
-		)
-			.then((response) => response.json())
-			.then((data) => data)
+		//Movies for slider
+		const { data: allMoviesList } = await MovieService.getMoviesList(``)
 
-		const slides = getRandomItem(dataMovies, 3).map((movie: ISlide) => ({
+		const slidesMovies = getRandomItem(allMoviesList, 3).map((movie) => ({
 			_id: movie._id,
 			url: PUBLIC_URL.moviesUrl(movie.slug),
 			subTitle: getGenresList(movie.genres),
@@ -41,59 +44,38 @@ export const staticContent = async () => {
 			bigPoster: movie.bigPoster
 		}))
 
-		//Trending movies gallery fetch
-		const dataTrendingMovies = await fetch(
-			`${API_URL}${PUBLIC_URL.moviesUrl('most-popular')}`,
-			{
-				cache: 'force-cache'
-			}
-		)
-			.then((response) => response.json())
-			.then((data) => data)
+		//Popular movies
+		const { data: popularMoviesList } =
+			await MovieService.getMostPopularMovies()
 
-		const trendingMovies = dataTrendingMovies.map((movie: IMovie) => ({
+		const popularMovies = popularMoviesList.map((movie: IMovie) => ({
 			name: movie.title,
 			posterPath: movie.poster,
 			url: PUBLIC_URL.moviesUrl(movie.slug)
 		}))
 
-		//Actors gallery fetch
-		const dataActors = await fetch(
-			`${API_URL}${PUBLIC_URL.actorsUrl(``)}`,
-			{
-				cache: 'force-cache'
-			}
-		)
-			.then((response) => response.json())
-			.then((data) => data)
+		//Actors
+		const { data: allActorsList } = await ActorService.getActorsList()
 
-		const actors = dataActors.slice(0, 8).map((actor: IActor) => ({
-			name: actor.name,
-			posterPath: actor.photo,
-			url: PUBLIC_URL.actorsUrl(actor.slug),
-			content: {
-				title: actor.name,
-				subTitle: `+${actor.countMovies} movies`
-			}
-		}))
+		const actors = getRandomItem(allActorsList, 8).map(
+			(actor: IActor) => ({
+				name: actor.name,
+				posterPath: actor.photo,
+				url: PUBLIC_URL.actorsUrl(actor.slug),
+				content: {
+					title: actor.name,
+					subTitle: `+${actor.countMovies} movies`
+				}
+			})
+		)
 
 		return {
-			props: {
-				slides,
-				trendingMovies,
-				actors
-			} as IHome
+			slidesMovies,
+			popularMovies,
+			actors
 		}
 	} catch (error) {
 		console.log(errorCatch(error))
-
-		return {
-			props: {
-				slides: [],
-				trendingMovies: [],
-				actors: []
-			} as IHome
-		}
 	}
 }
 
