@@ -1,6 +1,6 @@
+import { ICollectionPage } from '@/components/screens/collection/collection.interface'
 import { PUBLIC_PATH } from '@/configs/api.config'
 import { IGenreEditInput } from '@/screens/admin/genre/genre-edit.interface'
-import { ICollectionPage } from '@/screens/collections/collection.interface'
 import { IGenre } from '@/shared/types/movie.types'
 import axiosInterceptorsRequest, {
 	axiosClassicRequest
