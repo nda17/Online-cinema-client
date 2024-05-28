@@ -2,7 +2,6 @@ import Error404 from '@/app/not-found'
 import { PUBLIC_PATH } from '@/configs/api.config'
 import SingleMovie from '@/screens/single-movie/SingleMovie'
 import { MovieService } from '@/services/movie/movie.service'
-import { IGalleryItem } from '@/ui/gallery/gallery.interface'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 
@@ -11,9 +10,7 @@ export const generateMetadata = async ({
 }: {
 	params: { slug: string }
 }): Promise<Metadata> => {
-	const { data: movie } = await MovieService.getBySlug(
-		String(params?.slug)
-	)
+	const { data: movie } = await MovieService.getBySlug(params?.slug)
 
 	return {
 		title: `${movie.title} | Online-Cinema`,
@@ -34,18 +31,15 @@ const MoviePage = async ({ params }: { params: { slug: string } }) => {
 	)
 }
 
-//Movie fetch
-export const staticContent = async (params: any) => {
+const staticContent = async (params: { slug: string }) => {
 	try {
-		const { data: movie } = await MovieService.getBySlug(
-			String(params?.slug)
-		)
+		const { data: movie } = await MovieService.getBySlug(params?.slug)
 
 		const responseSimilarMovies = await MovieService.getByGenres(
-			movie.genres.map((genre: any) => genre._id)
+			movie.genres.map((genre: { _id: string }) => genre._id)
 		)
 
-		const similarMovies: IGalleryItem[] = responseSimilarMovies.data
+		const similarMovies = responseSimilarMovies.data
 			.filter((item) => item._id !== movie._id)
 			.map((item) => ({
 				name: item.title,
