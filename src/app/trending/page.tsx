@@ -1,41 +1,35 @@
 import Trending from '@/screens/trending/Trending'
-import { API_URL } from '@/configs/api.config'
-import { PUBLIC_URL } from '@/configs/url.config'
+import { MovieService } from '@/services/movie/movie.service'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
+import Error404 from '../not-found'
 
 export const metadata: Metadata = {
 	title: 'Trending movies | Online-Cinema'
 }
 
 const TrendingPage = async () => {
-	const { props: content } = await staticContent()
+	const data = await staticContent()
 
-	return <Trending {...content} />
+	const trendingMovies = data?.trendingMoviesList
+
+	return trendingMovies ? (
+		<Trending trendingMovies={trendingMovies || []} />
+	) : (
+		<Error404 />
+	)
 }
 
-export const staticContent = async () => {
+const staticContent = async () => {
 	try {
-		const movies = await fetch(
-			`${API_URL}${PUBLIC_URL.moviesUrl('most-popular')}`,
-			{
-				cache: 'force-cache'
-			}
-		)
-			.then((response) => response.json())
-			.then((data) => data)
+		const { data: trendingMoviesList } =
+			await MovieService.getMostPopularMovies()
 
 		return {
-			props: { movies }
+			trendingMoviesList
 		}
 	} catch (error) {
 		console.log(errorCatch(error))
-
-		return {
-			props: {
-				movies: []
-			}
-		}
 	}
 }
 

@@ -3,9 +3,7 @@ import { FC } from 'react'
 import CatalogMovies from '../templates/catalog-movies/CatalogMovies'
 import { ITrendingPage } from './trending.interface'
 
-const Trending: FC<ITrendingPage> = (content) => {
-	const movies = content.movies
-
+const Trending: FC<ITrendingPage> = ({ trendingMovies }) => {
 	const title = 'Trending movies'
 	const description =
 		'Trending movies in excellent quality: legal, safe, without advertising'
@@ -13,7 +11,7 @@ const Trending: FC<ITrendingPage> = (content) => {
 	return (
 		<div className={styles.contentWrapper}>
 			<CatalogMovies
-				movies={movies || []}
+				movies={trendingMovies || []}
 				title={title}
 				description={description}
 			/>
