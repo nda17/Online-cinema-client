@@ -2,6 +2,7 @@ import Fresh from '@/screens/fresh/Fresh'
 import { MovieService } from '@/services/movie/movie.service'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
+import Error404 from '../not-found'
 
 export const metadata: Metadata = {
 	title: 'Fresh movies | Online-Cinema'
@@ -12,7 +13,11 @@ const FreshPage = async () => {
 
 	const freshMovies = data?.allMoviesList
 
-	return <Fresh freshMovies={freshMovies || []} />
+	return freshMovies ? (
+		<Fresh freshMovies={freshMovies || []} />
+	) : (
+		<Error404 />
+	)
 }
 
 //Movies fetch
