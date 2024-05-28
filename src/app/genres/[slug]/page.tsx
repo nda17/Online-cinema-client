@@ -28,13 +28,9 @@ const GenrePage = async ({ params }: { params: { slug: string } }) => {
 	return genre ? <Genre genre={genre} movies={movies} /> : <Error404 />
 }
 
-//Genres fetch
-export const staticContent = async (params: any) => {
+const staticContent = async (params: { slug: string }) => {
 	try {
-		const { data: genre } = await GenreService.getGenreBySlug(
-			String(params?.slug)
-		)
-
+		const { data: genre } = await GenreService.getGenreBySlug(params.slug)
 		const { data: movies } = await MovieService.getByGenres([genre._id])
 
 		return {
