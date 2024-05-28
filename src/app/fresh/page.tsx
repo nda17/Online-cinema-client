@@ -20,7 +20,6 @@ const FreshPage = async () => {
 	)
 }
 
-//Movies fetch
 const staticContent = async () => {
 	try {
 		const { data: allMoviesList } = await MovieService.getMoviesList(``)
