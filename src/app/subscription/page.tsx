@@ -1,6 +1,5 @@
 import Subscription from '@/screens/subscription/Subscription'
 import { MovieService } from '@/services/movie/movie.service'
-import { IMovie } from '@/shared/types/movie.types'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 import Error404 from '../not-found'
@@ -21,12 +20,11 @@ const BySubscriptionPage = async () => {
 	)
 }
 
-//Movies by subscription fetch
-export const staticContent = async () => {
+const staticContent = async () => {
 	try {
-		const response = await MovieService.getMoviesList()
+		const { data: moviesList } = await MovieService.getMoviesList(``)
 
-		const subscriptionMovies: IMovie[] = response.data.filter(
+		const subscriptionMovies = moviesList.filter(
 			(item) => item.license === 'subscription'
 		)
 
