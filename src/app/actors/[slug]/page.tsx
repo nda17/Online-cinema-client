@@ -28,12 +28,9 @@ const ActorPage = async ({ params }: { params: { slug: string } }) => {
 	return actor ? <Actor actor={actor} movies={movies} /> : <Error404 />
 }
 
-//Actors fetch
-export const staticContent = async (params: any) => {
+const staticContent = async (params: { slug: string }) => {
 	try {
-		const { data: actor } = await ActorService.getActorBySlug(
-			String(params?.slug)
-		)
+		const { data: actor } = await ActorService.getActorBySlug(params?.slug)
 
 		const { data: movies } = await MovieService.getByActor(actor._id)
 
