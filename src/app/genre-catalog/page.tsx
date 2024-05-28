@@ -1,6 +1,5 @@
 import Collection from '@/screens/collection/Collection'
 import { GenreService } from '@/services/genre/genre.service'
-import { IGenresCollection } from '@/shared/types/collection.types'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 import Error404 from '../not-found'
@@ -21,12 +20,11 @@ const GenreCatalogPage = async () => {
 	)
 }
 
-//Genre catalog fetch
-export const staticContent = async () => {
+const staticContent = async () => {
 	try {
 		const response = await GenreService.getCollections()
 
-		const collection: IGenresCollection[] = response.data.map((item) => ({
+		const collection = response.data.map((item) => ({
 			_id: item._id,
 			image: item.image,
 			title: item.title,
