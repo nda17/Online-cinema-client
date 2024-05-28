@@ -1,6 +1,5 @@
-import { API_URL } from '@/configs/api.config'
-import { PUBLIC_URL } from '@/configs/url.config'
 import Fresh from '@/screens/fresh/Fresh'
+import { MovieService } from '@/services/movie/movie.service'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 
@@ -9,31 +8,23 @@ export const metadata: Metadata = {
 }
 
 const FreshPage = async () => {
-	const { props: content } = await staticContent()
+	const data = await staticContent()
 
-	return <Fresh {...content} />
+	const freshMovies = data?.allMoviesList
+
+	return <Fresh freshMovies={freshMovies || []} />
 }
 
 //Movies fetch
-export const staticContent = async () => {
+const staticContent = async () => {
 	try {
-		const movies = await fetch(`${API_URL}${PUBLIC_URL.moviesUrl(``)}`, {
-			cache: 'force-cache'
-		})
-			.then((response) => response.json())
-			.then((data) => data)
+		const { data: allMoviesList } = await MovieService.getMoviesList(``)
 
 		return {
-			props: { movies }
+			allMoviesList
 		}
 	} catch (error) {
 		console.log(errorCatch(error))
-
-		return {
-			props: {
-				movies: []
-			}
-		}
 	}
 }
 

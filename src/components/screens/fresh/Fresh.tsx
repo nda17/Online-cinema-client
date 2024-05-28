@@ -3,9 +3,7 @@ import { FC } from 'react'
 import CatalogMovies from '../templates/catalog-movies/CatalogMovies'
 import { IFreshPage } from './fresh.interface'
 
-const Fresh: FC<IFreshPage> = (content) => {
-	const movies = content.movies
-
+const Fresh: FC<IFreshPage> = ({ freshMovies }) => {
 	const title = 'Fresh movies'
 	const description =
 		'New movies and series in excellent quality: legal, safe, without advertising'
@@ -13,7 +11,7 @@ const Fresh: FC<IFreshPage> = (content) => {
 	return (
 		<div className={styles.contentWrapper}>
 			<CatalogMovies
-				movies={movies || []}
+				movies={freshMovies || []}
 				title={title}
 				description={description}
 			/>
