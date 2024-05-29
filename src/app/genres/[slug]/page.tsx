@@ -19,6 +19,8 @@ export const generateMetadata = async ({
 	}
 }
 
+export const revalidate = 60
+
 const GenrePage = async ({ params }: { params: { slug: string } }) => {
 	const data = await staticContent(params)
 

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 	title: 'Movies by subscription | Online-Cinema'
 }
 
+export const revalidate = 60
+
 const BySubscriptionPage = async () => {
 	const data = await staticContent()
 

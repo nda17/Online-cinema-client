@@ -18,6 +18,8 @@ export const generateMetadata = async ({
 	}
 }
 
+export const revalidate = 60
+
 const MoviePage = async ({ params }: { params: { slug: string } }) => {
 	const data = await staticContent(params)
 

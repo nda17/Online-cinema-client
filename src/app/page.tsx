@@ -15,6 +15,8 @@ export const metadata: Metadata = {
 	}
 }
 
+export const revalidate = 60
+
 const HomePage = async () => {
 	const data = await staticContent()
 

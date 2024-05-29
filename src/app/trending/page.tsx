@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 	title: 'Trending movies | Online-Cinema'
 }
 
+export const revalidate = 60
+
 const TrendingPage = async () => {
 	const data = await staticContent()
 
