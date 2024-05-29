@@ -4,6 +4,7 @@ import Description from '@/ui/description/Description'
 import GalleryGenresItem from '@/ui/gallery-genres/GalleryGenresItem/GalleryGenresItem'
 import Heading from '@/ui/heading/Heading'
 import Pagination from '@/ui/pagination/Pagination'
+import SubHeading from '@/ui/subheading/SubHeading'
 import { FC, useState } from 'react'
 import styles from './CatalogGenres.module.scss'
 import { ICatalogGenres } from './catalog-genres.interface'
@@ -47,18 +48,23 @@ const CatalogGenres: FC<ICatalogGenres> = ({
 		<>
 			<Heading title={title} />
 			{description && <Description text={description} />}
+			{!genres.length && (
+				<SubHeading title="Sorry, there is no content available at this time. Try again later." />
+			)}
 			<div className={styles.genres}>
-				{activePage.map((genre) => (
-					<GalleryGenresItem
-						key={genre._id}
-						item={{
-							_id: genre._id,
-							url: PUBLIC_URL.genresUrl(genre.slug),
-							image: genre.image,
-							title: genre.title
-						}}
-					/>
-				))}
+				{genres.length
+					? activePage.map((genre) => (
+							<GalleryGenresItem
+								key={genre._id}
+								item={{
+									_id: genre._id,
+									url: PUBLIC_URL.genresUrl(genre.slug),
+									image: genre.image,
+									title: genre.title
+								}}
+							/>
+					  ))
+					: null}
 			</div>
 			{genres.length > itemQuantity && (
 				<Pagination

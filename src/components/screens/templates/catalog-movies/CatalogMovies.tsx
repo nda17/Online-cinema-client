@@ -4,6 +4,7 @@ import Description from '@/ui/description/Description'
 import GalleryItem from '@/ui/gallery/GalleryItem'
 import Heading from '@/ui/heading/Heading'
 import Pagination from '@/ui/pagination/Pagination'
+import SubHeading from '@/ui/subheading/SubHeading'
 import { FC, useState } from 'react'
 import styles from './CatalogMovies.module.scss'
 import { ICatalogMovies } from './catalog-movies.interface'
@@ -48,23 +49,28 @@ const CatalogMovies: FC<ICatalogMovies> = ({
 		<>
 			<Heading title={title} />
 			{description && <Description text={description} />}
+			{!movies.length && (
+				<SubHeading title="Sorry, there is no content available at this time. Try again later." />
+			)}
 			<div className={styles.movies}>
-				{activePage.map((movie) => (
-					<GalleryItem
-						key={movie._id}
-						variant="horizontal"
-						item={{
-							_id: movie._id,
-							name: movie.title,
-							posterPath: movie.bigPoster,
-							url: PUBLIC_URL.moviesUrl(movie.slug),
-							content: {
-								title: movie.title
-							}
-						}}
-						favorite={favorite}
-					/>
-				))}
+				{movies.length
+					? activePage.map((movie) => (
+							<GalleryItem
+								key={movie._id}
+								variant="horizontal"
+								item={{
+									_id: movie._id,
+									name: movie.title,
+									posterPath: movie.bigPoster,
+									url: PUBLIC_URL.moviesUrl(movie.slug),
+									content: {
+										title: movie.title
+									}
+								}}
+								favorite={favorite}
+							/>
+					  ))
+					: null}
 			</div>
 			{movies.length > itemQuantity && (
 				<Pagination
