@@ -1,10 +1,10 @@
 'use client'
 import { PUBLIC_URL } from '@/configs/url.config'
 import Description from '@/ui/description/Description'
+import GalleryGenresItem from '@/ui/gallery-genres/GalleryGenresItem/GalleryGenresItem'
 import Heading from '@/ui/heading/Heading'
 import Pagination from '@/ui/pagination/Pagination'
 import { FC, useState } from 'react'
-import CollectionItem from '../../collection/CollectionItem/CollectionItem'
 import styles from './CatalogGenres.module.scss'
 import { ICatalogGenres } from './catalog-genres.interface'
 
@@ -49,13 +49,12 @@ const CatalogGenres: FC<ICatalogGenres> = ({
 			{description && <Description text={description} />}
 			<div className={styles.genres}>
 				{activePage.map((genre) => (
-					<CollectionItem
+					<GalleryGenresItem
 						key={genre._id}
 						item={{
 							_id: genre._id,
-							name: genre.title,
-							posterPath: genre.image,
 							url: PUBLIC_URL.genresUrl(genre.slug),
+							image: genre.image,
 							title: genre.title
 						}}
 					/>
