@@ -9,8 +9,8 @@ export const mainMenu: IMenu = {
 		},
 		{
 			icon: 'MdMovieCreation',
-			link: '/genre-catalog',
-			title: 'Genre catalog'
+			link: '/genre-collection',
+			title: 'Genre collection'
 		},
 		{
 			icon: 'MdRefresh',
