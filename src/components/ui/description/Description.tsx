@@ -6,7 +6,7 @@ import { IDescription } from './description.interface'
 
 const Description: FC<IDescription> = ({ text, className = '' }) => {
 	return (
-		<div className={classNames(styles.desription, className)}>
+		<div className={classNames(styles.description, className)}>
 			{parse(text)}
 		</div>
 	)
