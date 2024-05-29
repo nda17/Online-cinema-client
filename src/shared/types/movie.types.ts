@@ -22,6 +22,13 @@ export interface IGenre {
 	icon: TypeMaterialIconName
 }
 
+export interface IGenreCollection {
+	_id: string
+	image: string
+	slug: string
+	title: string
+}
+
 export interface IMovie {
 	_id: string
 	license: string
