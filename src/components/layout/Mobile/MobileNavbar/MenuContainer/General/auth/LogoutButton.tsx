@@ -18,8 +18,10 @@ const LogoutButton: FC = () => {
 		<li>
 			<div className={styles.wrapper}>
 				<span onClick={logoutHandler} className={styles.item}>
-					<MaterialIcon name="MdLogout" />
-					<span className={styles.link}>Logout</span>
+					<span className={styles.link}>
+						<MaterialIcon name="MdLogout" />
+						Logout
+					</span>
 				</span>
 			</div>
 		</li>
