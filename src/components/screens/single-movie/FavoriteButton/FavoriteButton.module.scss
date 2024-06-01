@@ -1,6 +1,10 @@
 .button {
-	@apply w-16 h-16 absolute bottom-0 right-0 z-10  bg-no-repeat bg-left mx-auto bg-transparent;
+	@apply transition-transform w-16 h-16 absolute bottom-0 right-0 z-10  bg-no-repeat bg-left mx-auto bg-transparent;
 	background-size: 2900%;
+
+	&:hover {
+		transform: scale(1.16);
+	}
 }
 
 .animate {

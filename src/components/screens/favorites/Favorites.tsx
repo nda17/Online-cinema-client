@@ -1,5 +1,5 @@
 'use client'
-import Error404 from '@/app/not-found'
+import FavoriteBanner from '@/components/layout/Sidebars/RightSidebar/MoviesContainer/FavoriteMovies/FavoriteBanner/FavoriteBanner'
 import stylesWrapper from '@/components/shared/contentWrapper.module.scss'
 import { useAuth } from '@/hooks/useAuth'
 import Description from '@/ui/description/Description'
@@ -18,12 +18,13 @@ const Favorites: FC = () => {
 	const description =
 		"Featured films page. No need to search for your favorite movie, you can immediately start watching it anytime, anywhere'"
 
+
 	return (
 		<div className={stylesWrapper.contentWrapper}>
+			<Heading title={'Favorites'} />
 			{user ? (
 				isLoading ? (
 					<>
-						<Heading title={'Favorites'} />
 						<Description
 							text={description}
 							className={styles.description}
@@ -35,17 +36,15 @@ const Favorites: FC = () => {
 						/>
 					</>
 				) : (
-					<>
-						<CatalogMovies
-							movies={movies || []}
-							title={title}
-							description={description}
-							favorite={true}
-						/>
-					</>
+					movies?.length ? <CatalogMovies
+						movies={movies || []}
+						title={''}
+						description={''}
+						favorite={true}
+					/> : <FavoriteBanner isAuth={true} />
 				)
 			) : (
-				<Error404 />
+				<FavoriteBanner isAuth={false} />
 			)}
 		</div>
 	)
