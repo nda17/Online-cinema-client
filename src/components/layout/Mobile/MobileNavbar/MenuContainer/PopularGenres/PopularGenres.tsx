@@ -8,20 +8,18 @@ import { usePopularGenres } from './usePopularGenres'
 const PopularGenres: FC = () => {
 	const { isLoading, data: items } = usePopularGenres()
 
-	return (
-		isLoading ? (
-			<div className='mb-8'>
-				<SkeletonLoader count={4} className={'h-7 pt-6 mb-6'} />
-			</div>
-		) : (
-			<div className={styles.menu}>
-				<ul>
-					{items?.map((item: IMenuItem) => (
-						<MenuItem item={item} key={item.link} />
-					))}
-				</ul>
-			</div>
-		)
+	return isLoading ? (
+		<div className="w-4/5 mt-0 mr-auto mb-8 ml-auto">
+			<SkeletonLoader count={4} className={'h-7 pt-6 mb-6'} />
+		</div>
+	) : (
+		<div className={styles.menu}>
+			<ul>
+				{items?.map((item: IMenuItem) => (
+					<MenuItem item={item} key={item.link} />
+				))}
+			</ul>
+		</div>
 	)
 }
 

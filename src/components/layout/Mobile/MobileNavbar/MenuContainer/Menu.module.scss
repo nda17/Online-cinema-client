@@ -6,10 +6,14 @@
 			@apply pl-10 mb-6 flex;
 
 			.item {
-				@apply flex items-center text-gray-600 text-[1.3rem];
+				@apply text-gray-600 text-[1.3rem];
 
-				> svg {
-					@apply mr-3 text-2lg;
+				> a {
+					@apply flex items-center;
+
+					svg {
+						@apply mr-2 text-2lg;
+					}
 				}
 			}
 
