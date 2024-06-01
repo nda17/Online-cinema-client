@@ -2,11 +2,7 @@
 	@apply mb-14 animate-fadeIn;
 
 	.wrapper {
-		@apply transition-all duration-200 flex justify-between;
-
-		&:hover {
-			@apply pl-3;
-		}
+		@apply flex justify-between;
 	}
 
 	> ul {
@@ -14,19 +10,30 @@
 			@apply mb-6 transition-colors;
 
 			.item {
-				@apply lg:px-3 flex items-center text-gray-600 cursor-pointer;
+				@apply lg:px-3 text-gray-600 cursor-pointer;
 
-				svg,
-				.link {
-					@apply transition-colors;
+				> a {
+					@apply flex items-center transition-colors;
+
+					svg {
+						@apply mr-2 text-2lg;
+					}
 				}
 
-				> svg {
-					@apply mr-3 text-2lg;
+				> span {
+					@apply flex items-center;
+
+					svg {
+						@apply mr-2 text-2lg;
+					}
 				}
 
 				.link {
-					@apply text xl:text-lg hover:text-white;
+					@apply transition-all duration-200 text xl:text-lg hover:text-white;
+
+					&:hover {
+						@apply pl-3;
+					}
 				}
 			}
 
@@ -40,7 +47,7 @@
 				}
 
 				.link {
-					@apply text-white;
+					@apply pl-3 text-white text-[1.12rem] xl:text-[1.25rem];
 				}
 
 				.border {

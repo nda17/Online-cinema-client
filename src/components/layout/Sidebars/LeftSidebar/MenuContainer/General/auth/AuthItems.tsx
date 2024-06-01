@@ -10,9 +10,9 @@ const AuthItems: FC = () => {
 
 	return (
 		<>
+			<h1 className={styles.heading}>General</h1>
 			{user ? (
 				<>
-				    <h1 className={styles.heading}>General</h1>
 					<MenuItem
 						item={{
 							icon: 'MdSettings',

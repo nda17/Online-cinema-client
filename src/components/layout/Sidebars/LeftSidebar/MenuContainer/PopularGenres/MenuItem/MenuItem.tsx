@@ -26,8 +26,8 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 		>
 			<div className={styles.wrapper}>
 				<span className={styles.item}>
-					<MaterialIcon name={item.icon} />
 					<Link href={item.link} className={styles.link}>
+						<MaterialIcon name={item.icon} />
 						{item.title}
 					</Link>
 				</span>
