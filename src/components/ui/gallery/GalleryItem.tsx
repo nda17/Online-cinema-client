@@ -12,8 +12,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 	favorite
 }) => {
 	return (
-		<Link
-			href={item.url}
+		<div
 			className={classNames(styles.item, {
 				[styles.withText]: item.content,
 				[styles.horizontal]: variant === 'horizontal',
@@ -35,9 +34,17 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 					{item.content.subTitle && (
 						<div className={styles.subTitle}>{item.content.subTitle}</div>
 					)}
+					{variant === 'horizontal' && (
+						<Link
+							href={item.url}
+							className={classNames(styles.subTitle, styles.watchButton)}
+						>
+							Watch
+						</Link>
+					)}
 				</div>
 			)}
-		</Link>
+		</div>
 	)
 }
 

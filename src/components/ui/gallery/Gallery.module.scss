@@ -42,7 +42,7 @@
 	}
 
 	&.vertical {
-		@apply w-[7.063rem] sm:w-[9.063rem] lg:w-[10rem] h-[10rem] sm:h-[14rem] lg:h-[17rem];
+		@apply mr-4 w-[7.063rem] sm:w-[9.063rem] lg:w-[10rem] h-[10rem] sm:h-[14rem] lg:h-[17rem];
 	}
 
 	&.horizontal {
@@ -53,6 +53,14 @@
 		@include fade-bg-gradient(0deg);
 		&::before {
 			@apply rounded-layout;
+		}
+
+		.watchButton {
+			@apply transition-transform text-[.9rem] text-gray-500 absolute bottom-6 left-[1.563rem] border-b border-dashed border-primary m-0 leading-[.938rem];
+
+			&:hover {
+				transform: translateY(-5px);
+			}
 		}
 	}
 
