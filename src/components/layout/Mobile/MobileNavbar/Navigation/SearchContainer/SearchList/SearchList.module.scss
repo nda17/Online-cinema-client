@@ -2,7 +2,7 @@
 	@apply absolute top-[3.813rem] left-0 border border-gray-700 rounded-b-layout bg-gray-800 w-screen animate-fadeIn z-20 shadow-black;
 
 	> a {
-		@apply flex justify-center items-center py-3 px-4;
+		@apply flex justify-start items-center py-3 px-4;
 
 		img {
 			@apply mr-3 rounded-image object-cover object-top w-auto h-auto shadow-black;
