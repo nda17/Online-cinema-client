@@ -10,11 +10,11 @@ const nextConfig = {
 		return [
 			{
 				source: '/api/:path*',
-				destination: `http://92.118.113.223:4200/api/:path*`
+				destination: `https://nda17-online-cinema-server-7253.twc1.net/api/:path*`
 			},
 			{
 				source: '/uploads/:path*',
-				destination: `http://92.118.113.223:4200/uploads/:path*`
+				destination: `https://nda17-online-cinema-server-7253.twc1.net/uploads/:path*`
 			}
 		]
 	}
