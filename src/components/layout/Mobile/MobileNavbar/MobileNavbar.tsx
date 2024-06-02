@@ -25,7 +25,7 @@ const MobileNavbar: FC = () => {
 
 			{visibleFavorites && (
 				<div className={styles.menu}>
-					<Favorites />
+					<Favorites device="mobile" />
 				</div>
 			)}
 		</section>
