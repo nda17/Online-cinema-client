@@ -4,4 +4,5 @@ export interface IGalleryItemProps {
 	item: IGalleryItem
 	variant: 'vertical' | 'horizontal'
 	favorite?: boolean
+	device?: string
 }

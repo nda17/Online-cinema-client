@@ -13,7 +13,8 @@ const CatalogMovies: FC<ICatalogMovies> = ({
 	title,
 	description,
 	movies,
-	favorite
+	favorite,
+	device
 }) => {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая страница
 	const itemQuantity = 9 //Количество элементов в одной группе
@@ -68,6 +69,7 @@ const CatalogMovies: FC<ICatalogMovies> = ({
 									}
 								}}
 								favorite={favorite}
+								device={device}
 							/>
 					  ))
 					: null}
