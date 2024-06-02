@@ -3,13 +3,13 @@
 
 	> a {
 		img {
-			@apply rounded-image transition-colors shadow-black animate-fadeIn mb-2;
+			@apply md:w-[7rem] md:h-[11.063rem] lg:w-[4.063rem] lg:h-[6.063rem] rounded-image transition-colors shadow-black animate-fadeIn mb-2;
 			transition: all 500ms;
 		}
 
 		&:hover {
 			img {
-				transform: scale(1.07) 
+				transform: scale(1.07);
 			}
 		}
 	}

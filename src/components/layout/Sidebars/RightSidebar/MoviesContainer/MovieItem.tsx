@@ -19,10 +19,10 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 		<div className={styles.movie}>
 			<Link href={PUBLIC_URL.moviesUrl(movie.slug)}>
 				<Image
+					className={styles.image}
 					src={movie.poster}
 					width={65}
 					height={97}
-					style={{ width: 65, height: 97 }}
 					priority={true}
 					alt={movie.title}
 					draggable={false}
