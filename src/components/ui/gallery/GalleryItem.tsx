@@ -11,12 +11,11 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 	variant,
 	favorite
 }) => {
-	return (
+	return variant === 'horizontal' ? (
 		<div
 			className={classNames(styles.item, {
 				[styles.withText]: item.content,
-				[styles.horizontal]: variant === 'horizontal',
-				[styles.vertical]: variant === 'vertical'
+				[styles.horizontal]: variant === 'horizontal'
 			})}
 		>
 			{favorite && <FavoriteButton movieId={item._id} />}
@@ -45,6 +44,31 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 				</div>
 			)}
 		</div>
+	) : (
+		<Link
+			href={item.url}
+			className={classNames(styles.item, {
+				[styles.withText]: item.content,
+				[styles.vertical]: variant === 'vertical'
+			})}
+		>
+			<Image
+				fill
+				sizes="auto"
+				alt={item.name}
+				src={item.posterPath}
+				draggable={false}
+				priority
+			/>
+			{item.content && (
+				<div className={styles.content}>
+					<div className={styles.title}>{item.content.title}</div>
+					{item.content.subTitle && (
+						<div className={styles.subTitle}>{item.content.subTitle}</div>
+					)}
+				</div>
+			)}
+		</Link>
 	)
 }
 
