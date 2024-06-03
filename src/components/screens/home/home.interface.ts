@@ -5,4 +5,5 @@ export interface IHomePage {
 	slidesMovies: ISlide[]
 	popularMovies: IGalleryItem[]
 	actors: IGalleryItem[]
+	americanMovies: IGalleryItem[]
 }
