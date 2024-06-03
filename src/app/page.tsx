@@ -23,12 +23,14 @@ const HomePage = async () => {
 	const slidesMovies = data?.slidesMovies
 	const popularMovies = data?.popularMovies
 	const actors = data?.actors
+	const americanMovies = data?.americanMovies
 
 	return (
 		<Home
 			slidesMovies={slidesMovies || []}
 			popularMovies={popularMovies || []}
 			actors={actors || []}
+			americanMovies={americanMovies || []}
 		/>
 	)
 }
@@ -71,10 +73,23 @@ const staticContent = async () => {
 			})
 		)
 
+		//American movies
+		const { data: allAmericanMoviesList } =
+			await MovieService.getMoviesList(``)
+
+		const americanMovies = allAmericanMoviesList
+			.filter((item) => item.parameters.country === 'USA')
+			.map((movie: IMovie) => ({
+				name: movie.title,
+				posterPath: movie.poster,
+				url: PUBLIC_URL.moviesUrl(movie.slug)
+			}))
+
 		return {
 			slidesMovies,
 			popularMovies,
-			actors
+			actors,
+			americanMovies
 		}
 	} catch (error) {
 		console.log(errorCatch(error))
