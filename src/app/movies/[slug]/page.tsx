@@ -45,6 +45,7 @@ const staticContent = async (params: { slug: string }) => {
 			.filter((item) => item._id !== movie._id)
 			.map((item) => ({
 				name: item.title,
+				rating: movie.rating.toFixed(1),
 				posterPath: item.poster,
 				url: PUBLIC_PATH.moviesUrl(`/${item.slug}`)
 			}))
