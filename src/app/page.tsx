@@ -24,6 +24,7 @@ const HomePage = async () => {
 	const popularMovies = data?.popularMovies
 	const actors = data?.actors
 	const americanMovies = data?.americanMovies
+	const childrenMovies = data?.childrenMovies
 
 	return (
 		<Home
@@ -31,6 +32,7 @@ const HomePage = async () => {
 			popularMovies={popularMovies || []}
 			actors={actors || []}
 			americanMovies={americanMovies || []}
+			childrenMovies={childrenMovies || []}
 		/>
 	)
 }
@@ -89,11 +91,24 @@ const staticContent = async () => {
 				rating: movie.rating.toFixed(1)
 			}))
 
+		//Children movies
+		const { data: allChildrenMovies } = await MovieService.getByGenres([
+			'662170715b5c6107dbf33895'
+		])
+
+		const childrenMovies = allChildrenMovies.map((movie: IMovie) => ({
+			name: movie.title,
+			posterPath: movie.poster,
+			url: PUBLIC_URL.moviesUrl(movie.slug),
+			rating: movie.rating.toFixed(1)
+		}))
+
 		return {
 			slidesMovies,
 			popularMovies,
 			actors,
-			americanMovies
+			americanMovies,
+			childrenMovies
 		}
 	} catch (error) {
 		console.log(errorCatch(error))
