@@ -79,4 +79,16 @@
 			@apply text-gray-500 text-shadow;
 		}
 	}
+
+	.rating {
+		@apply absolute top-[.5rem] left-[.5rem] flex items-center;
+
+		> svg {
+			@apply fill-yellow-700 mr-2 text-lg w-[1.4rem] h-[1.4rem];
+		}
+
+		> span {
+			@apply text-white font-medium pt-0.5 sm:text-[1.2rem];
+		}
+	}
 }

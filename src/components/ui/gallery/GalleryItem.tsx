@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import { useDispatch } from 'react-redux'
+import MaterialIcon from '../icons/MaterialIcon'
 import styles from './Gallery.module.scss'
 import { IGalleryItemProps } from './gallery-item.interface'
 
@@ -63,14 +64,22 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 				[styles.vertical]: variant === 'vertical'
 			})}
 		>
-			<Image
-				fill
-				sizes="auto"
-				alt={item.name}
-				src={item.posterPath}
-				draggable={false}
-				priority
-			/>
+			<>
+				<Image
+					fill
+					sizes="auto"
+					alt={item.name}
+					src={item.posterPath}
+					draggable={false}
+					priority
+				/>
+				{!item.actor && (
+					<div className={styles.rating}>
+						<MaterialIcon name="MdStarRate" />
+						<span>{item.rating}</span>
+					</div>
+				)}
+			</>
 			{item.content && (
 				<div className={styles.content}>
 					<div className={styles.title}>{item.content.title}</div>
