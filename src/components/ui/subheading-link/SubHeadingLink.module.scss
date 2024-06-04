@@ -1,0 +1,7 @@
+.subHeadingLink {
+	@apply text-white text-xl font-semibold border-b border-dashed border-white mb-8 transition-all duration-200;
+
+	&:hover {
+		@apply text-gray-500;
+	}
+}
