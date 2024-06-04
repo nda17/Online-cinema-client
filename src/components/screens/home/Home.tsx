@@ -6,7 +6,13 @@ import SubHeading from '@/ui/subheading/SubHeading'
 import { FC } from 'react'
 import { IHomePage } from './home.interface'
 
-const Home: FC<IHomePage> = ({ slidesMovies, popularMovies, actors, americanMovies }) => {
+const Home: FC<IHomePage> = ({
+	slidesMovies,
+	popularMovies,
+	actors,
+	americanMovies,
+	childrenMovies
+}) => {
 	return (
 		<div className={styles.contentWrapper}>
 			<Heading title="Watch movies online" />
@@ -20,6 +26,9 @@ const Home: FC<IHomePage> = ({ slidesMovies, popularMovies, actors, americanMovi
 
 			<SubHeading title="American blockbusters" />
 			{americanMovies ? <Gallery items={americanMovies} /> : null}
+
+			<SubHeading title="For children" />
+			{childrenMovies ? <Gallery items={childrenMovies} /> : null}
 		</div>
 	)
 }
