@@ -45,7 +45,8 @@ const staticContent = async () => {
 			url: PUBLIC_URL.moviesUrl(movie.slug),
 			subTitle: getGenresList(movie.genres),
 			title: movie.title,
-			bigPoster: movie.bigPoster
+			bigPoster: movie.bigPoster,
+			rating: movie.rating.toFixed(1)
 		}))
 
 		//Popular movies
@@ -55,7 +56,8 @@ const staticContent = async () => {
 		const popularMovies = popularMoviesList.map((movie: IMovie) => ({
 			name: movie.title,
 			posterPath: movie.poster,
-			url: PUBLIC_URL.moviesUrl(movie.slug)
+			url: PUBLIC_URL.moviesUrl(movie.slug),
+			rating: movie.rating.toFixed(1)
 		}))
 
 		//Actors
@@ -66,6 +68,7 @@ const staticContent = async () => {
 				name: actor.name,
 				posterPath: actor.photo,
 				url: PUBLIC_URL.actorsUrl(actor.slug),
+				actor: true,
 				content: {
 					title: actor.name,
 					subTitle: `+${actor.countMovies} movies`
@@ -82,7 +85,8 @@ const staticContent = async () => {
 			.map((movie: IMovie) => ({
 				name: movie.title,
 				posterPath: movie.poster,
-				url: PUBLIC_URL.moviesUrl(movie.slug)
+				url: PUBLIC_URL.moviesUrl(movie.slug),
+				rating: movie.rating.toFixed(1)
 			}))
 
 		return {
