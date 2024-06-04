@@ -3,6 +3,8 @@ export interface IGalleryItem {
 	name: string
 	_id?: string
 	url: string
+	actor?: boolean
+	rating?: string
 	content?: {
 		title: string
 		subTitle?: string
