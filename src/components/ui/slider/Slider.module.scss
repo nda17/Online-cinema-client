@@ -12,6 +12,18 @@
 			@apply image-like-bg;
 		}
 
+		.rating {
+			@apply absolute top-4 left-4 z-5 flex items-center;
+
+			> svg {
+				@apply fill-yellow-700 mr-2 text-lg w-[1.8rem] h-[1.8rem];
+			}
+
+			> span {
+				@apply text-white font-medium pt-0.5 sm:text-[1.2rem];
+			}
+		}
+
 		.content {
 			@apply relative z-2 pt-8 pb-8 pl-4 sm:pl-8 pr-8;
 

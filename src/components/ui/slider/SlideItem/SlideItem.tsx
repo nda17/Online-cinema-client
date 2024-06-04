@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
+import MaterialIcon from '../../icons/MaterialIcon'
 import styles from '../Slider.module.scss'
 import { ISlideItem } from './slide-item.interface'
 
@@ -14,15 +15,21 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Watch' }) => {
 	return (
 		<div className={styles.slide}>
 			{
-				<Image
-					fill
-					className={styles.image}
-					src={slide.bigPoster}
-					alt={slide.title}
-					draggable={false}
-					unoptimized
-					priority
-				/>
+				<>
+					<Image
+						fill
+						className={styles.image}
+						src={slide.bigPoster}
+						alt={slide.title}
+						draggable={false}
+						unoptimized
+						priority
+					/>
+					<div className={styles.rating}>
+						<MaterialIcon name="MdStarRate" />
+						<span>{slide.rating}</span>
+					</div>
+				</>
 			}
 
 			<div className={styles.content}>
