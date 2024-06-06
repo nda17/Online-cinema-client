@@ -1,4 +1,4 @@
-import { IEmailСonfirmation } from '@/components/screens/profile-confirmation/email-confirmation.interface'
+import { IEmailСonfirmation } from '@/components/screens/email-confirmation/email-confirmation.interface'
 import { PUBLIC_PATH } from '@/configs/api.config'
 import { USER_URL } from '@/configs/url.config'
 import { IUserEditInput } from '@/screens/admin/user/user-edit.interface'
