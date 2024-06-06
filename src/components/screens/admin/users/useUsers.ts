@@ -23,8 +23,9 @@ export const useUsers = () => {
 						editUrl: ADMIN_URL.rootUrl(`user/edit/${user._id}`),
 						items: [
 							user.email,
+							String(user.isActivated ? 'confirmed' : 'not confirmed'),
 							convertMongoDate(user.createdAt),
-							String(user.isAdmin? 'admin' : 'user'),
+							String(user.isAdmin ? 'admin' : 'user'),
 							String(user.isSubscription ? 'active' : 'inactive')
 						]
 					})
@@ -47,12 +48,12 @@ export const useUsers = () => {
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete user',
 		(userId: string) => UserService.deleteUser(userId),
-		{	
+		{
 			onSuccess() {
 				toastr.success('Delete user', 'delete was successful')
 				queryData.refetch()
 			},
-			
+
 			onError(error) {
 				toastrError(error, 'Delete user')
 			}
