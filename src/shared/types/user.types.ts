@@ -3,6 +3,8 @@ export interface IUser {
 	email: string
 	password: string
 	createdAt: string
+	isActivated: boolean
+	activationKey: string
 	isAdmin: boolean
 	isSubscription: boolean
 }
