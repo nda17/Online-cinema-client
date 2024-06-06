@@ -8,10 +8,10 @@ import { IProfileInput } from './profile.interface'
 
 const useProfile = (setValue: UseFormSetValue<IUserEditInput>) => {
 	const { data } = useQuery(
-		'get subscription profile',
+		'get subscription and confirmation profile',
 		() => UserService.getProfile(),
 		{
-			select: (data) => data.data.isSubscription
+			select: (data) => data.data
 		}
 	)
 
@@ -36,7 +36,7 @@ const useProfile = (setValue: UseFormSetValue<IUserEditInput>) => {
 			onSuccess() {
 				toastr.success('Update profile', 'update was successful')
 			},
-			
+
 			onError(error) {
 				toastrError(error, 'Update profile')
 			}
