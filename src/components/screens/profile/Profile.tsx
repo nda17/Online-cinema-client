@@ -26,35 +26,80 @@ const Profile: FC = () => {
 			<div className={profile.profile}>
 				<Heading title="Profile" />
 
-				<SubHeading title="Subscription status" />
-				<div className={profile.subscription}>
+				<SubHeading title="Confirmation Email" />
+				<div className={profile.fieldStatus}>
 					<span
 						className={classNames({
-							['text-[#28b54d]']: data,
-							['text-red-600']: !data
+							['text-[#28b54d]']: data?.isActivated,
+							['text-red-600']: !data?.isActivated
 						})}
 					>
 						{isLoading ? (
 							<SkeletonLoader count={2} className="h-8 mb-4" />
 						) : (
-							`${data ? 'Subscription is active' : 'Subscription'} 
-							${data ? 'until' : 'is not active.'} ${
-								data ? 'N/D.' : 'Renew your subscription.'
+							`${
+								data?.isActivated
+									? 'Email confirmed.'
+									: 'Email not verified. An email with a confirmation link has been sent to the email address you provided during registration.'
 							}`
 						)}
 					</span>
 				</div>
 
-				<SubHeading title="Editing profile" />
-				<form onSubmit={handleSubmit(onSubmit)} className={userForm.form}>
-					{isLoading ? (
-						<SkeletonLoader count={2} className="h-8 mb-4" />
-					) : (
-						<AuthFields register={register} formState={formState} />
-					)}
+				<SubHeading title="Subscription status" />
+				<div className={profile.fieldStatus}>
+					<>
+						{isLoading ? (
+							<SkeletonLoader count={2} className="h-8 mb-4" />
+						) : !data?.isActivated ? (
+							<span
+								className={classNames({
+									['text-[#28b54d]']: data?.isActivated,
+									['text-red-600']: !data?.isActivated
+								})}
+							>
+								To view your subscription status, email confirmation is
+								required.
+							</span>
+						) : (
+							<span
+								className={classNames({
+									['text-[#28b54d]']: data?.isSubscription,
+									['text-red-600']: !data?.isSubscription
+								})}
+							>
+								{`${
+									data?.isSubscription
+										? 'Subscription is active'
+										: 'Subscription'
+								}
+								${data?.isSubscription ? 'until' : 'is not active.'}
+								${data?.isSubscription ? 'N/D.' : 'Renew your subscription.'}
+								`}
+							</span>
+						)}
+					</>
+				</div>
 
-					<Button>Update</Button>
-				</form>
+				<SubHeading title="Editing profile" />
+				{data?.isActivated ? (
+					<form
+						onSubmit={handleSubmit(onSubmit)}
+						className={userForm.form}
+					>
+						{isLoading ? (
+							<SkeletonLoader count={2} className="h-8 mb-4" />
+						) : (
+							<AuthFields register={register} formState={formState} />
+						)}
+
+						<Button>Update</Button>
+					</form>
+				) : (
+					<div className={classNames(profile.fieldStatus, 'text-red-600')}>
+						To edit your profile, confirmation by email is required.
+					</div>
+				)}
 			</div>
 		</div>
 	)
