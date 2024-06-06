@@ -1,8 +1,12 @@
 import Error404 from '@/app/not-found'
-import EmailСonfirmationPage from '@/screens/email-confirmation/EmailСonfirmationPage'
 import { UserService } from '@/services/user/user.service'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+const DynamicEmailСonfirmationPage = dynamic(
+	() => import('@/screens/email-confirmation/EmailСonfirmationPage'),
+	{ ssr: false }
+)
 
 export const metadata: Metadata = {
 	title: 'Confirmation Email | Online-Cinema'
@@ -22,11 +26,11 @@ const EmailConfirmationPage = async ({
 	} else {
 		try {
 			await confirmationEmail(params)
-			return <EmailСonfirmationPage status={'Email confirmed.'} />
+			return <DynamicEmailСonfirmationPage status={'Email confirmed.'} />
 		} catch (error) {
 			console.log(errorCatch(error))
 			return (
-				<EmailСonfirmationPage
+				<DynamicEmailСonfirmationPage
 					status={
 						'An error occurred while confirming your email, please try again later.'
 					}
