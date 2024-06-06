@@ -36,6 +36,7 @@ const UsersList: FC = () => {
 					tableItems={data || []}
 					headerItems={[
 						'Email:',
+						'Confirmation:',
 						'Date register:',
 						'Role:',
 						'Paid subscription:'
