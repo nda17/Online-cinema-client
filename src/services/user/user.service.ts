@@ -1,10 +1,13 @@
+import { IEmailСonfirmation } from '@/components/screens/profile-confirmation/email-confirmation.interface'
 import { PUBLIC_PATH } from '@/configs/api.config'
 import { USER_URL } from '@/configs/url.config'
 import { IUserEditInput } from '@/screens/admin/user/user-edit.interface'
 import { IProfileInput } from '@/screens/profile/profile.interface'
 import { IMovie } from '@/shared/types/movie.types'
 import { IUser } from '@/shared/types/user.types'
-import axiosInterceptorsRequest from 'api/interceptors'
+import axiosInterceptorsRequest, {
+	axiosClassicRequest
+} from 'api/interceptors'
 
 export const UserService = {
 	async getProfile() {
@@ -39,9 +42,21 @@ export const UserService = {
 		)
 	},
 
+	async getStatusConfirmationEmail(_id: string) {
+		return axiosClassicRequest.get<IEmailСonfirmation>(
+			PUBLIC_PATH.usersUrl(`/confirmation-email/${_id}`)
+		)
+	},
+
+	async updateStatusConfirmationEmail(_id: string) {
+		return axiosClassicRequest.patch<IEmailСonfirmation>(
+			PUBLIC_PATH.usersUrl(`/confirmation-email/${_id}`)
+		)
+	},
+
 	async updateUser(_id: string, data: IUserEditInput) {
 		return axiosInterceptorsRequest.put<string>(
-			PUBLIC_PATH.usersUrl(`/${_id}`),
+			PUBLIC_PATH.usersUrl(`/confirmation-email/${_id}`),
 			data
 		)
 	},
@@ -53,12 +68,17 @@ export const UserService = {
 	},
 
 	async getFavorites() {
-		return axiosInterceptorsRequest.get<IMovie[]>(PUBLIC_PATH.usersUrl('/profile/favorites'))
+		return axiosInterceptorsRequest.get<IMovie[]>(
+			PUBLIC_PATH.usersUrl('/profile/favorites')
+		)
 	},
 
 	async toggleFavorite(movieId: string) {
-		return axiosInterceptorsRequest.put(PUBLIC_PATH.usersUrl('/profile/favorites'), {
-			movieId,
-		})
+		return axiosInterceptorsRequest.put(
+			PUBLIC_PATH.usersUrl('/profile/favorites'),
+			{
+				movieId
+			}
+		)
 	}
 }
