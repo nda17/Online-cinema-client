@@ -5,7 +5,7 @@
 		@apply md:text-[13px] lg:text-[16px] flex justify-between bg-gray-700 bg-opacity-20 mb-4 px-1 md:px-4 lg:px-5 rounded-lg transition-colors hover:bg-opacity-50 shadow-black;
 
 		> div {
-			@apply w-[19%] sm:w-[19.6%] md:w-[20%] xl:w-[32.5%] text-left text-[.9rem] md:text-[1rem] text-white text-opacity-80 py-3 px-1 break-words;
+			@apply w-[19%] sm:w-[19.6%] md:w-[20%] xl:w-[32.5%] text-left text-[.9rem] md:text-[1rem] text-white text-opacity-80 py-3 px-1 break-all;
 		}
 	}
 
