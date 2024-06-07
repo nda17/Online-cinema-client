@@ -56,7 +56,7 @@ export const UserService = {
 
 	async updateUser(_id: string, data: IUserEditInput) {
 		return axiosInterceptorsRequest.put<string>(
-			PUBLIC_PATH.usersUrl(`/confirmation-email/${_id}`),
+			PUBLIC_PATH.usersUrl(`/${_id}`),
 			data
 		)
 	},
