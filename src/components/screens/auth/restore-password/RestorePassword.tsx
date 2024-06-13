@@ -1,5 +1,5 @@
 'use client'
-import RestoreFields from '@/components/shared/RestoreFields/RestoreFields'
+import EmailFields from '@/components/shared/AuthFields/EmailFields/EmailFields'
 import { useAuth } from '@/hooks/useAuth'
 import { AuthService } from '@/services/auth/auth.service'
 import Button from '@/ui/form-elements/Button'
@@ -64,10 +64,7 @@ const RestorePassword: FC = () => {
 				<div className={styles.wrapper}>
 					{status !== 'success' ? (
 						<>
-							<RestoreFields
-								formState={formState}
-								register={restoreInput}
-							/>
+							<EmailFields formState={formState} register={restoreInput} />
 							<div className={styles.buttons}>
 								<Button type="submit" disabled={isLoading}>
 									Restore
