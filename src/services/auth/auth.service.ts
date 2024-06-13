@@ -1,4 +1,5 @@
 import { getAuthUrl } from '@/configs/api.config'
+import { IEmail } from '@/screens/auth/restore-password/restore-password.interface'
 import { IAuthResponse } from '@/store/user/user.interface'
 import { axiosClassicRequest } from 'api/interceptors'
 import Cookies from 'js-cookie'
@@ -10,6 +11,15 @@ import {
 } from './auth.helper'
 
 export const AuthService = {
+	async restore(email: string) {
+		const response = await axiosClassicRequest.post<IEmail>(
+			getAuthUrl('/restore-password'),
+			{ email }
+		)
+
+		return response
+	},
+
 	async register(email: string, password: string) {
 		const response = await axiosClassicRequest.post<IAuthResponse>(
 			getAuthUrl('/register'),
