@@ -1,9 +1,9 @@
 import { validEmail, validPassword } from '@/shared/regex'
 import Field from '@/ui/form-elements/Field'
 import { FC } from 'react'
-import { IAuthFields } from './auth-fields.interface'
+import { IEmailPasswordFields } from './email-password-fields.interface'
 
-const AuthFields: FC<IAuthFields> = ({
+const EmailPasswordFields: FC<IEmailPasswordFields> = ({
 	register,
 	formState: { errors }
 }) => {
@@ -37,4 +37,4 @@ const AuthFields: FC<IAuthFields> = ({
 	)
 }
 
-export default AuthFields
+export default EmailPasswordFields
