@@ -1,5 +1,5 @@
 'use client'
-import AuthFields from '@/components/shared/AuthFields/AuthFields'
+import EmailPasswordFields from '@/components/shared/AuthFields/EmailPasswordFields/EmailPasswordFields'
 import styles from '@/components/shared/contentWrapper.module.scss'
 import userForm from '@/components/shared/user/userForm.module.scss'
 import Button from '@/ui/form-elements/Button'
@@ -90,7 +90,10 @@ const Profile: FC = () => {
 						{isLoading ? (
 							<SkeletonLoader count={2} className="h-8 mb-4" />
 						) : (
-							<AuthFields register={register} formState={formState} />
+							<EmailPasswordFields
+								register={register}
+								formState={formState}
+							/>
 						)}
 
 						<Button>Update</Button>

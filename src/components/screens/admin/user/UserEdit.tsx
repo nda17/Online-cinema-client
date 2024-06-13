@@ -1,5 +1,5 @@
 'use client'
-import AuthFields from '@/components/shared/AuthFields/AuthFields'
+import EmailPasswordFields from '@/components/shared/AuthFields/EmailPasswordFields/EmailPasswordFields'
 import adminForm from '@/components/shared/admin/adminForm.module.scss'
 import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
 import { IParamsUrl } from '@/shared/types/params-url.types'
@@ -33,7 +33,10 @@ const UserEdit: FC<IParamsUrl> = ({ params }) => {
 						</div>
 					) : (
 						<>
-							<AuthFields register={register} formState={formState} />
+							<EmailPasswordFields
+								register={register}
+								formState={formState}
+							/>
 
 							<div className={styles.controller}>
 								<Controller

@@ -1,4 +1,4 @@
-import AuthFields from '@/components/shared/AuthFields/AuthFields'
+import EmailPasswordFields from '@/components/shared/AuthFields/EmailPasswordFields/EmailPasswordFields'
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import Button from '@/ui/form-elements/Button'
@@ -42,7 +42,10 @@ const Auth: FC = () => {
 		<div className={styles.auth}>
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.formAuth}>
 				<Heading title="Auth" />
-				<AuthFields formState={formState} register={registerInput} />
+				<EmailPasswordFields
+					formState={formState}
+					register={registerInput}
+				/>
 				<div className={styles.forgotPasswordLink}>
 					<Link href={'/auth/restore-password'}>
 						Forgot your password ?
