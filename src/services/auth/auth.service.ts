@@ -1,4 +1,5 @@
 import { getAuthUrl } from '@/configs/api.config'
+import { IEmailСonfirmation } from '@/screens/auth/email-confirmation/email-confirmation.interface'
 import { IEmail } from '@/screens/auth/restore-password/restore-password.interface'
 import { IAuthResponse } from '@/store/user/user.interface'
 import { axiosClassicRequest } from 'api/interceptors'
@@ -18,6 +19,12 @@ export const AuthService = {
 		)
 
 		return response
+	},
+
+	async confirmationEmail(_id: string) {
+		return axiosClassicRequest.get<IEmailСonfirmation>(
+			getAuthUrl(`/confirmation-email/${_id}`)
+		)
 	},
 
 	async register(email: string, password: string) {
