@@ -52,7 +52,6 @@ const SingleMovie: FC<ISingleMoviePage> = ({ movie, similarMovies }) => {
 				icon={'MdStar'}
 				defaultStarColor={{ color: '#4f4f4f' }}
 				activeStarColor={{ color: '#ffd700' }}
-				slug={movie.slug}
 				_id={movie._id}
 			/>
 		</div>
