@@ -1,12 +1,12 @@
-import { TypeMaterialIconName } from '@/shared/types/icon.types'
 import { FC } from 'react'
 import * as MaterialIcons from 'react-icons/md'
+import { IMaterialIcon } from './material-icon.interface'
 
-const MaterialIcon: FC<{ name: TypeMaterialIconName }> = ({ name }) => {
+const MaterialIcon: FC<IMaterialIcon> = ({ name, fill = '#ffffff' }) => {
 	const IconComponent = MaterialIcons[name]
 
 	return MaterialIcons[name] ? (
-		<IconComponent />
+		<IconComponent fill={fill} />
 	) : (
 		<MaterialIcons.MdDragIndicator />
 	)
