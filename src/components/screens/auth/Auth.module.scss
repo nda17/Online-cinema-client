@@ -2,7 +2,15 @@
 	@apply absolute w-[17rem] sm:w-[24rem] md:w-[20rem] lg:w-[25rem] xl:w-full max-w-lg top-2/4 left-1/2 translate-x-[-50%] translate-y-[-50%];
 
 	.formAuth {
-		@apply mx-auto air-block bg-opacity-80 p-7 text-center shadow-black;
+		@apply mx-auto min-h-[26rem] air-block bg-opacity-80 p-7 text-center shadow-black;
+
+		.forgotPasswordLink {
+			@apply pt-[.8rem] mb-[2.8rem] text-gray-300 italic transition-colors;
+
+			> a:hover {
+				@apply text-[#28b54d] border-b border-solid border-[#28b54d];
+			}
+		}
 
 		.buttons {
 			@apply w-full flex;

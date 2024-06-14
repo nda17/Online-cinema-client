@@ -14,6 +14,7 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 			className={classNames({
 				[styles.active]:
 					pathname === item.link ||
+					pathname === `${item.link}/restore-password` ||
 					pathname === `${item.link}/users` ||
 					pathname === `${item.link}/movies` ||
 					pathname === `${item.link}/actors` ||

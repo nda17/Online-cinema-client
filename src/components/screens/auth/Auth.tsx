@@ -1,8 +1,9 @@
-import AuthFields from '@/components/shared/AuthFields/AuthFields'
+import EmailPasswordFields from '@/components/shared/AuthFields/EmailPasswordFields/EmailPasswordFields'
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import Button from '@/ui/form-elements/Button'
 import Heading from '@/ui/heading/Heading'
+import Link from 'next/link'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './Auth.module.scss'
@@ -41,7 +42,15 @@ const Auth: FC = () => {
 		<div className={styles.auth}>
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.formAuth}>
 				<Heading title="Auth" />
-				<AuthFields formState={formState} register={registerInput} />
+				<EmailPasswordFields
+					formState={formState}
+					register={registerInput}
+				/>
+				<div className={styles.forgotPasswordLink}>
+					<Link href={'/auth/restore-password'}>
+						Forgot your password ?
+					</Link>
+				</div>
 				<div className={styles.buttons}>
 					<Button
 						type="submit"

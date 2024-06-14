@@ -1,9 +1,9 @@
-import { validEmail } from '@/shared/regex'
+import { validEmail, validPassword } from '@/shared/regex'
 import Field from '@/ui/form-elements/Field'
 import { FC } from 'react'
-import { IAuthFields } from './auth-fields.interface'
+import { IEmailPasswordFields } from './email-password-fields.interface'
 
-const AuthFields: FC<IAuthFields> = ({
+const EmailPasswordFields: FC<IEmailPasswordFields> = ({
 	register,
 	formState: { errors }
 }) => {
@@ -23,9 +23,10 @@ const AuthFields: FC<IAuthFields> = ({
 			/>
 			<Field
 				{...register('password', {
-					minLength: {
-						value: 6,
-						message: 'Min length should more 6 symbols!'
+					pattern: {
+						value: validPassword,
+						message:
+							'Min length should more 6 symbols. Contains 1 number 0-9, 1 Latin letter a-z, 1 Latin letter A-Z'
 					}
 				})}
 				placeholder="Password"
@@ -36,4 +37,4 @@ const AuthFields: FC<IAuthFields> = ({
 	)
 }
 
-export default AuthFields
+export default EmailPasswordFields
