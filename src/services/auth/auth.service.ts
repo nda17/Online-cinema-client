@@ -21,8 +21,14 @@ export const AuthService = {
 		return response
 	},
 
-	async confirmationEmail(_id: string) {
+	async getStatusConfirmationEmail(_id: string) {
 		return axiosClassicRequest.get<IEmailСonfirmation>(
+			getAuthUrl(`/confirmation-email/${_id}`)
+		)
+	},
+
+	async confirmationEmail(_id: string) {
+		return axiosClassicRequest.patch<IEmailСonfirmation>(
 			getAuthUrl(`/confirmation-email/${_id}`)
 		)
 	},
