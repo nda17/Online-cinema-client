@@ -1,5 +1,4 @@
 'use client'
-
 import { setVisibleFavorites } from '@/store/favorites-menu/favorites-menu.slice'
 import { setVisibleHamburger } from '@/store/hamburger/hamburger.slice'
 import { FC } from 'react'
@@ -31,7 +30,7 @@ const Hamburger: FC = () => {
 			}}
 		>
 			{visibleHamburger ? (
-				<MaterialIcon name={'MdClose'} />
+				<MaterialIcon name={'MdClose'} fill="#fc0303" />
 			) : (
 				<MaterialIcon name={'MdMenu'} />
 			)}
