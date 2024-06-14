@@ -5,6 +5,5 @@ export interface IStarRating {
 	icon?: TypeMaterialIconName,
 	defaultStarColor: any
 	activeStarColor: any
-	slug: string
 	_id: string
 }
