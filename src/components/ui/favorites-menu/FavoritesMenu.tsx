@@ -30,9 +30,9 @@ const FavoritesMenu: FC = () => {
 			}}
 		>
 			{visibleFavorites ? (
-				<MaterialIcon name={'MdClose'} />
+				<MaterialIcon name={'MdClose'} fill="#fc0303" />
 			) : (
-				<MaterialIcon name={'MdStar'} />
+				<MaterialIcon name={'MdStar'} fill="#f5c521" />
 			)}
 		</div>
 	)
