@@ -12,11 +12,11 @@ const Field = forwardRef<HTMLInputElement, IField>(
 					<input ref={ref} type={type} {...rest} autoComplete="on" />
 				</label>
 				{error?.message === 'Please enter a valid email' && (
-					<p className={styles.errorEmail}>{error.message}</p>
+					<p className={styles.error}>{error.message}</p>
 				)}
 				{error?.message ===
 					'Min length should more 6 symbols. Contains 1 number 0-9, 1 Latin letter a-z, 1 Latin letter A-Z' && (
-					<p className={styles.errorPassword}>{error.message}</p>
+					<p className={styles.error}>{error.message}</p>
 				)}
 			</div>
 		)
