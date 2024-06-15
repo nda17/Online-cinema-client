@@ -2,16 +2,12 @@
 	@apply w-32 btn-primary py-2 shadow-black;
 }
 
-.errorEmail {
-	@apply absolute -bottom-6 left-0 text-sm w-full text-primary tracking-tight;
-}
-
-.errorPassword {
-	@apply absolute -bottom-[2.8rem] sm:-bottom-[2.1rem] md:-bottom-[2.7rem] lg:-bottom-[2rem] left-0 text-[.875rem] leading-[12px] w-full text-primary tracking-tight;
+.error {
+	@apply text-[.875rem] leading-[15px] w-full text-primary tracking-tight;
 }
 
 .formString {
-	@apply relative text-left border-b border-solid border-gray-600 transition-colors focus-within:border-primary mb-8;
+	@apply relative text-left mb-4;
 
 	> label {
 		> span {
@@ -19,7 +15,11 @@
 		}
 
 		> input {
-			@apply outline-border-none focus:ring-0 bg-transparent text-gray-500 w-full;
+			@apply transition-colors outline-none border-0 border-b border-solid border-b-gray-600 bg-transparent text-gray-500 w-full mb-2;
+
+			&:focus {
+				@apply border-b-primary;
+			}
 		}
 	}
 }
