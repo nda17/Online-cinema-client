@@ -2,7 +2,7 @@ import { FC } from 'react'
 import * as MaterialIcons from 'react-icons/md'
 import { IMaterialIcon } from './material-icon.interface'
 
-const MaterialIcon: FC<IMaterialIcon> = ({ name, fill = '#ffffff' }) => {
+const MaterialIcon: FC<IMaterialIcon> = ({ name, fill = 'gray' }) => {
 	const IconComponent = MaterialIcons[name]
 
 	return MaterialIcons[name] ? (
