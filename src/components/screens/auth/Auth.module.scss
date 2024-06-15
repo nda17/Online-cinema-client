@@ -5,10 +5,10 @@
 		@apply mx-auto min-h-[26rem] air-block bg-opacity-80 p-7 text-center shadow-black;
 
 		.forgotPasswordLink {
-			@apply pt-[.8rem] mb-[2.8rem] text-gray-300 italic transition-colors;
+			@apply mb-[1.5rem] text-gray-300 italic;
 
 			> a:hover {
-				@apply text-[#28b54d] border-b border-solid border-[#28b54d];
+				@apply transition-colors text-[#28b54d] border-b border-solid border-[#28b54d];
 			}
 		}
 
