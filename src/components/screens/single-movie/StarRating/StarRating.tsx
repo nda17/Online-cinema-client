@@ -1,9 +1,9 @@
 'use client'
 import { useAuth } from '@/hooks/useAuth'
 import { UserService } from '@/services/user/user.service'
-import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { FC, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
+import MaterialIconRating from './MaterialIconRating'
 import styles from './StarRating.module.scss'
 import { IStarRating } from './star-rating.interface'
 import { useStarRating } from './useStarRating'
@@ -64,7 +64,7 @@ const StarRating: FC<IStarRating> = ({
 												setCurrentItem(index), handleClick(index + 1)
 											}}
 										>
-											<MaterialIcon name={icon} />
+											<MaterialIconRating name={icon} />
 										</span>
 									)
 								})}
