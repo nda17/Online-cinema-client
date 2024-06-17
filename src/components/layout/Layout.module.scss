@@ -6,6 +6,18 @@
 		@apply relative hidden md:block border border-solid border-gray-800 md:w-[17rem] lg:w-80 xl:w-[22rem] xxl:min-w-[20rem] py-layout md:px-[0.8rem] xl:px-6 xxl:px-layout;
 	}
 
+	.leftSidebar {
+		-webkit-box-shadow: 11px -1px 23px -11px rgba(0, 0, 0, 0.59);
+		-moz-box-shadow: 11px -1px 23px -11px rgba(0, 0, 0, 0.59);
+		box-shadow: 11px -1px 23px -11px rgba(0, 0, 0, 0.59);
+	}
+
+	.rightSidebar {
+		-webkit-box-shadow: -11px -1px 23px -11px rgba(0, 0, 0, 0.59);
+		-moz-box-shadow: -11px -1px 23px -11px rgba(0, 0, 0, 0.59);
+		box-shadow: -11px -1px 23px -11px rgba(0, 0, 0, 0.59);
+	}
+
 	.navbar {
 		@apply md:hidden;
 	}
