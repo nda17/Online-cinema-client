@@ -1,3 +1,7 @@
-.menu {
-	@apply absolute w-full h-full bg-gray-900 z-10;
+.mainMenu {
+	@apply absolute left-0 w-[75%] sm:w-[50%] min-h-[43.5rem] border-r border-b border-solid border-gray-800 bg-gray-900 z-40;
+}
+
+.favoritesMenu {
+	@apply absolute right-0 w-[75%] sm:w-[50%] min-h-[43.5rem] border-l border-b border-solid border-gray-800 bg-gray-900 z-40;
 }
