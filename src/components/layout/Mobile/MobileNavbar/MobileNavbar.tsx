@@ -1,5 +1,5 @@
 'use client'
-import VeilBackground from '@/components/ui/veil-background/VeilBackground'
+import VeilBackground from '@/ui/veil-background/VeilBackground'
 import { useClickOutside } from '@/hooks/useClickOutside'
 import Favorites from '@/screens/favorites/Favorites'
 import { setVisibleFavorites } from '@/store/favorites-menu/favorites-menu.slice'
