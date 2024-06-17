@@ -1,5 +1,5 @@
+import Logo from '@/ui/logo/Logo'
 import { FC } from 'react'
-import Logo from './Logo'
 import MenuContainer from './MenuContainer/MenuContainer'
 
 const LeftSidebar: FC = () => {
