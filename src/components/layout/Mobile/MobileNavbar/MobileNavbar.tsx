@@ -1,7 +1,11 @@
 'use client'
+import VeilBackground from '@/components/ui/veil-background/VeilBackground'
+import { useClickOutside } from '@/hooks/useClickOutside'
 import Favorites from '@/screens/favorites/Favorites'
-import { FC } from 'react'
-import { useSelector } from 'react-redux'
+import { setVisibleFavorites } from '@/store/favorites-menu/favorites-menu.slice'
+import { setVisibleHamburger } from '@/store/hamburger/hamburger.slice'
+import { FC, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import MenuContainer from './MenuContainer/MenuContainer'
 import styles from './MobileNavbar.module.scss'
 import Navigation from './Navigation/Navigation'
@@ -14,19 +18,34 @@ const MobileNavbar: FC = () => {
 		(state: any) => state.favoritesMenu.visible
 	)
 
+	const dispatch = useDispatch()
+	const closeMenu = () => {
+		dispatch(setVisibleHamburger(false))
+		dispatch(setVisibleFavorites(false))
+	}
+
+	const menuRef = useRef(null)
+	useClickOutside(menuRef, closeMenu)
+
 	return (
-		<section>
+		<section className={styles.navbar}>
 			<Navigation />
 			{visibleHamburger && (
-				<div className={styles.menu}>
-					<MenuContainer />
-				</div>
+				<>
+					<VeilBackground />
+					<div className={styles.mainMenu} ref={menuRef}>
+						<MenuContainer />
+					</div>
+				</>
 			)}
 
 			{visibleFavorites && (
-				<div className={styles.menu}>
-					<Favorites device="mobile" />
-				</div>
+				<>
+					<VeilBackground />
+					<div className={styles.favoritesMenu} ref={menuRef}>
+						<Favorites device="mobile" />
+					</div>
+				</>
 			)}
 		</section>
 	)
