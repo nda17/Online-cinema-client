@@ -40,12 +40,9 @@ const MobileNavbar: FC = () => {
 			)}
 
 			{visibleFavorites && (
-				<>
-					<VeilBackground />
-					<div className={styles.favoritesMenu} ref={menuRef}>
+					<div className={styles.favoritesMenu}>
 						<Favorites device="mobile" />
 					</div>
-				</>
 			)}
 		</section>
 	)
