@@ -1,5 +1,5 @@
 .navigation {
-	@apply flex items-center relative h-[3.8rem] bg-black border-solid border-b border-b-gray-800;
+	@apply fixed z-50 flex items-center w-full h-[3.8rem] bg-black border-solid border-b border-b-gray-800;
 
 	.center {
 		@apply w-full flex justify-center;
