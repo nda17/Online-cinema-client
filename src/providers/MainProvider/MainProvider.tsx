@@ -5,6 +5,7 @@ import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
+import CookieConsentProvider from '../CookieConsentProvider/CookieConsentProvider'
 import LocationProvider from '../LocationProvider/LocationProvider'
 import { IMainProvider } from './mainProvider.interface'
 
@@ -19,6 +20,7 @@ const queryClient = new QueryClient({
 const MainProvider: FC<IMainProvider> = ({ children }) => {
 	return (
 		<Provider store={store}>
+			<CookieConsentProvider />
 			<QueryClientProvider client={queryClient}>
 				<ReduxToastr />
 				<LocationProvider>
