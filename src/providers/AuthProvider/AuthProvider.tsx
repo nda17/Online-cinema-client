@@ -22,7 +22,9 @@ const AuthProvider: FC<IAuthProvider> = ({ children }) => {
 
 	useEffect(() => {
 		const refreshToken = Cookies.get(EnumTokens.REFRESH_TOKEN)
-		if (!refreshToken && user) logout()
+		if (!refreshToken && user) {
+			logout()
+		}
 	}, [pathname]) // eslint-disable-line react-hooks/exhaustive-deps
 
 	return <>{children}</>
