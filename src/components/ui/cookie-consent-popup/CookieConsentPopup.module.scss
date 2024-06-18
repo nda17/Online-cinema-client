@@ -1,0 +1,42 @@
+.wrapperCookieConsent {
+	@apply fixed left-0 sm:left-[inherit] right-0 sm:right-4 bottom-4 m-auto z-50 w-[93%] md:w-[45%] lg:w-[35%] xl:w-[30%] sm:max-w-[23.5rem] rounded-xl bg-gray-700 opacity-[0.94] p-4 shadow-black;
+
+	.heading {
+		@apply flex;
+
+		.imageCookie {
+			@apply mr-1;
+
+			> svg {
+				@apply w-[1.6rem] h-[1.6rem];
+			}
+		}
+	}
+
+	.textConsent {
+		@apply mb-4;
+
+		.moreLink {
+			@apply text-firebrick border-b border-solid border-firebrick transition-colors;
+			&:hover {
+				@apply text-red-600 border-red-600 italic;
+			}
+		}
+	}
+
+	.buttons {
+		@apply flex w-full max-w-[21.5rem] m-auto;
+
+		> button {
+			@apply w-1/2 flex items-center justify-center;
+
+			&:first-child {
+				@apply rounded-r-none;
+			}
+
+			&:last-child {
+				@apply rounded-l-none opacity-80 hover:opacity-100 transition-opacity bg-[#8f050b];
+			}
+		}
+	}
+}
