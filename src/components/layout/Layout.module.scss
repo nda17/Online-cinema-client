@@ -22,7 +22,11 @@
 		@apply md:hidden;
 	}
 
-	.main {
-		@apply relative md:pt-8 md:pb-8 md:container md:m-0 min-h-screen overflow-x-auto;
+	.content {
+		@apply flex flex-col;
+
+		.main {
+			@apply relative md:pt-8 md:pb-8 md:container md:m-0 min-h-screen overflow-x-auto;
+		}
 	}
 }
