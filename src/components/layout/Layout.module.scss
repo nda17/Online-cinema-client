@@ -23,10 +23,10 @@
 	}
 
 	.content {
-		@apply flex flex-col;
+		@apply flex flex-col md:container;
 
 		.main {
-			@apply relative md:pt-8 md:pb-8 md:container md:m-0 min-h-screen overflow-x-auto;
+			@apply relative md:pt-8 md:pb-8  md:m-0 min-h-screen overflow-x-auto;
 		}
 	}
 }
