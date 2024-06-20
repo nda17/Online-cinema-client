@@ -5,6 +5,7 @@ import styles from './Layout.module.scss'
 import MobileNavbar from './Mobile/MobileNavbar/MobileNavbar'
 import LeftSidebar from './Sidebars/LeftSidebar/LeftSidebar'
 import RightSidebar from './Sidebars/RightSidebar/RightSidebar'
+import Footer from './footer/Footer'
 
 const Layout: FC<ILayout> = ({ children }) => {
 	return (
@@ -14,12 +15,15 @@ const Layout: FC<ILayout> = ({ children }) => {
 				<div className={styles.leftSidebar}>
 					<LeftSidebar />
 				</div>
-				<main className={styles.main}>
-					<div className={styles.navbar}>
-						<MobileNavbar />
-					</div>
-					{children}
-				</main>
+				<div className={styles.content}>
+					<main className={styles.main}>
+						<div className={styles.navbar}>
+							<MobileNavbar />
+						</div>
+						{children}
+					</main>
+					<Footer />
+				</div>
 				<div className={styles.rightSidebar}>
 					<RightSidebar />
 				</div>
