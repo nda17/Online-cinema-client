@@ -1,0 +1,7 @@
+.placeholder {
+	@apply flex justify-center items-center w-full h-48 sm:h-[18.25rem] md:h-[13.313rem] lg:h-[18.125rem] xl:h-[22.594rem] xxl:h-[23.438rem] bg-gray-800 bg-opacity-70 mb-12 shadow-black rounded-2xl overflow-hidden shadow-xl;
+
+	> img {
+		@apply w-9 h-9;
+	}
+}
