@@ -1,11 +1,11 @@
 .placeholder {
-	@apply flex absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-70 px-4;
+	@apply flex justify-center items-center w-full h-48 sm:h-[18.25rem] md:h-[13.313rem] lg:h-[18.125rem] xl:h-[22.594rem] xxl:h-[23.438rem] bg-gray-800 bg-opacity-70 mb-12 shadow-black rounded-2xl overflow-hidden shadow-xl;
 
 	> div {
 		@apply m-auto text-center;
 
 		> div {
-			@apply text-white mb-4 text-lg;
+			@apply text-white mb-6 text-lg;
 		}
 	}
 }
