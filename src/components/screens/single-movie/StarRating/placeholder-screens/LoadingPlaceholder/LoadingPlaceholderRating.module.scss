@@ -1,0 +1,7 @@
+.placeholder {
+	@apply w-full min-h-[160px] h-full air-block shadow-black p-7 flex justify-center items-center;
+
+	> img {
+		@apply w-8 h-8;
+	}
+}
