@@ -1,5 +1,5 @@
 .rating {
-	@apply w-full sm:w-1/2 md:w-full lg:w-3/4 xl:w-1/2 min-h-[160px] h-full mx-auto air-block shadow-black p-7 text-center flex flex-col justify-center;
+	@apply w-full min-h-[160px] h-full mx-auto air-block shadow-black p-7 text-center flex flex-col justify-center;
 
 	> h3 {
 		@apply text-[1.2rem] font-semibold;
@@ -10,7 +10,7 @@
 	}
 
 	> div {
-		@apply text-4xl opacity-90 flex justify-center cursor-pointer; 
+		@apply text-4xl opacity-90 flex justify-center cursor-pointer;
 	}
 
 	> .thanks {
@@ -18,7 +18,6 @@
 	}
 
 	> a {
-		@apply w-auto m-auto
+		@apply w-auto m-auto;
 	}
 }
-
