@@ -1,56 +1,58 @@
 .footer {
-	@apply w-full bg-black border-solid border-t border-t-gray-800 p-4;
+	@apply w-full max-w-[2104px] m-auto bg-black border-solid border border-gray-800 p-4;
 
-	.social {
-		@apply flex mb-4;
+	.wrapper {
+		.social {
+			@apply flex mb-4;
 
-		.socialIcon {
-			@apply mr-3;
-		}
+			.socialIcon {
+				@apply mr-3;
+			}
 
-		> a > svg {
-			@apply sm:w-[1.2rem] sm:h-[1.15rem] transition-all;
-		}
+			> a > svg {
+				@apply sm:w-[1.2rem] sm:h-[1.15rem] transition-all;
+			}
 
-		> a:hover {
-			> svg {
-				@apply fill-white transition-all;
+			> a:hover {
+				> svg {
+					@apply fill-white transition-all;
+				}
+			}
+
+			> a:last-child {
+				@apply mr-0;
 			}
 		}
 
-		> a:last-child {
-			@apply mr-0;
-		}
-	}
+		.info {
+			@apply w-full flex flex-col items-center mb-4;
 
-	.info {
-		@apply w-full flex flex-col items-center mb-4;
-
-		.date,
-		.allRightsReserved {
-			@apply text-[.8rem] leading-[.8rem];
-		}
-	}
-
-	.content {
-		@apply flex;
-
-		.logo {
-			@apply flex items-center mr-2;
-
-			> img {
-				@apply mr-[.3rem] animate-rotate  w-7 h-7;
+			.date,
+			.allRightsReserved {
+				@apply text-[.8rem] leading-[.8rem];
 			}
 		}
 
-		.linkBlock {
-			@apply flex flex-col;
+		.content {
+			@apply flex;
 
-			> a {
-				@apply text-[.8rem] leading-[1.2rem] transition-colors;
+			.logo {
+				@apply flex items-center mr-2;
 
-				&:hover {
-					@apply text-gray-500;
+				> img {
+					@apply mr-[.3rem] animate-rotate  w-7 h-7;
+				}
+			}
+
+			.linkBlock {
+				@apply flex flex-col;
+
+				> a {
+					@apply text-[.8rem] leading-[1.2rem] transition-colors;
+
+					&:hover {
+						@apply text-gray-500;
+					}
 				}
 			}
 		}
