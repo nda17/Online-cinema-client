@@ -1,7 +1,6 @@
 import { ADMIN_URL } from '@/configs/url.config'
 import { useAuth } from '@/hooks/useAuth'
 import { FC } from 'react'
-import styles from '../../MenuContainer.module.scss'
 import MenuItem from '../MenuItem/MenuItem'
 import LogoutButton from './LogoutButton'
 
@@ -10,7 +9,6 @@ const AuthItems: FC = () => {
 
 	return (
 		<>
-			<h1 className={styles.heading}>General</h1>
 			{user ? (
 				<>
 					<MenuItem
