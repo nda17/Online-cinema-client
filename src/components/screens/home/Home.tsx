@@ -21,7 +21,7 @@ const Home: FC<IHomePage> = ({
 			<SubHeadingLink title="Trending now" url={'/trending'} />
 			{popularMovies ? <Gallery items={popularMovies} /> : null}
 
-			<SubHeadingLink title="Best actors" url={'/actors'} />
+			<h2 className="text-white text-xl font-semibold">Best actors</h2>
 			{actors ? <Gallery items={actors} /> : null}
 
 			<SubHeadingLink
