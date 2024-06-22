@@ -1,4 +1,5 @@
 'use client'
+import { useAuth } from '@/hooks/useAuth'
 import { UserService } from '@/services/user/user.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import classNames from 'classnames'
@@ -8,7 +9,6 @@ import { useFavorites } from '../../favorites/useFavorites'
 import styles from './FavoriteButton.module.scss'
 import { IFavoriteButton } from './favorite-button.interface'
 import HeartImage from './heart-animation.png'
-import { useAuth } from '@/hooks/useAuth'
 
 const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	const { user } = useAuth()
@@ -19,7 +19,9 @@ const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	useEffect(() => {
 		if (movies) {
 			const isHasMovie = movies.some((movie) => movie._id === movieId)
-			if (isSmashed !== isHasMovie) setIsSmashed(isHasMovie)
+			if (isSmashed !== isHasMovie) {
+				setIsSmashed(isHasMovie)
+			}
 		}
 	}, [movies, isSmashed, movieId])
 
@@ -39,13 +41,15 @@ const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	)
 
 	return (
-		user && <button
-			onClick={() => mutateAsync()}
-			className={classNames(styles.button, {
-				[styles.animate]: isSmashed
-			})}
-			style={{ backgroundImage: `url(${HeartImage.src})` }}
-		/>
+		user && (
+			<button
+				onClick={() => mutateAsync()}
+				className={classNames(styles.button, {
+					[styles.animate]: isSmashed
+				})}
+				style={{ backgroundImage: `url(${HeartImage.src})` }}
+			/>
+		)
 	)
 }
 
