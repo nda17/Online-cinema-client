@@ -4,7 +4,7 @@ import LoadingPlaceholderRating from '@/screens/single-movie/StarRating/placehol
 import Banner from '@/ui/banner/Banner'
 import Gallery from '@/ui/gallery/Gallery'
 import SubHeading from '@/ui/subheading/SubHeading'
-import LoadingPlaceholder from '@/ui/video-player/placeholder-screens/LoadingPlaceholder/LoadingPlaceholder'
+import LoadingPlaceholderVideo from '@/ui/video-player/placeholder-screens/LoadingPlaceholder/LoadingPlaceholderVideo'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import Content from './Content/Content'
@@ -14,7 +14,7 @@ import { useUpdateCountOpened } from './useUpdateCountOpened'
 const DynamicPlayer = dynamic(
 	() => import('@/ui/video-player/VideoPlayer'),
 	{
-		loading: () => <LoadingPlaceholder />,
+		loading: () => <LoadingPlaceholderVideo />,
 		ssr: false
 	}
 )
