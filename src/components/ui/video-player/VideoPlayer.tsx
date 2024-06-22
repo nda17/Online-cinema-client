@@ -1,13 +1,14 @@
 import { useAuth } from '@/hooks/useAuth'
 import { UserService } from '@/services/user/user.service'
 import classNames from 'classnames'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import MaterialIcon from '../icons/MaterialIcon'
 import ProgressBar from './ProgressBar/ProgressBar'
 import styles from './VideoPlayer.module.scss'
 import AuthPlaceholder from './placeholder-screens/AuthPlaceholder/AuthPlaceholder'
 import ConfirmEmailPlaceholder from './placeholder-screens/ConfirmEmailPlaceholder/ConfirmEmailPlaceholder'
+import LoadingPlaceholder from './placeholder-screens/LoadingPlaceholder/LoadingPlaceholder'
 import SubscriptionPlaceholder from './placeholder-screens/SubscriptionPlaceholder/SubscriptionPlaceholder'
 import { useVideo } from './useVideo'
 import { IVideoPlayer } from './video.types'
@@ -15,9 +16,13 @@ import { IVideoPlayer } from './video.types'
 const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 	const { actions, videoRef, video } = useVideo()
 	const { user } = useAuth()
+	const [dataReceived, setDataReceived] = useState(false)
 
-	const { data: statusSubscription } = useQuery(
-		'get subscription status user profile',
+	const {
+		isLoading: isLoadingStatusSubscription,
+		data: statusSubscription
+	} = useQuery(
+		'get subscription status user ',
 		() => UserService.getProfile(),
 		{
 			select: (data) => data.data.isSubscription,
@@ -25,8 +30,11 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 		}
 	)
 
-	const { data: statusConfirmationEmail } = useQuery(
-		'get confirmation email status user profile',
+	const {
+		isLoading: isLoadingStatusConfirmationEmail,
+		data: statusConfirmationEmail
+	} = useQuery(
+		'get confirmation email status user',
 		() => UserService.getProfile(),
 		{
 			select: (data) => data.data.isActivated,
@@ -34,31 +42,36 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 		}
 	)
 
+	useEffect(() => {
+		!isLoadingStatusSubscription && !isLoadingStatusConfirmationEmail
+			? setDataReceived(true)
+			: setDataReceived(false)
+	}, [isLoadingStatusSubscription, isLoadingStatusConfirmationEmail])
+
 	return (
-		<div
-			className={classNames(styles.player, {
-				'h-96':
-					!user ||
-					!statusConfirmationEmail ||
-					(!statusSubscription && license === 'subscription')
-			})}
-		>
-			{!user && <AuthPlaceholder slug={slug} />}
+		<>
+			{!dataReceived ? <LoadingPlaceholder /> : null}
 
-			{user && !statusConfirmationEmail && <ConfirmEmailPlaceholder />}
+			{dataReceived && !user && <AuthPlaceholder slug={slug} />}
 
-			{user &&
+			{dataReceived && user && !statusConfirmationEmail && (
+				<ConfirmEmailPlaceholder />
+			)}
+
+			{dataReceived &&
+				user &&
 				statusConfirmationEmail &&
 				!statusSubscription &&
 				license === 'subscription' && (
 					<SubscriptionPlaceholder slug={slug} />
 				)}
 
-			{user &&
+			{dataReceived &&
+				user &&
 				statusConfirmationEmail &&
 				!statusSubscription &&
 				license !== 'subscription' && (
-					<>
+					<div className={classNames(styles.player)}>
 						<video
 							ref={videoRef}
 							className={styles.video}
@@ -134,11 +147,11 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 								</button>
 							</div>
 						</div>
-					</>
+					</div>
 				)}
 
 			{user && statusConfirmationEmail && statusSubscription && (
-				<>
+				<div className={classNames(styles.player)}>
 					<video
 						ref={videoRef}
 						className={styles.video}
@@ -212,9 +225,9 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 							</button>
 						</div>
 					</div>
-				</>
+				</div>
 			)}
-		</div>
+		</>
 	)
 }
 
