@@ -1,0 +1,7 @@
+.placeholder {
+	@apply w-full min-h-[160px] h-full air-block shadow-black p-7 flex justify-center items-center;
+
+	> p {
+		@apply text-[1.125rem] leading-normal text-primary;
+	}
+}
