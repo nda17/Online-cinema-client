@@ -1,9 +1,11 @@
+import SpinnerLoader from '@/ui/spinner-loader/SpinnerLoader'
 import { Metadata, NextPage } from 'next'
 import dynamic from 'next/dynamic'
 
 const DynamicFavorites = dynamic(
 	() => import('@/screens/favorites/Favorites'),
 	{
+		loading: () => <SpinnerLoader />,
 		ssr: false
 	}
 )

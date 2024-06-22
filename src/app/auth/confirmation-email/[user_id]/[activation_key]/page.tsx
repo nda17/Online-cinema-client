@@ -1,11 +1,15 @@
 import Error404 from '@/app/not-found'
 import { AuthService } from '@/services/auth/auth.service'
+import SpinnerLoader from '@/ui/spinner-loader/SpinnerLoader'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 const DynamicEmailСonfirmationPage = dynamic(
 	() => import('@/screens/auth/email-confirmation/EmailСonfirmation'),
-	{ ssr: false }
+	{
+		loading: () => <SpinnerLoader />,
+		ssr: false
+	}
 )
 
 export const metadata: Metadata = {

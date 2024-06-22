@@ -1,11 +1,15 @@
 import { MovieService } from '@/services/movie/movie.service'
+import SpinnerLoader from '@/ui/spinner-loader/SpinnerLoader'
 import { errorCatch } from 'api/api.helpers'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Error404 from '../not-found'
 const DynamicChildrenMoviesPage = dynamic(
 	() => import('@/screens/children/ChildrenMoviesPage'),
-	{ ssr: false }
+	{
+		loading: () => <SpinnerLoader />,
+		ssr: false
+	}
 )
 
 export const metadata: Metadata = {
