@@ -1,5 +1,6 @@
 'use client'
 import styles from '@/components/shared/contentWrapper.module.scss'
+import LoadingPlaceholderRating from '@/screens/single-movie/StarRating/placeholder-screens/LoadingPlaceholder/LoadingPlaceholderRating'
 import Banner from '@/ui/banner/Banner'
 import Gallery from '@/ui/gallery/Gallery'
 import SubHeading from '@/ui/subheading/SubHeading'
@@ -21,6 +22,7 @@ const DynamicPlayer = dynamic(
 const DynamicStarRating = dynamic(
 	() => import('./StarRating/StarRating'),
 	{
+		loading: () => <LoadingPlaceholderRating />,
 		ssr: false
 	}
 )
