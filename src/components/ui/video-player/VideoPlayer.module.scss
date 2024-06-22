@@ -1,12 +1,12 @@
 .player {
-	@apply mb-12 shadow-black rounded-2xl overflow-hidden shadow-xl relative animate-fadeIn;
+	@apply mb-12 shadow-black rounded-2xl overflow-hidden shadow-xl relative h-48 sm:h-[18.25rem] md:h-[13.313rem] lg:h-[18.125rem] xl:h-[22.594rem] xxl:h-[23.438rem];
 
 	.video {
-		@apply w-full min-h-[12rem] object-cover;
+		@apply w-full h-full object-cover;
 	}
 
 	.buttonReplay {
-		@apply w-8 h-8 outline-none opacity-60 hover:opacity-100 transition-opacity absolute top-[25%] sm:top-0 right-0 sm:bottom-0 left-0 m-auto;
+		@apply w-8 h-8 outline-none opacity-60 hover:opacity-100 transition-opacity absolute top-[30%] sm:top-[35%]  right-0 left-0 m-auto;
 
 		> svg {
 			@apply w-full h-full;
