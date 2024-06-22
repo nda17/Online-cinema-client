@@ -8,7 +8,7 @@ import { useMutation } from 'react-query'
 import { useFavorites } from '../../favorites/useFavorites'
 import styles from './FavoriteButton.module.scss'
 import { IFavoriteButton } from './favorite-button.interface'
-import HeartImage from './heart-animation.png'
+import HeartImage from '@/assets/images/heart-animation.png'
 
 const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	const { user } = useAuth()
