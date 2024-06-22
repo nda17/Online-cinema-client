@@ -5,6 +5,9 @@ import { FC, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import MaterialIconRating from './MaterialIconRating'
 import styles from './StarRating.module.scss'
+import AuthPlaceholderRating from './placeholder-screens/AuthPlaceholder/AuthPlaceholderRating'
+import ConfirmEmailPlaceholderRating from './placeholder-screens/ConfirmEmailPlaceholder/ConfirmEmailPlaceholderRating'
+import LoadingPlaceholderRating from './placeholder-screens/LoadingPlaceholder/LoadingPlaceholderRating'
 import { IStarRating } from './star-rating.interface'
 import { useStarRating } from './useStarRating'
 
@@ -16,7 +19,9 @@ const StarRating: FC<IStarRating> = ({
 	_id
 }) => {
 	const { user } = useAuth()
-	const { data: statusConfirmationEmail } = useQuery(
+	const [dataReceived, setDataReceived] = useState(false)
+
+	const { isLoading, data: statusConfirmationEmail } = useQuery(
 		'get confirmation email status',
 		() => UserService.getProfile(),
 		{
@@ -36,10 +41,16 @@ const StarRating: FC<IStarRating> = ({
 		setHoverItem(rating - 1)
 	}, [rating, user, statusConfirmationEmail])
 
+	useEffect(() => {
+		!isLoading ? setDataReceived(true) : setDataReceived(false)
+	}, [isLoading])
+
 	return (
-		<div className={styles.rating}>
-			{user && statusConfirmationEmail ? (
-				<>
+		<>
+			{!dataReceived ? <LoadingPlaceholderRating /> : null}
+
+			{dataReceived && user && statusConfirmationEmail && (
+				<div className={styles.rating}>
 					{isSended ? (
 						<div className={styles.thanks}>Thanks for rating!</div>
 					) : (
@@ -71,20 +82,17 @@ const StarRating: FC<IStarRating> = ({
 							</div>
 						</>
 					)}
-				</>
-			) : (
-				<div className="flex justify-center items-center">
-					<p className="text-[1.125rem] leading-normal text-primary">
-						{!user && !statusConfirmationEmail && 'Login to rate the film'}
-					</p>
-					<p className="text-[1.125rem] leading-normal text-primary">
-						{user &&
-							!statusConfirmationEmail &&
-							'Confirm your email to rate the film'}
-					</p>
 				</div>
 			)}
-		</div>
+
+			{dataReceived && !user && !statusConfirmationEmail && (
+				<AuthPlaceholderRating />
+			)}
+
+			{dataReceived && user && !statusConfirmationEmail && (
+				<ConfirmEmailPlaceholderRating />
+			)}
+		</>
 	)
 }
 
