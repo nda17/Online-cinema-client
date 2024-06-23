@@ -5,7 +5,9 @@ import { useAuth } from '@/hooks/useAuth'
 import { AuthService } from '@/services/auth/auth.service'
 import Button from '@/ui/form-elements/Button'
 import Heading from '@/ui/heading/Heading'
+import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { toastrError } from '@/utils/api/toastr-error-redux'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -60,6 +62,11 @@ const RestorePassword: FC = () => {
 	return !user ? (
 		<div className={styles.auth}>
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.formAuth}>
+				<span className={styles.buttonBack}>
+					<Link href="/auth" className={styles.socialIcon}>
+						<MaterialIcon name="MdArrowCircleLeft" />
+					</Link>
+				</span>
 				<Heading title="Auth | Restore password" />
 				<div className={styles.wrapper}>
 					{status !== 'success' ? (
