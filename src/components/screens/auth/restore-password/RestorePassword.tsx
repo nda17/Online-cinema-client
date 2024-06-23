@@ -1,4 +1,5 @@
 'use client'
+import Error404 from '@/app/not-found'
 import EmailFields from '@/components/shared/AuthFields/EmailFields/EmailFields'
 import { useAuth } from '@/hooks/useAuth'
 import { AuthService } from '@/services/auth/auth.service'
@@ -14,8 +15,7 @@ import styles from './RestorePassword.module.scss'
 import { IEmail } from './restore-password.interface'
 
 const RestorePassword: FC = () => {
-	const { isLoading } = useAuth()
-
+	const { isLoading, user } = useAuth()
 	const { replace } = useRouter()
 
 	const redirect = () => {
@@ -57,7 +57,7 @@ const RestorePassword: FC = () => {
 		redirect()
 	}
 
-	return (
+	return !user ? (
 		<div className={styles.auth}>
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.formAuth}>
 				<Heading title="Auth | Restore password" />
@@ -81,6 +81,8 @@ const RestorePassword: FC = () => {
 				</div>
 			</form>
 		</div>
+	) : (
+		<Error404 />
 	)
 }
 
