@@ -4,7 +4,7 @@
 	}
 
 	.fieldSendEmailAgain {
-		@apply text-left border-b border-solid border-gray-600 pb-2 mb-8 sm:flex;
+		@apply text-left border-b border-solid border-gray-600 pb-2 mb-8;
 
 		> button {
 			@apply text-[#28b54d] border-b border-solid border-[#28b54d];
