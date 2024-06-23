@@ -2,18 +2,24 @@
 import EmailPasswordFields from '@/components/shared/AuthFields/EmailPasswordFields/EmailPasswordFields'
 import styles from '@/components/shared/contentWrapper.module.scss'
 import userForm from '@/components/shared/user/userForm.module.scss'
+import { useAuth } from '@/hooks/useAuth'
+import { UserService } from '@/services/user/user.service'
 import Button from '@/ui/form-elements/Button'
 import Heading from '@/ui/heading/Heading'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 import SubHeading from '@/ui/subheading/SubHeading'
 import classNames from 'classnames'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import profile from './Profile.module.scss'
 import { IProfileInput } from './profile.interface'
 import useProfile from './useProfile'
 
 const Profile: FC = () => {
+	const { user } = useAuth()
+
+	const [sent, setSent] = useState(false)
+
 	const { handleSubmit, register, formState, setValue } =
 		useForm<IProfileInput>({
 			mode: 'onChange'
@@ -35,7 +41,7 @@ const Profile: FC = () => {
 						})}
 					>
 						{isLoading ? (
-							<SkeletonLoader count={2} className="h-8 mb-4" />
+							<SkeletonLoader count={1} className="h-8 mb-4" />
 						) : (
 							`${
 								data?.isActivated
@@ -46,11 +52,37 @@ const Profile: FC = () => {
 					</span>
 				</div>
 
+				{!isLoading && !data?.isActivated && (
+					<>
+						<SubHeading title="Did not get the email ?" />
+						<div className={profile.fieldSendEmailAgain}>
+							{!sent ? (
+								<button
+									type="button"
+									onClick={async () => {
+										await UserService.resendingEmailConfirmationLink(
+											user?.email!
+										)
+										setSent(true)
+									}}
+								>
+									Send the confirmation link again
+								</button>
+							) : (
+								<p>
+									A follow-up email with a confirmation link was sent to
+									your email address
+								</p>
+							)}
+						</div>
+					</>
+				)}
+
 				<SubHeading title="Subscription status" />
 				<div className={profile.fieldStatus}>
 					<>
 						{isLoading ? (
-							<SkeletonLoader count={2} className="h-8 mb-4" />
+							<SkeletonLoader count={1} className="h-8 mb-4" />
 						) : !data?.isActivated ? (
 							<span
 								className={classNames({
@@ -88,7 +120,7 @@ const Profile: FC = () => {
 						className={userForm.form}
 					>
 						{isLoading ? (
-							<SkeletonLoader count={2} className="h-8 mb-4" />
+							<SkeletonLoader count={1} className="h-8 mb-4" />
 						) : (
 							<EmailPasswordFields
 								register={register}
