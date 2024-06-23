@@ -20,6 +20,14 @@ export const UserService = {
 		)
 	},
 
+	async resendingEmailConfirmationLink() {
+		return axiosInterceptorsRequest.patch<IUser>(
+			`${PUBLIC_PATH.usersUrl(
+				'/profile/resending-email-confirmation-link'
+			)}`
+		)
+	},
+
 	async getUsersList(searchTerm?: string) {
 		return axiosInterceptorsRequest.get<IUser[]>(
 			PUBLIC_PATH.usersUrl(``),
