@@ -2,7 +2,6 @@
 import EmailPasswordFields from '@/components/shared/AuthFields/EmailPasswordFields/EmailPasswordFields'
 import styles from '@/components/shared/contentWrapper.module.scss'
 import userForm from '@/components/shared/user/userForm.module.scss'
-import { useAuth } from '@/hooks/useAuth'
 import { UserService } from '@/services/user/user.service'
 import Button from '@/ui/form-elements/Button'
 import Heading from '@/ui/heading/Heading'
@@ -16,8 +15,6 @@ import { IProfileInput } from './profile.interface'
 import useProfile from './useProfile'
 
 const Profile: FC = () => {
-	const { user } = useAuth()
-
 	const [sent, setSent] = useState(false)
 
 	const { handleSubmit, register, formState, setValue } =
@@ -60,9 +57,7 @@ const Profile: FC = () => {
 								<button
 									type="button"
 									onClick={async () => {
-										await UserService.resendingEmailConfirmationLink(
-											user?.email!
-										)
+										await UserService.resendingEmailConfirmationLink()
 										setSent(true)
 									}}
 								>
