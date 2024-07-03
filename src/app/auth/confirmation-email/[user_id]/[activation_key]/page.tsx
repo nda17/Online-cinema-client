@@ -21,9 +21,7 @@ const EmailConfirmationPage = async ({
 }: {
 	params: { user_id: string }
 }) => {
-	const { data: user } = await AuthService.getStatusConfirmationEmail(
-		params.user_id
-	)
+	const { data: user } = await AuthService.getById(params.user_id)
 
 	if (user.isActivated) {
 		return <Error404 />
