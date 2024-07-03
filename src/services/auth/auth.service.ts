@@ -21,16 +21,20 @@ export const AuthService = {
 		return response
 	},
 
-	async getStatusConfirmationEmail(_id: string) {
-		return axiosClassicRequest.get<IEmailСonfirmation>(
-			getAuthUrl(`/confirmation-email/${_id}`)
+	async getById(_id: string) {
+		const response = await axiosClassicRequest.post<IEmailСonfirmation>(
+			getAuthUrl(`/confirmation-email/${_id}`),
+			{ _id }
 		)
+		return response
 	},
 
 	async confirmationEmail(_id: string) {
-		return axiosClassicRequest.patch<IEmailСonfirmation>(
-			getAuthUrl(`/confirmation-email/${_id}`)
+		const response = await axiosClassicRequest.patch<IEmailСonfirmation>(
+			getAuthUrl(`/confirmation-email/${_id}`),
+			{ _id }
 		)
+		return response
 	},
 
 	async register(email: string, password: string) {
