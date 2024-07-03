@@ -39,7 +39,7 @@ const PrivacyPolicy: FC = () => {
 			<br />
 			<p>
 				1.5.If certain information is not marked as mandatory, its
-				provision or disclosure is at the User's discretion. At the same
+				provision or disclosure is at the {`User's`} discretion. At the same
 				time, you give informed consent to access of an unlimited number of
 				persons to such data. The specified data becomes publicly available
 				from the moment it is provided and/or disclosed in another form.
@@ -47,7 +47,7 @@ const PrivacyPolicy: FC = () => {
 			<br />
 			<p>
 				1.6. The Administration verifies the accuracy of the data provided
-				and the User's data; it is necessary to agree on their processing
+				and the {`User's`} data; it is necessary to agree on their processing
 				in accordance with this Policy, believing that the User applies in
 				good faith, considers and makes all necessary efforts to keep such
 				information up to date and obtains all necessary consents for its
@@ -74,7 +74,7 @@ const PrivacyPolicy: FC = () => {
 			<br />
 			<p>
 				1.9. The administration is not responsible for the order use of the
-				User's anonymized data by third parties.
+				{`User's`} anonymized data by third parties.
 			</p>
 			<br />
 			<SubHeading title="2. Purposes of data processing" />
@@ -131,7 +131,7 @@ const PrivacyPolicy: FC = () => {
 				that does not limit the provision of a certain information;
 			</p>
 			<p>
-				* Transfer is necessary as part of the User's use functionality of
+				* Transfer is necessary as part of the {`User's`} use functionality of
 				the Site;
 			</p>
 			<p>

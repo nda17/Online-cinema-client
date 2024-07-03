@@ -38,11 +38,11 @@ const CookieNotice: FC = () => {
 				(1x1) or empty GIF images.
 				<br />
 				<br />
-				Cookies may be placed on your device by us (“own” cookies) or other
-				operators (cookies "third parties")
+				Cookies may be placed on your device by us ({`"own"`} cookies) or other
+				operators (cookies {`"third parties"`})
 				<br />
 				We use two types of cookies on the site: session cookies and
-				"persistent cookies".
+				{`"persistent cookies"`}.
 				<br />
 				Session cookies are temporary files that remain on the device until
 				you leave the site.
@@ -98,7 +98,7 @@ const CookieNotice: FC = () => {
 				presentations, etc.), organizing surveys, etc. As in in the case of
 				social media access buttons, we cannot prevent these sites or
 				external domains from collecting information about how you use the
-				site's content.
+				{`site's`} content.
 				<br />
 				<br />
 				How to manage cookies?
