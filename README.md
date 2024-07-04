@@ -34,7 +34,7 @@ Implemented front-end user authorization based on Redux using two tokens: Access
 - Editing/deleting user profiles and their data
 - Adding/removing films, editing information about films, actors, genres, ratings
 
-## IN DEVELOPING:
+## ON DEVELOPMENT STAGE:
 - Implementation of subscription payment
 - Testing functionality and fixing errors
 
@@ -59,11 +59,11 @@ Implemented front-end user authorization based on Redux using two tokens: Access
 - Nextjs-toploader
 
 ## Compiles and minifies for production:
-pnpm next build
-npm run build
-yarn next build
+- pnpm next build
+- npm run build
+- yarn next build
 
 ## Getting started online development server:
-pnpm next dev
-npm rud next dev
-yarn next dev
+- pnpm next dev
+- npm rud next dev
+- yarn next dev
