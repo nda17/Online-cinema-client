@@ -3,7 +3,7 @@
 
 ## Implementation features:
 
-## Implemented front-end user authorization based on Redux using two tokens: Access-token and Refresh-token. When the access-token expires and the refresh-token action condition occurs, the access-token is automatically updated; if the refresh-token expires, the system is logged out. Upon successful authorization, an automatic redirect occurs from the authorization page to the page from which the transition to the authorization page was made.
+Implemented front-end user authorization based on Redux using two tokens: Access-token and Refresh-token. When the access-token expires and the refresh-token action condition occurs, the access-token is automatically updated; if the refresh-token expires, the system is logged out. Upon successful authorization, an automatic redirect occurs from the authorization page to the page from which the transition to the authorization page was made.
 
 - Registration of a new profile
 - Sending a confirmation code to Email to activate a new user profile
