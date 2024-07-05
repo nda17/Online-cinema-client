@@ -1,4 +1,4 @@
-import { getAuthUrl } from '@/configs/api.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import { IEmailСonfirmation } from '@/screens/auth/email-confirmation/email-confirmation.interface'
 import { IEmail } from '@/screens/auth/restore-password/restore-password.interface'
 import { IAuthResponse } from '@/store/user/user.interface'
@@ -14,7 +14,7 @@ import {
 export const AuthService = {
 	async restore(email: string) {
 		const response = await axiosClassicRequest.post<IEmail>(
-			getAuthUrl('/restore-password'),
+			`${PUBLIC_PAGES.AUTH}/restore-password`,
 			{ email }
 		)
 
@@ -23,7 +23,7 @@ export const AuthService = {
 
 	async getById(_id: string) {
 		const response = await axiosClassicRequest.post<IEmailСonfirmation>(
-			getAuthUrl(`/confirmation-email/${_id}`),
+			`${PUBLIC_PAGES.AUTH}/confirmation-email/${_id}`,
 			{ _id }
 		)
 		return response
@@ -31,7 +31,7 @@ export const AuthService = {
 
 	async confirmationEmail(_id: string) {
 		const response = await axiosClassicRequest.patch<IEmailСonfirmation>(
-			getAuthUrl(`/confirmation-email/${_id}`),
+			`${PUBLIC_PAGES.AUTH}/confirmation-email/${_id}`,
 			{ _id }
 		)
 		return response
@@ -39,7 +39,7 @@ export const AuthService = {
 
 	async register(email: string, password: string) {
 		const response = await axiosClassicRequest.post<IAuthResponse>(
-			getAuthUrl('/register'),
+			`${PUBLIC_PAGES.AUTH}/register`,
 			{ email, password }
 		)
 
@@ -53,7 +53,7 @@ export const AuthService = {
 
 	async login(email: string, password: string) {
 		const response = await axiosClassicRequest.post<IAuthResponse>(
-			getAuthUrl('/login'),
+			`${PUBLIC_PAGES.AUTH}/login`,
 			{ email, password }
 		)
 
@@ -73,7 +73,7 @@ export const AuthService = {
 	async getNewTokens() {
 		const refreshToken = Cookies.get('refreshToken')
 		const response = await axiosClassicRequest.post<IAuthResponse>(
-			getAuthUrl('/login/access-token'),
+			`${PUBLIC_PAGES.AUTH}/login/access-token`,
 			{ refreshToken },
 			{
 				headers: {
