@@ -1,34 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { API_URL, PUBLIC_PATH } from './configs/api.config'
+import { API_URL } from './configs/api.config'
 import { EnumTokens } from './configs/enum.tokens'
-import { ADMIN_URL, PUBLIC_URL, USER_URL } from './configs/url.config'
+import { ADMIN_PAGES } from './configs/pages/admin.config'
+import { USER_PAGES } from './configs/pages/profile.config'
+import { PUBLIC_PAGES } from './configs/pages/public.config'
 
 export async function middleware(request: NextRequest) {
-	const accessToken = request.cookies.get(EnumTokens.ACCESS_TOKEN)?.value
 	const refreshToken = request.cookies.get(EnumTokens.REFRESH_TOKEN)?.value
+	const accessToken = request.cookies.get(EnumTokens.ACCESS_TOKEN)?.value
 
-	//При переходе на страницу профиля => проверка наличия accessToken и refreshToken => если отсутствует, то редирект на страницу Auth:
+	if (!refreshToken) {
+		request.cookies.delete(EnumTokens.ACCESS_TOKEN)
+		return NextResponse.redirect(new URL(PUBLIC_PAGES.AUTH, request.url))
+	}
+
 	if (
-		(refreshToken === undefined &&
-			request.nextUrl.pathname === USER_URL.profileUrl()) ||
-		(accessToken === undefined &&
-			request.nextUrl.pathname === USER_URL.profileUrl())
+		(request.nextUrl.pathname.includes(USER_PAGES.PROFILE) &&
+			!refreshToken) ||
+		(request.nextUrl.pathname.includes(USER_PAGES.PROFILE) && !accessToken)
 	) {
 		return NextResponse.redirect(
-			new URL(PUBLIC_URL.authUrl(), request.url)
+			new URL(`${PUBLIC_PAGES.AUTH}`, request.url)
 		)
 	}
 
-	//При переходе на страницы Admin panel => проверка ролей => если роль не admin, то редирект на 404 страницу:
-	if (
-		request.nextUrl.pathname === ADMIN_URL.homeUrl() ||
-		request.nextUrl.pathname === ADMIN_URL.rootUrl('actors') ||
-		request.nextUrl.pathname === ADMIN_URL.rootUrl('genres') ||
-		request.nextUrl.pathname === ADMIN_URL.rootUrl('movies') ||
-		request.nextUrl.pathname === ADMIN_URL.rootUrl('users')
-	) {
+	if (request.nextUrl.pathname.includes(ADMIN_PAGES.HOME)) {
 		return await fetch(
-			`${API_URL}${PUBLIC_PATH.usersUrl(``)}${USER_URL.profileUrl()}`,
+			`${API_URL}/${USER_PAGES.USERS}/${USER_PAGES.PROFILE}`,
 			{
 				method: 'GET',
 				headers: { Authorization: `Bearer ${accessToken}` }
@@ -38,9 +36,9 @@ export async function middleware(request: NextRequest) {
 			.then((data) => (!data.isAdmin ? NextResponse.error() : null))
 	}
 
-	return
+	return NextResponse.next()
 }
 
 export const config = {
-	matcher: ['/profile/:path*', '/admin/:path*']
+	matcher: ['/admin/:path*', '/profile/:path*']
 }
