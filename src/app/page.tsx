@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from '@/configs/url.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import Home from '@/screens/home/Home'
 import { ActorService } from '@/services/actor/actor.service'
 import { MovieService } from '@/services/movie/movie.service'
@@ -44,7 +44,7 @@ const staticContent = async () => {
 
 		const slidesMovies = getRandomItem(allMoviesList, 3).map((movie) => ({
 			_id: movie._id,
-			url: PUBLIC_URL.moviesUrl(movie.slug),
+			url: `/${PUBLIC_PAGES.MOVIES}/${movie.slug}`,
 			subTitle: getGenresList(movie.genres),
 			title: movie.title,
 			bigPoster: movie.bigPoster,
@@ -58,7 +58,7 @@ const staticContent = async () => {
 		const popularMovies = popularMoviesList.map((movie: IMovie) => ({
 			name: movie.title,
 			posterPath: movie.poster,
-			url: PUBLIC_URL.moviesUrl(movie.slug),
+			url: `/${PUBLIC_PAGES.MOVIES}/${movie.slug}`,
 			rating: movie.rating.toFixed(1)
 		}))
 
@@ -69,7 +69,7 @@ const staticContent = async () => {
 			(actor: IActor) => ({
 				name: actor.name,
 				posterPath: actor.photo,
-				url: PUBLIC_URL.actorsUrl(actor.slug),
+				url: `/${PUBLIC_PAGES.ACTORS}/${actor.slug}`,
 				actor: true,
 				content: {
 					title: actor.name,
@@ -87,7 +87,7 @@ const staticContent = async () => {
 			.map((movie: IMovie) => ({
 				name: movie.title,
 				posterPath: movie.poster,
-				url: PUBLIC_URL.moviesUrl(movie.slug),
+				url: `/${PUBLIC_PAGES.MOVIES}/${movie.slug}`,
 				rating: movie.rating.toFixed(1)
 			}))
 
@@ -99,7 +99,7 @@ const staticContent = async () => {
 		const childrenMovies = allChildrenMovies.map((movie: IMovie) => ({
 			name: movie.title,
 			posterPath: movie.poster,
-			url: PUBLIC_URL.moviesUrl(movie.slug),
+			url: `/${PUBLIC_PAGES.MOVIES}/${movie.slug}`,
 			rating: movie.rating.toFixed(1)
 		}))
 

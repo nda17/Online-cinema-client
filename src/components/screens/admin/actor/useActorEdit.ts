@@ -1,4 +1,4 @@
-import { ADMIN_URL } from '@/configs/url.config'
+import { ADMIN_PAGES } from '@/configs/pages/admin.config'
 import { ActorService } from '@/services/actor/actor.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { getKeys } from '@/utils/object/getKeys'
@@ -40,7 +40,7 @@ export const useActorEdit = (
 		{
 			onSuccess() {
 				toastr.success('Update actor', 'update was successful')
-				push(ADMIN_URL.rootUrl('/actors'))
+				push(`${ADMIN_PAGES.HOME}/actors`)
 			},
 
 			onError(error) {

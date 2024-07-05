@@ -1,5 +1,5 @@
 'use client'
-import { PUBLIC_URL } from '@/configs/url.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import { MovieService } from '@/services/movie/movie.service'
 import { IMovie } from '@/shared/types/movie.types'
 import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
@@ -29,7 +29,7 @@ const PopularMovie: FC = () => {
 				movie && (
 					<>
 						<h3>Opened {movie.countOpened} times</h3>
-						<Link href={PUBLIC_URL.moviesUrl(movie.slug)}>
+						<Link href={`/${PUBLIC_PAGES.MOVIES}/${movie.slug}`}>
 							<Image
 								width={285}
 								height={176}

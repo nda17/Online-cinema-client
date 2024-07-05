@@ -1,5 +1,5 @@
 import Error404 from '@/app/not-found'
-import { PUBLIC_PATH } from '@/configs/api.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import SingleMovie from '@/screens/single-movie/SingleMovie'
 import { MovieService } from '@/services/movie/movie.service'
 import { errorCatch } from 'api/api.helpers'
@@ -47,7 +47,7 @@ const staticContent = async (params: { slug: string }) => {
 				name: item.title,
 				rating: item.rating.toFixed(1),
 				posterPath: item.poster,
-				url: PUBLIC_PATH.moviesUrl(`/${item.slug}`)
+				url: `${PUBLIC_PAGES.MOVIES}/${item.slug}`
 			}))
 
 		return {

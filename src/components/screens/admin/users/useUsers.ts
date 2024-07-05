@@ -1,4 +1,4 @@
-import { ADMIN_URL } from '@/configs/url.config'
+import { ADMIN_PAGES } from '@/configs/pages/admin.config'
 import { useDebounce } from '@/hooks/useDebounce'
 import { UserService } from '@/services/user/user.service'
 import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
@@ -20,7 +20,7 @@ export const useUsers = () => {
 				data.map(
 					(user): ITableItem => ({
 						_id: user._id,
-						editUrl: ADMIN_URL.rootUrl(`user/edit/${user._id}`),
+						editUrl: `${ADMIN_PAGES.HOME}user/edit/${user._id}`,
 						items: [
 							user.email,
 							String(user.isActivated ? 'confirmed' : 'not confirmed'),

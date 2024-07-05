@@ -1,8 +1,7 @@
-import { PUBLIC_URL } from '@/configs/url.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import { GenreService } from '@/services/genre/genre.service'
 import { useQuery } from 'react-query'
 import { IMenuItem } from './MenuItem/menu-item.interface'
-
 
 export const usePopularGenres = () => {
 	const queryData = useQuery(
@@ -15,7 +14,7 @@ export const usePopularGenres = () => {
 					.map(
 						(genre): IMenuItem => ({
 							icon: genre.icon,
-							link: PUBLIC_URL.genresUrl(genre.slug),
+							link: `/${PUBLIC_PAGES.GENRES}/${genre.slug}`,
 							title: genre.name
 						})
 					)

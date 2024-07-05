@@ -1,5 +1,5 @@
 'use client'
-import { PUBLIC_URL } from '@/configs/url.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import Description from '@/ui/description/Description'
 import GalleryGenresItem from '@/ui/gallery-genres/GalleryGenresItem/GalleryGenresItem'
 import Heading from '@/ui/heading/Heading'
@@ -58,7 +58,7 @@ const CatalogGenres: FC<ICatalogGenres> = ({
 								key={genre._id}
 								item={{
 									_id: genre._id,
-									url: PUBLIC_URL.genresUrl(genre.slug),
+									url: `/${PUBLIC_PAGES.GENRES}/${genre.slug}`,
 									image: genre.image,
 									title: genre.title
 								}}

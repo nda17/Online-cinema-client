@@ -1,4 +1,4 @@
-import { ADMIN_URL } from '@/configs/url.config'
+import { ADMIN_PAGES } from '@/configs/pages/admin.config'
 import { MovieService } from '@/services/movie/movie.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { getKeys } from '@/utils/object/getKeys'
@@ -25,7 +25,7 @@ export const useMovieEdit = (
 					setValue(key, data[key])
 				})
 			},
-			
+
 			onError(error) {
 				toastrError(error, 'Get movie')
 			},
@@ -40,7 +40,7 @@ export const useMovieEdit = (
 		{
 			onSuccess() {
 				toastr.success('Update movie', 'update was successful')
-				push(ADMIN_URL.rootUrl('/movies'))
+				push(`${ADMIN_PAGES.HOME}/movies`)
 			},
 
 			onError(error) {

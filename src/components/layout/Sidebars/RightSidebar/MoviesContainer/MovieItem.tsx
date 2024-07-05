@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from '@/configs/url.config'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import { IMovie } from '@/shared/types/movie.types'
 import MaterialIcon from '@/ui/icons/MaterialIcon'
 import { getGenresListEach } from '@/utils/movie/getGenresList'
@@ -17,7 +17,7 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 
 	return (
 		<div className={styles.movie}>
-			<Link href={PUBLIC_URL.moviesUrl(movie.slug)}>
+			<Link href={`/${PUBLIC_PAGES.MOVIES}/${movie.slug}`}>
 				<Image
 					className={styles.image}
 					src={movie.poster}
@@ -40,7 +40,10 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 				</span>
 				<div className={styles.genre}>
 					{movie.genres.map((genre, index) => (
-						<Link href={PUBLIC_URL.genresUrl(genre.slug)} key={genre._id}>
+						<Link
+							href={`/${PUBLIC_PAGES.GENRES}/${genre.slug}`}
+							key={genre._id}
+						>
 							{getGenresListEach(index, movie.genres.length, genre.name)}
 						</Link>
 					))}

@@ -1,4 +1,4 @@
-import { ADMIN_URL } from '@/configs/url.config'
+import { ADMIN_PAGES } from '@/configs/pages/admin.config'
 import { useDebounce } from '@/hooks/useDebounce'
 import { ActorService } from '@/services/actor/actor.service'
 import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
@@ -20,7 +20,7 @@ export const useActors = () => {
 				data.map(
 					(actor): ITableItem => ({
 						_id: actor._id,
-						editUrl: ADMIN_URL.rootUrl(`actor/edit/${actor._id}`),
+						editUrl: `${ADMIN_PAGES.HOME}/actor/edit/${actor._id}`,
 						items: [actor.name, String(actor.countMovies)]
 					})
 				),
@@ -47,7 +47,7 @@ export const useActors = () => {
 		{
 			onSuccess({ data: _id }) {
 				toastr.success('Create actor', 'create was successful')
-				push(ADMIN_URL.rootUrl(`actor/edit/${_id}`))
+				push(`${ADMIN_PAGES.HOME}/actor/edit/${_id}`)
 			},
 
 			onError(error) {
@@ -64,7 +64,7 @@ export const useActors = () => {
 				toastr.success('Delete actor', 'delete was successful')
 				queryData.refetch()
 			},
-			
+
 			onError(error) {
 				toastrError(error, 'Delete actor')
 			}

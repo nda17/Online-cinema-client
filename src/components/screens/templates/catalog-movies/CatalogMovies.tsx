@@ -1,9 +1,9 @@
 'use client'
-import { PUBLIC_URL } from '@/configs/url.config'
+import Pagination from '@/components/ui/pagination/Pagination'
+import { PUBLIC_PAGES } from '@/configs/pages/public.config'
 import Description from '@/ui/description/Description'
 import GalleryItem from '@/ui/gallery/GalleryItem'
 import Heading from '@/ui/heading/Heading'
-import Pagination from '@/ui/pagination/Pagination'
 import SubHeading from '@/ui/subheading/SubHeading'
 import { FC, useState } from 'react'
 import styles from './CatalogMovies.module.scss'
@@ -63,7 +63,7 @@ const CatalogMovies: FC<ICatalogMovies> = ({
 									_id: movie._id,
 									name: movie.title,
 									posterPath: movie.bigPoster,
-									url: PUBLIC_URL.moviesUrl(movie.slug),
+									url: `/${PUBLIC_PAGES.MOVIES}/${movie.slug}`,
 									content: {
 										title: movie.title
 									}
