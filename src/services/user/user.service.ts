@@ -7,12 +7,12 @@ import axiosInterceptorsRequest from 'api/interceptors'
 
 export const UserService = {
 	async getProfile() {
-		return axiosInterceptorsRequest.get<IUser>(`${getUsersUrl('profile')}`)
+		return axiosInterceptorsRequest.get<IUser>(`${getUsersUrl('/profile')}`)
 	},
 
 	async updateProfile(data: IProfileInput) {
 		return axiosInterceptorsRequest.put<string>(
-			`${getUsersUrl('profile')}`,
+			`${getUsersUrl('/profile')}`,
 			data
 		)
 	},
