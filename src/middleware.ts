@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { API_URL } from './configs/api.config'
 import { EnumTokens } from './configs/enum.tokens'
-import { ADMIN_PAGES } from './configs/pages/admin.config'
-import { USER_PAGES } from './configs/pages/profile.config'
-import { PUBLIC_PAGES } from './configs/pages/public.config'
 
 export async function middleware(request: NextRequest) {
 	const refreshToken = request.cookies.get(EnumTokens.REFRESH_TOKEN)?.value
@@ -11,27 +8,21 @@ export async function middleware(request: NextRequest) {
 
 	if (!refreshToken) {
 		request.cookies.delete(EnumTokens.ACCESS_TOKEN)
-		return NextResponse.redirect(new URL(PUBLIC_PAGES.AUTH, request.url))
+		return NextResponse.redirect(new URL('/auth', request.url))
 	}
 
 	if (
-		(request.nextUrl.pathname.includes(USER_PAGES.PROFILE) &&
-			!refreshToken) ||
-		(request.nextUrl.pathname.includes(USER_PAGES.PROFILE) && !accessToken)
+		(request.nextUrl.pathname.includes('/profile') && !refreshToken) ||
+		(request.nextUrl.pathname.includes('/profile') && !accessToken)
 	) {
-		return NextResponse.redirect(
-			new URL(`${PUBLIC_PAGES.AUTH}`, request.url)
-		)
+		return NextResponse.redirect(new URL('/auth', request.url))
 	}
 
-	if (request.nextUrl.pathname.includes(ADMIN_PAGES.HOME)) {
-		return await fetch(
-			`${API_URL}/${USER_PAGES.USERS}/${USER_PAGES.PROFILE}`,
-			{
-				method: 'GET',
-				headers: { Authorization: `Bearer ${accessToken}` }
-			}
-		)
+	if (request.nextUrl.pathname.includes('/admin')) {
+		return await fetch(`${API_URL}/profile/users`, {
+			method: 'GET',
+			headers: { Authorization: `Bearer ${accessToken}` }
+		})
 			.then((response) => response.json())
 			.then((data) => (!data.isAdmin ? NextResponse.error() : null))
 	}

@@ -1,4 +1,4 @@
-import { PUBLIC_PAGES } from '@/configs/pages/public.config'
+import { getActorsUrl, getGenresUrl } from '@/configs/api.config'
 import MaterialIcon from '@/ui/icons/MaterialIcon'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
@@ -27,7 +27,7 @@ const Content: FC<IContent> = ({ movie }) => {
 			<ContentList
 				name="Genres"
 				links={movie.genres.map((genre) => ({
-					link: `/${PUBLIC_PAGES.GENRES}/${genre.slug}`,
+					link: getGenresUrl(`/${genre.slug}`),
 					title: genre.name,
 					_id: genre._id
 				}))}
@@ -35,7 +35,7 @@ const Content: FC<IContent> = ({ movie }) => {
 			<ContentList
 				name="Actors"
 				links={movie.actors.map((actor) => ({
-					link: `/${PUBLIC_PAGES.ACTORS}/${actor.slug}`,
+					link: getActorsUrl(`/${actor.slug}`),
 					title: actor.name,
 					_id: actor._id
 				}))}

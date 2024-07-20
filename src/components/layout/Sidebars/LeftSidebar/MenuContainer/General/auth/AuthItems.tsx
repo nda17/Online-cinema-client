@@ -1,4 +1,4 @@
-import { ADMIN_PAGES } from '@/configs/pages/admin.config'
+import { getAdminHomeUrl } from '@/configs/url.config'
 import { useAuth } from '@/hooks/useAuth'
 import { FC } from 'react'
 import MenuItem from '../MenuItem/MenuItem'
@@ -34,7 +34,7 @@ const AuthItems: FC = () => {
 				<MenuItem
 					item={{
 						icon: 'MdOutlineLock',
-						link: ADMIN_PAGES.HOME,
+						link: getAdminHomeUrl(),
 						title: 'Admin panel'
 					}}
 				/>

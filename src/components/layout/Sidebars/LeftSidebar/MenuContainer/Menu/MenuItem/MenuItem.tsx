@@ -9,6 +9,9 @@ import { IMenuItem } from './menu-item.interface'
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	const pathname = usePathname()
 
+	console.log(1, item);
+	
+
 	return (
 		<li
 			className={classNames({

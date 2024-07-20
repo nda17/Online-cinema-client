@@ -1,4 +1,4 @@
-import { ADMIN_PAGES } from '@/configs/pages/admin.config'
+import { getAdminUrl } from '@/configs/url.config'
 import { useDebounce } from '@/hooks/useDebounce'
 import { GenreService } from '@/services/genre/genre.service'
 import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
@@ -20,7 +20,7 @@ export const useGenres = () => {
 				data.map(
 					(genre): ITableItem => ({
 						_id: genre._id,
-						editUrl: `${ADMIN_PAGES.HOME}/genre/edit/${genre._id}`,
+						editUrl: getAdminUrl(`genre/edit/${genre._id}`),
 						items: [genre.name, genre.slug]
 					})
 				),
@@ -47,7 +47,7 @@ export const useGenres = () => {
 		{
 			onSuccess({ data: _id }) {
 				toastr.success('Create genre', 'create was successful')
-				push(`${ADMIN_PAGES.HOME}genre/edit/${_id}`)
+				push(getAdminUrl(`genre/edit/${_id}`))
 			},
 
 			onError(error) {

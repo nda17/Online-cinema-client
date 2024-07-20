@@ -1,10 +1,10 @@
-import { PUBLIC_PAGES } from '@/configs/pages/public.config'
+import { getRatingsUrl } from '@/configs/api.config'
 import axiosInterceptorsRequest from 'api/interceptors'
 
 export const RatingService = {
 	async setRating(movieId: string, value: number) {
 		return axiosInterceptorsRequest.post<string>(
-			`${PUBLIC_PAGES.RATINGS}/set-rating`,
+			getRatingsUrl('/set-rating'),
 			{
 				movieId,
 				value
@@ -14,7 +14,7 @@ export const RatingService = {
 
 	async getByUserMovie(movieId: string) {
 		return axiosInterceptorsRequest.get<number>(
-			`${PUBLIC_PAGES.RATINGS}/${movieId}`
+			getRatingsUrl(`/${movieId}`)
 		)
 	}
 }

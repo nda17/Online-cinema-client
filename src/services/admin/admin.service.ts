@@ -1,10 +1,8 @@
-import { USER_PAGES } from '@/configs/pages/profile.config'
+import { getUsersUrl } from '@/configs/api.config'
 import axiosInterceptorsRequest from 'api/interceptors'
 
 export const AdminService = {
 	async getCountUsers() {
-		return axiosInterceptorsRequest.get<number>(
-			`${USER_PAGES.USERS}/count`
-		)
+		return axiosInterceptorsRequest.get<number>(getUsersUrl('/count'))
 	}
 }

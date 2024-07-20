@@ -1,4 +1,4 @@
-import { ADMIN_PAGES } from '@/configs/pages/admin.config'
+import { getAdminUrl } from '@/configs/url.config'
 import { GenreService } from '@/services/genre/genre.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { getKeys } from '@/utils/object/getKeys'
@@ -40,7 +40,7 @@ export const useGenreEdit = (
 		{
 			onSuccess() {
 				toastr.success('Update genre', 'update was successful')
-				push(`${ADMIN_PAGES.HOME}/genres`)
+				push(getAdminUrl('genres'))
 			},
 
 			onError(error) {

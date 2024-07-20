@@ -1,4 +1,4 @@
-import { ADMIN_PAGES } from '@/configs/pages/admin.config'
+import { getAdminUrl } from '@/configs/url.config'
 import { useDebounce } from '@/hooks/useDebounce'
 import { MovieService } from '@/services/movie/movie.service'
 import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
@@ -21,7 +21,7 @@ export const useMovies = () => {
 				data.map(
 					(movie): ITableItem => ({
 						_id: movie._id,
-						editUrl: `${ADMIN_PAGES.HOME}/movie/edit/${movie._id}`,
+						editUrl: getAdminUrl(`movie/edit/${movie._id}`),
 						items: [
 							movie.title,
 							getGenresList(movie.genres),
@@ -53,7 +53,7 @@ export const useMovies = () => {
 		{
 			onSuccess({ data: _id }) {
 				toastr.success('Create movie', 'create was successful')
-				push(`${ADMIN_PAGES.HOME}/movie/edit/${_id}`)
+				push(getAdminUrl(`movie/edit/${_id}`))
 			},
 
 			onError(error) {

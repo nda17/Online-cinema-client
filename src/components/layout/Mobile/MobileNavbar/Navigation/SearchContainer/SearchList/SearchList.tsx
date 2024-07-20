@@ -1,4 +1,4 @@
-import { PUBLIC_PAGES } from '@/configs/pages/public.config'
+import { getMoviesUrl } from '@/configs/api.config'
 import { IMovie } from '@/shared/types/movie.types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,10 +10,7 @@ const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
 		<div className={styles.searchList}>
 			{movies.length ? (
 				movies.map((movie) => (
-					<Link
-						href={`/${PUBLIC_PAGES.MOVIES}/${movie.slug}`}
-						key={movie._id}
-					>
+					<Link href={getMoviesUrl(`/${movie.slug}`)} key={movie._id}>
 						<Image
 							src={movie.poster || ''}
 							width={50}

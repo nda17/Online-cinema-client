@@ -1,4 +1,4 @@
-import { PUBLIC_PAGES } from '@/configs/pages/public.config'
+import { getMoviesUrl } from '@/configs/api.config'
 import { IMovieEditInput } from '@/screens/admin/movie/movie-edit.interface'
 import { IMovie } from '@/shared/types/movie.types'
 import axiosInterceptorsRequest, {
@@ -7,7 +7,7 @@ import axiosInterceptorsRequest, {
 
 export const MovieService = {
 	async getMoviesList(searchTerm?: string) {
-		return axiosClassicRequest.get<IMovie[]>(`${PUBLIC_PAGES.MOVIES}`, {
+		return axiosClassicRequest.get<IMovie[]>(getMoviesUrl(``), {
 			params: searchTerm
 				? {
 						searchTerm
@@ -17,59 +17,51 @@ export const MovieService = {
 	},
 
 	async getMostPopularMovies() {
-		return axiosClassicRequest.get<IMovie[]>(
-			`${PUBLIC_PAGES.MOVIES}/most-popular`
-		)
+		return axiosClassicRequest.get<IMovie[]>(getMoviesUrl('/most-popular'))
 	},
 
 	async getByGenres(genreIds: string[]) {
-		return axiosClassicRequest.post<IMovie[]>(
-			`${PUBLIC_PAGES.MOVIES}/by-genres`,
-			{ genreIds }
-		)
+		return axiosClassicRequest.post<IMovie[]>(getMoviesUrl('/by-genres'), {
+			genreIds
+		})
 	},
 
 	async getBySlug(slug: string) {
 		return axiosClassicRequest.get<IMovie>(
-			`${PUBLIC_PAGES.MOVIES}/by-slug/${slug}`
+			getMoviesUrl(`/by-slug/${slug}`)
 		)
 	},
 
 	async getByActor(actorId: string) {
 		return axiosClassicRequest.get<IMovie[]>(
-			`${PUBLIC_PAGES.MOVIES}/by-actor/${actorId}`
+			getMoviesUrl(`/by-actor/${actorId}`)
 		)
 	},
 
 	async getMovieById(_id: string) {
 		return axiosInterceptorsRequest.get<IMovieEditInput>(
-			`${PUBLIC_PAGES.MOVIES}/${_id}`
+			getMoviesUrl(`/${_id}`)
 		)
 	},
 
 	async createMovie() {
-		return axiosInterceptorsRequest.post<string>(`${PUBLIC_PAGES.MOVIES}/`)
+		return axiosInterceptorsRequest.post<string>(getMoviesUrl('/'))
 	},
 
 	async updateCountOpened(slug: string) {
-		return axiosClassicRequest.put(
-			`${PUBLIC_PAGES.MOVIES}/update-count-opened`,
-			{
-				slug
-			}
-		)
+		return axiosClassicRequest.put(getMoviesUrl('/update-count-opened'), {
+			slug
+		})
 	},
 
 	async updateMovie(_id: string, data: IMovieEditInput) {
 		return axiosInterceptorsRequest.put<string>(
-			`${PUBLIC_PAGES.MOVIES}/${_id}`,
+			getMoviesUrl(`/${_id}`),
 			data
 		)
 	},
 
 	async deleteMovie(_id: string) {
-		return axiosInterceptorsRequest.delete<string>(
-			`${PUBLIC_PAGES.MOVIES}/${_id}`
-		)
+		return axiosInterceptorsRequest.delete<string>(getMoviesUrl(`/${_id}`))
 	}
 }

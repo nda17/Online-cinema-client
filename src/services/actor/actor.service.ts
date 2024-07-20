@@ -1,4 +1,4 @@
-import { PUBLIC_PAGES } from '@/configs/pages/public.config'
+import { getActorsUrl } from '@/configs/api.config'
 import { IActorEditInput } from '@/screens/admin/actor/actor-edit.interface'
 import { IActor } from '@/shared/types/movie.types'
 import axiosInterceptorsRequest, {
@@ -7,7 +7,7 @@ import axiosInterceptorsRequest, {
 
 export const ActorService = {
 	async getActorsList(searchTerm?: string) {
-		return axiosClassicRequest.get<IActor[]>(PUBLIC_PAGES.ACTORS, {
+		return axiosClassicRequest.get<IActor[]>(getActorsUrl(``), {
 			params: searchTerm
 				? {
 						searchTerm
@@ -18,30 +18,28 @@ export const ActorService = {
 
 	async getActorBySlug(slug: string) {
 		return axiosClassicRequest.get<IActor>(
-			`${PUBLIC_PAGES.ACTORS}/by-slug/${slug}`
+			getActorsUrl(`/by-slug/${slug}`)
 		)
 	},
 
 	async getActorById(_id: string) {
 		return axiosInterceptorsRequest.get<IActorEditInput>(
-			`${PUBLIC_PAGES.ACTORS}/${_id}`
+			getActorsUrl(`/${_id}`)
 		)
 	},
 
 	async createActor() {
-		return axiosInterceptorsRequest.post<string>(`${PUBLIC_PAGES.ACTORS}/`)
+		return axiosInterceptorsRequest.post<string>(getActorsUrl(`/`))
 	},
 
 	async updateActor(_id: string, data: IActorEditInput) {
 		return axiosInterceptorsRequest.put<string>(
-			`${PUBLIC_PAGES.ACTORS}/${_id}`,
+			getActorsUrl(`/${_id}`),
 			data
 		)
 	},
 
 	async deleteActor(_id: string) {
-		return axiosInterceptorsRequest.delete<string>(
-			`${PUBLIC_PAGES.ACTORS}/${_id}`
-		)
+		return axiosInterceptorsRequest.delete<string>(getActorsUrl(`/${_id}`))
 	}
 }

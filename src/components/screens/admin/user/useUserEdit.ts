@@ -1,4 +1,4 @@
-import { ADMIN_PAGES } from '@/configs/pages/admin.config'
+import { getAdminUrl } from '@/configs/url.config'
 import { UserService } from '@/services/user/user.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import { useRouter } from 'next/navigation'
@@ -38,7 +38,7 @@ export const useUserEdit = (
 		{
 			onSuccess() {
 				toastr.success('Update user', 'update was successful')
-				push(`${ADMIN_PAGES.HOME}/users`)
+				push(getAdminUrl('users'))
 			},
 
 			onError(error) {
