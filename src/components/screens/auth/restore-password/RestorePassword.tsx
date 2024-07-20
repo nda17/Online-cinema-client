@@ -22,7 +22,7 @@ const RestorePassword: FC = () => {
 
 	const redirect = () => {
 		setTimeout(() => {
-			replace('/auth')
+			replace('/')
 		}, 5000)
 	}
 
