@@ -1,4 +1,4 @@
-import { getMoviesUrl } from '@/configs/api.config'
+import { getGenresUrl } from '@/configs/api.config'
 import { GenreService } from '@/services/genre/genre.service'
 import { useQuery } from 'react-query'
 import { IMenuItem } from './MenuItem/menu-item.interface'
@@ -14,7 +14,7 @@ export const usePopularGenres = () => {
 					.map(
 						(genre): IMenuItem => ({
 							icon: genre.icon,
-							link: getMoviesUrl(`/${genre.slug}`),
+							link: getGenresUrl(`/${genre.slug}`),
 							title: genre.name
 						})
 					)
