@@ -52,7 +52,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, license, slug }) => {
 		<>
 			{!dataReceived ? <LoadingPlaceholder /> : null}
 
-			{dataReceived && !user && <AuthPlaceholder slug={slug} />}
+			{dataReceived && !user && <AuthPlaceholder />}
 
 			{dataReceived && user && !statusConfirmationEmail && (
 				<ConfirmEmailPlaceholder />
