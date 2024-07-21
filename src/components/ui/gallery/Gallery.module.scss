@@ -81,10 +81,10 @@
 	}
 
 	.rating {
-		@apply absolute top-[.5rem] left-[.5rem] flex items-center;
+		@apply absolute top-[.5rem] left-[.5rem] flex items-center bg-black w-[3.8rem] h-[2.2rem] rounded-[1.2rem] p-1 opacity-[.8];
 
 		> svg {
-			@apply fill-yellow-700 mr-2 text-lg w-[1.4rem] h-[1.4rem];
+			@apply fill-yellow-700 text-lg w-[1.4rem] h-[1.4rem];
 		}
 
 		> span {
