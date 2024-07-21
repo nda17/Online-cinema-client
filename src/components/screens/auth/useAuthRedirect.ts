@@ -17,7 +17,14 @@ export const useAuthRedirect = () => {
 
 	useEffect(() => {
 		if (user && accessToken && refreshToken) {
-			replace(redirect)
+			if (
+				user &&
+				sessionStorage.getItem('pathname')?.includes('restore-password')
+			) {
+				replace('/')
+			} else {
+				replace(redirect)
+			}
 		}
 	}, [user, accessToken, refreshToken, redirect, replace])
 }
