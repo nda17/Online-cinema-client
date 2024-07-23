@@ -37,11 +37,7 @@ const SingleMovie: FC<ISingleMoviePage> = ({ movie, similarMovies }) => {
 				Detail={() => <Content movie={movie} />}
 			/>
 
-			<DynamicPlayer
-				videoSource={movie.videoUrl}
-				license={movie.license}
-				slug={movie.slug}
-			/>
+			<DynamicPlayer videoSource={movie.videoUrl} />
 
 			{similarMovies.length ? (
 				<>
