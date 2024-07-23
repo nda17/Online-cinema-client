@@ -56,6 +56,7 @@ const staticContent = async () => {
 			await MovieService.getMostPopularMovies()
 
 		const popularMovies = popularMoviesList.map((movie: IMovie) => ({
+			_id: movie._id,
 			name: movie.title,
 			posterPath: movie.poster,
 			url: getMoviesUrl(`/${movie.slug}`),
@@ -85,6 +86,7 @@ const staticContent = async () => {
 		const americanMovies = allAmericanMoviesList
 			.filter((item) => item.parameters.country === 'USA')
 			.map((movie: IMovie) => ({
+				_id: movie._id,
 				name: movie.title,
 				posterPath: movie.poster,
 				url: getMoviesUrl(`/${movie.slug}`),
@@ -97,6 +99,7 @@ const staticContent = async () => {
 		])
 
 		const childrenMovies = allChildrenMovies.map((movie: IMovie) => ({
+			_id: movie._id,
 			name: movie.title,
 			posterPath: movie.poster,
 			url: getMoviesUrl(`/${movie.slug}`),
