@@ -7,7 +7,7 @@ import ContentList from './ContentList/ContentList'
 import { IContent } from './content.interface'
 
 const DynamicFavoriteButton = dynamic(
-	() => import('../FavoriteButton/FavoriteButton'),
+	() => import('@/ui/FavoriteButton/FavoriteButton'),
 	{ ssr: false }
 )
 
@@ -18,6 +18,9 @@ const Content: FC<IContent> = ({ movie }) => {
 			<div className={styles.rating}>
 				<MaterialIcon name="MdStarRate" />
 				<span>{movie.rating.toFixed(1)}</span>
+				<span className={styles.favoriteButton}>
+					<DynamicFavoriteButton movieId={movie._id} />
+				</span>
 			</div>
 			<div className={styles.details}>
 				<span>{movie.parameters.year} · </span>
@@ -40,7 +43,6 @@ const Content: FC<IContent> = ({ movie }) => {
 					_id: actor._id
 				}))}
 			/>
-			<DynamicFavoriteButton movieId={movie._id} />
 		</div>
 	)
 }
