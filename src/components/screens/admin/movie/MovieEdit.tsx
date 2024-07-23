@@ -101,28 +101,6 @@ const MovieEdit: FC<IParamsUrl> = ({ params }) => {
 
 							<Controller
 								control={control}
-								name="license"
-								render={({ field, fieldState: { error } }) => (
-									<DynamicSelect
-										field={field}
-										options={
-											[
-												{ label: 'subscription', value: 'subscription' },
-												{ label: 'free', value: 'free' }
-											] || []
-										}
-										isLoading={isLoading}
-										placeholder="License"
-										error={error}
-									/>
-								)}
-								rules={{
-									required: 'Please select an option to access content!'
-								}}
-							/>
-
-							<Controller
-								control={control}
 								name="genres"
 								render={({ field, fieldState: { error } }) => (
 									<DynamicSelect

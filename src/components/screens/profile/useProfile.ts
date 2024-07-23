@@ -8,7 +8,7 @@ import { IProfileInput } from './profile.interface'
 
 const useProfile = (setValue: UseFormSetValue<IUserEditInput>) => {
 	const { data } = useQuery(
-		'get subscription and confirmation profile',
+		'get confirmation profile',
 		() => UserService.getProfile(),
 		{
 			select: (data) => data.data

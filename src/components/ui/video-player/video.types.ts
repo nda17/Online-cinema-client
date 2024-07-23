@@ -1,7 +1,5 @@
 export interface IVideoPlayer {
 	videoSource: string | undefined
-	license: string
-	slug: string
 }
 
 export interface IVideoElement extends HTMLVideoElement {

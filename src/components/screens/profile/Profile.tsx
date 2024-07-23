@@ -73,41 +73,6 @@ const Profile: FC = () => {
 					</>
 				)}
 
-				<SubHeading title="Subscription status" />
-				<div className={profile.fieldStatus}>
-					<>
-						{isLoading ? (
-							<SkeletonLoader count={1} className="h-8 mb-4" />
-						) : !data?.isActivated ? (
-							<span
-								className={classNames({
-									['text-[#28b54d]']: data?.isActivated,
-									['text-red-600']: !data?.isActivated
-								})}
-							>
-								To view your subscription status, email confirmation is
-								required.
-							</span>
-						) : (
-							<span
-								className={classNames({
-									['text-[#28b54d]']: data?.isSubscription,
-									['text-red-600']: !data?.isSubscription
-								})}
-							>
-								{`${
-									data?.isSubscription
-										? 'Subscription is active'
-										: 'Subscription'
-								}
-								${data?.isSubscription ? 'until' : 'is not active.'}
-								${data?.isSubscription ? 'N/D.' : 'Renew your subscription.'}
-								`}
-							</span>
-						)}
-					</>
-				</div>
-
 				<SubHeading title="Editing profile" />
 				{data?.isActivated ? (
 					<form

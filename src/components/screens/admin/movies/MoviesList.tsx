@@ -1,8 +1,8 @@
 'use client'
 import adminWrapper from '@/components/shared/admin/adminWrapper.module.scss'
-import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
+import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 import Heading from '@/ui/heading/Heading'
 import { Metadata } from 'next'
 import { FC } from 'react'
@@ -36,7 +36,7 @@ const MoviesList: FC = () => {
 				/>
 				<AdminTable
 					tableItems={data || []}
-					headerItems={['Title:', 'Genre:', 'Rating:', 'License:']}
+					headerItems={['Title:', 'Genre:', 'Rating:']}
 					isLoading={isLoading}
 					removeHandler={deleteAsync}
 				/>

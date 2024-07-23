@@ -25,8 +25,7 @@ export const useUsers = () => {
 							user.email,
 							String(user.isActivated ? 'confirmed' : 'not confirmed'),
 							convertMongoDate(user.createdAt),
-							String(user.isAdmin ? 'admin' : 'user'),
-							String(user.isSubscription ? 'active' : 'inactive')
+							String(user.isAdmin ? 'admin' : 'user')
 						]
 					})
 				),

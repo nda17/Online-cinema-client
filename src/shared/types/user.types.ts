@@ -6,5 +6,4 @@ export interface IUser {
 	isActivated: boolean
 	activationKey: string
 	isAdmin: boolean
-	isSubscription: boolean
 }

@@ -22,7 +22,6 @@ export const useUserEdit = (
 			onSuccess({ data }) {
 				setValue('email', data.email)
 				setValue('isAdmin', data.isAdmin)
-				setValue('isSubscription', data.isSubscription)
 			},
 
 			onError(error) {

@@ -38,8 +38,7 @@ const UsersList: FC = () => {
 						'Email:',
 						'Confirmation:',
 						'Date register:',
-						'Role:',
-						'Paid subscription:'
+						'Role:'
 					]}
 					isLoading={isLoading}
 					removeHandler={deleteAsync}

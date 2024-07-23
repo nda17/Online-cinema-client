@@ -31,7 +31,6 @@ export interface IGenreCollection {
 
 export interface IMovie {
 	_id: string
-	license: string
 	poster: string
 	bigPoster: string
 	title: string
