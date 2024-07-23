@@ -44,6 +44,7 @@ const staticContent = async (params: { slug: string }) => {
 		const similarMovies = responseSimilarMovies.data
 			.filter((item) => item._id !== movie._id)
 			.map((item) => ({
+				_id: item._id,
 				name: item.title,
 				rating: item.rating.toFixed(1),
 				posterPath: item.poster,
