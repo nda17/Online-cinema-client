@@ -23,14 +23,6 @@
 	&::-webkit-scrollbar-thumb:hover {
 		@apply md:bg-gray-600 md:cursor-pointer;
 	}
-
-	> a {
-		@apply mr-4;
-	}
-
-	> a:last-child {
-		@apply mr-0;
-	}
 }
 
 .item {
@@ -64,12 +56,16 @@
 		}
 	}
 
+	> a {
+		@apply w-full h-full;
+	}
+
 	img {
 		@apply image-like-bg;
 	}
 
 	.content {
-		@apply w-full h-full z-2 p-3;
+		@apply w-full h-full z-2 p-3 absolute;
 
 		.title {
 			@apply md:text-[.8rem] lg:text-[.9rem] xl:text-[1rem] font-semibold mb-1 text-white text-shadow;
@@ -80,15 +76,23 @@
 		}
 	}
 
-	.rating {
-		@apply absolute top-[.5rem] left-[.5rem] flex items-center bg-black w-[3.8rem] h-[2.2rem] rounded-[1.2rem] p-1 opacity-[.8];
+	.panel {
+		@apply transition-all absolute top-[.5rem] left-[.5rem] flex items-center bg-black w-[5.1rem] h-[2.2rem] rounded-[1.2rem] p-1 opacity-[.65];
 
 		> svg {
 			@apply fill-yellow-700 text-lg w-[1.4rem] h-[1.4rem];
 		}
 
 		> span {
-			@apply text-white font-medium pt-0.5 sm:text-[1.2rem];
+			@apply text-white font-medium pt-0.5 sm:text-[1.2rem] absolute top-[.25rem] left-[1.6rem];
+		}
+
+		.favoriteButton {
+			@apply w-[3.4rem] h-full absolute right-[-.75rem];
+		}
+
+		&:hover {
+			@apply opacity-1;
 		}
 	}
 }
