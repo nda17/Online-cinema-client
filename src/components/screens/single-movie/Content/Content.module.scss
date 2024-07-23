@@ -15,6 +15,10 @@
 		> span {
 			@apply text-white ml-2;
 		}
+
+		.favoriteButton {
+			@apply w-14 h-14 ml-[-.6rem];
+		}
 	}
 
 	.details {
