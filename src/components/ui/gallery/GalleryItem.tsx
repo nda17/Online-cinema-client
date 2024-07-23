@@ -1,7 +1,8 @@
 'use client'
-import FavoriteButton from '@/screens/single-movie/FavoriteButton/FavoriteButton'
+import FavoriteButton from '@/components/ui/FavoriteButton/FavoriteButton'
 import { setVisibleFavorites } from '@/store/favorites-menu/favorites-menu.slice'
 import classNames from 'classnames'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
@@ -9,6 +10,11 @@ import { useDispatch } from 'react-redux'
 import MaterialIcon from '../icons/MaterialIcon'
 import styles from './Gallery.module.scss'
 import { IGalleryItemProps } from './gallery-item.interface'
+
+const DynamicFavoriteButton = dynamic(
+	() => import('@/ui/FavoriteButton/FavoriteButton'),
+	{ ssr: false }
+)
 
 const GalleryItem: FC<IGalleryItemProps> = ({
 	item,
@@ -57,26 +63,30 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 			)}
 		</div>
 	) : (
-		<Link
-			href={item.url}
+		<div
 			className={classNames(styles.item, {
 				[styles.withText]: item.content,
 				[styles.vertical]: variant === 'vertical'
 			})}
 		>
 			<>
-				<Image
-					fill
-					sizes="auto"
-					alt={item.name}
-					src={item.posterPath}
-					draggable={false}
-					priority
-				/>
+				<Link href={item.url}>
+					<Image
+						fill
+						sizes="auto"
+						alt={item.name}
+						src={item.posterPath}
+						draggable={false}
+						priority
+					/>
+				</Link>
 				{!item.actor && (
-					<div className={styles.rating}>
+					<div className={styles.panel}>
 						<MaterialIcon name="MdStarRate" />
 						<span>{item.rating}</span>
+						<div className={styles.favoriteButton}>
+							<DynamicFavoriteButton movieId={item._id} />
+						</div>
 					</div>
 				)}
 			</>
@@ -88,7 +98,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 					)}
 				</div>
 			)}
-		</Link>
+		</div>
 	)
 }
 
