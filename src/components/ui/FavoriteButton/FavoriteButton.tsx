@@ -1,14 +1,14 @@
 'use client'
+import HeartImage from '@/assets/images/heart-animation.png'
 import { useAuth } from '@/hooks/useAuth'
 import { UserService } from '@/services/user/user.service'
 import { toastrError } from '@/utils/api/toastr-error-redux'
 import classNames from 'classnames'
 import { FC, useEffect, useState } from 'react'
 import { useMutation } from 'react-query'
-import { useFavorites } from '../../favorites/useFavorites'
+import { useFavorites } from '../../screens/favorites/useFavorites'
 import styles from './FavoriteButton.module.scss'
 import { IFavoriteButton } from './favorite-button.interface'
-import HeartImage from '@/assets/images/heart-animation.png'
 
 const FavoriteButton: FC<IFavoriteButton> = ({ movieId }) => {
 	const { user } = useAuth()
