@@ -1,5 +1,5 @@
 'use client'
-import FavoriteButton from '@/components/ui/FavoriteButton/FavoriteButton'
+import { useAuth } from '@/hooks/useAuth'
 import { setVisibleFavorites } from '@/store/favorites-menu/favorites-menu.slice'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
@@ -16,12 +16,10 @@ const DynamicFavoriteButton = dynamic(
 	{ ssr: false }
 )
 
-const GalleryItem: FC<IGalleryItemProps> = ({
-	item,
-	variant,
-	device,
-	favorite
-}) => {
+const GalleryItem: FC<IGalleryItemProps> = ({ item, variant, device }) => {
+	const { user } = useAuth()
+	const isAuth = user ? true : false
+
 	const dispatch = useDispatch()
 
 	const closeFavoritesMenu = () => {
@@ -35,7 +33,18 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 				[styles.horizontal]: variant === 'horizontal'
 			})}
 		>
-			{favorite && <FavoriteButton movieId={item._id} />}
+			{!isAuth && (
+				<div className={styles.authButtonHorizontal}>
+					<Link href="/auth">
+						<MaterialIcon name="MdLogin" fill="red" />
+					</Link>
+				</div>
+			)}
+			{isAuth && (
+				<div className={styles.favoriteButtonHorizontal}>
+					<DynamicFavoriteButton movieId={item._id} />
+				</div>
+			)}
 			<Image
 				fill
 				sizes="auto"
@@ -84,9 +93,18 @@ const GalleryItem: FC<IGalleryItemProps> = ({
 					<div className={styles.panel}>
 						<MaterialIcon name="MdStarRate" />
 						<span>{item.rating}</span>
-						<div className={styles.favoriteButton}>
-							<DynamicFavoriteButton movieId={item._id} />
-						</div>
+						{!isAuth && (
+							<div className={styles.authButtonVertical}>
+								<Link href="/auth">
+									<MaterialIcon name="MdLogin" fill="red" />
+								</Link>
+							</div>
+						)}
+						{isAuth && (
+							<div className={styles.favoriteButtonVertical}>
+								<DynamicFavoriteButton movieId={item._id} />
+							</div>
+						)}
 					</div>
 				)}
 			</>
