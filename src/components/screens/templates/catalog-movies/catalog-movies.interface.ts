@@ -4,6 +4,5 @@ export interface ICatalogMovies {
 	title?: string
 	description?: string
 	movies: IMovie[]
-	favorite?: boolean
 	device?: string
 }
