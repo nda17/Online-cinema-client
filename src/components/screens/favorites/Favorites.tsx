@@ -28,11 +28,7 @@ const Favorites: FC<IFavorites> = ({ device }) => {
 						/>
 					</>
 				) : movies?.length ? (
-					<CatalogMovies
-						movies={movies || []}
-						favorite={true}
-						device={device}
-					/>
+					<CatalogMovies movies={movies || []} device={device} />
 				) : (
 					<FavoriteBanner isAuth={true} />
 				)

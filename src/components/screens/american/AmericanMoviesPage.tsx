@@ -15,7 +15,6 @@ const AmericanMoviesPage: FC<IAmericanMoviesPage> = ({
 				movies={americanMovies || []}
 				title={title}
 				description={description}
-				favorite={true}
 			/>
 		</div>
 	)

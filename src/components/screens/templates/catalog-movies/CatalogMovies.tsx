@@ -1,5 +1,6 @@
 'use client'
 import Pagination from '@/components/ui/pagination/Pagination'
+import { getMoviesUrl } from '@/configs/api.config'
 import Description from '@/ui/description/Description'
 import GalleryItem from '@/ui/gallery/GalleryItem'
 import Heading from '@/ui/heading/Heading'
@@ -7,13 +8,11 @@ import SubHeading from '@/ui/subheading/SubHeading'
 import { FC, useState } from 'react'
 import styles from './CatalogMovies.module.scss'
 import { ICatalogMovies } from './catalog-movies.interface'
-import { getMoviesUrl } from '@/configs/api.config'
 
 const CatalogMovies: FC<ICatalogMovies> = ({
 	title,
 	description,
 	movies,
-	favorite,
 	device
 }) => {
 	const [currentPage, setCurrentPage] = useState(1) //Текущая страница
@@ -68,7 +67,6 @@ const CatalogMovies: FC<ICatalogMovies> = ({
 										title: movie.title
 									}
 								}}
-								favorite={favorite}
 								device={device}
 							/>
 					  ))
