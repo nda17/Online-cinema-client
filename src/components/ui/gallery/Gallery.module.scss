@@ -56,6 +56,18 @@
 		}
 	}
 
+	.authButtonHorizontal {
+		@apply transition-transform w-8 h-8 absolute bottom-[.5rem] right-[.6rem] z-20;
+
+		&:hover {
+			transform: translateY(-5px);
+		}
+	}
+
+	.favoriteButtonHorizontal {
+		@apply w-16 h-16 absolute bottom-0 right-0 z-20;
+	}
+
 	> a {
 		@apply w-full h-full;
 	}
@@ -87,8 +99,16 @@
 			@apply text-white font-medium pt-0.5 sm:text-[1.2rem] absolute top-[.25rem] left-[1.6rem];
 		}
 
-		.favoriteButton {
-			@apply w-[3.4rem] h-full absolute right-[-.75rem];
+		.authButtonVertical {
+			@apply transition-transform absolute right-[.4rem] z-20;
+
+			&:hover {
+				transform: translateX(-4px);
+			}
+		}
+
+		.favoriteButtonVertical {
+			@apply w-[3.4rem] h-full absolute right-[-.75rem] z-20;
 		}
 
 		&:hover {
