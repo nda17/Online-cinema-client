@@ -16,7 +16,6 @@ const ChildrenMoviesPage: FC<IChildrenMoviesPage> = ({
 				movies={childrenMovies || []}
 				title={title}
 				description={description}
-				favorite={true}
 			/>
 		</div>
 	)
