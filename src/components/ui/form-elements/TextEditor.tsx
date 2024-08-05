@@ -72,7 +72,9 @@ const TextEditor: FC<ITextEditor> = ({
 						}}
 					/>
 				</div>
-				{error && <div className={styles.error}>{error.message}</div>}
+				{error && (
+					<div className={styles.error}>{error.message?.toString()}</div>
+				)}
 			</label>
 		</div>
 	)

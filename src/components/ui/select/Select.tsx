@@ -49,7 +49,9 @@ const Select: FC<ISelect> = ({
 					isLoading={isLoading}
 				/>
 			</label>
-			{error && <div className={styles.error}>{error.message}</div>}
+			{error && (
+				<div className={styles.error}>{error.message?.toString()}</div>
+			)}
 		</div>
 	)
 }
