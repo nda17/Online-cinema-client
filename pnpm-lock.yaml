@@ -51,8 +51,8 @@ importers:
         specifier: ^1.15.0
         version: 1.15.0(draft-js@0.11.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(immutable@4.3.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-hook-form:
-        specifier: ^7.25.3
-        version: 7.25.3(react@18.3.1)
+        specifier: ^7.52.2
+        version: 7.52.2(react@18.3.1)
       react-icons:
         specifier: ^5.0.1
         version: 5.2.1(react@18.3.1)
@@ -2272,11 +2272,11 @@ packages:
       react: 0.13.x || 0.14.x || ^15.0.0-0 || 15.x.x || ^16.0.0-0 || ^16.x.x || ^17.x.x || ^18.x.x
       react-dom: 0.13.x || 0.14.x || ^15.0.0-0 || 15.x.x || ^16.0.0-0 || ^16.x.x || ^17.x.x || ^18.x.x
 
-  react-hook-form@7.25.3:
-    resolution: {integrity: sha512-jL4SByMaC8U3Vhu9s7CwgJBP4M6I3Kpwxib9LrCwWSRPnXDrNQL4uihSTqLLoDICqSUhwwvian9uVYfv+ITtGg==}
-    engines: {node: '>=12.22.0'}
+  react-hook-form@7.52.2:
+    resolution: {integrity: sha512-pqfPEbERnxxiNMPd0bzmt1tuaPcVccywFDpyk2uV5xCIBphHV5T8SVnX9/o3kplPE1zzKt77+YIoq+EMwJp56A==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17
+      react: ^16.8.0 || ^17 || ^18 || ^19
 
   react-icons@5.2.1:
     resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
@@ -5273,7 +5273,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-hook-form@7.25.3(react@18.3.1):
+  react-hook-form@7.52.2(react@18.3.1):
     dependencies:
       react: 18.3.1
 
