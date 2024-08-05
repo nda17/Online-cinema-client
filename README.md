@@ -108,7 +108,7 @@ Implemented front-end user authorization based on Redux using two tokens: Access
 ## _Getting started online development server:_
 
 - pnpm next dev
-- npm rud next dev
+- npm run next dev
 - yarn next dev
 
 ---
